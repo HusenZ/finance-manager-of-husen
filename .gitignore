@@ -43,3 +43,29 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+
+# -----------------------------
+# Firebase (Flutter Project)
+# -----------------------------
+
+# Android Firebase config
+android/app/google-services.json
+
+# iOS/macOS Firebase config
+ios/Runner/GoogleService-Info.plist
+macos/Runner/GoogleService-Info.plist
+
+# FlutterFire CLI generated file (contains keys)
+lib/firebase_options.dart
+
+# Firebase App ID file
+**/firebase_app_id_file.json
+
+# Firebase emulator data
+.firebase/
+firestore-debug.log
+firebase-debug.log
+
+# (Optional) ignore any accidental google-service copies
+**/*google-services*.json
+**/*GoogleService*.plist
