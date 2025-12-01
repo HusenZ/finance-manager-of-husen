@@ -19,6 +19,9 @@ import '../../presentation/screens/categories/categories_screen.dart';
 import '../../presentation/screens/recurring/recurring_screen.dart';
 import '../../presentation/screens/income/incomes_screen.dart';
 import '../../presentation/screens/income/add_income_screen.dart';
+import '../../features/ai/presentation/screens/ai_chat_screen.dart';
+import '../../features/ai/presentation/bloc/ai_chat_bloc.dart';
+import '../../service_locator.dart';
 
 class AppRouter {
   static const String splash = '/';
@@ -37,6 +40,7 @@ class AppRouter {
   static const String recurring = '/recurring';
   static const String incomes = '/incomes';
   static const String addIncome = '/incomes/add';
+  static const String aiChat = '/ai-chat';
 
   static GoRouter router(BuildContext context) {
     return GoRouter(
@@ -128,6 +132,13 @@ class AppRouter {
         GoRoute(
           path: addIncome,
           builder: (context, state) => const AddIncomeScreen(),
+        ),
+        GoRoute(
+          path: aiChat,
+          builder: (context, state) => BlocProvider(
+            create: (context) => getIt<AIChatBloc>(),
+            child: const AIChatScreen(),
+          ),
         ),
       ],
     );

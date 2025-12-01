@@ -82,6 +82,9 @@ dependencies:
   # Data Export
   csv: ^6.0.0
 
+  # AI Integration
+  google_generative_ai: ^0.4.0
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

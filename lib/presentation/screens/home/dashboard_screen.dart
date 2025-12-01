@@ -259,6 +259,9 @@ class _DashboardScreenState extends State<DashboardScreen> {
           currency: currencyCode,
         ),
         const SizedBox(height: AppConstants.spacing16),
+        // AI Assistant Card
+        _buildAIAssistantCard(context),
+        const SizedBox(height: AppConstants.spacing16),
         Row(
           children: [
             Expanded(
@@ -283,6 +286,120 @@ class _DashboardScreenState extends State<DashboardScreen> {
         ),
         const SizedBox(height: 80), // Space for FAB
       ]),
+    );
+  }
+
+  Widget _buildAIAssistantCard(BuildContext context) {
+    final theme = Theme.of(context);
+    final isDark = theme.brightness == Brightness.dark;
+
+    return Card(
+      elevation: 2,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(16),
+      ),
+      child: InkWell(
+        onTap: () => context.push(AppRouter.aiChat),
+        borderRadius: BorderRadius.circular(16),
+        child: Container(
+          padding: const EdgeInsets.all(AppConstants.spacing16),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(16),
+            gradient: LinearGradient(
+              colors: [
+                theme.colorScheme.primary.withOpacity(0.1),
+                theme.colorScheme.secondary.withOpacity(0.1),
+              ],
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
+            ),
+          ),
+          child: Row(
+            children: [
+              // AI Icon
+              Container(
+                width: 56,
+                height: 56,
+                decoration: BoxDecoration(
+                  color: theme.colorScheme.primary.withOpacity(0.2),
+                  borderRadius: BorderRadius.circular(12),
+                ),
+                child: const Center(
+                  child: Text(
+                    '🤖',
+                    style: TextStyle(fontSize: 32),
+                  ),
+                ),
+              ),
+              const SizedBox(width: AppConstants.spacing16),
+              // Content
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Row(
+                      children: [
+                        Text(
+                          'AI Financial Assistant',
+                          style: theme.textTheme.titleMedium?.copyWith(
+                            fontWeight: FontWeight.bold,
+                            color: isDark
+                                ? AppColors.textPrimaryDark
+                                : AppColors.textPrimaryLight,
+                          ),
+                        ),
+                        const SizedBox(width: 4),
+                        Container(
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 6,
+                            vertical: 2,
+                          ),
+                          decoration: BoxDecoration(
+                            color: Colors.green.withOpacity(0.2),
+                            borderRadius: BorderRadius.circular(4),
+                            border: Border.all(
+                              color: Colors.green,
+                              width: 1,
+                            ),
+                          ),
+                          child: Text(
+                            'NEW',
+                            style: theme.textTheme.bodySmall?.copyWith(
+                              color: Colors.green,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 9,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: 4),
+                    Text(
+                      'Get personalized insights, spending tips, and smart purchase advice',
+                      style: theme.textTheme.bodySmall?.copyWith(
+                        color: isDark
+                            ? AppColors.textSecondaryDark
+                            : AppColors.textSecondaryLight,
+                      ),
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                  ],
+                ),
+              ),
+              const SizedBox(width: 8),
+              // Arrow
+              Icon(
+                Icons.arrow_forward_ios,
+                size: 16,
+                color: isDark
+                    ? AppColors.textSecondaryDark
+                    : AppColors.textSecondaryLight,
+              ),
+            ],
+          ),
+        ),
+      ),
     );
   }
 

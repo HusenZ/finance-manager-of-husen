@@ -24,6 +24,13 @@ import 'presentation/bloc/budget/budget_bloc.dart';
 import 'presentation/bloc/recurring/recurring_bloc.dart';
 import 'presentation/bloc/income/income_bloc.dart';
 
+// AI Feature
+import 'features/ai/data/datasources/gemini_datasource.dart';
+import 'features/ai/data/repositories/ai_repository_impl.dart';
+import 'features/ai/domain/repositories/ai_repository.dart';
+import 'features/ai/domain/usecases/get_financial_context.dart';
+import 'features/ai/presentation/bloc/ai_chat_bloc.dart';
+
 import 'core/utils/app_logger.dart';
 
 final getIt = GetIt.instance;
@@ -101,6 +108,24 @@ Future<void> setupServiceLocator() async {
     ),
   );
 
+  // Register AI Datasource
+  getIt.registerLazySingleton<GeminiDatasource>(() => GeminiDatasource());
+
+  // Register AI Repository
+  getIt.registerLazySingleton<AIRepository>(
+    () => AIRepositoryImpl(getIt<GeminiDatasource>()),
+  );
+
+  // Register GetFinancialContext UseCase
+  getIt.registerLazySingleton<GetFinancialContext>(
+    () => GetFinancialContext(
+      transactionRepository: getIt<TransactionRepository>(),
+      incomeRepository: getIt<IncomeRepository>(),
+      budgetRepository: getIt<BudgetRepository>(),
+      firebaseAuth: getIt<FirebaseAuth>(),
+    ),
+  );
+
   // Register BLoCs as factories (new instance each time)
   getIt.registerFactory<AuthBloc>(
     () => AuthBloc(
@@ -136,6 +161,13 @@ Future<void> setupServiceLocator() async {
   getIt.registerFactory<IncomeBloc>(
     () => IncomeBloc(
       getIt<IncomeRepository>(),
+    ),
+  );
+
+  getIt.registerFactory<AIChatBloc>(
+    () => AIChatBloc(
+      geminiDatasource: getIt<GeminiDatasource>(),
+      getFinancialContext: getIt<GetFinancialContext>(),
     ),
   );
 
