@@ -1,5 +1,5 @@
 {
-    "buildCommand": "git clone https://github.com/flutter/flutter.git -b stable --depth 1 && flutter/bin/flutter config --enable-web && flutter/bin/flutter pub get && flutter/bin/flutter build web --release",
-    "outputDirectory": "build/web",
-    "installCommand": ""
-  }
+  "buildCommand": "git clone https://github.com/flutter/flutter.git -b stable --depth 1 && flutter/bin/flutter config --enable-web && flutter/bin/flutter pub get && bash ./scripts/generate_secrets.sh && flutter/bin/flutter build web --release",
+  "outputDirectory": "build/web",
+  "installCommand": ""
+}
