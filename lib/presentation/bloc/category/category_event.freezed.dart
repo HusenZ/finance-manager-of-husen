@@ -12,7 +12,8 @@ part of 'category_event.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 /// @nodoc
 mixin _$CategoryEvent {
@@ -21,53 +22,73 @@ mixin _$CategoryEvent {
   TResult when<TResult extends Object?>({
     required TResult Function(String userId) loadCategories,
     required TResult Function(
-            String userId, String name, String icon, String color)
-        createCategory,
-    required TResult Function(String id, String userId, String name,
-            String icon, String color, bool isCustom, DateTime createdAt)
-        updateCategory,
+      String userId,
+      String name,
+      String icon,
+      String color,
+    )
+    createCategory,
+    required TResult Function(
+      String id,
+      String userId,
+      String name,
+      String icon,
+      String color,
+      bool isCustom,
+      DateTime createdAt,
+    )
+    updateCategory,
     required TResult Function(String userId, String categoryId) deleteCategory,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String userId)? loadCategories,
     TResult? Function(String userId, String name, String icon, String color)?
-        createCategory,
-    TResult? Function(String id, String userId, String name, String icon,
-            String color, bool isCustom, DateTime createdAt)?
-        updateCategory,
+    createCategory,
+    TResult? Function(
+      String id,
+      String userId,
+      String name,
+      String icon,
+      String color,
+      bool isCustom,
+      DateTime createdAt,
+    )?
+    updateCategory,
     TResult? Function(String userId, String categoryId)? deleteCategory,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String userId)? loadCategories,
     TResult Function(String userId, String name, String icon, String color)?
-        createCategory,
-    TResult Function(String id, String userId, String name, String icon,
-            String color, bool isCustom, DateTime createdAt)?
-        updateCategory,
+    createCategory,
+    TResult Function(
+      String id,
+      String userId,
+      String name,
+      String icon,
+      String color,
+      bool isCustom,
+      DateTime createdAt,
+    )?
+    updateCategory,
     TResult Function(String userId, String categoryId)? deleteCategory,
     required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(LoadCategories value) loadCategories,
     required TResult Function(CreateCategory value) createCategory,
     required TResult Function(UpdateCategory value) updateCategory,
     required TResult Function(DeleteCategory value) deleteCategory,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(LoadCategories value)? loadCategories,
     TResult? Function(CreateCategory value)? createCategory,
     TResult? Function(UpdateCategory value)? updateCategory,
     TResult? Function(DeleteCategory value)? deleteCategory,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(LoadCategories value)? loadCategories,
@@ -75,8 +96,7 @@ mixin _$CategoryEvent {
     TResult Function(UpdateCategory value)? updateCategory,
     TResult Function(DeleteCategory value)? deleteCategory,
     required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $CategoryEventCopyWith<CategoryEvent> get copyWith =>
@@ -86,8 +106,9 @@ mixin _$CategoryEvent {
 /// @nodoc
 abstract class $CategoryEventCopyWith<$Res> {
   factory $CategoryEventCopyWith(
-          CategoryEvent value, $Res Function(CategoryEvent) then) =
-      _$CategoryEventCopyWithImpl<$Res, CategoryEvent>;
+    CategoryEvent value,
+    $Res Function(CategoryEvent) then,
+  ) = _$CategoryEventCopyWithImpl<$Res, CategoryEvent>;
   @useResult
   $Res call({String userId});
 }
@@ -104,24 +125,26 @@ class _$CategoryEventCopyWithImpl<$Res, $Val extends CategoryEvent>
 
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? userId = null,
-  }) {
-    return _then(_value.copyWith(
-      userId: null == userId
-          ? _value.userId
-          : userId // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
+  $Res call({Object? userId = null}) {
+    return _then(
+      _value.copyWith(
+            userId: null == userId
+                ? _value.userId
+                : userId // ignore: cast_nullable_to_non_nullable
+                      as String,
+          )
+          as $Val,
+    );
   }
 }
 
 /// @nodoc
 abstract class _$$LoadCategoriesImplCopyWith<$Res>
     implements $CategoryEventCopyWith<$Res> {
-  factory _$$LoadCategoriesImplCopyWith(_$LoadCategoriesImpl value,
-          $Res Function(_$LoadCategoriesImpl) then) =
-      __$$LoadCategoriesImplCopyWithImpl<$Res>;
+  factory _$$LoadCategoriesImplCopyWith(
+    _$LoadCategoriesImpl value,
+    $Res Function(_$LoadCategoriesImpl) then,
+  ) = __$$LoadCategoriesImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String userId});
@@ -132,20 +155,21 @@ class __$$LoadCategoriesImplCopyWithImpl<$Res>
     extends _$CategoryEventCopyWithImpl<$Res, _$LoadCategoriesImpl>
     implements _$$LoadCategoriesImplCopyWith<$Res> {
   __$$LoadCategoriesImplCopyWithImpl(
-      _$LoadCategoriesImpl _value, $Res Function(_$LoadCategoriesImpl) _then)
-      : super(_value, _then);
+    _$LoadCategoriesImpl _value,
+    $Res Function(_$LoadCategoriesImpl) _then,
+  ) : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? userId = null,
-  }) {
-    return _then(_$LoadCategoriesImpl(
-      userId: null == userId
-          ? _value.userId
-          : userId // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
+  $Res call({Object? userId = null}) {
+    return _then(
+      _$LoadCategoriesImpl(
+        userId: null == userId
+            ? _value.userId
+            : userId // ignore: cast_nullable_to_non_nullable
+                  as String,
+      ),
+    );
   }
 }
 
@@ -178,18 +202,31 @@ class _$LoadCategoriesImpl implements LoadCategories {
   @pragma('vm:prefer-inline')
   _$$LoadCategoriesImplCopyWith<_$LoadCategoriesImpl> get copyWith =>
       __$$LoadCategoriesImplCopyWithImpl<_$LoadCategoriesImpl>(
-          this, _$identity);
+        this,
+        _$identity,
+      );
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String userId) loadCategories,
     required TResult Function(
-            String userId, String name, String icon, String color)
-        createCategory,
-    required TResult Function(String id, String userId, String name,
-            String icon, String color, bool isCustom, DateTime createdAt)
-        updateCategory,
+      String userId,
+      String name,
+      String icon,
+      String color,
+    )
+    createCategory,
+    required TResult Function(
+      String id,
+      String userId,
+      String name,
+      String icon,
+      String color,
+      bool isCustom,
+      DateTime createdAt,
+    )
+    updateCategory,
     required TResult Function(String userId, String categoryId) deleteCategory,
   }) {
     return loadCategories(userId);
@@ -200,10 +237,17 @@ class _$LoadCategoriesImpl implements LoadCategories {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String userId)? loadCategories,
     TResult? Function(String userId, String name, String icon, String color)?
-        createCategory,
-    TResult? Function(String id, String userId, String name, String icon,
-            String color, bool isCustom, DateTime createdAt)?
-        updateCategory,
+    createCategory,
+    TResult? Function(
+      String id,
+      String userId,
+      String name,
+      String icon,
+      String color,
+      bool isCustom,
+      DateTime createdAt,
+    )?
+    updateCategory,
     TResult? Function(String userId, String categoryId)? deleteCategory,
   }) {
     return loadCategories?.call(userId);
@@ -214,10 +258,17 @@ class _$LoadCategoriesImpl implements LoadCategories {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String userId)? loadCategories,
     TResult Function(String userId, String name, String icon, String color)?
-        createCategory,
-    TResult Function(String id, String userId, String name, String icon,
-            String color, bool isCustom, DateTime createdAt)?
-        updateCategory,
+    createCategory,
+    TResult Function(
+      String id,
+      String userId,
+      String name,
+      String icon,
+      String color,
+      bool isCustom,
+      DateTime createdAt,
+    )?
+    updateCategory,
     TResult Function(String userId, String categoryId)? deleteCategory,
     required TResult orElse(),
   }) {
@@ -280,9 +331,10 @@ abstract class LoadCategories implements CategoryEvent {
 /// @nodoc
 abstract class _$$CreateCategoryImplCopyWith<$Res>
     implements $CategoryEventCopyWith<$Res> {
-  factory _$$CreateCategoryImplCopyWith(_$CreateCategoryImpl value,
-          $Res Function(_$CreateCategoryImpl) then) =
-      __$$CreateCategoryImplCopyWithImpl<$Res>;
+  factory _$$CreateCategoryImplCopyWith(
+    _$CreateCategoryImpl value,
+    $Res Function(_$CreateCategoryImpl) then,
+  ) = __$$CreateCategoryImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String userId, String name, String icon, String color});
@@ -293,8 +345,9 @@ class __$$CreateCategoryImplCopyWithImpl<$Res>
     extends _$CategoryEventCopyWithImpl<$Res, _$CreateCategoryImpl>
     implements _$$CreateCategoryImplCopyWith<$Res> {
   __$$CreateCategoryImplCopyWithImpl(
-      _$CreateCategoryImpl _value, $Res Function(_$CreateCategoryImpl) _then)
-      : super(_value, _then);
+    _$CreateCategoryImpl _value,
+    $Res Function(_$CreateCategoryImpl) _then,
+  ) : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
@@ -304,35 +357,38 @@ class __$$CreateCategoryImplCopyWithImpl<$Res>
     Object? icon = null,
     Object? color = null,
   }) {
-    return _then(_$CreateCategoryImpl(
-      userId: null == userId
-          ? _value.userId
-          : userId // ignore: cast_nullable_to_non_nullable
-              as String,
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String,
-      icon: null == icon
-          ? _value.icon
-          : icon // ignore: cast_nullable_to_non_nullable
-              as String,
-      color: null == color
-          ? _value.color
-          : color // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
+    return _then(
+      _$CreateCategoryImpl(
+        userId: null == userId
+            ? _value.userId
+            : userId // ignore: cast_nullable_to_non_nullable
+                  as String,
+        name: null == name
+            ? _value.name
+            : name // ignore: cast_nullable_to_non_nullable
+                  as String,
+        icon: null == icon
+            ? _value.icon
+            : icon // ignore: cast_nullable_to_non_nullable
+                  as String,
+        color: null == color
+            ? _value.color
+            : color // ignore: cast_nullable_to_non_nullable
+                  as String,
+      ),
+    );
   }
 }
 
 /// @nodoc
 
 class _$CreateCategoryImpl implements CreateCategory {
-  const _$CreateCategoryImpl(
-      {required this.userId,
-      required this.name,
-      required this.icon,
-      required this.color});
+  const _$CreateCategoryImpl({
+    required this.userId,
+    required this.name,
+    required this.icon,
+    required this.color,
+  });
 
   @override
   final String userId;
@@ -367,18 +423,31 @@ class _$CreateCategoryImpl implements CreateCategory {
   @pragma('vm:prefer-inline')
   _$$CreateCategoryImplCopyWith<_$CreateCategoryImpl> get copyWith =>
       __$$CreateCategoryImplCopyWithImpl<_$CreateCategoryImpl>(
-          this, _$identity);
+        this,
+        _$identity,
+      );
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String userId) loadCategories,
     required TResult Function(
-            String userId, String name, String icon, String color)
-        createCategory,
-    required TResult Function(String id, String userId, String name,
-            String icon, String color, bool isCustom, DateTime createdAt)
-        updateCategory,
+      String userId,
+      String name,
+      String icon,
+      String color,
+    )
+    createCategory,
+    required TResult Function(
+      String id,
+      String userId,
+      String name,
+      String icon,
+      String color,
+      bool isCustom,
+      DateTime createdAt,
+    )
+    updateCategory,
     required TResult Function(String userId, String categoryId) deleteCategory,
   }) {
     return createCategory(userId, name, icon, color);
@@ -389,10 +458,17 @@ class _$CreateCategoryImpl implements CreateCategory {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String userId)? loadCategories,
     TResult? Function(String userId, String name, String icon, String color)?
-        createCategory,
-    TResult? Function(String id, String userId, String name, String icon,
-            String color, bool isCustom, DateTime createdAt)?
-        updateCategory,
+    createCategory,
+    TResult? Function(
+      String id,
+      String userId,
+      String name,
+      String icon,
+      String color,
+      bool isCustom,
+      DateTime createdAt,
+    )?
+    updateCategory,
     TResult? Function(String userId, String categoryId)? deleteCategory,
   }) {
     return createCategory?.call(userId, name, icon, color);
@@ -403,10 +479,17 @@ class _$CreateCategoryImpl implements CreateCategory {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String userId)? loadCategories,
     TResult Function(String userId, String name, String icon, String color)?
-        createCategory,
-    TResult Function(String id, String userId, String name, String icon,
-            String color, bool isCustom, DateTime createdAt)?
-        updateCategory,
+    createCategory,
+    TResult Function(
+      String id,
+      String userId,
+      String name,
+      String icon,
+      String color,
+      bool isCustom,
+      DateTime createdAt,
+    )?
+    updateCategory,
     TResult Function(String userId, String categoryId)? deleteCategory,
     required TResult orElse(),
   }) {
@@ -455,11 +538,12 @@ class _$CreateCategoryImpl implements CreateCategory {
 }
 
 abstract class CreateCategory implements CategoryEvent {
-  const factory CreateCategory(
-      {required final String userId,
-      required final String name,
-      required final String icon,
-      required final String color}) = _$CreateCategoryImpl;
+  const factory CreateCategory({
+    required final String userId,
+    required final String name,
+    required final String icon,
+    required final String color,
+  }) = _$CreateCategoryImpl;
 
   @override
   String get userId;
@@ -475,19 +559,21 @@ abstract class CreateCategory implements CategoryEvent {
 /// @nodoc
 abstract class _$$UpdateCategoryImplCopyWith<$Res>
     implements $CategoryEventCopyWith<$Res> {
-  factory _$$UpdateCategoryImplCopyWith(_$UpdateCategoryImpl value,
-          $Res Function(_$UpdateCategoryImpl) then) =
-      __$$UpdateCategoryImplCopyWithImpl<$Res>;
+  factory _$$UpdateCategoryImplCopyWith(
+    _$UpdateCategoryImpl value,
+    $Res Function(_$UpdateCategoryImpl) then,
+  ) = __$$UpdateCategoryImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {String id,
-      String userId,
-      String name,
-      String icon,
-      String color,
-      bool isCustom,
-      DateTime createdAt});
+  $Res call({
+    String id,
+    String userId,
+    String name,
+    String icon,
+    String color,
+    bool isCustom,
+    DateTime createdAt,
+  });
 }
 
 /// @nodoc
@@ -495,8 +581,9 @@ class __$$UpdateCategoryImplCopyWithImpl<$Res>
     extends _$CategoryEventCopyWithImpl<$Res, _$UpdateCategoryImpl>
     implements _$$UpdateCategoryImplCopyWith<$Res> {
   __$$UpdateCategoryImplCopyWithImpl(
-      _$UpdateCategoryImpl _value, $Res Function(_$UpdateCategoryImpl) _then)
-      : super(_value, _then);
+    _$UpdateCategoryImpl _value,
+    $Res Function(_$UpdateCategoryImpl) _then,
+  ) : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
@@ -509,50 +596,53 @@ class __$$UpdateCategoryImplCopyWithImpl<$Res>
     Object? isCustom = null,
     Object? createdAt = null,
   }) {
-    return _then(_$UpdateCategoryImpl(
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String,
-      userId: null == userId
-          ? _value.userId
-          : userId // ignore: cast_nullable_to_non_nullable
-              as String,
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String,
-      icon: null == icon
-          ? _value.icon
-          : icon // ignore: cast_nullable_to_non_nullable
-              as String,
-      color: null == color
-          ? _value.color
-          : color // ignore: cast_nullable_to_non_nullable
-              as String,
-      isCustom: null == isCustom
-          ? _value.isCustom
-          : isCustom // ignore: cast_nullable_to_non_nullable
-              as bool,
-      createdAt: null == createdAt
-          ? _value.createdAt
-          : createdAt // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-    ));
+    return _then(
+      _$UpdateCategoryImpl(
+        id: null == id
+            ? _value.id
+            : id // ignore: cast_nullable_to_non_nullable
+                  as String,
+        userId: null == userId
+            ? _value.userId
+            : userId // ignore: cast_nullable_to_non_nullable
+                  as String,
+        name: null == name
+            ? _value.name
+            : name // ignore: cast_nullable_to_non_nullable
+                  as String,
+        icon: null == icon
+            ? _value.icon
+            : icon // ignore: cast_nullable_to_non_nullable
+                  as String,
+        color: null == color
+            ? _value.color
+            : color // ignore: cast_nullable_to_non_nullable
+                  as String,
+        isCustom: null == isCustom
+            ? _value.isCustom
+            : isCustom // ignore: cast_nullable_to_non_nullable
+                  as bool,
+        createdAt: null == createdAt
+            ? _value.createdAt
+            : createdAt // ignore: cast_nullable_to_non_nullable
+                  as DateTime,
+      ),
+    );
   }
 }
 
 /// @nodoc
 
 class _$UpdateCategoryImpl implements UpdateCategory {
-  const _$UpdateCategoryImpl(
-      {required this.id,
-      required this.userId,
-      required this.name,
-      required this.icon,
-      required this.color,
-      required this.isCustom,
-      required this.createdAt});
+  const _$UpdateCategoryImpl({
+    required this.id,
+    required this.userId,
+    required this.name,
+    required this.icon,
+    required this.color,
+    required this.isCustom,
+    required this.createdAt,
+  });
 
   @override
   final String id;
@@ -592,25 +682,46 @@ class _$UpdateCategoryImpl implements UpdateCategory {
 
   @override
   int get hashCode => Object.hash(
-      runtimeType, id, userId, name, icon, color, isCustom, createdAt);
+    runtimeType,
+    id,
+    userId,
+    name,
+    icon,
+    color,
+    isCustom,
+    createdAt,
+  );
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$UpdateCategoryImplCopyWith<_$UpdateCategoryImpl> get copyWith =>
       __$$UpdateCategoryImplCopyWithImpl<_$UpdateCategoryImpl>(
-          this, _$identity);
+        this,
+        _$identity,
+      );
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String userId) loadCategories,
     required TResult Function(
-            String userId, String name, String icon, String color)
-        createCategory,
-    required TResult Function(String id, String userId, String name,
-            String icon, String color, bool isCustom, DateTime createdAt)
-        updateCategory,
+      String userId,
+      String name,
+      String icon,
+      String color,
+    )
+    createCategory,
+    required TResult Function(
+      String id,
+      String userId,
+      String name,
+      String icon,
+      String color,
+      bool isCustom,
+      DateTime createdAt,
+    )
+    updateCategory,
     required TResult Function(String userId, String categoryId) deleteCategory,
   }) {
     return updateCategory(id, userId, name, icon, color, isCustom, createdAt);
@@ -621,14 +732,28 @@ class _$UpdateCategoryImpl implements UpdateCategory {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String userId)? loadCategories,
     TResult? Function(String userId, String name, String icon, String color)?
-        createCategory,
-    TResult? Function(String id, String userId, String name, String icon,
-            String color, bool isCustom, DateTime createdAt)?
-        updateCategory,
+    createCategory,
+    TResult? Function(
+      String id,
+      String userId,
+      String name,
+      String icon,
+      String color,
+      bool isCustom,
+      DateTime createdAt,
+    )?
+    updateCategory,
     TResult? Function(String userId, String categoryId)? deleteCategory,
   }) {
     return updateCategory?.call(
-        id, userId, name, icon, color, isCustom, createdAt);
+      id,
+      userId,
+      name,
+      icon,
+      color,
+      isCustom,
+      createdAt,
+    );
   }
 
   @override
@@ -636,10 +761,17 @@ class _$UpdateCategoryImpl implements UpdateCategory {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String userId)? loadCategories,
     TResult Function(String userId, String name, String icon, String color)?
-        createCategory,
-    TResult Function(String id, String userId, String name, String icon,
-            String color, bool isCustom, DateTime createdAt)?
-        updateCategory,
+    createCategory,
+    TResult Function(
+      String id,
+      String userId,
+      String name,
+      String icon,
+      String color,
+      bool isCustom,
+      DateTime createdAt,
+    )?
+    updateCategory,
     TResult Function(String userId, String categoryId)? deleteCategory,
     required TResult orElse(),
   }) {
@@ -688,14 +820,15 @@ class _$UpdateCategoryImpl implements UpdateCategory {
 }
 
 abstract class UpdateCategory implements CategoryEvent {
-  const factory UpdateCategory(
-      {required final String id,
-      required final String userId,
-      required final String name,
-      required final String icon,
-      required final String color,
-      required final bool isCustom,
-      required final DateTime createdAt}) = _$UpdateCategoryImpl;
+  const factory UpdateCategory({
+    required final String id,
+    required final String userId,
+    required final String name,
+    required final String icon,
+    required final String color,
+    required final bool isCustom,
+    required final DateTime createdAt,
+  }) = _$UpdateCategoryImpl;
 
   String get id;
   @override
@@ -714,9 +847,10 @@ abstract class UpdateCategory implements CategoryEvent {
 /// @nodoc
 abstract class _$$DeleteCategoryImplCopyWith<$Res>
     implements $CategoryEventCopyWith<$Res> {
-  factory _$$DeleteCategoryImplCopyWith(_$DeleteCategoryImpl value,
-          $Res Function(_$DeleteCategoryImpl) then) =
-      __$$DeleteCategoryImplCopyWithImpl<$Res>;
+  factory _$$DeleteCategoryImplCopyWith(
+    _$DeleteCategoryImpl value,
+    $Res Function(_$DeleteCategoryImpl) then,
+  ) = __$$DeleteCategoryImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String userId, String categoryId});
@@ -727,25 +861,25 @@ class __$$DeleteCategoryImplCopyWithImpl<$Res>
     extends _$CategoryEventCopyWithImpl<$Res, _$DeleteCategoryImpl>
     implements _$$DeleteCategoryImplCopyWith<$Res> {
   __$$DeleteCategoryImplCopyWithImpl(
-      _$DeleteCategoryImpl _value, $Res Function(_$DeleteCategoryImpl) _then)
-      : super(_value, _then);
+    _$DeleteCategoryImpl _value,
+    $Res Function(_$DeleteCategoryImpl) _then,
+  ) : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? userId = null,
-    Object? categoryId = null,
-  }) {
-    return _then(_$DeleteCategoryImpl(
-      userId: null == userId
-          ? _value.userId
-          : userId // ignore: cast_nullable_to_non_nullable
-              as String,
-      categoryId: null == categoryId
-          ? _value.categoryId
-          : categoryId // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
+  $Res call({Object? userId = null, Object? categoryId = null}) {
+    return _then(
+      _$DeleteCategoryImpl(
+        userId: null == userId
+            ? _value.userId
+            : userId // ignore: cast_nullable_to_non_nullable
+                  as String,
+        categoryId: null == categoryId
+            ? _value.categoryId
+            : categoryId // ignore: cast_nullable_to_non_nullable
+                  as String,
+      ),
+    );
   }
 }
 
@@ -782,18 +916,31 @@ class _$DeleteCategoryImpl implements DeleteCategory {
   @pragma('vm:prefer-inline')
   _$$DeleteCategoryImplCopyWith<_$DeleteCategoryImpl> get copyWith =>
       __$$DeleteCategoryImplCopyWithImpl<_$DeleteCategoryImpl>(
-          this, _$identity);
+        this,
+        _$identity,
+      );
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String userId) loadCategories,
     required TResult Function(
-            String userId, String name, String icon, String color)
-        createCategory,
-    required TResult Function(String id, String userId, String name,
-            String icon, String color, bool isCustom, DateTime createdAt)
-        updateCategory,
+      String userId,
+      String name,
+      String icon,
+      String color,
+    )
+    createCategory,
+    required TResult Function(
+      String id,
+      String userId,
+      String name,
+      String icon,
+      String color,
+      bool isCustom,
+      DateTime createdAt,
+    )
+    updateCategory,
     required TResult Function(String userId, String categoryId) deleteCategory,
   }) {
     return deleteCategory(userId, categoryId);
@@ -804,10 +951,17 @@ class _$DeleteCategoryImpl implements DeleteCategory {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String userId)? loadCategories,
     TResult? Function(String userId, String name, String icon, String color)?
-        createCategory,
-    TResult? Function(String id, String userId, String name, String icon,
-            String color, bool isCustom, DateTime createdAt)?
-        updateCategory,
+    createCategory,
+    TResult? Function(
+      String id,
+      String userId,
+      String name,
+      String icon,
+      String color,
+      bool isCustom,
+      DateTime createdAt,
+    )?
+    updateCategory,
     TResult? Function(String userId, String categoryId)? deleteCategory,
   }) {
     return deleteCategory?.call(userId, categoryId);
@@ -818,10 +972,17 @@ class _$DeleteCategoryImpl implements DeleteCategory {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String userId)? loadCategories,
     TResult Function(String userId, String name, String icon, String color)?
-        createCategory,
-    TResult Function(String id, String userId, String name, String icon,
-            String color, bool isCustom, DateTime createdAt)?
-        updateCategory,
+    createCategory,
+    TResult Function(
+      String id,
+      String userId,
+      String name,
+      String icon,
+      String color,
+      bool isCustom,
+      DateTime createdAt,
+    )?
+    updateCategory,
     TResult Function(String userId, String categoryId)? deleteCategory,
     required TResult orElse(),
   }) {
@@ -870,9 +1031,10 @@ class _$DeleteCategoryImpl implements DeleteCategory {
 }
 
 abstract class DeleteCategory implements CategoryEvent {
-  const factory DeleteCategory(
-      {required final String userId,
-      required final String categoryId}) = _$DeleteCategoryImpl;
+  const factory DeleteCategory({
+    required final String userId,
+    required final String categoryId,
+  }) = _$DeleteCategoryImpl;
 
   @override
   String get userId;

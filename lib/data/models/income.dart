@@ -13,7 +13,8 @@ class Income with _$Income {
     @HiveField(0) required String id,
     @HiveField(1) required String userId,
     @HiveField(2) required double amount,
-    @HiveField(3) required String source, // Salary, Freelance, Business, Investment, etc.
+    @HiveField(3)
+    required String source, // Salary, Freelance, Business, Investment, etc.
     @HiveField(4) required String description,
     @HiveField(5) required DateTime date,
     @HiveField(6) String? notes,

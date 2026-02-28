@@ -12,7 +12,8 @@ part of 'income_state.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 /// @nodoc
 mixin _$IncomeState {
@@ -24,8 +25,7 @@ mixin _$IncomeState {
     required TResult Function(double total) totalCalculated,
     required TResult Function(String message) success,
     required TResult Function(String message) error,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
@@ -34,8 +34,7 @@ mixin _$IncomeState {
     TResult? Function(double total)? totalCalculated,
     TResult? Function(String message)? success,
     TResult? Function(String message)? error,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
@@ -45,8 +44,7 @@ mixin _$IncomeState {
     TResult Function(String message)? success,
     TResult Function(String message)? error,
     required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(IncomeInitial value) initial,
@@ -55,8 +53,7 @@ mixin _$IncomeState {
     required TResult Function(IncomeTotalCalculated value) totalCalculated,
     required TResult Function(IncomeSuccess value) success,
     required TResult Function(IncomeError value) error,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(IncomeInitial value)? initial,
@@ -65,8 +62,7 @@ mixin _$IncomeState {
     TResult? Function(IncomeTotalCalculated value)? totalCalculated,
     TResult? Function(IncomeSuccess value)? success,
     TResult? Function(IncomeError value)? error,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(IncomeInitial value)? initial,
@@ -76,15 +72,15 @@ mixin _$IncomeState {
     TResult Function(IncomeSuccess value)? success,
     TResult Function(IncomeError value)? error,
     required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $IncomeStateCopyWith<$Res> {
   factory $IncomeStateCopyWith(
-          IncomeState value, $Res Function(IncomeState) then) =
-      _$IncomeStateCopyWithImpl<$Res, IncomeState>;
+    IncomeState value,
+    $Res Function(IncomeState) then,
+  ) = _$IncomeStateCopyWithImpl<$Res, IncomeState>;
 }
 
 /// @nodoc
@@ -101,8 +97,9 @@ class _$IncomeStateCopyWithImpl<$Res, $Val extends IncomeState>
 /// @nodoc
 abstract class _$$IncomeInitialImplCopyWith<$Res> {
   factory _$$IncomeInitialImplCopyWith(
-          _$IncomeInitialImpl value, $Res Function(_$IncomeInitialImpl) then) =
-      __$$IncomeInitialImplCopyWithImpl<$Res>;
+    _$IncomeInitialImpl value,
+    $Res Function(_$IncomeInitialImpl) then,
+  ) = __$$IncomeInitialImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
@@ -110,8 +107,9 @@ class __$$IncomeInitialImplCopyWithImpl<$Res>
     extends _$IncomeStateCopyWithImpl<$Res, _$IncomeInitialImpl>
     implements _$$IncomeInitialImplCopyWith<$Res> {
   __$$IncomeInitialImplCopyWithImpl(
-      _$IncomeInitialImpl _value, $Res Function(_$IncomeInitialImpl) _then)
-      : super(_value, _then);
+    _$IncomeInitialImpl _value,
+    $Res Function(_$IncomeInitialImpl) _then,
+  ) : super(_value, _then);
 }
 
 /// @nodoc
@@ -227,8 +225,9 @@ abstract class IncomeInitial implements IncomeState {
 /// @nodoc
 abstract class _$$IncomeLoadingImplCopyWith<$Res> {
   factory _$$IncomeLoadingImplCopyWith(
-          _$IncomeLoadingImpl value, $Res Function(_$IncomeLoadingImpl) then) =
-      __$$IncomeLoadingImplCopyWithImpl<$Res>;
+    _$IncomeLoadingImpl value,
+    $Res Function(_$IncomeLoadingImpl) then,
+  ) = __$$IncomeLoadingImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
@@ -236,8 +235,9 @@ class __$$IncomeLoadingImplCopyWithImpl<$Res>
     extends _$IncomeStateCopyWithImpl<$Res, _$IncomeLoadingImpl>
     implements _$$IncomeLoadingImplCopyWith<$Res> {
   __$$IncomeLoadingImplCopyWithImpl(
-      _$IncomeLoadingImpl _value, $Res Function(_$IncomeLoadingImpl) _then)
-      : super(_value, _then);
+    _$IncomeLoadingImpl _value,
+    $Res Function(_$IncomeLoadingImpl) _then,
+  ) : super(_value, _then);
 }
 
 /// @nodoc
@@ -353,8 +353,9 @@ abstract class IncomeLoading implements IncomeState {
 /// @nodoc
 abstract class _$$IncomeLoadedImplCopyWith<$Res> {
   factory _$$IncomeLoadedImplCopyWith(
-          _$IncomeLoadedImpl value, $Res Function(_$IncomeLoadedImpl) then) =
-      __$$IncomeLoadedImplCopyWithImpl<$Res>;
+    _$IncomeLoadedImpl value,
+    $Res Function(_$IncomeLoadedImpl) then,
+  ) = __$$IncomeLoadedImplCopyWithImpl<$Res>;
   @useResult
   $Res call({List<Income> incomes});
 }
@@ -364,20 +365,21 @@ class __$$IncomeLoadedImplCopyWithImpl<$Res>
     extends _$IncomeStateCopyWithImpl<$Res, _$IncomeLoadedImpl>
     implements _$$IncomeLoadedImplCopyWith<$Res> {
   __$$IncomeLoadedImplCopyWithImpl(
-      _$IncomeLoadedImpl _value, $Res Function(_$IncomeLoadedImpl) _then)
-      : super(_value, _then);
+    _$IncomeLoadedImpl _value,
+    $Res Function(_$IncomeLoadedImpl) _then,
+  ) : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? incomes = null,
-  }) {
-    return _then(_$IncomeLoadedImpl(
-      incomes: null == incomes
-          ? _value._incomes
-          : incomes // ignore: cast_nullable_to_non_nullable
-              as List<Income>,
-    ));
+  $Res call({Object? incomes = null}) {
+    return _then(
+      _$IncomeLoadedImpl(
+        incomes: null == incomes
+            ? _value._incomes
+            : incomes // ignore: cast_nullable_to_non_nullable
+                  as List<Income>,
+      ),
+    );
   }
 }
 
@@ -385,7 +387,7 @@ class __$$IncomeLoadedImplCopyWithImpl<$Res>
 
 class _$IncomeLoadedImpl implements IncomeLoaded {
   const _$IncomeLoadedImpl({required final List<Income> incomes})
-      : _incomes = incomes;
+    : _incomes = incomes;
 
   final List<Income> _incomes;
   @override
@@ -518,9 +520,9 @@ abstract class IncomeLoaded implements IncomeState {
 /// @nodoc
 abstract class _$$IncomeTotalCalculatedImplCopyWith<$Res> {
   factory _$$IncomeTotalCalculatedImplCopyWith(
-          _$IncomeTotalCalculatedImpl value,
-          $Res Function(_$IncomeTotalCalculatedImpl) then) =
-      __$$IncomeTotalCalculatedImplCopyWithImpl<$Res>;
+    _$IncomeTotalCalculatedImpl value,
+    $Res Function(_$IncomeTotalCalculatedImpl) then,
+  ) = __$$IncomeTotalCalculatedImplCopyWithImpl<$Res>;
   @useResult
   $Res call({double total});
 }
@@ -529,21 +531,22 @@ abstract class _$$IncomeTotalCalculatedImplCopyWith<$Res> {
 class __$$IncomeTotalCalculatedImplCopyWithImpl<$Res>
     extends _$IncomeStateCopyWithImpl<$Res, _$IncomeTotalCalculatedImpl>
     implements _$$IncomeTotalCalculatedImplCopyWith<$Res> {
-  __$$IncomeTotalCalculatedImplCopyWithImpl(_$IncomeTotalCalculatedImpl _value,
-      $Res Function(_$IncomeTotalCalculatedImpl) _then)
-      : super(_value, _then);
+  __$$IncomeTotalCalculatedImplCopyWithImpl(
+    _$IncomeTotalCalculatedImpl _value,
+    $Res Function(_$IncomeTotalCalculatedImpl) _then,
+  ) : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? total = null,
-  }) {
-    return _then(_$IncomeTotalCalculatedImpl(
-      total: null == total
-          ? _value.total
-          : total // ignore: cast_nullable_to_non_nullable
-              as double,
-    ));
+  $Res call({Object? total = null}) {
+    return _then(
+      _$IncomeTotalCalculatedImpl(
+        total: null == total
+            ? _value.total
+            : total // ignore: cast_nullable_to_non_nullable
+                  as double,
+      ),
+    );
   }
 }
 
@@ -575,8 +578,11 @@ class _$IncomeTotalCalculatedImpl implements IncomeTotalCalculated {
   @override
   @pragma('vm:prefer-inline')
   _$$IncomeTotalCalculatedImplCopyWith<_$IncomeTotalCalculatedImpl>
-      get copyWith => __$$IncomeTotalCalculatedImplCopyWithImpl<
-          _$IncomeTotalCalculatedImpl>(this, _$identity);
+  get copyWith =>
+      __$$IncomeTotalCalculatedImplCopyWithImpl<_$IncomeTotalCalculatedImpl>(
+        this,
+        _$identity,
+      );
 
   @override
   @optionalTypeArgs
@@ -672,14 +678,15 @@ abstract class IncomeTotalCalculated implements IncomeState {
   double get total;
   @JsonKey(ignore: true)
   _$$IncomeTotalCalculatedImplCopyWith<_$IncomeTotalCalculatedImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class _$$IncomeSuccessImplCopyWith<$Res> {
   factory _$$IncomeSuccessImplCopyWith(
-          _$IncomeSuccessImpl value, $Res Function(_$IncomeSuccessImpl) then) =
-      __$$IncomeSuccessImplCopyWithImpl<$Res>;
+    _$IncomeSuccessImpl value,
+    $Res Function(_$IncomeSuccessImpl) then,
+  ) = __$$IncomeSuccessImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String message});
 }
@@ -689,20 +696,21 @@ class __$$IncomeSuccessImplCopyWithImpl<$Res>
     extends _$IncomeStateCopyWithImpl<$Res, _$IncomeSuccessImpl>
     implements _$$IncomeSuccessImplCopyWith<$Res> {
   __$$IncomeSuccessImplCopyWithImpl(
-      _$IncomeSuccessImpl _value, $Res Function(_$IncomeSuccessImpl) _then)
-      : super(_value, _then);
+    _$IncomeSuccessImpl _value,
+    $Res Function(_$IncomeSuccessImpl) _then,
+  ) : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? message = null,
-  }) {
-    return _then(_$IncomeSuccessImpl(
-      message: null == message
-          ? _value.message
-          : message // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
+  $Res call({Object? message = null}) {
+    return _then(
+      _$IncomeSuccessImpl(
+        message: null == message
+            ? _value.message
+            : message // ignore: cast_nullable_to_non_nullable
+                  as String,
+      ),
+    );
   }
 }
 
@@ -836,8 +844,9 @@ abstract class IncomeSuccess implements IncomeState {
 /// @nodoc
 abstract class _$$IncomeErrorImplCopyWith<$Res> {
   factory _$$IncomeErrorImplCopyWith(
-          _$IncomeErrorImpl value, $Res Function(_$IncomeErrorImpl) then) =
-      __$$IncomeErrorImplCopyWithImpl<$Res>;
+    _$IncomeErrorImpl value,
+    $Res Function(_$IncomeErrorImpl) then,
+  ) = __$$IncomeErrorImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String message});
 }
@@ -847,20 +856,21 @@ class __$$IncomeErrorImplCopyWithImpl<$Res>
     extends _$IncomeStateCopyWithImpl<$Res, _$IncomeErrorImpl>
     implements _$$IncomeErrorImplCopyWith<$Res> {
   __$$IncomeErrorImplCopyWithImpl(
-      _$IncomeErrorImpl _value, $Res Function(_$IncomeErrorImpl) _then)
-      : super(_value, _then);
+    _$IncomeErrorImpl _value,
+    $Res Function(_$IncomeErrorImpl) _then,
+  ) : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? message = null,
-  }) {
-    return _then(_$IncomeErrorImpl(
-      message: null == message
-          ? _value.message
-          : message // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
+  $Res call({Object? message = null}) {
+    return _then(
+      _$IncomeErrorImpl(
+        message: null == message
+            ? _value.message
+            : message // ignore: cast_nullable_to_non_nullable
+                  as String,
+      ),
+    );
   }
 }
 

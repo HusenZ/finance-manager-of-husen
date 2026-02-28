@@ -71,7 +71,7 @@ Use this ACTUAL user data to provide personalized financial advice. Be specific 
       'September',
       'October',
       'November',
-      'December'
+      'December',
     ];
     return months[month - 1];
   }

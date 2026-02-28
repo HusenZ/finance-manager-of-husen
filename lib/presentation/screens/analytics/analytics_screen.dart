@@ -41,11 +41,11 @@ class _AnalyticsScreenState extends State<AnalyticsScreen> {
     final authState = context.read<AuthBloc>().state;
     if (authState is AuthAuthenticated) {
       context.read<TransactionBloc>().add(
-            TransactionEvent.loadTransactions(userId: authState.user.id),
-          );
+        TransactionEvent.loadTransactions(userId: authState.user.id),
+      );
       context.read<IncomeBloc>().add(
-            IncomeEvent.loadIncomes(userId: authState.user.id),
-          );
+        IncomeEvent.loadIncomes(userId: authState.user.id),
+      );
     }
   }
 
@@ -67,7 +67,9 @@ class _AnalyticsScreenState extends State<AnalyticsScreen> {
         }).toList();
       case '3 Months':
         final threeMonthsAgo = DateTime(now.year, now.month - 3);
-        return transactions.where((t) => t.date.isAfter(threeMonthsAgo)).toList();
+        return transactions
+            .where((t) => t.date.isAfter(threeMonthsAgo))
+            .toList();
       case '6 Months':
         final sixMonthsAgo = DateTime(now.year, now.month - 6);
         return transactions.where((t) => t.date.isAfter(sixMonthsAgo)).toList();
@@ -99,8 +101,9 @@ class _AnalyticsScreenState extends State<AnalyticsScreen> {
     final currency = authState.user.currency ?? 'INR';
 
     return Scaffold(
-      backgroundColor:
-          isDark ? AppColors.backgroundDark : AppColors.backgroundLight,
+      backgroundColor: isDark
+          ? AppColors.backgroundDark
+          : AppColors.backgroundLight,
       appBar: const CustomAppBar(title: 'Analytics'),
       body: BlocBuilder<TransactionBloc, TransactionState>(
         builder: (context, transactionState) {
@@ -133,7 +136,9 @@ class _AnalyticsScreenState extends State<AnalyticsScreen> {
                 return _buildEmptyState(context);
               }
 
-              final filteredTransactions = _getFilteredTransactions(transactions);
+              final filteredTransactions = _getFilteredTransactions(
+                transactions,
+              );
 
               return RefreshIndicator(
                 onRefresh: () async {
@@ -144,10 +149,23 @@ class _AnalyticsScreenState extends State<AnalyticsScreen> {
                   child: Column(
                     children: [
                       _buildPeriodSelector(isDark),
-                      _buildSummaryCards(filteredTransactions, incomes, currency, isDark),
-                      _buildCategoryBreakdown(filteredTransactions, currency, isDark),
+                      _buildSummaryCards(
+                        filteredTransactions,
+                        incomes,
+                        currency,
+                        isDark,
+                      ),
+                      _buildCategoryBreakdown(
+                        filteredTransactions,
+                        currency,
+                        isDark,
+                      ),
                       _buildSpendingTrend(transactions, currency, isDark),
-                      _buildTopCategories(filteredTransactions, currency, isDark),
+                      _buildTopCategories(
+                        filteredTransactions,
+                        currency,
+                        isDark,
+                      ),
                       const SizedBox(height: AppConstants.spacing24),
                     ],
                   ),
@@ -187,8 +205,8 @@ class _AnalyticsScreenState extends State<AnalyticsScreen> {
                 Text(
                   DateFormat('MMMM yyyy').format(_selectedMonth),
                   style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                        fontWeight: FontWeight.bold,
-                      ),
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
                 IconButton(
                   icon: const Icon(Icons.chevron_right),
@@ -232,10 +250,19 @@ class _AnalyticsScreenState extends State<AnalyticsScreen> {
   }
 
   Widget _buildSummaryCards(
-      List<Transaction> transactions, List<dynamic> incomes, String currency, bool isDark) {
+    List<Transaction> transactions,
+    List<dynamic> incomes,
+    String currency,
+    bool isDark,
+  ) {
     final totalSpent = transactions.fold<double>(0, (sum, t) => sum + t.amount);
-    final totalIncome = incomes.fold<double>(0, (sum, income) => sum + (income.amount as double));
-    final avgPerTransaction = transactions.isNotEmpty ? totalSpent / transactions.length : 0;
+    final totalIncome = incomes.fold<double>(
+      0,
+      (sum, income) => sum + (income.amount as double),
+    );
+    final avgPerTransaction = transactions.isNotEmpty
+        ? totalSpent / transactions.length
+        : 0;
     final transactionCount = transactions.length;
 
     return Padding(
@@ -274,9 +301,13 @@ class _AnalyticsScreenState extends State<AnalyticsScreen> {
                 child: _buildSummaryCard(
                   context: context,
                   title: 'Net Balance',
-                  value: (totalIncome - totalSpent).toCurrency(currency: currency),
+                  value: (totalIncome - totalSpent).toCurrency(
+                    currency: currency,
+                  ),
                   icon: Icons.account_balance_wallet,
-                  color: totalIncome >= totalSpent ? AppColors.success : AppColors.error,
+                  color: totalIncome >= totalSpent
+                      ? AppColors.success
+                      : AppColors.error,
                   isDark: isDark,
                 ),
               ),
@@ -324,9 +355,9 @@ class _AnalyticsScreenState extends State<AnalyticsScreen> {
             Text(
               value,
               style: Theme.of(context).textTheme.titleSmall?.copyWith(
-                    fontWeight: FontWeight.bold,
-                    color: color,
-                  ),
+                fontWeight: FontWeight.bold,
+                color: color,
+              ),
               textAlign: TextAlign.center,
               maxLines: 1,
               overflow: TextOverflow.ellipsis,
@@ -338,7 +369,10 @@ class _AnalyticsScreenState extends State<AnalyticsScreen> {
   }
 
   Widget _buildCategoryBreakdown(
-      List<Transaction> transactions, String currency, bool isDark) {
+    List<Transaction> transactions,
+    String currency,
+    bool isDark,
+  ) {
     final categorySpending = <String, double>{};
     for (var transaction in transactions) {
       categorySpending[transaction.category] =
@@ -367,9 +401,9 @@ class _AnalyticsScreenState extends State<AnalyticsScreen> {
           children: [
             Text(
               'Category Breakdown',
-              style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                    fontWeight: FontWeight.bold,
-                  ),
+              style: Theme.of(
+                context,
+              ).textTheme.titleMedium?.copyWith(fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: AppConstants.spacing16),
             SizedBox(
@@ -404,7 +438,9 @@ class _AnalyticsScreenState extends State<AnalyticsScreen> {
   }
 
   List<PieChartSectionData> _buildPieChartSections(
-      List<MapEntry<String, double>> entries, double total) {
+    List<MapEntry<String, double>> entries,
+    double total,
+  ) {
     final colors = [
       AppColors.primary,
       AppColors.success,
@@ -431,13 +467,17 @@ class _AnalyticsScreenState extends State<AnalyticsScreen> {
   }
 
   Widget _buildSpendingTrend(
-      List<Transaction> transactions, String currency, bool isDark) {
+    List<Transaction> transactions,
+    String currency,
+    bool isDark,
+  ) {
     // Group by month
     final monthlySpending = <String, double>{};
 
     for (var transaction in transactions) {
       final monthKey = DateFormat('MMM yy').format(transaction.date);
-      monthlySpending[monthKey] = (monthlySpending[monthKey] ?? 0) + transaction.amount;
+      monthlySpending[monthKey] =
+          (monthlySpending[monthKey] ?? 0) + transaction.amount;
     }
 
     final sortedEntries = monthlySpending.entries.toList()
@@ -450,7 +490,10 @@ class _AnalyticsScreenState extends State<AnalyticsScreen> {
 
     if (last6Months.isEmpty) return const SizedBox.shrink();
 
-    final maxValue = last6Months.fold<double>(0, (max, e) => e.value > max ? e.value : max);
+    final maxValue = last6Months.fold<double>(
+      0,
+      (max, e) => e.value > max ? e.value : max,
+    );
 
     return Card(
       margin: const EdgeInsets.symmetric(
@@ -466,9 +509,9 @@ class _AnalyticsScreenState extends State<AnalyticsScreen> {
           children: [
             Text(
               'Spending Trend',
-              style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                    fontWeight: FontWeight.bold,
-                  ),
+              style: Theme.of(
+                context,
+              ).textTheme.titleMedium?.copyWith(fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: AppConstants.spacing16),
             SizedBox(
@@ -494,7 +537,8 @@ class _AnalyticsScreenState extends State<AnalyticsScreen> {
                       sideTitles: SideTitles(
                         showTitles: true,
                         getTitlesWidget: (value, meta) {
-                          if (value.toInt() >= 0 && value.toInt() < last6Months.length) {
+                          if (value.toInt() >= 0 &&
+                              value.toInt() < last6Months.length) {
                             return Padding(
                               padding: const EdgeInsets.only(top: 8),
                               child: Text(
@@ -513,10 +557,8 @@ class _AnalyticsScreenState extends State<AnalyticsScreen> {
                     LineChartBarData(
                       spots: List.generate(
                         last6Months.length,
-                        (index) => FlSpot(
-                          index.toDouble(),
-                          last6Months[index].value,
-                        ),
+                        (index) =>
+                            FlSpot(index.toDouble(), last6Months[index].value),
                       ),
                       isCurved: true,
                       color: AppColors.primary,
@@ -540,7 +582,10 @@ class _AnalyticsScreenState extends State<AnalyticsScreen> {
   }
 
   Widget _buildTopCategories(
-      List<Transaction> transactions, String currency, bool isDark) {
+    List<Transaction> transactions,
+    String currency,
+    bool isDark,
+  ) {
     final categorySpending = <String, double>{};
     for (var transaction in transactions) {
       categorySpending[transaction.category] =
@@ -570,9 +615,9 @@ class _AnalyticsScreenState extends State<AnalyticsScreen> {
           children: [
             Text(
               'Top Categories',
-              style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                    fontWeight: FontWeight.bold,
-                  ),
+              style: Theme.of(
+                context,
+              ).textTheme.titleMedium?.copyWith(fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: AppConstants.spacing16),
             ...topCategories.map((entry) {
@@ -601,9 +646,8 @@ class _AnalyticsScreenState extends State<AnalyticsScreen> {
                         ),
                         Text(
                           entry.value.toCurrency(currency: currency),
-                          style: Theme.of(context).textTheme.titleSmall?.copyWith(
-                                fontWeight: FontWeight.bold,
-                              ),
+                          style: Theme.of(context).textTheme.titleSmall
+                              ?.copyWith(fontWeight: FontWeight.bold),
                         ),
                       ],
                     ),
@@ -613,8 +657,9 @@ class _AnalyticsScreenState extends State<AnalyticsScreen> {
                       child: LinearProgressIndicator(
                         value: percentage,
                         minHeight: 8,
-                        backgroundColor:
-                            isDark ? AppColors.borderDark : AppColors.borderLight,
+                        backgroundColor: isDark
+                            ? AppColors.borderDark
+                            : AppColors.borderLight,
                         valueColor: AlwaysStoppedAnimation<Color>(
                           AppColors.getCategoryColor(entry.key),
                         ),
@@ -637,16 +682,10 @@ class _AnalyticsScreenState extends State<AnalyticsScreen> {
         Container(
           width: 12,
           height: 12,
-          decoration: BoxDecoration(
-            color: color,
-            shape: BoxShape.circle,
-          ),
+          decoration: BoxDecoration(color: color, shape: BoxShape.circle),
         ),
         const SizedBox(width: 4),
-        Text(
-          '$label ($value)',
-          style: Theme.of(context).textTheme.bodySmall,
-        ),
+        Text('$label ($value)', style: Theme.of(context).textTheme.bodySmall),
       ],
     );
   }
@@ -666,9 +705,9 @@ class _AnalyticsScreenState extends State<AnalyticsScreen> {
             const SizedBox(height: AppConstants.spacing24),
             Text(
               'No data yet',
-              style: Theme.of(context).textTheme.headlineSmall?.copyWith(
-                    fontWeight: FontWeight.bold,
-                  ),
+              style: Theme.of(
+                context,
+              ).textTheme.headlineSmall?.copyWith(fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: AppConstants.spacing8),
             Text(
@@ -703,9 +742,9 @@ class _AnalyticsScreenState extends State<AnalyticsScreen> {
             const SizedBox(height: AppConstants.spacing24),
             Text(
               'No data for this period',
-              style: Theme.of(context).textTheme.headlineSmall?.copyWith(
-                    fontWeight: FontWeight.bold,
-                  ),
+              style: Theme.of(
+                context,
+              ).textTheme.headlineSmall?.copyWith(fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: AppConstants.spacing8),
             Text(

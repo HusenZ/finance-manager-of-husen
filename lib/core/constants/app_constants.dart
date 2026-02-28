@@ -76,14 +76,93 @@ class AppConstants {
 
   // Smart Category Keywords
   static const Map<String, List<String>> categoryKeywords = {
-    'Food': ['starbucks', 'coffee', 'tea', 'restaurant', 'cafe', 'food', 'zomato', 'swiggy', 'mcdonald', 'pizza', 'burger'],
-    'Entertainment': ['movie', 'cinema', 'netflix', 'spotify', 'prime', 'youtube', 'game', 'gaming', 'steam', 'entertainment'],
-    'Transport': ['uber', 'ola', 'petrol', 'diesel', 'fuel', 'taxi', 'cab', 'bus', 'train', 'metro', 'parking'],
-    'Shopping': ['amazon', 'flipkart', 'shopping', 'mall', 'store', 'myntra', 'ajio', 'clothes', 'fashion'],
-    'Bills': ['electricity', 'water', 'gas', 'broadband', 'internet', 'phone', 'mobile', 'postpaid', 'bill'],
-    'Healthcare': ['doctor', 'hospital', 'medical', 'pharmacy', 'medicine', 'clinic', 'health'],
-    'Education': ['school', 'college', 'university', 'course', 'book', 'tuition', 'education', 'learning'],
-    'Utilities': ['electricity', 'water', 'gas', 'maintenance', 'repair', 'service'],
+    'Food': [
+      'starbucks',
+      'coffee',
+      'tea',
+      'restaurant',
+      'cafe',
+      'food',
+      'zomato',
+      'swiggy',
+      'mcdonald',
+      'pizza',
+      'burger',
+    ],
+    'Entertainment': [
+      'movie',
+      'cinema',
+      'netflix',
+      'spotify',
+      'prime',
+      'youtube',
+      'game',
+      'gaming',
+      'steam',
+      'entertainment',
+    ],
+    'Transport': [
+      'uber',
+      'ola',
+      'petrol',
+      'diesel',
+      'fuel',
+      'taxi',
+      'cab',
+      'bus',
+      'train',
+      'metro',
+      'parking',
+    ],
+    'Shopping': [
+      'amazon',
+      'flipkart',
+      'shopping',
+      'mall',
+      'store',
+      'myntra',
+      'ajio',
+      'clothes',
+      'fashion',
+    ],
+    'Bills': [
+      'electricity',
+      'water',
+      'gas',
+      'broadband',
+      'internet',
+      'phone',
+      'mobile',
+      'postpaid',
+      'bill',
+    ],
+    'Healthcare': [
+      'doctor',
+      'hospital',
+      'medical',
+      'pharmacy',
+      'medicine',
+      'clinic',
+      'health',
+    ],
+    'Education': [
+      'school',
+      'college',
+      'university',
+      'course',
+      'book',
+      'tuition',
+      'education',
+      'learning',
+    ],
+    'Utilities': [
+      'electricity',
+      'water',
+      'gas',
+      'maintenance',
+      'repair',
+      'service',
+    ],
   };
 
   // Hive Box Names
@@ -99,7 +178,8 @@ class AppConstants {
   static const String selectedCurrencyKey = 'selected_currency';
   static const String notificationsEnabledKey = 'notifications_enabled';
   static const String budgetAlertsEnabledKey = 'budget_alerts_enabled';
-  static const String recurringRemindersEnabledKey = 'recurring_reminders_enabled';
+  static const String recurringRemindersEnabledKey =
+      'recurring_reminders_enabled';
 
   // Animation Durations
   static const Duration shortAnimationDuration = Duration(milliseconds: 200);
@@ -144,15 +224,22 @@ class AppConstants {
   static const int defaultChartMonths = 6;
 
   // Error Messages
-  static const String networkErrorMessage = 'No internet connection. Please check your network settings.';
-  static const String serverErrorMessage = 'Something went wrong. Please try again later.';
-  static const String authErrorMessage = 'Authentication failed. Please try logging in again.';
-  static const String validationErrorMessage = 'Please check your input and try again.';
+  static const String networkErrorMessage =
+      'No internet connection. Please check your network settings.';
+  static const String serverErrorMessage =
+      'Something went wrong. Please try again later.';
+  static const String authErrorMessage =
+      'Authentication failed. Please try logging in again.';
+  static const String validationErrorMessage =
+      'Please check your input and try again.';
 
   // Success Messages
-  static const String transactionAddedMessage = 'Transaction added successfully';
-  static const String transactionUpdatedMessage = 'Transaction updated successfully';
-  static const String transactionDeletedMessage = 'Transaction deleted successfully';
+  static const String transactionAddedMessage =
+      'Transaction added successfully';
+  static const String transactionUpdatedMessage =
+      'Transaction updated successfully';
+  static const String transactionDeletedMessage =
+      'Transaction deleted successfully';
   static const String budgetCreatedMessage = 'Budget created successfully';
   static const String budgetUpdatedMessage = 'Budget updated successfully';
   static const String budgetDeletedMessage = 'Budget deleted successfully';

@@ -12,7 +12,8 @@ part of 'auth_state.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 /// @nodoc
 mixin _$AuthState {
@@ -24,8 +25,7 @@ mixin _$AuthState {
     required TResult Function() unauthenticated,
     required TResult Function(String message) error,
     required TResult Function(String email) passwordResetSent,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
@@ -34,8 +34,7 @@ mixin _$AuthState {
     TResult? Function()? unauthenticated,
     TResult? Function(String message)? error,
     TResult? Function(String email)? passwordResetSent,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
@@ -45,8 +44,7 @@ mixin _$AuthState {
     TResult Function(String message)? error,
     TResult Function(String email)? passwordResetSent,
     required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(AuthInitial value) initial,
@@ -55,8 +53,7 @@ mixin _$AuthState {
     required TResult Function(AuthUnauthenticated value) unauthenticated,
     required TResult Function(AuthError value) error,
     required TResult Function(AuthPasswordResetSent value) passwordResetSent,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(AuthInitial value)? initial,
@@ -65,8 +62,7 @@ mixin _$AuthState {
     TResult? Function(AuthUnauthenticated value)? unauthenticated,
     TResult? Function(AuthError value)? error,
     TResult? Function(AuthPasswordResetSent value)? passwordResetSent,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(AuthInitial value)? initial,
@@ -76,8 +72,7 @@ mixin _$AuthState {
     TResult Function(AuthError value)? error,
     TResult Function(AuthPasswordResetSent value)? passwordResetSent,
     required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -100,8 +95,9 @@ class _$AuthStateCopyWithImpl<$Res, $Val extends AuthState>
 /// @nodoc
 abstract class _$$AuthInitialImplCopyWith<$Res> {
   factory _$$AuthInitialImplCopyWith(
-          _$AuthInitialImpl value, $Res Function(_$AuthInitialImpl) then) =
-      __$$AuthInitialImplCopyWithImpl<$Res>;
+    _$AuthInitialImpl value,
+    $Res Function(_$AuthInitialImpl) then,
+  ) = __$$AuthInitialImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
@@ -109,8 +105,9 @@ class __$$AuthInitialImplCopyWithImpl<$Res>
     extends _$AuthStateCopyWithImpl<$Res, _$AuthInitialImpl>
     implements _$$AuthInitialImplCopyWith<$Res> {
   __$$AuthInitialImplCopyWithImpl(
-      _$AuthInitialImpl _value, $Res Function(_$AuthInitialImpl) _then)
-      : super(_value, _then);
+    _$AuthInitialImpl _value,
+    $Res Function(_$AuthInitialImpl) _then,
+  ) : super(_value, _then);
 }
 
 /// @nodoc
@@ -226,8 +223,9 @@ abstract class AuthInitial implements AuthState {
 /// @nodoc
 abstract class _$$AuthLoadingImplCopyWith<$Res> {
   factory _$$AuthLoadingImplCopyWith(
-          _$AuthLoadingImpl value, $Res Function(_$AuthLoadingImpl) then) =
-      __$$AuthLoadingImplCopyWithImpl<$Res>;
+    _$AuthLoadingImpl value,
+    $Res Function(_$AuthLoadingImpl) then,
+  ) = __$$AuthLoadingImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
@@ -235,8 +233,9 @@ class __$$AuthLoadingImplCopyWithImpl<$Res>
     extends _$AuthStateCopyWithImpl<$Res, _$AuthLoadingImpl>
     implements _$$AuthLoadingImplCopyWith<$Res> {
   __$$AuthLoadingImplCopyWithImpl(
-      _$AuthLoadingImpl _value, $Res Function(_$AuthLoadingImpl) _then)
-      : super(_value, _then);
+    _$AuthLoadingImpl _value,
+    $Res Function(_$AuthLoadingImpl) _then,
+  ) : super(_value, _then);
 }
 
 /// @nodoc
@@ -351,9 +350,10 @@ abstract class AuthLoading implements AuthState {
 
 /// @nodoc
 abstract class _$$AuthAuthenticatedImplCopyWith<$Res> {
-  factory _$$AuthAuthenticatedImplCopyWith(_$AuthAuthenticatedImpl value,
-          $Res Function(_$AuthAuthenticatedImpl) then) =
-      __$$AuthAuthenticatedImplCopyWithImpl<$Res>;
+  factory _$$AuthAuthenticatedImplCopyWith(
+    _$AuthAuthenticatedImpl value,
+    $Res Function(_$AuthAuthenticatedImpl) then,
+  ) = __$$AuthAuthenticatedImplCopyWithImpl<$Res>;
   @useResult
   $Res call({UserProfile user});
 
@@ -364,21 +364,22 @@ abstract class _$$AuthAuthenticatedImplCopyWith<$Res> {
 class __$$AuthAuthenticatedImplCopyWithImpl<$Res>
     extends _$AuthStateCopyWithImpl<$Res, _$AuthAuthenticatedImpl>
     implements _$$AuthAuthenticatedImplCopyWith<$Res> {
-  __$$AuthAuthenticatedImplCopyWithImpl(_$AuthAuthenticatedImpl _value,
-      $Res Function(_$AuthAuthenticatedImpl) _then)
-      : super(_value, _then);
+  __$$AuthAuthenticatedImplCopyWithImpl(
+    _$AuthAuthenticatedImpl _value,
+    $Res Function(_$AuthAuthenticatedImpl) _then,
+  ) : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? user = null,
-  }) {
-    return _then(_$AuthAuthenticatedImpl(
-      user: null == user
-          ? _value.user
-          : user // ignore: cast_nullable_to_non_nullable
-              as UserProfile,
-    ));
+  $Res call({Object? user = null}) {
+    return _then(
+      _$AuthAuthenticatedImpl(
+        user: null == user
+            ? _value.user
+            : user // ignore: cast_nullable_to_non_nullable
+                  as UserProfile,
+      ),
+    );
   }
 
   @override
@@ -419,7 +420,9 @@ class _$AuthAuthenticatedImpl implements AuthAuthenticated {
   @pragma('vm:prefer-inline')
   _$$AuthAuthenticatedImplCopyWith<_$AuthAuthenticatedImpl> get copyWith =>
       __$$AuthAuthenticatedImplCopyWithImpl<_$AuthAuthenticatedImpl>(
-          this, _$identity);
+        this,
+        _$identity,
+      );
 
   @override
   @optionalTypeArgs
@@ -520,18 +523,20 @@ abstract class AuthAuthenticated implements AuthState {
 
 /// @nodoc
 abstract class _$$AuthUnauthenticatedImplCopyWith<$Res> {
-  factory _$$AuthUnauthenticatedImplCopyWith(_$AuthUnauthenticatedImpl value,
-          $Res Function(_$AuthUnauthenticatedImpl) then) =
-      __$$AuthUnauthenticatedImplCopyWithImpl<$Res>;
+  factory _$$AuthUnauthenticatedImplCopyWith(
+    _$AuthUnauthenticatedImpl value,
+    $Res Function(_$AuthUnauthenticatedImpl) then,
+  ) = __$$AuthUnauthenticatedImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
 class __$$AuthUnauthenticatedImplCopyWithImpl<$Res>
     extends _$AuthStateCopyWithImpl<$Res, _$AuthUnauthenticatedImpl>
     implements _$$AuthUnauthenticatedImplCopyWith<$Res> {
-  __$$AuthUnauthenticatedImplCopyWithImpl(_$AuthUnauthenticatedImpl _value,
-      $Res Function(_$AuthUnauthenticatedImpl) _then)
-      : super(_value, _then);
+  __$$AuthUnauthenticatedImplCopyWithImpl(
+    _$AuthUnauthenticatedImpl _value,
+    $Res Function(_$AuthUnauthenticatedImpl) _then,
+  ) : super(_value, _then);
 }
 
 /// @nodoc
@@ -648,8 +653,9 @@ abstract class AuthUnauthenticated implements AuthState {
 /// @nodoc
 abstract class _$$AuthErrorImplCopyWith<$Res> {
   factory _$$AuthErrorImplCopyWith(
-          _$AuthErrorImpl value, $Res Function(_$AuthErrorImpl) then) =
-      __$$AuthErrorImplCopyWithImpl<$Res>;
+    _$AuthErrorImpl value,
+    $Res Function(_$AuthErrorImpl) then,
+  ) = __$$AuthErrorImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String message});
 }
@@ -659,20 +665,21 @@ class __$$AuthErrorImplCopyWithImpl<$Res>
     extends _$AuthStateCopyWithImpl<$Res, _$AuthErrorImpl>
     implements _$$AuthErrorImplCopyWith<$Res> {
   __$$AuthErrorImplCopyWithImpl(
-      _$AuthErrorImpl _value, $Res Function(_$AuthErrorImpl) _then)
-      : super(_value, _then);
+    _$AuthErrorImpl _value,
+    $Res Function(_$AuthErrorImpl) _then,
+  ) : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? message = null,
-  }) {
-    return _then(_$AuthErrorImpl(
-      message: null == message
-          ? _value.message
-          : message // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
+  $Res call({Object? message = null}) {
+    return _then(
+      _$AuthErrorImpl(
+        message: null == message
+            ? _value.message
+            : message // ignore: cast_nullable_to_non_nullable
+                  as String,
+      ),
+    );
   }
 }
 
@@ -805,9 +812,9 @@ abstract class AuthError implements AuthState {
 /// @nodoc
 abstract class _$$AuthPasswordResetSentImplCopyWith<$Res> {
   factory _$$AuthPasswordResetSentImplCopyWith(
-          _$AuthPasswordResetSentImpl value,
-          $Res Function(_$AuthPasswordResetSentImpl) then) =
-      __$$AuthPasswordResetSentImplCopyWithImpl<$Res>;
+    _$AuthPasswordResetSentImpl value,
+    $Res Function(_$AuthPasswordResetSentImpl) then,
+  ) = __$$AuthPasswordResetSentImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String email});
 }
@@ -816,21 +823,22 @@ abstract class _$$AuthPasswordResetSentImplCopyWith<$Res> {
 class __$$AuthPasswordResetSentImplCopyWithImpl<$Res>
     extends _$AuthStateCopyWithImpl<$Res, _$AuthPasswordResetSentImpl>
     implements _$$AuthPasswordResetSentImplCopyWith<$Res> {
-  __$$AuthPasswordResetSentImplCopyWithImpl(_$AuthPasswordResetSentImpl _value,
-      $Res Function(_$AuthPasswordResetSentImpl) _then)
-      : super(_value, _then);
+  __$$AuthPasswordResetSentImplCopyWithImpl(
+    _$AuthPasswordResetSentImpl _value,
+    $Res Function(_$AuthPasswordResetSentImpl) _then,
+  ) : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? email = null,
-  }) {
-    return _then(_$AuthPasswordResetSentImpl(
-      email: null == email
-          ? _value.email
-          : email // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
+  $Res call({Object? email = null}) {
+    return _then(
+      _$AuthPasswordResetSentImpl(
+        email: null == email
+            ? _value.email
+            : email // ignore: cast_nullable_to_non_nullable
+                  as String,
+      ),
+    );
   }
 }
 
@@ -862,8 +870,11 @@ class _$AuthPasswordResetSentImpl implements AuthPasswordResetSent {
   @override
   @pragma('vm:prefer-inline')
   _$$AuthPasswordResetSentImplCopyWith<_$AuthPasswordResetSentImpl>
-      get copyWith => __$$AuthPasswordResetSentImplCopyWithImpl<
-          _$AuthPasswordResetSentImpl>(this, _$identity);
+  get copyWith =>
+      __$$AuthPasswordResetSentImplCopyWithImpl<_$AuthPasswordResetSentImpl>(
+        this,
+        _$identity,
+      );
 
   @override
   @optionalTypeArgs
@@ -959,5 +970,5 @@ abstract class AuthPasswordResetSent implements AuthState {
   String get email;
   @JsonKey(ignore: true)
   _$$AuthPasswordResetSentImplCopyWith<_$AuthPasswordResetSentImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  get copyWith => throw _privateConstructorUsedError;
 }

@@ -8,19 +8,16 @@ part 'ai_chat_state.freezed.dart';
 @freezed
 class AIChatState with _$AIChatState {
   /// Initial state
-  const factory AIChatState.initial({
-    @Default([]) List<AIMessage> messages,
-  }) = InitialState;
+  const factory AIChatState.initial({@Default([]) List<AIMessage> messages}) =
+      InitialState;
 
   /// Loading state (AI is thinking)
-  const factory AIChatState.loading({
-    required List<AIMessage> messages,
-  }) = LoadingState;
+  const factory AIChatState.loading({required List<AIMessage> messages}) =
+      LoadingState;
 
   /// Success state (message received)
-  const factory AIChatState.success({
-    required List<AIMessage> messages,
-  }) = SuccessState;
+  const factory AIChatState.success({required List<AIMessage> messages}) =
+      SuccessState;
 
   /// Error state
   const factory AIChatState.error({

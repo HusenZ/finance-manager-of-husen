@@ -66,17 +66,17 @@ class BudgetAdapter extends TypeAdapter<Budget> {
 // **************************************************************************
 
 _$BudgetImpl _$$BudgetImplFromJson(Map<String, dynamic> json) => _$BudgetImpl(
-      id: json['id'] as String,
-      userId: json['userId'] as String,
-      category: json['category'] as String,
-      limit: (json['limit'] as num).toDouble(),
-      month: json['month'] as String,
-      spent: (json['spent'] as num?)?.toDouble() ?? 0.0,
-      createdAt: DateTime.parse(json['createdAt'] as String),
-      updatedAt: json['updatedAt'] == null
-          ? null
-          : DateTime.parse(json['updatedAt'] as String),
-    );
+  id: json['id'] as String,
+  userId: json['userId'] as String,
+  category: json['category'] as String,
+  limit: (json['limit'] as num).toDouble(),
+  month: json['month'] as String,
+  spent: (json['spent'] as num?)?.toDouble() ?? 0.0,
+  createdAt: DateTime.parse(json['createdAt'] as String),
+  updatedAt: json['updatedAt'] == null
+      ? null
+      : DateTime.parse(json['updatedAt'] as String),
+);
 
 Map<String, dynamic> _$$BudgetImplToJson(_$BudgetImpl instance) =>
     <String, dynamic>{

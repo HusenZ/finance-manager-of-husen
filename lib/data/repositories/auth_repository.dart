@@ -1,23 +1,28 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:dartz/dartz.dart';
-import '../services/auth_service.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+
+import '../../core/utils/app_logger.dart';
+import '../../services/auth_service.dart';
+import '../../services/subscription_service.dart';
+import '../models/user_profile.dart';
 import '../services/firebase_service.dart';
 import '../services/hive_service.dart';
-import '../models/user_profile.dart';
-import '../../core/utils/app_logger.dart';
 
 class AuthRepository {
   final AuthService _authService;
   final FirebaseService _firebaseService;
   final HiveService _hiveService;
+  final SubscriptionService _subscriptionService;
 
   AuthRepository({
     required AuthService authService,
     required FirebaseService firebaseService,
     required HiveService hiveService,
-  })  : _authService = authService,
-        _firebaseService = firebaseService,
-        _hiveService = hiveService;
+    required SubscriptionService subscriptionService,
+  }) : _authService = authService,
+       _firebaseService = firebaseService,
+       _hiveService = hiveService,
+       _subscriptionService = subscriptionService;
 
   Stream<User?> get authStateChanges => _authService.authStateChanges;
   User? get currentUser => _authService.currentUser;
@@ -35,25 +40,20 @@ class AuthRepository {
         name: name,
       );
 
-      return result.fold(
-        (error) => Left(error),
-        (user) async {
-          final profile = UserProfile(
-            id: user.uid,
-            email: user.email ?? email,
-            name: name,
-            profilePicture: user.photoURL,
-            currency: 'INR',
-            createdAt: DateTime.now(),
-          );
+      return result.fold((error) => Left(error), (user) async {
+        final profileResult = await _ensureUserProfile(
+          user: user,
+          preferredName: name,
+          fallbackEmail: email,
+        );
 
-          await _firebaseService.saveUserProfile(profile);
-          await _hiveService.saveUserProfile(profile);
-
-          AppLogger.info('User profile created: ${profile.email}');
+        return profileResult.fold((err) => Left(err), (profile) async {
+          await _subscriptionService.initializeUserSubscription(user.uid);
+          await _subscriptionService.evaluateOwnerAccess(user.uid);
+          await _subscriptionService.refresh();
           return Right(profile);
-        },
-      );
+        });
+      });
     } catch (e, stackTrace) {
       AppLogger.error('Sign up failed', error: e, stackTrace: stackTrace);
       return Left('Sign up failed: ${e.toString()}');
@@ -70,12 +70,15 @@ class AuthRepository {
         password: password,
       );
 
-      return result.fold(
-        (error) => Left(error),
-        (user) async {
-          return await _loadUserProfile(user.uid);
-        },
-      );
+      return result.fold((error) => Left(error), (user) async {
+        final profileResult = await _ensureUserProfile(user: user);
+        return profileResult.fold((err) => Left(err), (profile) async {
+          await _subscriptionService.initializeUserSubscription(user.uid);
+          await _subscriptionService.evaluateOwnerAccess(user.uid);
+          await _subscriptionService.refresh();
+          return Right(profile);
+        });
+      });
     } catch (e, stackTrace) {
       AppLogger.error('Sign in failed', error: e, stackTrace: stackTrace);
       return Left('Sign in failed: ${e.toString()}');
@@ -86,119 +89,106 @@ class AuthRepository {
     try {
       final result = await _authService.signInWithGoogle();
 
-      return result.fold(
-        (error) => Left(error),
-        (user) async {
-          final profileResult = await _firebaseService.getUserProfile(user.uid);
-
-          return profileResult.fold(
-            (error) async {
-              // Profile doesn't exist, create new one
-              final profile = UserProfile(
-                id: user.uid,
-                email: user.email ?? '',
-                name: user.displayName ?? '',
-                profilePicture: user.photoURL,
-                currency: 'INR',
-                createdAt: DateTime.now(),
-              );
-
-              await _firebaseService.saveUserProfile(profile);
-              await _hiveService.saveUserProfile(profile);
-
-              AppLogger.info('New Google user profile created: ${profile.email}');
-              return Right(profile);
-            },
-            (profile) async {
-              await _hiveService.saveUserProfile(profile);
-              AppLogger.info('Existing Google user signed in: ${profile.email}');
-              return Right(profile);
-            },
-          );
-        },
-      );
+      return result.fold((error) => Left(error), (user) async {
+        final profileResult = await _ensureUserProfile(user: user);
+        return profileResult.fold((err) => Left(err), (profile) async {
+          await _subscriptionService.initializeUserSubscription(user.uid);
+          await _subscriptionService.evaluateOwnerAccess(user.uid);
+          await _subscriptionService.refresh();
+          return Right(profile);
+        });
+      });
     } catch (e, stackTrace) {
-      AppLogger.error('Google sign in failed', error: e, stackTrace: stackTrace);
+      AppLogger.error(
+        'Google sign in failed',
+        error: e,
+        stackTrace: stackTrace,
+      );
       return Left('Google sign in failed: ${e.toString()}');
     }
   }
 
   Future<Either<String, UserProfile>> _loadUserProfile(String userId) async {
     try {
-      // Try to get from cache first
       final cachedProfile = await _hiveService.getUserProfile();
       if (cachedProfile != null && cachedProfile.id == userId) {
-        AppLogger.debug('Loaded user profile from cache');
         return Right(cachedProfile);
       }
 
-      // Load from Firestore
       final result = await _firebaseService.getUserProfile(userId);
-      return result.fold(
-        (error) => Left(error),
-        (profile) async {
-          await _hiveService.saveUserProfile(profile);
-          AppLogger.debug('Loaded user profile from Firestore');
-          return Right(profile);
-        },
-      );
+      return result.fold((error) => Left(error), (profile) async {
+        await _hiveService.saveUserProfile(profile);
+        return Right(profile);
+      });
     } catch (e, stackTrace) {
-      AppLogger.error('Failed to load user profile', error: e, stackTrace: stackTrace);
+      AppLogger.error(
+        'Failed to load user profile',
+        error: e,
+        stackTrace: stackTrace,
+      );
       return Left('Failed to load profile: ${e.toString()}');
     }
   }
 
+  Future<Either<String, UserProfile>> _ensureUserProfile({
+    required User user,
+    String? preferredName,
+    String? fallbackEmail,
+  }) async {
+    final existing = await _loadUserProfile(user.uid);
+    return existing.fold(
+      (error) async {
+        if (!error.toLowerCase().contains('not found')) {
+          return Left(error);
+        }
+
+        final profile = UserProfile(
+          id: user.uid,
+          email: user.email ?? fallbackEmail ?? '',
+          name: preferredName ?? user.displayName ?? 'User',
+          profilePicture: user.photoURL,
+          currency: 'INR',
+          createdAt: DateTime.now(),
+        );
+
+        final saveResult = await _firebaseService.saveUserProfile(profile);
+        return saveResult.fold((saveError) => Left(saveError), (_) async {
+          await _hiveService.saveUserProfile(profile);
+          return Right(profile);
+        });
+      },
+      (profile) async {
+        await _hiveService.saveUserProfile(profile);
+        return Right(profile);
+      },
+    );
+  }
+
   Future<Either<String, void>> resetPassword({required String email}) async {
-    try {
-      return await _authService.resetPassword(email: email);
-    } catch (e, stackTrace) {
-      AppLogger.error('Password reset failed', error: e, stackTrace: stackTrace);
-      return Left('Password reset failed: ${e.toString()}');
-    }
+    return _authService.resetPassword(email: email);
   }
 
   Future<Either<String, void>> signOut() async {
-    try {
-      await _hiveService.clearAllData();
-      return await _authService.signOut();
-    } catch (e, stackTrace) {
-      AppLogger.error('Sign out failed', error: e, stackTrace: stackTrace);
-      return Left('Sign out failed: ${e.toString()}');
-    }
+    await _hiveService.clearAllData();
+    return _authService.signOut();
   }
 
   Future<Either<String, UserProfile>> updateUserProfile({
     required UserProfile profile,
   }) async {
-    try {
-      final updatedProfile = profile.copyWith(
-        updatedAt: DateTime.now(),
-      );
+    final updatedProfile = profile.copyWith(updatedAt: DateTime.now());
+    final result = await _firebaseService.saveUserProfile(updatedProfile);
 
-      final result = await _firebaseService.saveUserProfile(updatedProfile);
-      return result.fold(
-        (error) => Left(error),
-        (_) async {
-          await _hiveService.saveUserProfile(updatedProfile);
-          AppLogger.info('User profile updated: ${updatedProfile.email}');
-          return Right(updatedProfile);
-        },
-      );
-    } catch (e, stackTrace) {
-      AppLogger.error('Failed to update profile', error: e, stackTrace: stackTrace);
-      return Left('Failed to update profile: ${e.toString()}');
-    }
+    return result.fold((error) => Left(error), (_) async {
+      await _hiveService.saveUserProfile(updatedProfile);
+      return Right(updatedProfile);
+    });
   }
 
   Future<Either<String, UserProfile?>> getCurrentUserProfile() async {
-    try {
-      if (currentUserId == null) {
-        return const Right(null);
-      }
-      return await _loadUserProfile(currentUserId!);
-    } catch (e, stackTrace) {
-      AppLogger.error('Failed to get current user profile', error: e, stackTrace: stackTrace);
-      return Left('Failed to get profile: ${e.toString()}');
+    if (currentUserId == null) {
+      return const Right(null);
     }
+    return _loadUserProfile(currentUserId!);
   }
 }

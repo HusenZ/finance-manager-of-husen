@@ -6,23 +6,27 @@ import '../models/recurring_transaction.dart';
 import '../models/transaction.dart' as models;
 import '../../core/utils/app_logger.dart';
 import '../../core/constants/app_constants.dart';
+import '../../services/subscription_service.dart';
 import 'transaction_repository.dart';
 
 class RecurringRepository {
   final FirebaseService _firebaseService;
   final HiveService _hiveService;
   final TransactionRepository _transactionRepository;
+  final SubscriptionService _subscriptionService;
   final Uuid _uuid;
 
   RecurringRepository({
     required FirebaseService firebaseService,
     required HiveService hiveService,
     required TransactionRepository transactionRepository,
+    required SubscriptionService subscriptionService,
     Uuid? uuid,
-  })  : _firebaseService = firebaseService,
-        _hiveService = hiveService,
-        _transactionRepository = transactionRepository,
-        _uuid = uuid ?? const Uuid();
+  }) : _firebaseService = firebaseService,
+       _hiveService = hiveService,
+       _transactionRepository = transactionRepository,
+       _subscriptionService = subscriptionService,
+       _uuid = uuid ?? const Uuid();
 
   Future<Either<String, RecurringTransaction>> createRecurringTransaction({
     required String userId,
@@ -35,6 +39,10 @@ class RecurringRepository {
     String? notes,
   }) async {
     try {
+      if (!_subscriptionService.hasTier('premium')) {
+        return const Left('Recurring automation is available on Premium plan.');
+      }
+
       final recurringTransaction = RecurringTransaction(
         id: _uuid.v4(),
         userId: userId,
@@ -50,21 +58,34 @@ class RecurringRepository {
       );
 
       await _hiveService.saveRecurringTransaction(recurringTransaction);
+      if (!_subscriptionService.canUseCloudSync()) {
+        return Right(recurringTransaction);
+      }
 
-      final result = await _firebaseService.saveRecurringTransaction(recurringTransaction);
+      final result = await _firebaseService.saveRecurringTransaction(
+        recurringTransaction,
+      );
 
       return result.fold(
         (error) {
-          AppLogger.warning('Recurring transaction saved locally but failed to sync: $error');
+          AppLogger.warning(
+            'Recurring transaction saved locally but failed to sync: $error',
+          );
           return Right(recurringTransaction);
         },
         (_) {
-          AppLogger.info('Recurring transaction created and synced: ${recurringTransaction.id}');
+          AppLogger.info(
+            'Recurring transaction created and synced: ${recurringTransaction.id}',
+          );
           return Right(recurringTransaction);
         },
       );
     } catch (e, stackTrace) {
-      AppLogger.error('Failed to create recurring transaction', error: e, stackTrace: stackTrace);
+      AppLogger.error(
+        'Failed to create recurring transaction',
+        error: e,
+        stackTrace: stackTrace,
+      );
       return Left('Failed to create recurring transaction: ${e.toString()}');
     }
   }
@@ -78,21 +99,34 @@ class RecurringRepository {
       );
 
       await _hiveService.saveRecurringTransaction(updatedTransaction);
+      if (!_subscriptionService.canUseCloudSync()) {
+        return Right(updatedTransaction);
+      }
 
-      final result = await _firebaseService.saveRecurringTransaction(updatedTransaction);
+      final result = await _firebaseService.saveRecurringTransaction(
+        updatedTransaction,
+      );
 
       return result.fold(
         (error) {
-          AppLogger.warning('Recurring transaction updated locally but failed to sync: $error');
+          AppLogger.warning(
+            'Recurring transaction updated locally but failed to sync: $error',
+          );
           return Right(updatedTransaction);
         },
         (_) {
-          AppLogger.info('Recurring transaction updated and synced: ${updatedTransaction.id}');
+          AppLogger.info(
+            'Recurring transaction updated and synced: ${updatedTransaction.id}',
+          );
           return Right(updatedTransaction);
         },
       );
     } catch (e, stackTrace) {
-      AppLogger.error('Failed to update recurring transaction', error: e, stackTrace: stackTrace);
+      AppLogger.error(
+        'Failed to update recurring transaction',
+        error: e,
+        stackTrace: stackTrace,
+      );
       return Left('Failed to update recurring transaction: ${e.toString()}');
     }
   }
@@ -108,7 +142,11 @@ class RecurringRepository {
 
       return await updateRecurringTransaction(transaction: updated);
     } catch (e, stackTrace) {
-      AppLogger.error('Failed to toggle recurring transaction status', error: e, stackTrace: stackTrace);
+      AppLogger.error(
+        'Failed to toggle recurring transaction status',
+        error: e,
+        stackTrace: stackTrace,
+      );
       return Left('Failed to toggle status: ${e.toString()}');
     }
   }
@@ -119,81 +157,101 @@ class RecurringRepository {
   }) async {
     try {
       await _hiveService.deleteRecurringTransaction(transactionId);
+      if (!_subscriptionService.canUseCloudSync()) {
+        return const Right(null);
+      }
 
-      final result = await _firebaseService.deleteRecurringTransaction(userId, transactionId);
+      final result = await _firebaseService.deleteRecurringTransaction(
+        userId,
+        transactionId,
+      );
 
       return result.fold(
         (error) {
-          AppLogger.warning('Recurring transaction deleted locally but failed to sync: $error');
+          AppLogger.warning(
+            'Recurring transaction deleted locally but failed to sync: $error',
+          );
           return const Right(null);
         },
         (_) {
-          AppLogger.info('Recurring transaction deleted and synced: $transactionId');
+          AppLogger.info(
+            'Recurring transaction deleted and synced: $transactionId',
+          );
           return const Right(null);
         },
       );
     } catch (e, stackTrace) {
-      AppLogger.error('Failed to delete recurring transaction', error: e, stackTrace: stackTrace);
+      AppLogger.error(
+        'Failed to delete recurring transaction',
+        error: e,
+        stackTrace: stackTrace,
+      );
       return Left('Failed to delete recurring transaction: ${e.toString()}');
     }
   }
 
-  Future<Either<String, List<RecurringTransaction>>> getAllRecurringTransactions({
-    required String userId,
-  }) async {
+  Future<Either<String, List<RecurringTransaction>>>
+  getAllRecurringTransactions({required String userId}) async {
     try {
-      final localTransactions = await _hiveService.getAllRecurringTransactions();
+      final localTransactions = await _hiveService
+          .getAllRecurringTransactions();
 
-      // Sync from Firestore in the background
-      _syncRecurringTransactionsFromFirestore(userId);
+      // Sync from Firestore in the background for paid tiers
+      if (_subscriptionService.canUseCloudSync()) {
+        _syncRecurringTransactionsFromFirestore(userId);
+      }
 
       return Right(localTransactions);
     } catch (e, stackTrace) {
-      AppLogger.error('Failed to get all recurring transactions', error: e, stackTrace: stackTrace);
+      AppLogger.error(
+        'Failed to get all recurring transactions',
+        error: e,
+        stackTrace: stackTrace,
+      );
       return Left('Failed to get recurring transactions: ${e.toString()}');
     }
   }
 
-  Future<Either<String, List<RecurringTransaction>>> getActiveRecurringTransactions({
-    required String userId,
-  }) async {
+  Future<Either<String, List<RecurringTransaction>>>
+  getActiveRecurringTransactions({required String userId}) async {
     try {
       final result = await getAllRecurringTransactions(userId: userId);
 
-      return result.fold(
-        (error) => Left(error),
-        (transactions) {
-          final active = transactions.where((t) => t.isActive).toList();
-          return Right(active);
-        },
-      );
+      return result.fold((error) => Left(error), (transactions) {
+        final active = transactions.where((t) => t.isActive).toList();
+        return Right(active);
+      });
     } catch (e, stackTrace) {
-      AppLogger.error('Failed to get active recurring transactions', error: e, stackTrace: stackTrace);
+      AppLogger.error(
+        'Failed to get active recurring transactions',
+        error: e,
+        stackTrace: stackTrace,
+      );
       return Left('Failed to get recurring transactions: ${e.toString()}');
     }
   }
 
-  Future<Either<String, List<RecurringTransaction>>> getDueRecurringTransactions({
-    required String userId,
-  }) async {
+  Future<Either<String, List<RecurringTransaction>>>
+  getDueRecurringTransactions({required String userId}) async {
     try {
       final result = await getActiveRecurringTransactions(userId: userId);
 
-      return result.fold(
-        (error) => Left(error),
-        (transactions) {
-          final now = DateTime.now();
-          final due = transactions.where((t) {
-            return t.nextDueDate.isBefore(now) ||
-                   t.nextDueDate.day == now.day &&
-                   t.nextDueDate.month == now.month &&
-                   t.nextDueDate.year == now.year;
-          }).toList();
-          return Right(due);
-        },
-      );
+      return result.fold((error) => Left(error), (transactions) {
+        final now = DateTime.now();
+        final due = transactions.where((t) {
+          return t.nextDueDate.isBefore(now) ||
+              t.nextDueDate.day == now.day &&
+                  t.nextDueDate.month == now.month &&
+                  t.nextDueDate.year == now.year;
+        }).toList();
+        return Right(due);
+      });
     } catch (e, stackTrace) {
-      AppLogger.error('Failed to get due recurring transactions', error: e, stackTrace: stackTrace);
+      AppLogger.error(
+        'Failed to get due recurring transactions',
+        error: e,
+        stackTrace: stackTrace,
+      );
       return Left('Failed to get recurring transactions: ${e.toString()}');
     }
   }
@@ -204,18 +262,19 @@ class RecurringRepository {
     try {
       final result = await getActiveRecurringTransactions(userId: userId);
 
-      return result.fold(
-        (error) => Left(error),
-        (transactions) {
-          final total = transactions.fold<double>(
-            0.0,
-            (sum, transaction) => sum + transaction.getMonthlyCost(),
-          );
-          return Right(total);
-        },
-      );
+      return result.fold((error) => Left(error), (transactions) {
+        final total = transactions.fold<double>(
+          0.0,
+          (sum, transaction) => sum + transaction.getMonthlyCost(),
+        );
+        return Right(total);
+      });
     } catch (e, stackTrace) {
-      AppLogger.error('Failed to calculate monthly recurring cost', error: e, stackTrace: stackTrace);
+      AppLogger.error(
+        'Failed to calculate monthly recurring cost',
+        error: e,
+        stackTrace: stackTrace,
+      );
       return Left('Failed to calculate cost: ${e.toString()}');
     }
   }
@@ -226,18 +285,19 @@ class RecurringRepository {
     try {
       final result = await getActiveRecurringTransactions(userId: userId);
 
-      return result.fold(
-        (error) => Left(error),
-        (transactions) {
-          final total = transactions.fold<double>(
-            0.0,
-            (sum, transaction) => sum + transaction.getAnnualCost(),
-          );
-          return Right(total);
-        },
-      );
+      return result.fold((error) => Left(error), (transactions) {
+        final total = transactions.fold<double>(
+          0.0,
+          (sum, transaction) => sum + transaction.getAnnualCost(),
+        );
+        return Right(total);
+      });
     } catch (e, stackTrace) {
-      AppLogger.error('Failed to calculate annual recurring cost', error: e, stackTrace: stackTrace);
+      AppLogger.error(
+        'Failed to calculate annual recurring cost',
+        error: e,
+        stackTrace: stackTrace,
+      );
       return Left('Failed to calculate cost: ${e.toString()}');
     }
   }
@@ -248,121 +308,136 @@ class RecurringRepository {
     try {
       final dueResult = await getDueRecurringTransactions(userId: userId);
 
-      return dueResult.fold(
-        (error) => Left(error),
-        (dueTransactions) async {
-          for (final recurring in dueTransactions) {
-            // Create actual transaction
-            await _transactionRepository.createTransaction(
-              userId: userId,
-              amount: recurring.amount,
-              category: recurring.category,
-              description: recurring.description,
-              date: recurring.nextDueDate,
-              paymentMethod: recurring.paymentMethod ?? 'Auto',
-              isRecurring: true,
-              recurringId: recurring.id,
-              notes: recurring.notes,
-            );
+      return dueResult.fold((error) => Left(error), (dueTransactions) async {
+        for (final recurring in dueTransactions) {
+          // Create actual transaction
+          await _transactionRepository.createTransaction(
+            userId: userId,
+            amount: recurring.amount,
+            category: recurring.category,
+            description: recurring.description,
+            date: recurring.nextDueDate,
+            paymentMethod: recurring.paymentMethod ?? 'Auto',
+            isRecurring: true,
+            recurringId: recurring.id,
+            notes: recurring.notes,
+          );
 
-            // Update next due date
-            final nextDueDate = recurring.getNextDueDate();
-            final updated = recurring.copyWith(
-              nextDueDate: nextDueDate,
-              updatedAt: DateTime.now(),
-            );
+          // Update next due date
+          final nextDueDate = recurring.getNextDueDate();
+          final updated = recurring.copyWith(
+            nextDueDate: nextDueDate,
+            updatedAt: DateTime.now(),
+          );
 
-            await updateRecurringTransaction(transaction: updated);
+          await updateRecurringTransaction(transaction: updated);
 
-            AppLogger.info('Processed recurring transaction: ${recurring.description}');
-          }
+          AppLogger.info(
+            'Processed recurring transaction: ${recurring.description}',
+          );
+        }
 
-          return const Right(null);
-        },
-      );
+        return const Right(null);
+      });
     } catch (e, stackTrace) {
-      AppLogger.error('Failed to process recurring transactions', error: e, stackTrace: stackTrace);
+      AppLogger.error(
+        'Failed to process recurring transactions',
+        error: e,
+        stackTrace: stackTrace,
+      );
       return Left('Failed to process recurring transactions: ${e.toString()}');
     }
   }
 
-  Future<Either<String, List<RecurringTransaction>>> detectRecurringTransactions({
-    required String userId,
-  }) async {
+  Future<Either<String, List<RecurringTransaction>>>
+  detectRecurringTransactions({required String userId}) async {
     try {
       final now = DateTime.now();
-      final startDate = DateTime(now.year, now.month - AppConstants.recurringDetectionMonths, 1);
-
-      final transactionsResult = await _transactionRepository.getTransactionsByDateRange(
-        userId: userId,
-        startDate: startDate,
-        endDate: now,
+      final startDate = DateTime(
+        now.year,
+        now.month - AppConstants.recurringDetectionMonths,
+        1,
       );
 
-      return transactionsResult.fold(
-        (error) => Left(error),
-        (transactions) {
-          final detected = <RecurringTransaction>[];
-          final grouped = <String, List<models.Transaction>>{};
+      final transactionsResult = await _transactionRepository
+          .getTransactionsByDateRange(
+            userId: userId,
+            startDate: startDate,
+            endDate: now,
+          );
 
-          // Group transactions by category and similar amount
-          for (final transaction in transactions) {
-            final key = '${transaction.category}_${(transaction.amount / 100).round() * 100}';
-            grouped[key] = [...(grouped[key] ?? []), transaction];
-          }
+      return transactionsResult.fold((error) => Left(error), (transactions) {
+        final detected = <RecurringTransaction>[];
+        final grouped = <String, List<models.Transaction>>{};
 
-          // Detect patterns
-          for (final group in grouped.values) {
-            if (group.length >= 3) {
-              // Check if dates are consistent
-              final sortedByDate = group..sort((a, b) => a.date.compareTo(b.date));
+        // Group transactions by category and similar amount
+        for (final transaction in transactions) {
+          final key =
+              '${transaction.category}_${(transaction.amount / 100).round() * 100}';
+          grouped[key] = [...(grouped[key] ?? []), transaction];
+        }
 
-              bool isPotentiallyRecurring = true;
-              int? daysBetween;
+        // Detect patterns
+        for (final group in grouped.values) {
+          if (group.length >= 3) {
+            // Check if dates are consistent
+            final sortedByDate = group
+              ..sort((a, b) => a.date.compareTo(b.date));
 
-              for (int i = 1; i < sortedByDate.length; i++) {
-                final diff = sortedByDate[i].date.difference(sortedByDate[i - 1].date).inDays;
+            bool isPotentiallyRecurring = true;
+            int? daysBetween;
 
-                if (daysBetween == null) {
-                  daysBetween = diff;
-                } else {
-                  // Check if difference is within tolerance
-                  if ((diff - daysBetween).abs() > AppConstants.recurringDateTolerance) {
-                    isPotentiallyRecurring = false;
-                    break;
-                  }
+            for (int i = 1; i < sortedByDate.length; i++) {
+              final diff = sortedByDate[i].date
+                  .difference(sortedByDate[i - 1].date)
+                  .inDays;
+
+              if (daysBetween == null) {
+                daysBetween = diff;
+              } else {
+                // Check if difference is within tolerance
+                if ((diff - daysBetween).abs() >
+                    AppConstants.recurringDateTolerance) {
+                  isPotentiallyRecurring = false;
+                  break;
                 }
               }
+            }
 
-              if (isPotentiallyRecurring && daysBetween != null) {
-                final frequency = _determineFrequency(daysBetween);
-                final latest = sortedByDate.last;
+            if (isPotentiallyRecurring && daysBetween != null) {
+              final frequency = _determineFrequency(daysBetween);
+              final latest = sortedByDate.last;
 
-                final recurring = RecurringTransaction(
-                  id: _uuid.v4(),
-                  userId: userId,
-                  amount: latest.amount,
-                  category: latest.category,
-                  description: latest.description,
-                  frequency: frequency,
-                  nextDueDate: latest.date.add(Duration(days: daysBetween)),
-                  isActive: false, // User needs to confirm
-                  paymentMethod: latest.paymentMethod,
-                  notes: 'Auto-detected recurring pattern',
-                  createdAt: DateTime.now(),
-                );
+              final recurring = RecurringTransaction(
+                id: _uuid.v4(),
+                userId: userId,
+                amount: latest.amount,
+                category: latest.category,
+                description: latest.description,
+                frequency: frequency,
+                nextDueDate: latest.date.add(Duration(days: daysBetween)),
+                isActive: false, // User needs to confirm
+                paymentMethod: latest.paymentMethod,
+                notes: 'Auto-detected recurring pattern',
+                createdAt: DateTime.now(),
+              );
 
-                detected.add(recurring);
-                AppLogger.info('Detected recurring pattern: ${recurring.description}');
-              }
+              detected.add(recurring);
+              AppLogger.info(
+                'Detected recurring pattern: ${recurring.description}',
+              );
             }
           }
+        }
 
-          return Right(detected);
-        },
-      );
+        return Right(detected);
+      });
     } catch (e, stackTrace) {
-      AppLogger.error('Failed to detect recurring transactions', error: e, stackTrace: stackTrace);
+      AppLogger.error(
+        'Failed to detect recurring transactions',
+        error: e,
+        stackTrace: stackTrace,
+      );
       return Left('Failed to detect recurring transactions: ${e.toString()}');
     }
   }
@@ -390,10 +465,14 @@ class RecurringRepository {
       final result = await _firebaseService.getRecurringTransactions(userId);
 
       result.fold(
-        (error) => AppLogger.warning('Failed to sync recurring transactions from Firestore: $error'),
+        (error) => AppLogger.warning(
+          'Failed to sync recurring transactions from Firestore: $error',
+        ),
         (transactions) async {
           await _hiveService.saveRecurringTransactions(transactions);
-          AppLogger.info('Synced ${transactions.length} recurring transactions from Firestore');
+          AppLogger.info(
+            'Synced ${transactions.length} recurring transactions from Firestore',
+          );
         },
       );
     } catch (e) {
@@ -401,20 +480,26 @@ class RecurringRepository {
     }
   }
 
-  Future<Either<String, void>> syncAllRecurringTransactions(String userId) async {
+  Future<Either<String, void>> syncAllRecurringTransactions(
+    String userId,
+  ) async {
     try {
+      if (!_subscriptionService.canUseCloudSync()) {
+        return const Right(null);
+      }
       final result = await _firebaseService.getRecurringTransactions(userId);
 
-      return result.fold(
-        (error) => Left(error),
-        (transactions) async {
-          await _hiveService.saveRecurringTransactions(transactions);
-          AppLogger.info('Successfully synced all recurring transactions');
-          return const Right(null);
-        },
-      );
+      return result.fold((error) => Left(error), (transactions) async {
+        await _hiveService.saveRecurringTransactions(transactions);
+        AppLogger.info('Successfully synced all recurring transactions');
+        return const Right(null);
+      });
     } catch (e, stackTrace) {
-      AppLogger.error('Failed to sync recurring transactions', error: e, stackTrace: stackTrace);
+      AppLogger.error(
+        'Failed to sync recurring transactions',
+        error: e,
+        stackTrace: stackTrace,
+      );
       return Left('Failed to sync: ${e.toString()}');
     }
   }

@@ -12,7 +12,8 @@ part of 'financial_context.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 FinancialContext _$FinancialContextFromJson(Map<String, dynamic> json) {
   return _FinancialContext.fromJson(json);
@@ -42,20 +43,22 @@ mixin _$FinancialContext {
 /// @nodoc
 abstract class $FinancialContextCopyWith<$Res> {
   factory $FinancialContextCopyWith(
-          FinancialContext value, $Res Function(FinancialContext) then) =
-      _$FinancialContextCopyWithImpl<$Res, FinancialContext>;
+    FinancialContext value,
+    $Res Function(FinancialContext) then,
+  ) = _$FinancialContextCopyWithImpl<$Res, FinancialContext>;
   @useResult
-  $Res call(
-      {double totalIncome,
-      double totalExpenses,
-      double savings,
-      double savingsRate,
-      Map<String, double> categoryBreakdown,
-      List<String> topSpendingCategories,
-      Map<String, double> incomeSourceBreakdown,
-      int transactionCount,
-      DateTime periodStart,
-      DateTime periodEnd});
+  $Res call({
+    double totalIncome,
+    double totalExpenses,
+    double savings,
+    double savingsRate,
+    Map<String, double> categoryBreakdown,
+    List<String> topSpendingCategories,
+    Map<String, double> incomeSourceBreakdown,
+    int transactionCount,
+    DateTime periodStart,
+    DateTime periodEnd,
+  });
 }
 
 /// @nodoc
@@ -82,79 +85,85 @@ class _$FinancialContextCopyWithImpl<$Res, $Val extends FinancialContext>
     Object? periodStart = null,
     Object? periodEnd = null,
   }) {
-    return _then(_value.copyWith(
-      totalIncome: null == totalIncome
-          ? _value.totalIncome
-          : totalIncome // ignore: cast_nullable_to_non_nullable
-              as double,
-      totalExpenses: null == totalExpenses
-          ? _value.totalExpenses
-          : totalExpenses // ignore: cast_nullable_to_non_nullable
-              as double,
-      savings: null == savings
-          ? _value.savings
-          : savings // ignore: cast_nullable_to_non_nullable
-              as double,
-      savingsRate: null == savingsRate
-          ? _value.savingsRate
-          : savingsRate // ignore: cast_nullable_to_non_nullable
-              as double,
-      categoryBreakdown: null == categoryBreakdown
-          ? _value.categoryBreakdown
-          : categoryBreakdown // ignore: cast_nullable_to_non_nullable
-              as Map<String, double>,
-      topSpendingCategories: null == topSpendingCategories
-          ? _value.topSpendingCategories
-          : topSpendingCategories // ignore: cast_nullable_to_non_nullable
-              as List<String>,
-      incomeSourceBreakdown: null == incomeSourceBreakdown
-          ? _value.incomeSourceBreakdown
-          : incomeSourceBreakdown // ignore: cast_nullable_to_non_nullable
-              as Map<String, double>,
-      transactionCount: null == transactionCount
-          ? _value.transactionCount
-          : transactionCount // ignore: cast_nullable_to_non_nullable
-              as int,
-      periodStart: null == periodStart
-          ? _value.periodStart
-          : periodStart // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-      periodEnd: null == periodEnd
-          ? _value.periodEnd
-          : periodEnd // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-    ) as $Val);
+    return _then(
+      _value.copyWith(
+            totalIncome: null == totalIncome
+                ? _value.totalIncome
+                : totalIncome // ignore: cast_nullable_to_non_nullable
+                      as double,
+            totalExpenses: null == totalExpenses
+                ? _value.totalExpenses
+                : totalExpenses // ignore: cast_nullable_to_non_nullable
+                      as double,
+            savings: null == savings
+                ? _value.savings
+                : savings // ignore: cast_nullable_to_non_nullable
+                      as double,
+            savingsRate: null == savingsRate
+                ? _value.savingsRate
+                : savingsRate // ignore: cast_nullable_to_non_nullable
+                      as double,
+            categoryBreakdown: null == categoryBreakdown
+                ? _value.categoryBreakdown
+                : categoryBreakdown // ignore: cast_nullable_to_non_nullable
+                      as Map<String, double>,
+            topSpendingCategories: null == topSpendingCategories
+                ? _value.topSpendingCategories
+                : topSpendingCategories // ignore: cast_nullable_to_non_nullable
+                      as List<String>,
+            incomeSourceBreakdown: null == incomeSourceBreakdown
+                ? _value.incomeSourceBreakdown
+                : incomeSourceBreakdown // ignore: cast_nullable_to_non_nullable
+                      as Map<String, double>,
+            transactionCount: null == transactionCount
+                ? _value.transactionCount
+                : transactionCount // ignore: cast_nullable_to_non_nullable
+                      as int,
+            periodStart: null == periodStart
+                ? _value.periodStart
+                : periodStart // ignore: cast_nullable_to_non_nullable
+                      as DateTime,
+            periodEnd: null == periodEnd
+                ? _value.periodEnd
+                : periodEnd // ignore: cast_nullable_to_non_nullable
+                      as DateTime,
+          )
+          as $Val,
+    );
   }
 }
 
 /// @nodoc
 abstract class _$$FinancialContextImplCopyWith<$Res>
     implements $FinancialContextCopyWith<$Res> {
-  factory _$$FinancialContextImplCopyWith(_$FinancialContextImpl value,
-          $Res Function(_$FinancialContextImpl) then) =
-      __$$FinancialContextImplCopyWithImpl<$Res>;
+  factory _$$FinancialContextImplCopyWith(
+    _$FinancialContextImpl value,
+    $Res Function(_$FinancialContextImpl) then,
+  ) = __$$FinancialContextImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {double totalIncome,
-      double totalExpenses,
-      double savings,
-      double savingsRate,
-      Map<String, double> categoryBreakdown,
-      List<String> topSpendingCategories,
-      Map<String, double> incomeSourceBreakdown,
-      int transactionCount,
-      DateTime periodStart,
-      DateTime periodEnd});
+  $Res call({
+    double totalIncome,
+    double totalExpenses,
+    double savings,
+    double savingsRate,
+    Map<String, double> categoryBreakdown,
+    List<String> topSpendingCategories,
+    Map<String, double> incomeSourceBreakdown,
+    int transactionCount,
+    DateTime periodStart,
+    DateTime periodEnd,
+  });
 }
 
 /// @nodoc
 class __$$FinancialContextImplCopyWithImpl<$Res>
     extends _$FinancialContextCopyWithImpl<$Res, _$FinancialContextImpl>
     implements _$$FinancialContextImplCopyWith<$Res> {
-  __$$FinancialContextImplCopyWithImpl(_$FinancialContextImpl _value,
-      $Res Function(_$FinancialContextImpl) _then)
-      : super(_value, _then);
+  __$$FinancialContextImplCopyWithImpl(
+    _$FinancialContextImpl _value,
+    $Res Function(_$FinancialContextImpl) _then,
+  ) : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
@@ -170,69 +179,71 @@ class __$$FinancialContextImplCopyWithImpl<$Res>
     Object? periodStart = null,
     Object? periodEnd = null,
   }) {
-    return _then(_$FinancialContextImpl(
-      totalIncome: null == totalIncome
-          ? _value.totalIncome
-          : totalIncome // ignore: cast_nullable_to_non_nullable
-              as double,
-      totalExpenses: null == totalExpenses
-          ? _value.totalExpenses
-          : totalExpenses // ignore: cast_nullable_to_non_nullable
-              as double,
-      savings: null == savings
-          ? _value.savings
-          : savings // ignore: cast_nullable_to_non_nullable
-              as double,
-      savingsRate: null == savingsRate
-          ? _value.savingsRate
-          : savingsRate // ignore: cast_nullable_to_non_nullable
-              as double,
-      categoryBreakdown: null == categoryBreakdown
-          ? _value._categoryBreakdown
-          : categoryBreakdown // ignore: cast_nullable_to_non_nullable
-              as Map<String, double>,
-      topSpendingCategories: null == topSpendingCategories
-          ? _value._topSpendingCategories
-          : topSpendingCategories // ignore: cast_nullable_to_non_nullable
-              as List<String>,
-      incomeSourceBreakdown: null == incomeSourceBreakdown
-          ? _value._incomeSourceBreakdown
-          : incomeSourceBreakdown // ignore: cast_nullable_to_non_nullable
-              as Map<String, double>,
-      transactionCount: null == transactionCount
-          ? _value.transactionCount
-          : transactionCount // ignore: cast_nullable_to_non_nullable
-              as int,
-      periodStart: null == periodStart
-          ? _value.periodStart
-          : periodStart // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-      periodEnd: null == periodEnd
-          ? _value.periodEnd
-          : periodEnd // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-    ));
+    return _then(
+      _$FinancialContextImpl(
+        totalIncome: null == totalIncome
+            ? _value.totalIncome
+            : totalIncome // ignore: cast_nullable_to_non_nullable
+                  as double,
+        totalExpenses: null == totalExpenses
+            ? _value.totalExpenses
+            : totalExpenses // ignore: cast_nullable_to_non_nullable
+                  as double,
+        savings: null == savings
+            ? _value.savings
+            : savings // ignore: cast_nullable_to_non_nullable
+                  as double,
+        savingsRate: null == savingsRate
+            ? _value.savingsRate
+            : savingsRate // ignore: cast_nullable_to_non_nullable
+                  as double,
+        categoryBreakdown: null == categoryBreakdown
+            ? _value._categoryBreakdown
+            : categoryBreakdown // ignore: cast_nullable_to_non_nullable
+                  as Map<String, double>,
+        topSpendingCategories: null == topSpendingCategories
+            ? _value._topSpendingCategories
+            : topSpendingCategories // ignore: cast_nullable_to_non_nullable
+                  as List<String>,
+        incomeSourceBreakdown: null == incomeSourceBreakdown
+            ? _value._incomeSourceBreakdown
+            : incomeSourceBreakdown // ignore: cast_nullable_to_non_nullable
+                  as Map<String, double>,
+        transactionCount: null == transactionCount
+            ? _value.transactionCount
+            : transactionCount // ignore: cast_nullable_to_non_nullable
+                  as int,
+        periodStart: null == periodStart
+            ? _value.periodStart
+            : periodStart // ignore: cast_nullable_to_non_nullable
+                  as DateTime,
+        periodEnd: null == periodEnd
+            ? _value.periodEnd
+            : periodEnd // ignore: cast_nullable_to_non_nullable
+                  as DateTime,
+      ),
+    );
   }
 }
 
 /// @nodoc
 @JsonSerializable()
 class _$FinancialContextImpl extends _FinancialContext {
-  const _$FinancialContextImpl(
-      {required this.totalIncome,
-      required this.totalExpenses,
-      required this.savings,
-      required this.savingsRate,
-      required final Map<String, double> categoryBreakdown,
-      required final List<String> topSpendingCategories,
-      required final Map<String, double> incomeSourceBreakdown,
-      required this.transactionCount,
-      required this.periodStart,
-      required this.periodEnd})
-      : _categoryBreakdown = categoryBreakdown,
-        _topSpendingCategories = topSpendingCategories,
-        _incomeSourceBreakdown = incomeSourceBreakdown,
-        super._();
+  const _$FinancialContextImpl({
+    required this.totalIncome,
+    required this.totalExpenses,
+    required this.savings,
+    required this.savingsRate,
+    required final Map<String, double> categoryBreakdown,
+    required final List<String> topSpendingCategories,
+    required final Map<String, double> incomeSourceBreakdown,
+    required this.transactionCount,
+    required this.periodStart,
+    required this.periodEnd,
+  }) : _categoryBreakdown = categoryBreakdown,
+       _topSpendingCategories = topSpendingCategories,
+       _incomeSourceBreakdown = incomeSourceBreakdown,
+       super._();
 
   factory _$FinancialContextImpl.fromJson(Map<String, dynamic> json) =>
       _$$FinancialContextImplFromJson(json);
@@ -296,12 +307,18 @@ class _$FinancialContextImpl extends _FinancialContext {
             (identical(other.savings, savings) || other.savings == savings) &&
             (identical(other.savingsRate, savingsRate) ||
                 other.savingsRate == savingsRate) &&
-            const DeepCollectionEquality()
-                .equals(other._categoryBreakdown, _categoryBreakdown) &&
-            const DeepCollectionEquality()
-                .equals(other._topSpendingCategories, _topSpendingCategories) &&
-            const DeepCollectionEquality()
-                .equals(other._incomeSourceBreakdown, _incomeSourceBreakdown) &&
+            const DeepCollectionEquality().equals(
+              other._categoryBreakdown,
+              _categoryBreakdown,
+            ) &&
+            const DeepCollectionEquality().equals(
+              other._topSpendingCategories,
+              _topSpendingCategories,
+            ) &&
+            const DeepCollectionEquality().equals(
+              other._incomeSourceBreakdown,
+              _incomeSourceBreakdown,
+            ) &&
             (identical(other.transactionCount, transactionCount) ||
                 other.transactionCount == transactionCount) &&
             (identical(other.periodStart, periodStart) ||
@@ -313,45 +330,47 @@ class _$FinancialContextImpl extends _FinancialContext {
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
-      runtimeType,
-      totalIncome,
-      totalExpenses,
-      savings,
-      savingsRate,
-      const DeepCollectionEquality().hash(_categoryBreakdown),
-      const DeepCollectionEquality().hash(_topSpendingCategories),
-      const DeepCollectionEquality().hash(_incomeSourceBreakdown),
-      transactionCount,
-      periodStart,
-      periodEnd);
+    runtimeType,
+    totalIncome,
+    totalExpenses,
+    savings,
+    savingsRate,
+    const DeepCollectionEquality().hash(_categoryBreakdown),
+    const DeepCollectionEquality().hash(_topSpendingCategories),
+    const DeepCollectionEquality().hash(_incomeSourceBreakdown),
+    transactionCount,
+    periodStart,
+    periodEnd,
+  );
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$FinancialContextImplCopyWith<_$FinancialContextImpl> get copyWith =>
       __$$FinancialContextImplCopyWithImpl<_$FinancialContextImpl>(
-          this, _$identity);
+        this,
+        _$identity,
+      );
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$FinancialContextImplToJson(
-      this,
-    );
+    return _$$FinancialContextImplToJson(this);
   }
 }
 
 abstract class _FinancialContext extends FinancialContext {
-  const factory _FinancialContext(
-      {required final double totalIncome,
-      required final double totalExpenses,
-      required final double savings,
-      required final double savingsRate,
-      required final Map<String, double> categoryBreakdown,
-      required final List<String> topSpendingCategories,
-      required final Map<String, double> incomeSourceBreakdown,
-      required final int transactionCount,
-      required final DateTime periodStart,
-      required final DateTime periodEnd}) = _$FinancialContextImpl;
+  const factory _FinancialContext({
+    required final double totalIncome,
+    required final double totalExpenses,
+    required final double savings,
+    required final double savingsRate,
+    required final Map<String, double> categoryBreakdown,
+    required final List<String> topSpendingCategories,
+    required final Map<String, double> incomeSourceBreakdown,
+    required final int transactionCount,
+    required final DateTime periodStart,
+    required final DateTime periodEnd,
+  }) = _$FinancialContextImpl;
   const _FinancialContext._() : super._();
 
   factory _FinancialContext.fromJson(Map<String, dynamic> json) =

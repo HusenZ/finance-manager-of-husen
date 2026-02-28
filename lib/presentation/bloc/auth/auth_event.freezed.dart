@@ -12,90 +12,88 @@ part of 'auth_event.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 /// @nodoc
 mixin _$AuthEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String email, String password, String name)
-        signUpRequested,
+    signUpRequested,
     required TResult Function(String email, String password) signInRequested,
     required TResult Function() signInWithGoogleRequested,
     required TResult Function() signOutRequested,
     required TResult Function(String email) resetPasswordRequested,
     required TResult Function(
-            String name, String? profilePicture, String? currency)
-        updateProfileRequested,
+      String name,
+      String? profilePicture,
+      String? currency,
+    )
+    updateProfileRequested,
     required TResult Function() authStateChanged,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String email, String password, String name)?
-        signUpRequested,
+    signUpRequested,
     TResult? Function(String email, String password)? signInRequested,
     TResult? Function()? signInWithGoogleRequested,
     TResult? Function()? signOutRequested,
     TResult? Function(String email)? resetPasswordRequested,
     TResult? Function(String name, String? profilePicture, String? currency)?
-        updateProfileRequested,
+    updateProfileRequested,
     TResult? Function()? authStateChanged,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String email, String password, String name)?
-        signUpRequested,
+    signUpRequested,
     TResult Function(String email, String password)? signInRequested,
     TResult Function()? signInWithGoogleRequested,
     TResult Function()? signOutRequested,
     TResult Function(String email)? resetPasswordRequested,
     TResult Function(String name, String? profilePicture, String? currency)?
-        updateProfileRequested,
+    updateProfileRequested,
     TResult Function()? authStateChanged,
     required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(SignUpRequested value) signUpRequested,
     required TResult Function(SignInRequested value) signInRequested,
     required TResult Function(SignInWithGoogleRequested value)
-        signInWithGoogleRequested,
+    signInWithGoogleRequested,
     required TResult Function(SignOutRequested value) signOutRequested,
     required TResult Function(ResetPasswordRequested value)
-        resetPasswordRequested,
+    resetPasswordRequested,
     required TResult Function(UpdateProfileRequested value)
-        updateProfileRequested,
+    updateProfileRequested,
     required TResult Function(AuthStateChanged value) authStateChanged,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(SignUpRequested value)? signUpRequested,
     TResult? Function(SignInRequested value)? signInRequested,
     TResult? Function(SignInWithGoogleRequested value)?
-        signInWithGoogleRequested,
+    signInWithGoogleRequested,
     TResult? Function(SignOutRequested value)? signOutRequested,
     TResult? Function(ResetPasswordRequested value)? resetPasswordRequested,
     TResult? Function(UpdateProfileRequested value)? updateProfileRequested,
     TResult? Function(AuthStateChanged value)? authStateChanged,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(SignUpRequested value)? signUpRequested,
     TResult Function(SignInRequested value)? signInRequested,
     TResult Function(SignInWithGoogleRequested value)?
-        signInWithGoogleRequested,
+    signInWithGoogleRequested,
     TResult Function(SignOutRequested value)? signOutRequested,
     TResult Function(ResetPasswordRequested value)? resetPasswordRequested,
     TResult Function(UpdateProfileRequested value)? updateProfileRequested,
     TResult Function(AuthStateChanged value)? authStateChanged,
     required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -117,9 +115,10 @@ class _$AuthEventCopyWithImpl<$Res, $Val extends AuthEvent>
 
 /// @nodoc
 abstract class _$$SignUpRequestedImplCopyWith<$Res> {
-  factory _$$SignUpRequestedImplCopyWith(_$SignUpRequestedImpl value,
-          $Res Function(_$SignUpRequestedImpl) then) =
-      __$$SignUpRequestedImplCopyWithImpl<$Res>;
+  factory _$$SignUpRequestedImplCopyWith(
+    _$SignUpRequestedImpl value,
+    $Res Function(_$SignUpRequestedImpl) then,
+  ) = __$$SignUpRequestedImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String email, String password, String name});
 }
@@ -129,8 +128,9 @@ class __$$SignUpRequestedImplCopyWithImpl<$Res>
     extends _$AuthEventCopyWithImpl<$Res, _$SignUpRequestedImpl>
     implements _$$SignUpRequestedImplCopyWith<$Res> {
   __$$SignUpRequestedImplCopyWithImpl(
-      _$SignUpRequestedImpl _value, $Res Function(_$SignUpRequestedImpl) _then)
-      : super(_value, _then);
+    _$SignUpRequestedImpl _value,
+    $Res Function(_$SignUpRequestedImpl) _then,
+  ) : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
@@ -139,28 +139,33 @@ class __$$SignUpRequestedImplCopyWithImpl<$Res>
     Object? password = null,
     Object? name = null,
   }) {
-    return _then(_$SignUpRequestedImpl(
-      email: null == email
-          ? _value.email
-          : email // ignore: cast_nullable_to_non_nullable
-              as String,
-      password: null == password
-          ? _value.password
-          : password // ignore: cast_nullable_to_non_nullable
-              as String,
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
+    return _then(
+      _$SignUpRequestedImpl(
+        email: null == email
+            ? _value.email
+            : email // ignore: cast_nullable_to_non_nullable
+                  as String,
+        password: null == password
+            ? _value.password
+            : password // ignore: cast_nullable_to_non_nullable
+                  as String,
+        name: null == name
+            ? _value.name
+            : name // ignore: cast_nullable_to_non_nullable
+                  as String,
+      ),
+    );
   }
 }
 
 /// @nodoc
 
 class _$SignUpRequestedImpl implements SignUpRequested {
-  const _$SignUpRequestedImpl(
-      {required this.email, required this.password, required this.name});
+  const _$SignUpRequestedImpl({
+    required this.email,
+    required this.password,
+    required this.name,
+  });
 
   @override
   final String email;
@@ -193,20 +198,25 @@ class _$SignUpRequestedImpl implements SignUpRequested {
   @pragma('vm:prefer-inline')
   _$$SignUpRequestedImplCopyWith<_$SignUpRequestedImpl> get copyWith =>
       __$$SignUpRequestedImplCopyWithImpl<_$SignUpRequestedImpl>(
-          this, _$identity);
+        this,
+        _$identity,
+      );
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String email, String password, String name)
-        signUpRequested,
+    signUpRequested,
     required TResult Function(String email, String password) signInRequested,
     required TResult Function() signInWithGoogleRequested,
     required TResult Function() signOutRequested,
     required TResult Function(String email) resetPasswordRequested,
     required TResult Function(
-            String name, String? profilePicture, String? currency)
-        updateProfileRequested,
+      String name,
+      String? profilePicture,
+      String? currency,
+    )
+    updateProfileRequested,
     required TResult Function() authStateChanged,
   }) {
     return signUpRequested(email, password, name);
@@ -216,13 +226,13 @@ class _$SignUpRequestedImpl implements SignUpRequested {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String email, String password, String name)?
-        signUpRequested,
+    signUpRequested,
     TResult? Function(String email, String password)? signInRequested,
     TResult? Function()? signInWithGoogleRequested,
     TResult? Function()? signOutRequested,
     TResult? Function(String email)? resetPasswordRequested,
     TResult? Function(String name, String? profilePicture, String? currency)?
-        updateProfileRequested,
+    updateProfileRequested,
     TResult? Function()? authStateChanged,
   }) {
     return signUpRequested?.call(email, password, name);
@@ -232,13 +242,13 @@ class _$SignUpRequestedImpl implements SignUpRequested {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String email, String password, String name)?
-        signUpRequested,
+    signUpRequested,
     TResult Function(String email, String password)? signInRequested,
     TResult Function()? signInWithGoogleRequested,
     TResult Function()? signOutRequested,
     TResult Function(String email)? resetPasswordRequested,
     TResult Function(String name, String? profilePicture, String? currency)?
-        updateProfileRequested,
+    updateProfileRequested,
     TResult Function()? authStateChanged,
     required TResult orElse(),
   }) {
@@ -254,12 +264,12 @@ class _$SignUpRequestedImpl implements SignUpRequested {
     required TResult Function(SignUpRequested value) signUpRequested,
     required TResult Function(SignInRequested value) signInRequested,
     required TResult Function(SignInWithGoogleRequested value)
-        signInWithGoogleRequested,
+    signInWithGoogleRequested,
     required TResult Function(SignOutRequested value) signOutRequested,
     required TResult Function(ResetPasswordRequested value)
-        resetPasswordRequested,
+    resetPasswordRequested,
     required TResult Function(UpdateProfileRequested value)
-        updateProfileRequested,
+    updateProfileRequested,
     required TResult Function(AuthStateChanged value) authStateChanged,
   }) {
     return signUpRequested(this);
@@ -271,7 +281,7 @@ class _$SignUpRequestedImpl implements SignUpRequested {
     TResult? Function(SignUpRequested value)? signUpRequested,
     TResult? Function(SignInRequested value)? signInRequested,
     TResult? Function(SignInWithGoogleRequested value)?
-        signInWithGoogleRequested,
+    signInWithGoogleRequested,
     TResult? Function(SignOutRequested value)? signOutRequested,
     TResult? Function(ResetPasswordRequested value)? resetPasswordRequested,
     TResult? Function(UpdateProfileRequested value)? updateProfileRequested,
@@ -286,7 +296,7 @@ class _$SignUpRequestedImpl implements SignUpRequested {
     TResult Function(SignUpRequested value)? signUpRequested,
     TResult Function(SignInRequested value)? signInRequested,
     TResult Function(SignInWithGoogleRequested value)?
-        signInWithGoogleRequested,
+    signInWithGoogleRequested,
     TResult Function(SignOutRequested value)? signOutRequested,
     TResult Function(ResetPasswordRequested value)? resetPasswordRequested,
     TResult Function(UpdateProfileRequested value)? updateProfileRequested,
@@ -301,10 +311,11 @@ class _$SignUpRequestedImpl implements SignUpRequested {
 }
 
 abstract class SignUpRequested implements AuthEvent {
-  const factory SignUpRequested(
-      {required final String email,
-      required final String password,
-      required final String name}) = _$SignUpRequestedImpl;
+  const factory SignUpRequested({
+    required final String email,
+    required final String password,
+    required final String name,
+  }) = _$SignUpRequestedImpl;
 
   String get email;
   String get password;
@@ -316,9 +327,10 @@ abstract class SignUpRequested implements AuthEvent {
 
 /// @nodoc
 abstract class _$$SignInRequestedImplCopyWith<$Res> {
-  factory _$$SignInRequestedImplCopyWith(_$SignInRequestedImpl value,
-          $Res Function(_$SignInRequestedImpl) then) =
-      __$$SignInRequestedImplCopyWithImpl<$Res>;
+  factory _$$SignInRequestedImplCopyWith(
+    _$SignInRequestedImpl value,
+    $Res Function(_$SignInRequestedImpl) then,
+  ) = __$$SignInRequestedImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String email, String password});
 }
@@ -328,25 +340,25 @@ class __$$SignInRequestedImplCopyWithImpl<$Res>
     extends _$AuthEventCopyWithImpl<$Res, _$SignInRequestedImpl>
     implements _$$SignInRequestedImplCopyWith<$Res> {
   __$$SignInRequestedImplCopyWithImpl(
-      _$SignInRequestedImpl _value, $Res Function(_$SignInRequestedImpl) _then)
-      : super(_value, _then);
+    _$SignInRequestedImpl _value,
+    $Res Function(_$SignInRequestedImpl) _then,
+  ) : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? email = null,
-    Object? password = null,
-  }) {
-    return _then(_$SignInRequestedImpl(
-      email: null == email
-          ? _value.email
-          : email // ignore: cast_nullable_to_non_nullable
-              as String,
-      password: null == password
-          ? _value.password
-          : password // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
+  $Res call({Object? email = null, Object? password = null}) {
+    return _then(
+      _$SignInRequestedImpl(
+        email: null == email
+            ? _value.email
+            : email // ignore: cast_nullable_to_non_nullable
+                  as String,
+        password: null == password
+            ? _value.password
+            : password // ignore: cast_nullable_to_non_nullable
+                  as String,
+      ),
+    );
   }
 }
 
@@ -383,20 +395,25 @@ class _$SignInRequestedImpl implements SignInRequested {
   @pragma('vm:prefer-inline')
   _$$SignInRequestedImplCopyWith<_$SignInRequestedImpl> get copyWith =>
       __$$SignInRequestedImplCopyWithImpl<_$SignInRequestedImpl>(
-          this, _$identity);
+        this,
+        _$identity,
+      );
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String email, String password, String name)
-        signUpRequested,
+    signUpRequested,
     required TResult Function(String email, String password) signInRequested,
     required TResult Function() signInWithGoogleRequested,
     required TResult Function() signOutRequested,
     required TResult Function(String email) resetPasswordRequested,
     required TResult Function(
-            String name, String? profilePicture, String? currency)
-        updateProfileRequested,
+      String name,
+      String? profilePicture,
+      String? currency,
+    )
+    updateProfileRequested,
     required TResult Function() authStateChanged,
   }) {
     return signInRequested(email, password);
@@ -406,13 +423,13 @@ class _$SignInRequestedImpl implements SignInRequested {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String email, String password, String name)?
-        signUpRequested,
+    signUpRequested,
     TResult? Function(String email, String password)? signInRequested,
     TResult? Function()? signInWithGoogleRequested,
     TResult? Function()? signOutRequested,
     TResult? Function(String email)? resetPasswordRequested,
     TResult? Function(String name, String? profilePicture, String? currency)?
-        updateProfileRequested,
+    updateProfileRequested,
     TResult? Function()? authStateChanged,
   }) {
     return signInRequested?.call(email, password);
@@ -422,13 +439,13 @@ class _$SignInRequestedImpl implements SignInRequested {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String email, String password, String name)?
-        signUpRequested,
+    signUpRequested,
     TResult Function(String email, String password)? signInRequested,
     TResult Function()? signInWithGoogleRequested,
     TResult Function()? signOutRequested,
     TResult Function(String email)? resetPasswordRequested,
     TResult Function(String name, String? profilePicture, String? currency)?
-        updateProfileRequested,
+    updateProfileRequested,
     TResult Function()? authStateChanged,
     required TResult orElse(),
   }) {
@@ -444,12 +461,12 @@ class _$SignInRequestedImpl implements SignInRequested {
     required TResult Function(SignUpRequested value) signUpRequested,
     required TResult Function(SignInRequested value) signInRequested,
     required TResult Function(SignInWithGoogleRequested value)
-        signInWithGoogleRequested,
+    signInWithGoogleRequested,
     required TResult Function(SignOutRequested value) signOutRequested,
     required TResult Function(ResetPasswordRequested value)
-        resetPasswordRequested,
+    resetPasswordRequested,
     required TResult Function(UpdateProfileRequested value)
-        updateProfileRequested,
+    updateProfileRequested,
     required TResult Function(AuthStateChanged value) authStateChanged,
   }) {
     return signInRequested(this);
@@ -461,7 +478,7 @@ class _$SignInRequestedImpl implements SignInRequested {
     TResult? Function(SignUpRequested value)? signUpRequested,
     TResult? Function(SignInRequested value)? signInRequested,
     TResult? Function(SignInWithGoogleRequested value)?
-        signInWithGoogleRequested,
+    signInWithGoogleRequested,
     TResult? Function(SignOutRequested value)? signOutRequested,
     TResult? Function(ResetPasswordRequested value)? resetPasswordRequested,
     TResult? Function(UpdateProfileRequested value)? updateProfileRequested,
@@ -476,7 +493,7 @@ class _$SignInRequestedImpl implements SignInRequested {
     TResult Function(SignUpRequested value)? signUpRequested,
     TResult Function(SignInRequested value)? signInRequested,
     TResult Function(SignInWithGoogleRequested value)?
-        signInWithGoogleRequested,
+    signInWithGoogleRequested,
     TResult Function(SignOutRequested value)? signOutRequested,
     TResult Function(ResetPasswordRequested value)? resetPasswordRequested,
     TResult Function(UpdateProfileRequested value)? updateProfileRequested,
@@ -491,9 +508,10 @@ class _$SignInRequestedImpl implements SignInRequested {
 }
 
 abstract class SignInRequested implements AuthEvent {
-  const factory SignInRequested(
-      {required final String email,
-      required final String password}) = _$SignInRequestedImpl;
+  const factory SignInRequested({
+    required final String email,
+    required final String password,
+  }) = _$SignInRequestedImpl;
 
   String get email;
   String get password;
@@ -505,9 +523,9 @@ abstract class SignInRequested implements AuthEvent {
 /// @nodoc
 abstract class _$$SignInWithGoogleRequestedImplCopyWith<$Res> {
   factory _$$SignInWithGoogleRequestedImplCopyWith(
-          _$SignInWithGoogleRequestedImpl value,
-          $Res Function(_$SignInWithGoogleRequestedImpl) then) =
-      __$$SignInWithGoogleRequestedImplCopyWithImpl<$Res>;
+    _$SignInWithGoogleRequestedImpl value,
+    $Res Function(_$SignInWithGoogleRequestedImpl) then,
+  ) = __$$SignInWithGoogleRequestedImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
@@ -515,9 +533,9 @@ class __$$SignInWithGoogleRequestedImplCopyWithImpl<$Res>
     extends _$AuthEventCopyWithImpl<$Res, _$SignInWithGoogleRequestedImpl>
     implements _$$SignInWithGoogleRequestedImplCopyWith<$Res> {
   __$$SignInWithGoogleRequestedImplCopyWithImpl(
-      _$SignInWithGoogleRequestedImpl _value,
-      $Res Function(_$SignInWithGoogleRequestedImpl) _then)
-      : super(_value, _then);
+    _$SignInWithGoogleRequestedImpl _value,
+    $Res Function(_$SignInWithGoogleRequestedImpl) _then,
+  ) : super(_value, _then);
 }
 
 /// @nodoc
@@ -544,14 +562,17 @@ class _$SignInWithGoogleRequestedImpl implements SignInWithGoogleRequested {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String email, String password, String name)
-        signUpRequested,
+    signUpRequested,
     required TResult Function(String email, String password) signInRequested,
     required TResult Function() signInWithGoogleRequested,
     required TResult Function() signOutRequested,
     required TResult Function(String email) resetPasswordRequested,
     required TResult Function(
-            String name, String? profilePicture, String? currency)
-        updateProfileRequested,
+      String name,
+      String? profilePicture,
+      String? currency,
+    )
+    updateProfileRequested,
     required TResult Function() authStateChanged,
   }) {
     return signInWithGoogleRequested();
@@ -561,13 +582,13 @@ class _$SignInWithGoogleRequestedImpl implements SignInWithGoogleRequested {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String email, String password, String name)?
-        signUpRequested,
+    signUpRequested,
     TResult? Function(String email, String password)? signInRequested,
     TResult? Function()? signInWithGoogleRequested,
     TResult? Function()? signOutRequested,
     TResult? Function(String email)? resetPasswordRequested,
     TResult? Function(String name, String? profilePicture, String? currency)?
-        updateProfileRequested,
+    updateProfileRequested,
     TResult? Function()? authStateChanged,
   }) {
     return signInWithGoogleRequested?.call();
@@ -577,13 +598,13 @@ class _$SignInWithGoogleRequestedImpl implements SignInWithGoogleRequested {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String email, String password, String name)?
-        signUpRequested,
+    signUpRequested,
     TResult Function(String email, String password)? signInRequested,
     TResult Function()? signInWithGoogleRequested,
     TResult Function()? signOutRequested,
     TResult Function(String email)? resetPasswordRequested,
     TResult Function(String name, String? profilePicture, String? currency)?
-        updateProfileRequested,
+    updateProfileRequested,
     TResult Function()? authStateChanged,
     required TResult orElse(),
   }) {
@@ -599,12 +620,12 @@ class _$SignInWithGoogleRequestedImpl implements SignInWithGoogleRequested {
     required TResult Function(SignUpRequested value) signUpRequested,
     required TResult Function(SignInRequested value) signInRequested,
     required TResult Function(SignInWithGoogleRequested value)
-        signInWithGoogleRequested,
+    signInWithGoogleRequested,
     required TResult Function(SignOutRequested value) signOutRequested,
     required TResult Function(ResetPasswordRequested value)
-        resetPasswordRequested,
+    resetPasswordRequested,
     required TResult Function(UpdateProfileRequested value)
-        updateProfileRequested,
+    updateProfileRequested,
     required TResult Function(AuthStateChanged value) authStateChanged,
   }) {
     return signInWithGoogleRequested(this);
@@ -616,7 +637,7 @@ class _$SignInWithGoogleRequestedImpl implements SignInWithGoogleRequested {
     TResult? Function(SignUpRequested value)? signUpRequested,
     TResult? Function(SignInRequested value)? signInRequested,
     TResult? Function(SignInWithGoogleRequested value)?
-        signInWithGoogleRequested,
+    signInWithGoogleRequested,
     TResult? Function(SignOutRequested value)? signOutRequested,
     TResult? Function(ResetPasswordRequested value)? resetPasswordRequested,
     TResult? Function(UpdateProfileRequested value)? updateProfileRequested,
@@ -631,7 +652,7 @@ class _$SignInWithGoogleRequestedImpl implements SignInWithGoogleRequested {
     TResult Function(SignUpRequested value)? signUpRequested,
     TResult Function(SignInRequested value)? signInRequested,
     TResult Function(SignInWithGoogleRequested value)?
-        signInWithGoogleRequested,
+    signInWithGoogleRequested,
     TResult Function(SignOutRequested value)? signOutRequested,
     TResult Function(ResetPasswordRequested value)? resetPasswordRequested,
     TResult Function(UpdateProfileRequested value)? updateProfileRequested,
@@ -651,18 +672,20 @@ abstract class SignInWithGoogleRequested implements AuthEvent {
 
 /// @nodoc
 abstract class _$$SignOutRequestedImplCopyWith<$Res> {
-  factory _$$SignOutRequestedImplCopyWith(_$SignOutRequestedImpl value,
-          $Res Function(_$SignOutRequestedImpl) then) =
-      __$$SignOutRequestedImplCopyWithImpl<$Res>;
+  factory _$$SignOutRequestedImplCopyWith(
+    _$SignOutRequestedImpl value,
+    $Res Function(_$SignOutRequestedImpl) then,
+  ) = __$$SignOutRequestedImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
 class __$$SignOutRequestedImplCopyWithImpl<$Res>
     extends _$AuthEventCopyWithImpl<$Res, _$SignOutRequestedImpl>
     implements _$$SignOutRequestedImplCopyWith<$Res> {
-  __$$SignOutRequestedImplCopyWithImpl(_$SignOutRequestedImpl _value,
-      $Res Function(_$SignOutRequestedImpl) _then)
-      : super(_value, _then);
+  __$$SignOutRequestedImplCopyWithImpl(
+    _$SignOutRequestedImpl _value,
+    $Res Function(_$SignOutRequestedImpl) _then,
+  ) : super(_value, _then);
 }
 
 /// @nodoc
@@ -688,14 +711,17 @@ class _$SignOutRequestedImpl implements SignOutRequested {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String email, String password, String name)
-        signUpRequested,
+    signUpRequested,
     required TResult Function(String email, String password) signInRequested,
     required TResult Function() signInWithGoogleRequested,
     required TResult Function() signOutRequested,
     required TResult Function(String email) resetPasswordRequested,
     required TResult Function(
-            String name, String? profilePicture, String? currency)
-        updateProfileRequested,
+      String name,
+      String? profilePicture,
+      String? currency,
+    )
+    updateProfileRequested,
     required TResult Function() authStateChanged,
   }) {
     return signOutRequested();
@@ -705,13 +731,13 @@ class _$SignOutRequestedImpl implements SignOutRequested {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String email, String password, String name)?
-        signUpRequested,
+    signUpRequested,
     TResult? Function(String email, String password)? signInRequested,
     TResult? Function()? signInWithGoogleRequested,
     TResult? Function()? signOutRequested,
     TResult? Function(String email)? resetPasswordRequested,
     TResult? Function(String name, String? profilePicture, String? currency)?
-        updateProfileRequested,
+    updateProfileRequested,
     TResult? Function()? authStateChanged,
   }) {
     return signOutRequested?.call();
@@ -721,13 +747,13 @@ class _$SignOutRequestedImpl implements SignOutRequested {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String email, String password, String name)?
-        signUpRequested,
+    signUpRequested,
     TResult Function(String email, String password)? signInRequested,
     TResult Function()? signInWithGoogleRequested,
     TResult Function()? signOutRequested,
     TResult Function(String email)? resetPasswordRequested,
     TResult Function(String name, String? profilePicture, String? currency)?
-        updateProfileRequested,
+    updateProfileRequested,
     TResult Function()? authStateChanged,
     required TResult orElse(),
   }) {
@@ -743,12 +769,12 @@ class _$SignOutRequestedImpl implements SignOutRequested {
     required TResult Function(SignUpRequested value) signUpRequested,
     required TResult Function(SignInRequested value) signInRequested,
     required TResult Function(SignInWithGoogleRequested value)
-        signInWithGoogleRequested,
+    signInWithGoogleRequested,
     required TResult Function(SignOutRequested value) signOutRequested,
     required TResult Function(ResetPasswordRequested value)
-        resetPasswordRequested,
+    resetPasswordRequested,
     required TResult Function(UpdateProfileRequested value)
-        updateProfileRequested,
+    updateProfileRequested,
     required TResult Function(AuthStateChanged value) authStateChanged,
   }) {
     return signOutRequested(this);
@@ -760,7 +786,7 @@ class _$SignOutRequestedImpl implements SignOutRequested {
     TResult? Function(SignUpRequested value)? signUpRequested,
     TResult? Function(SignInRequested value)? signInRequested,
     TResult? Function(SignInWithGoogleRequested value)?
-        signInWithGoogleRequested,
+    signInWithGoogleRequested,
     TResult? Function(SignOutRequested value)? signOutRequested,
     TResult? Function(ResetPasswordRequested value)? resetPasswordRequested,
     TResult? Function(UpdateProfileRequested value)? updateProfileRequested,
@@ -775,7 +801,7 @@ class _$SignOutRequestedImpl implements SignOutRequested {
     TResult Function(SignUpRequested value)? signUpRequested,
     TResult Function(SignInRequested value)? signInRequested,
     TResult Function(SignInWithGoogleRequested value)?
-        signInWithGoogleRequested,
+    signInWithGoogleRequested,
     TResult Function(SignOutRequested value)? signOutRequested,
     TResult Function(ResetPasswordRequested value)? resetPasswordRequested,
     TResult Function(UpdateProfileRequested value)? updateProfileRequested,
@@ -796,9 +822,9 @@ abstract class SignOutRequested implements AuthEvent {
 /// @nodoc
 abstract class _$$ResetPasswordRequestedImplCopyWith<$Res> {
   factory _$$ResetPasswordRequestedImplCopyWith(
-          _$ResetPasswordRequestedImpl value,
-          $Res Function(_$ResetPasswordRequestedImpl) then) =
-      __$$ResetPasswordRequestedImplCopyWithImpl<$Res>;
+    _$ResetPasswordRequestedImpl value,
+    $Res Function(_$ResetPasswordRequestedImpl) then,
+  ) = __$$ResetPasswordRequestedImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String email});
 }
@@ -808,21 +834,21 @@ class __$$ResetPasswordRequestedImplCopyWithImpl<$Res>
     extends _$AuthEventCopyWithImpl<$Res, _$ResetPasswordRequestedImpl>
     implements _$$ResetPasswordRequestedImplCopyWith<$Res> {
   __$$ResetPasswordRequestedImplCopyWithImpl(
-      _$ResetPasswordRequestedImpl _value,
-      $Res Function(_$ResetPasswordRequestedImpl) _then)
-      : super(_value, _then);
+    _$ResetPasswordRequestedImpl _value,
+    $Res Function(_$ResetPasswordRequestedImpl) _then,
+  ) : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? email = null,
-  }) {
-    return _then(_$ResetPasswordRequestedImpl(
-      email: null == email
-          ? _value.email
-          : email // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
+  $Res call({Object? email = null}) {
+    return _then(
+      _$ResetPasswordRequestedImpl(
+        email: null == email
+            ? _value.email
+            : email // ignore: cast_nullable_to_non_nullable
+                  as String,
+      ),
+    );
   }
 }
 
@@ -854,21 +880,27 @@ class _$ResetPasswordRequestedImpl implements ResetPasswordRequested {
   @override
   @pragma('vm:prefer-inline')
   _$$ResetPasswordRequestedImplCopyWith<_$ResetPasswordRequestedImpl>
-      get copyWith => __$$ResetPasswordRequestedImplCopyWithImpl<
-          _$ResetPasswordRequestedImpl>(this, _$identity);
+  get copyWith =>
+      __$$ResetPasswordRequestedImplCopyWithImpl<_$ResetPasswordRequestedImpl>(
+        this,
+        _$identity,
+      );
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String email, String password, String name)
-        signUpRequested,
+    signUpRequested,
     required TResult Function(String email, String password) signInRequested,
     required TResult Function() signInWithGoogleRequested,
     required TResult Function() signOutRequested,
     required TResult Function(String email) resetPasswordRequested,
     required TResult Function(
-            String name, String? profilePicture, String? currency)
-        updateProfileRequested,
+      String name,
+      String? profilePicture,
+      String? currency,
+    )
+    updateProfileRequested,
     required TResult Function() authStateChanged,
   }) {
     return resetPasswordRequested(email);
@@ -878,13 +910,13 @@ class _$ResetPasswordRequestedImpl implements ResetPasswordRequested {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String email, String password, String name)?
-        signUpRequested,
+    signUpRequested,
     TResult? Function(String email, String password)? signInRequested,
     TResult? Function()? signInWithGoogleRequested,
     TResult? Function()? signOutRequested,
     TResult? Function(String email)? resetPasswordRequested,
     TResult? Function(String name, String? profilePicture, String? currency)?
-        updateProfileRequested,
+    updateProfileRequested,
     TResult? Function()? authStateChanged,
   }) {
     return resetPasswordRequested?.call(email);
@@ -894,13 +926,13 @@ class _$ResetPasswordRequestedImpl implements ResetPasswordRequested {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String email, String password, String name)?
-        signUpRequested,
+    signUpRequested,
     TResult Function(String email, String password)? signInRequested,
     TResult Function()? signInWithGoogleRequested,
     TResult Function()? signOutRequested,
     TResult Function(String email)? resetPasswordRequested,
     TResult Function(String name, String? profilePicture, String? currency)?
-        updateProfileRequested,
+    updateProfileRequested,
     TResult Function()? authStateChanged,
     required TResult orElse(),
   }) {
@@ -916,12 +948,12 @@ class _$ResetPasswordRequestedImpl implements ResetPasswordRequested {
     required TResult Function(SignUpRequested value) signUpRequested,
     required TResult Function(SignInRequested value) signInRequested,
     required TResult Function(SignInWithGoogleRequested value)
-        signInWithGoogleRequested,
+    signInWithGoogleRequested,
     required TResult Function(SignOutRequested value) signOutRequested,
     required TResult Function(ResetPasswordRequested value)
-        resetPasswordRequested,
+    resetPasswordRequested,
     required TResult Function(UpdateProfileRequested value)
-        updateProfileRequested,
+    updateProfileRequested,
     required TResult Function(AuthStateChanged value) authStateChanged,
   }) {
     return resetPasswordRequested(this);
@@ -933,7 +965,7 @@ class _$ResetPasswordRequestedImpl implements ResetPasswordRequested {
     TResult? Function(SignUpRequested value)? signUpRequested,
     TResult? Function(SignInRequested value)? signInRequested,
     TResult? Function(SignInWithGoogleRequested value)?
-        signInWithGoogleRequested,
+    signInWithGoogleRequested,
     TResult? Function(SignOutRequested value)? signOutRequested,
     TResult? Function(ResetPasswordRequested value)? resetPasswordRequested,
     TResult? Function(UpdateProfileRequested value)? updateProfileRequested,
@@ -948,7 +980,7 @@ class _$ResetPasswordRequestedImpl implements ResetPasswordRequested {
     TResult Function(SignUpRequested value)? signUpRequested,
     TResult Function(SignInRequested value)? signInRequested,
     TResult Function(SignInWithGoogleRequested value)?
-        signInWithGoogleRequested,
+    signInWithGoogleRequested,
     TResult Function(SignOutRequested value)? signOutRequested,
     TResult Function(ResetPasswordRequested value)? resetPasswordRequested,
     TResult Function(UpdateProfileRequested value)? updateProfileRequested,
@@ -969,15 +1001,15 @@ abstract class ResetPasswordRequested implements AuthEvent {
   String get email;
   @JsonKey(ignore: true)
   _$$ResetPasswordRequestedImplCopyWith<_$ResetPasswordRequestedImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class _$$UpdateProfileRequestedImplCopyWith<$Res> {
   factory _$$UpdateProfileRequestedImplCopyWith(
-          _$UpdateProfileRequestedImpl value,
-          $Res Function(_$UpdateProfileRequestedImpl) then) =
-      __$$UpdateProfileRequestedImplCopyWithImpl<$Res>;
+    _$UpdateProfileRequestedImpl value,
+    $Res Function(_$UpdateProfileRequestedImpl) then,
+  ) = __$$UpdateProfileRequestedImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String name, String? profilePicture, String? currency});
 }
@@ -987,9 +1019,9 @@ class __$$UpdateProfileRequestedImplCopyWithImpl<$Res>
     extends _$AuthEventCopyWithImpl<$Res, _$UpdateProfileRequestedImpl>
     implements _$$UpdateProfileRequestedImplCopyWith<$Res> {
   __$$UpdateProfileRequestedImplCopyWithImpl(
-      _$UpdateProfileRequestedImpl _value,
-      $Res Function(_$UpdateProfileRequestedImpl) _then)
-      : super(_value, _then);
+    _$UpdateProfileRequestedImpl _value,
+    $Res Function(_$UpdateProfileRequestedImpl) _then,
+  ) : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
@@ -998,28 +1030,33 @@ class __$$UpdateProfileRequestedImplCopyWithImpl<$Res>
     Object? profilePicture = freezed,
     Object? currency = freezed,
   }) {
-    return _then(_$UpdateProfileRequestedImpl(
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String,
-      profilePicture: freezed == profilePicture
-          ? _value.profilePicture
-          : profilePicture // ignore: cast_nullable_to_non_nullable
-              as String?,
-      currency: freezed == currency
-          ? _value.currency
-          : currency // ignore: cast_nullable_to_non_nullable
-              as String?,
-    ));
+    return _then(
+      _$UpdateProfileRequestedImpl(
+        name: null == name
+            ? _value.name
+            : name // ignore: cast_nullable_to_non_nullable
+                  as String,
+        profilePicture: freezed == profilePicture
+            ? _value.profilePicture
+            : profilePicture // ignore: cast_nullable_to_non_nullable
+                  as String?,
+        currency: freezed == currency
+            ? _value.currency
+            : currency // ignore: cast_nullable_to_non_nullable
+                  as String?,
+      ),
+    );
   }
 }
 
 /// @nodoc
 
 class _$UpdateProfileRequestedImpl implements UpdateProfileRequested {
-  const _$UpdateProfileRequestedImpl(
-      {required this.name, this.profilePicture, this.currency});
+  const _$UpdateProfileRequestedImpl({
+    required this.name,
+    this.profilePicture,
+    this.currency,
+  });
 
   @override
   final String name;
@@ -1052,21 +1089,27 @@ class _$UpdateProfileRequestedImpl implements UpdateProfileRequested {
   @override
   @pragma('vm:prefer-inline')
   _$$UpdateProfileRequestedImplCopyWith<_$UpdateProfileRequestedImpl>
-      get copyWith => __$$UpdateProfileRequestedImplCopyWithImpl<
-          _$UpdateProfileRequestedImpl>(this, _$identity);
+  get copyWith =>
+      __$$UpdateProfileRequestedImplCopyWithImpl<_$UpdateProfileRequestedImpl>(
+        this,
+        _$identity,
+      );
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String email, String password, String name)
-        signUpRequested,
+    signUpRequested,
     required TResult Function(String email, String password) signInRequested,
     required TResult Function() signInWithGoogleRequested,
     required TResult Function() signOutRequested,
     required TResult Function(String email) resetPasswordRequested,
     required TResult Function(
-            String name, String? profilePicture, String? currency)
-        updateProfileRequested,
+      String name,
+      String? profilePicture,
+      String? currency,
+    )
+    updateProfileRequested,
     required TResult Function() authStateChanged,
   }) {
     return updateProfileRequested(name, profilePicture, currency);
@@ -1076,13 +1119,13 @@ class _$UpdateProfileRequestedImpl implements UpdateProfileRequested {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String email, String password, String name)?
-        signUpRequested,
+    signUpRequested,
     TResult? Function(String email, String password)? signInRequested,
     TResult? Function()? signInWithGoogleRequested,
     TResult? Function()? signOutRequested,
     TResult? Function(String email)? resetPasswordRequested,
     TResult? Function(String name, String? profilePicture, String? currency)?
-        updateProfileRequested,
+    updateProfileRequested,
     TResult? Function()? authStateChanged,
   }) {
     return updateProfileRequested?.call(name, profilePicture, currency);
@@ -1092,13 +1135,13 @@ class _$UpdateProfileRequestedImpl implements UpdateProfileRequested {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String email, String password, String name)?
-        signUpRequested,
+    signUpRequested,
     TResult Function(String email, String password)? signInRequested,
     TResult Function()? signInWithGoogleRequested,
     TResult Function()? signOutRequested,
     TResult Function(String email)? resetPasswordRequested,
     TResult Function(String name, String? profilePicture, String? currency)?
-        updateProfileRequested,
+    updateProfileRequested,
     TResult Function()? authStateChanged,
     required TResult orElse(),
   }) {
@@ -1114,12 +1157,12 @@ class _$UpdateProfileRequestedImpl implements UpdateProfileRequested {
     required TResult Function(SignUpRequested value) signUpRequested,
     required TResult Function(SignInRequested value) signInRequested,
     required TResult Function(SignInWithGoogleRequested value)
-        signInWithGoogleRequested,
+    signInWithGoogleRequested,
     required TResult Function(SignOutRequested value) signOutRequested,
     required TResult Function(ResetPasswordRequested value)
-        resetPasswordRequested,
+    resetPasswordRequested,
     required TResult Function(UpdateProfileRequested value)
-        updateProfileRequested,
+    updateProfileRequested,
     required TResult Function(AuthStateChanged value) authStateChanged,
   }) {
     return updateProfileRequested(this);
@@ -1131,7 +1174,7 @@ class _$UpdateProfileRequestedImpl implements UpdateProfileRequested {
     TResult? Function(SignUpRequested value)? signUpRequested,
     TResult? Function(SignInRequested value)? signInRequested,
     TResult? Function(SignInWithGoogleRequested value)?
-        signInWithGoogleRequested,
+    signInWithGoogleRequested,
     TResult? Function(SignOutRequested value)? signOutRequested,
     TResult? Function(ResetPasswordRequested value)? resetPasswordRequested,
     TResult? Function(UpdateProfileRequested value)? updateProfileRequested,
@@ -1146,7 +1189,7 @@ class _$UpdateProfileRequestedImpl implements UpdateProfileRequested {
     TResult Function(SignUpRequested value)? signUpRequested,
     TResult Function(SignInRequested value)? signInRequested,
     TResult Function(SignInWithGoogleRequested value)?
-        signInWithGoogleRequested,
+    signInWithGoogleRequested,
     TResult Function(SignOutRequested value)? signOutRequested,
     TResult Function(ResetPasswordRequested value)? resetPasswordRequested,
     TResult Function(UpdateProfileRequested value)? updateProfileRequested,
@@ -1161,33 +1204,36 @@ class _$UpdateProfileRequestedImpl implements UpdateProfileRequested {
 }
 
 abstract class UpdateProfileRequested implements AuthEvent {
-  const factory UpdateProfileRequested(
-      {required final String name,
-      final String? profilePicture,
-      final String? currency}) = _$UpdateProfileRequestedImpl;
+  const factory UpdateProfileRequested({
+    required final String name,
+    final String? profilePicture,
+    final String? currency,
+  }) = _$UpdateProfileRequestedImpl;
 
   String get name;
   String? get profilePicture;
   String? get currency;
   @JsonKey(ignore: true)
   _$$UpdateProfileRequestedImplCopyWith<_$UpdateProfileRequestedImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class _$$AuthStateChangedImplCopyWith<$Res> {
-  factory _$$AuthStateChangedImplCopyWith(_$AuthStateChangedImpl value,
-          $Res Function(_$AuthStateChangedImpl) then) =
-      __$$AuthStateChangedImplCopyWithImpl<$Res>;
+  factory _$$AuthStateChangedImplCopyWith(
+    _$AuthStateChangedImpl value,
+    $Res Function(_$AuthStateChangedImpl) then,
+  ) = __$$AuthStateChangedImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
 class __$$AuthStateChangedImplCopyWithImpl<$Res>
     extends _$AuthEventCopyWithImpl<$Res, _$AuthStateChangedImpl>
     implements _$$AuthStateChangedImplCopyWith<$Res> {
-  __$$AuthStateChangedImplCopyWithImpl(_$AuthStateChangedImpl _value,
-      $Res Function(_$AuthStateChangedImpl) _then)
-      : super(_value, _then);
+  __$$AuthStateChangedImplCopyWithImpl(
+    _$AuthStateChangedImpl _value,
+    $Res Function(_$AuthStateChangedImpl) _then,
+  ) : super(_value, _then);
 }
 
 /// @nodoc
@@ -1213,14 +1259,17 @@ class _$AuthStateChangedImpl implements AuthStateChanged {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String email, String password, String name)
-        signUpRequested,
+    signUpRequested,
     required TResult Function(String email, String password) signInRequested,
     required TResult Function() signInWithGoogleRequested,
     required TResult Function() signOutRequested,
     required TResult Function(String email) resetPasswordRequested,
     required TResult Function(
-            String name, String? profilePicture, String? currency)
-        updateProfileRequested,
+      String name,
+      String? profilePicture,
+      String? currency,
+    )
+    updateProfileRequested,
     required TResult Function() authStateChanged,
   }) {
     return authStateChanged();
@@ -1230,13 +1279,13 @@ class _$AuthStateChangedImpl implements AuthStateChanged {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String email, String password, String name)?
-        signUpRequested,
+    signUpRequested,
     TResult? Function(String email, String password)? signInRequested,
     TResult? Function()? signInWithGoogleRequested,
     TResult? Function()? signOutRequested,
     TResult? Function(String email)? resetPasswordRequested,
     TResult? Function(String name, String? profilePicture, String? currency)?
-        updateProfileRequested,
+    updateProfileRequested,
     TResult? Function()? authStateChanged,
   }) {
     return authStateChanged?.call();
@@ -1246,13 +1295,13 @@ class _$AuthStateChangedImpl implements AuthStateChanged {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String email, String password, String name)?
-        signUpRequested,
+    signUpRequested,
     TResult Function(String email, String password)? signInRequested,
     TResult Function()? signInWithGoogleRequested,
     TResult Function()? signOutRequested,
     TResult Function(String email)? resetPasswordRequested,
     TResult Function(String name, String? profilePicture, String? currency)?
-        updateProfileRequested,
+    updateProfileRequested,
     TResult Function()? authStateChanged,
     required TResult orElse(),
   }) {
@@ -1268,12 +1317,12 @@ class _$AuthStateChangedImpl implements AuthStateChanged {
     required TResult Function(SignUpRequested value) signUpRequested,
     required TResult Function(SignInRequested value) signInRequested,
     required TResult Function(SignInWithGoogleRequested value)
-        signInWithGoogleRequested,
+    signInWithGoogleRequested,
     required TResult Function(SignOutRequested value) signOutRequested,
     required TResult Function(ResetPasswordRequested value)
-        resetPasswordRequested,
+    resetPasswordRequested,
     required TResult Function(UpdateProfileRequested value)
-        updateProfileRequested,
+    updateProfileRequested,
     required TResult Function(AuthStateChanged value) authStateChanged,
   }) {
     return authStateChanged(this);
@@ -1285,7 +1334,7 @@ class _$AuthStateChangedImpl implements AuthStateChanged {
     TResult? Function(SignUpRequested value)? signUpRequested,
     TResult? Function(SignInRequested value)? signInRequested,
     TResult? Function(SignInWithGoogleRequested value)?
-        signInWithGoogleRequested,
+    signInWithGoogleRequested,
     TResult? Function(SignOutRequested value)? signOutRequested,
     TResult? Function(ResetPasswordRequested value)? resetPasswordRequested,
     TResult? Function(UpdateProfileRequested value)? updateProfileRequested,
@@ -1300,7 +1349,7 @@ class _$AuthStateChangedImpl implements AuthStateChanged {
     TResult Function(SignUpRequested value)? signUpRequested,
     TResult Function(SignInRequested value)? signInRequested,
     TResult Function(SignInWithGoogleRequested value)?
-        signInWithGoogleRequested,
+    signInWithGoogleRequested,
     TResult Function(SignOutRequested value)? signOutRequested,
     TResult Function(ResetPasswordRequested value)? resetPasswordRequested,
     TResult Function(UpdateProfileRequested value)? updateProfileRequested,

@@ -42,11 +42,7 @@ class _SplashScreenState extends State<SplashScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Icon(
-              Icons.account_balance_wallet,
-              size: 100,
-              color: Colors.white,
-            ),
+            Icon(Icons.account_balance_wallet, size: 100, color: Colors.white),
             const SizedBox(height: 24),
             Text(
               'Finance Manager',

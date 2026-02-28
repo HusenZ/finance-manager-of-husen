@@ -15,13 +15,13 @@ class AuthEvent with _$AuthEvent {
     required String password,
   }) = SignInRequested;
 
-  const factory AuthEvent.signInWithGoogleRequested() = SignInWithGoogleRequested;
+  const factory AuthEvent.signInWithGoogleRequested() =
+      SignInWithGoogleRequested;
 
   const factory AuthEvent.signOutRequested() = SignOutRequested;
 
-  const factory AuthEvent.resetPasswordRequested({
-    required String email,
-  }) = ResetPasswordRequested;
+  const factory AuthEvent.resetPasswordRequested({required String email}) =
+      ResetPasswordRequested;
 
   const factory AuthEvent.updateProfileRequested({
     required String name,

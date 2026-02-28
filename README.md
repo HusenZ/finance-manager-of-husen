@@ -987,3 +987,26 @@ For issues and feature requests, please [open an issue](https://github.com/youru
 **Finance Manager** - Take control of your finances, one transaction at a time.
 
 </div>
+
+
+## Firebase Setup Guide
+
+1. Create Firebase project at [console.firebase.google.com](https://console.firebase.google.com)
+2. Enable Authentication -> Email/Password and Google
+3. Create Firestore database in production mode
+4. Copy `firestore.rules` into Firestore rules tab
+5. Run: `flutterfire configure`
+6. Copy `lib/core/secrets.example.dart` to `lib/core/secrets.dart`
+7. Fill in your Razorpay keys and your Firebase UID in `secrets.dart`
+8. Run the app
+
+## Web Deployment
+
+```bash
+# Build and deploy to Firebase Hosting
+flutter build web --release --web-renderer canvaskit
+firebase deploy --only hosting
+
+# Or use HTML renderer for faster initial load
+flutter build web --release --web-renderer html
+```

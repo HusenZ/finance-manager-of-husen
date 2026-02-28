@@ -12,7 +12,8 @@ part of 'recurring_event.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 /// @nodoc
 mixin _$RecurringEvent {
@@ -21,146 +22,146 @@ mixin _$RecurringEvent {
   TResult when<TResult extends Object?>({
     required TResult Function(String userId) loadRecurringTransactions,
     required TResult Function(
-            String userId,
-            double amount,
-            String category,
-            String description,
-            RecurringFrequency frequency,
-            DateTime nextDueDate,
-            String? paymentMethod,
-            String? notes)
-        createRecurringTransaction,
+      String userId,
+      double amount,
+      String category,
+      String description,
+      RecurringFrequency frequency,
+      DateTime nextDueDate,
+      String? paymentMethod,
+      String? notes,
+    )
+    createRecurringTransaction,
     required TResult Function(
-            String id,
-            String userId,
-            double amount,
-            String category,
-            String description,
-            RecurringFrequency frequency,
-            DateTime nextDueDate,
-            bool isActive,
-            String? paymentMethod,
-            String? notes,
-            DateTime createdAt)
-        toggleRecurringTransaction,
+      String id,
+      String userId,
+      double amount,
+      String category,
+      String description,
+      RecurringFrequency frequency,
+      DateTime nextDueDate,
+      bool isActive,
+      String? paymentMethod,
+      String? notes,
+      DateTime createdAt,
+    )
+    toggleRecurringTransaction,
     required TResult Function(String userId, String transactionId)
-        deleteRecurringTransaction,
+    deleteRecurringTransaction,
     required TResult Function(String userId) detectRecurringPatterns,
     required TResult Function(String userId) processRecurringTransactions,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String userId)? loadRecurringTransactions,
     TResult? Function(
-            String userId,
-            double amount,
-            String category,
-            String description,
-            RecurringFrequency frequency,
-            DateTime nextDueDate,
-            String? paymentMethod,
-            String? notes)?
-        createRecurringTransaction,
+      String userId,
+      double amount,
+      String category,
+      String description,
+      RecurringFrequency frequency,
+      DateTime nextDueDate,
+      String? paymentMethod,
+      String? notes,
+    )?
+    createRecurringTransaction,
     TResult? Function(
-            String id,
-            String userId,
-            double amount,
-            String category,
-            String description,
-            RecurringFrequency frequency,
-            DateTime nextDueDate,
-            bool isActive,
-            String? paymentMethod,
-            String? notes,
-            DateTime createdAt)?
-        toggleRecurringTransaction,
+      String id,
+      String userId,
+      double amount,
+      String category,
+      String description,
+      RecurringFrequency frequency,
+      DateTime nextDueDate,
+      bool isActive,
+      String? paymentMethod,
+      String? notes,
+      DateTime createdAt,
+    )?
+    toggleRecurringTransaction,
     TResult? Function(String userId, String transactionId)?
-        deleteRecurringTransaction,
+    deleteRecurringTransaction,
     TResult? Function(String userId)? detectRecurringPatterns,
     TResult? Function(String userId)? processRecurringTransactions,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String userId)? loadRecurringTransactions,
     TResult Function(
-            String userId,
-            double amount,
-            String category,
-            String description,
-            RecurringFrequency frequency,
-            DateTime nextDueDate,
-            String? paymentMethod,
-            String? notes)?
-        createRecurringTransaction,
+      String userId,
+      double amount,
+      String category,
+      String description,
+      RecurringFrequency frequency,
+      DateTime nextDueDate,
+      String? paymentMethod,
+      String? notes,
+    )?
+    createRecurringTransaction,
     TResult Function(
-            String id,
-            String userId,
-            double amount,
-            String category,
-            String description,
-            RecurringFrequency frequency,
-            DateTime nextDueDate,
-            bool isActive,
-            String? paymentMethod,
-            String? notes,
-            DateTime createdAt)?
-        toggleRecurringTransaction,
+      String id,
+      String userId,
+      double amount,
+      String category,
+      String description,
+      RecurringFrequency frequency,
+      DateTime nextDueDate,
+      bool isActive,
+      String? paymentMethod,
+      String? notes,
+      DateTime createdAt,
+    )?
+    toggleRecurringTransaction,
     TResult Function(String userId, String transactionId)?
-        deleteRecurringTransaction,
+    deleteRecurringTransaction,
     TResult Function(String userId)? detectRecurringPatterns,
     TResult Function(String userId)? processRecurringTransactions,
     required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(LoadRecurringTransactions value)
-        loadRecurringTransactions,
+    loadRecurringTransactions,
     required TResult Function(CreateRecurringTransaction value)
-        createRecurringTransaction,
+    createRecurringTransaction,
     required TResult Function(ToggleRecurringTransaction value)
-        toggleRecurringTransaction,
+    toggleRecurringTransaction,
     required TResult Function(DeleteRecurringTransaction value)
-        deleteRecurringTransaction,
+    deleteRecurringTransaction,
     required TResult Function(DetectRecurringPatterns value)
-        detectRecurringPatterns,
+    detectRecurringPatterns,
     required TResult Function(ProcessRecurringTransactions value)
-        processRecurringTransactions,
-  }) =>
-      throw _privateConstructorUsedError;
+    processRecurringTransactions,
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(LoadRecurringTransactions value)?
-        loadRecurringTransactions,
+    loadRecurringTransactions,
     TResult? Function(CreateRecurringTransaction value)?
-        createRecurringTransaction,
+    createRecurringTransaction,
     TResult? Function(ToggleRecurringTransaction value)?
-        toggleRecurringTransaction,
+    toggleRecurringTransaction,
     TResult? Function(DeleteRecurringTransaction value)?
-        deleteRecurringTransaction,
+    deleteRecurringTransaction,
     TResult? Function(DetectRecurringPatterns value)? detectRecurringPatterns,
     TResult? Function(ProcessRecurringTransactions value)?
-        processRecurringTransactions,
-  }) =>
-      throw _privateConstructorUsedError;
+    processRecurringTransactions,
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(LoadRecurringTransactions value)?
-        loadRecurringTransactions,
+    loadRecurringTransactions,
     TResult Function(CreateRecurringTransaction value)?
-        createRecurringTransaction,
+    createRecurringTransaction,
     TResult Function(ToggleRecurringTransaction value)?
-        toggleRecurringTransaction,
+    toggleRecurringTransaction,
     TResult Function(DeleteRecurringTransaction value)?
-        deleteRecurringTransaction,
+    deleteRecurringTransaction,
     TResult Function(DetectRecurringPatterns value)? detectRecurringPatterns,
     TResult Function(ProcessRecurringTransactions value)?
-        processRecurringTransactions,
+    processRecurringTransactions,
     required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $RecurringEventCopyWith<RecurringEvent> get copyWith =>
@@ -170,8 +171,9 @@ mixin _$RecurringEvent {
 /// @nodoc
 abstract class $RecurringEventCopyWith<$Res> {
   factory $RecurringEventCopyWith(
-          RecurringEvent value, $Res Function(RecurringEvent) then) =
-      _$RecurringEventCopyWithImpl<$Res, RecurringEvent>;
+    RecurringEvent value,
+    $Res Function(RecurringEvent) then,
+  ) = _$RecurringEventCopyWithImpl<$Res, RecurringEvent>;
   @useResult
   $Res call({String userId});
 }
@@ -188,15 +190,16 @@ class _$RecurringEventCopyWithImpl<$Res, $Val extends RecurringEvent>
 
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? userId = null,
-  }) {
-    return _then(_value.copyWith(
-      userId: null == userId
-          ? _value.userId
-          : userId // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
+  $Res call({Object? userId = null}) {
+    return _then(
+      _value.copyWith(
+            userId: null == userId
+                ? _value.userId
+                : userId // ignore: cast_nullable_to_non_nullable
+                      as String,
+          )
+          as $Val,
+    );
   }
 }
 
@@ -204,9 +207,9 @@ class _$RecurringEventCopyWithImpl<$Res, $Val extends RecurringEvent>
 abstract class _$$LoadRecurringTransactionsImplCopyWith<$Res>
     implements $RecurringEventCopyWith<$Res> {
   factory _$$LoadRecurringTransactionsImplCopyWith(
-          _$LoadRecurringTransactionsImpl value,
-          $Res Function(_$LoadRecurringTransactionsImpl) then) =
-      __$$LoadRecurringTransactionsImplCopyWithImpl<$Res>;
+    _$LoadRecurringTransactionsImpl value,
+    $Res Function(_$LoadRecurringTransactionsImpl) then,
+  ) = __$$LoadRecurringTransactionsImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String userId});
@@ -217,21 +220,21 @@ class __$$LoadRecurringTransactionsImplCopyWithImpl<$Res>
     extends _$RecurringEventCopyWithImpl<$Res, _$LoadRecurringTransactionsImpl>
     implements _$$LoadRecurringTransactionsImplCopyWith<$Res> {
   __$$LoadRecurringTransactionsImplCopyWithImpl(
-      _$LoadRecurringTransactionsImpl _value,
-      $Res Function(_$LoadRecurringTransactionsImpl) _then)
-      : super(_value, _then);
+    _$LoadRecurringTransactionsImpl _value,
+    $Res Function(_$LoadRecurringTransactionsImpl) _then,
+  ) : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? userId = null,
-  }) {
-    return _then(_$LoadRecurringTransactionsImpl(
-      userId: null == userId
-          ? _value.userId
-          : userId // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
+  $Res call({Object? userId = null}) {
+    return _then(
+      _$LoadRecurringTransactionsImpl(
+        userId: null == userId
+            ? _value.userId
+            : userId // ignore: cast_nullable_to_non_nullable
+                  as String,
+      ),
+    );
   }
 }
 
@@ -263,38 +266,42 @@ class _$LoadRecurringTransactionsImpl implements LoadRecurringTransactions {
   @override
   @pragma('vm:prefer-inline')
   _$$LoadRecurringTransactionsImplCopyWith<_$LoadRecurringTransactionsImpl>
-      get copyWith => __$$LoadRecurringTransactionsImplCopyWithImpl<
-          _$LoadRecurringTransactionsImpl>(this, _$identity);
+  get copyWith =>
+      __$$LoadRecurringTransactionsImplCopyWithImpl<
+        _$LoadRecurringTransactionsImpl
+      >(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String userId) loadRecurringTransactions,
     required TResult Function(
-            String userId,
-            double amount,
-            String category,
-            String description,
-            RecurringFrequency frequency,
-            DateTime nextDueDate,
-            String? paymentMethod,
-            String? notes)
-        createRecurringTransaction,
+      String userId,
+      double amount,
+      String category,
+      String description,
+      RecurringFrequency frequency,
+      DateTime nextDueDate,
+      String? paymentMethod,
+      String? notes,
+    )
+    createRecurringTransaction,
     required TResult Function(
-            String id,
-            String userId,
-            double amount,
-            String category,
-            String description,
-            RecurringFrequency frequency,
-            DateTime nextDueDate,
-            bool isActive,
-            String? paymentMethod,
-            String? notes,
-            DateTime createdAt)
-        toggleRecurringTransaction,
+      String id,
+      String userId,
+      double amount,
+      String category,
+      String description,
+      RecurringFrequency frequency,
+      DateTime nextDueDate,
+      bool isActive,
+      String? paymentMethod,
+      String? notes,
+      DateTime createdAt,
+    )
+    toggleRecurringTransaction,
     required TResult Function(String userId, String transactionId)
-        deleteRecurringTransaction,
+    deleteRecurringTransaction,
     required TResult Function(String userId) detectRecurringPatterns,
     required TResult Function(String userId) processRecurringTransactions,
   }) {
@@ -306,30 +313,32 @@ class _$LoadRecurringTransactionsImpl implements LoadRecurringTransactions {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String userId)? loadRecurringTransactions,
     TResult? Function(
-            String userId,
-            double amount,
-            String category,
-            String description,
-            RecurringFrequency frequency,
-            DateTime nextDueDate,
-            String? paymentMethod,
-            String? notes)?
-        createRecurringTransaction,
+      String userId,
+      double amount,
+      String category,
+      String description,
+      RecurringFrequency frequency,
+      DateTime nextDueDate,
+      String? paymentMethod,
+      String? notes,
+    )?
+    createRecurringTransaction,
     TResult? Function(
-            String id,
-            String userId,
-            double amount,
-            String category,
-            String description,
-            RecurringFrequency frequency,
-            DateTime nextDueDate,
-            bool isActive,
-            String? paymentMethod,
-            String? notes,
-            DateTime createdAt)?
-        toggleRecurringTransaction,
+      String id,
+      String userId,
+      double amount,
+      String category,
+      String description,
+      RecurringFrequency frequency,
+      DateTime nextDueDate,
+      bool isActive,
+      String? paymentMethod,
+      String? notes,
+      DateTime createdAt,
+    )?
+    toggleRecurringTransaction,
     TResult? Function(String userId, String transactionId)?
-        deleteRecurringTransaction,
+    deleteRecurringTransaction,
     TResult? Function(String userId)? detectRecurringPatterns,
     TResult? Function(String userId)? processRecurringTransactions,
   }) {
@@ -341,30 +350,32 @@ class _$LoadRecurringTransactionsImpl implements LoadRecurringTransactions {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String userId)? loadRecurringTransactions,
     TResult Function(
-            String userId,
-            double amount,
-            String category,
-            String description,
-            RecurringFrequency frequency,
-            DateTime nextDueDate,
-            String? paymentMethod,
-            String? notes)?
-        createRecurringTransaction,
+      String userId,
+      double amount,
+      String category,
+      String description,
+      RecurringFrequency frequency,
+      DateTime nextDueDate,
+      String? paymentMethod,
+      String? notes,
+    )?
+    createRecurringTransaction,
     TResult Function(
-            String id,
-            String userId,
-            double amount,
-            String category,
-            String description,
-            RecurringFrequency frequency,
-            DateTime nextDueDate,
-            bool isActive,
-            String? paymentMethod,
-            String? notes,
-            DateTime createdAt)?
-        toggleRecurringTransaction,
+      String id,
+      String userId,
+      double amount,
+      String category,
+      String description,
+      RecurringFrequency frequency,
+      DateTime nextDueDate,
+      bool isActive,
+      String? paymentMethod,
+      String? notes,
+      DateTime createdAt,
+    )?
+    toggleRecurringTransaction,
     TResult Function(String userId, String transactionId)?
-        deleteRecurringTransaction,
+    deleteRecurringTransaction,
     TResult Function(String userId)? detectRecurringPatterns,
     TResult Function(String userId)? processRecurringTransactions,
     required TResult orElse(),
@@ -379,17 +390,17 @@ class _$LoadRecurringTransactionsImpl implements LoadRecurringTransactions {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(LoadRecurringTransactions value)
-        loadRecurringTransactions,
+    loadRecurringTransactions,
     required TResult Function(CreateRecurringTransaction value)
-        createRecurringTransaction,
+    createRecurringTransaction,
     required TResult Function(ToggleRecurringTransaction value)
-        toggleRecurringTransaction,
+    toggleRecurringTransaction,
     required TResult Function(DeleteRecurringTransaction value)
-        deleteRecurringTransaction,
+    deleteRecurringTransaction,
     required TResult Function(DetectRecurringPatterns value)
-        detectRecurringPatterns,
+    detectRecurringPatterns,
     required TResult Function(ProcessRecurringTransactions value)
-        processRecurringTransactions,
+    processRecurringTransactions,
   }) {
     return loadRecurringTransactions(this);
   }
@@ -398,16 +409,16 @@ class _$LoadRecurringTransactionsImpl implements LoadRecurringTransactions {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(LoadRecurringTransactions value)?
-        loadRecurringTransactions,
+    loadRecurringTransactions,
     TResult? Function(CreateRecurringTransaction value)?
-        createRecurringTransaction,
+    createRecurringTransaction,
     TResult? Function(ToggleRecurringTransaction value)?
-        toggleRecurringTransaction,
+    toggleRecurringTransaction,
     TResult? Function(DeleteRecurringTransaction value)?
-        deleteRecurringTransaction,
+    deleteRecurringTransaction,
     TResult? Function(DetectRecurringPatterns value)? detectRecurringPatterns,
     TResult? Function(ProcessRecurringTransactions value)?
-        processRecurringTransactions,
+    processRecurringTransactions,
   }) {
     return loadRecurringTransactions?.call(this);
   }
@@ -416,16 +427,16 @@ class _$LoadRecurringTransactionsImpl implements LoadRecurringTransactions {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(LoadRecurringTransactions value)?
-        loadRecurringTransactions,
+    loadRecurringTransactions,
     TResult Function(CreateRecurringTransaction value)?
-        createRecurringTransaction,
+    createRecurringTransaction,
     TResult Function(ToggleRecurringTransaction value)?
-        toggleRecurringTransaction,
+    toggleRecurringTransaction,
     TResult Function(DeleteRecurringTransaction value)?
-        deleteRecurringTransaction,
+    deleteRecurringTransaction,
     TResult Function(DetectRecurringPatterns value)? detectRecurringPatterns,
     TResult Function(ProcessRecurringTransactions value)?
-        processRecurringTransactions,
+    processRecurringTransactions,
     required TResult orElse(),
   }) {
     if (loadRecurringTransactions != null) {
@@ -444,27 +455,28 @@ abstract class LoadRecurringTransactions implements RecurringEvent {
   @override
   @JsonKey(ignore: true)
   _$$LoadRecurringTransactionsImplCopyWith<_$LoadRecurringTransactionsImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class _$$CreateRecurringTransactionImplCopyWith<$Res>
     implements $RecurringEventCopyWith<$Res> {
   factory _$$CreateRecurringTransactionImplCopyWith(
-          _$CreateRecurringTransactionImpl value,
-          $Res Function(_$CreateRecurringTransactionImpl) then) =
-      __$$CreateRecurringTransactionImplCopyWithImpl<$Res>;
+    _$CreateRecurringTransactionImpl value,
+    $Res Function(_$CreateRecurringTransactionImpl) then,
+  ) = __$$CreateRecurringTransactionImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {String userId,
-      double amount,
-      String category,
-      String description,
-      RecurringFrequency frequency,
-      DateTime nextDueDate,
-      String? paymentMethod,
-      String? notes});
+  $Res call({
+    String userId,
+    double amount,
+    String category,
+    String description,
+    RecurringFrequency frequency,
+    DateTime nextDueDate,
+    String? paymentMethod,
+    String? notes,
+  });
 }
 
 /// @nodoc
@@ -472,9 +484,9 @@ class __$$CreateRecurringTransactionImplCopyWithImpl<$Res>
     extends _$RecurringEventCopyWithImpl<$Res, _$CreateRecurringTransactionImpl>
     implements _$$CreateRecurringTransactionImplCopyWith<$Res> {
   __$$CreateRecurringTransactionImplCopyWithImpl(
-      _$CreateRecurringTransactionImpl _value,
-      $Res Function(_$CreateRecurringTransactionImpl) _then)
-      : super(_value, _then);
+    _$CreateRecurringTransactionImpl _value,
+    $Res Function(_$CreateRecurringTransactionImpl) _then,
+  ) : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
@@ -488,55 +500,58 @@ class __$$CreateRecurringTransactionImplCopyWithImpl<$Res>
     Object? paymentMethod = freezed,
     Object? notes = freezed,
   }) {
-    return _then(_$CreateRecurringTransactionImpl(
-      userId: null == userId
-          ? _value.userId
-          : userId // ignore: cast_nullable_to_non_nullable
-              as String,
-      amount: null == amount
-          ? _value.amount
-          : amount // ignore: cast_nullable_to_non_nullable
-              as double,
-      category: null == category
-          ? _value.category
-          : category // ignore: cast_nullable_to_non_nullable
-              as String,
-      description: null == description
-          ? _value.description
-          : description // ignore: cast_nullable_to_non_nullable
-              as String,
-      frequency: null == frequency
-          ? _value.frequency
-          : frequency // ignore: cast_nullable_to_non_nullable
-              as RecurringFrequency,
-      nextDueDate: null == nextDueDate
-          ? _value.nextDueDate
-          : nextDueDate // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-      paymentMethod: freezed == paymentMethod
-          ? _value.paymentMethod
-          : paymentMethod // ignore: cast_nullable_to_non_nullable
-              as String?,
-      notes: freezed == notes
-          ? _value.notes
-          : notes // ignore: cast_nullable_to_non_nullable
-              as String?,
-    ));
+    return _then(
+      _$CreateRecurringTransactionImpl(
+        userId: null == userId
+            ? _value.userId
+            : userId // ignore: cast_nullable_to_non_nullable
+                  as String,
+        amount: null == amount
+            ? _value.amount
+            : amount // ignore: cast_nullable_to_non_nullable
+                  as double,
+        category: null == category
+            ? _value.category
+            : category // ignore: cast_nullable_to_non_nullable
+                  as String,
+        description: null == description
+            ? _value.description
+            : description // ignore: cast_nullable_to_non_nullable
+                  as String,
+        frequency: null == frequency
+            ? _value.frequency
+            : frequency // ignore: cast_nullable_to_non_nullable
+                  as RecurringFrequency,
+        nextDueDate: null == nextDueDate
+            ? _value.nextDueDate
+            : nextDueDate // ignore: cast_nullable_to_non_nullable
+                  as DateTime,
+        paymentMethod: freezed == paymentMethod
+            ? _value.paymentMethod
+            : paymentMethod // ignore: cast_nullable_to_non_nullable
+                  as String?,
+        notes: freezed == notes
+            ? _value.notes
+            : notes // ignore: cast_nullable_to_non_nullable
+                  as String?,
+      ),
+    );
   }
 }
 
 /// @nodoc
 
 class _$CreateRecurringTransactionImpl implements CreateRecurringTransaction {
-  const _$CreateRecurringTransactionImpl(
-      {required this.userId,
-      required this.amount,
-      required this.category,
-      required this.description,
-      required this.frequency,
-      required this.nextDueDate,
-      this.paymentMethod,
-      this.notes});
+  const _$CreateRecurringTransactionImpl({
+    required this.userId,
+    required this.amount,
+    required this.category,
+    required this.description,
+    required this.frequency,
+    required this.nextDueDate,
+    this.paymentMethod,
+    this.notes,
+  });
 
   @override
   final String userId;
@@ -581,50 +596,71 @@ class _$CreateRecurringTransactionImpl implements CreateRecurringTransaction {
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, userId, amount, category,
-      description, frequency, nextDueDate, paymentMethod, notes);
+  int get hashCode => Object.hash(
+    runtimeType,
+    userId,
+    amount,
+    category,
+    description,
+    frequency,
+    nextDueDate,
+    paymentMethod,
+    notes,
+  );
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$CreateRecurringTransactionImplCopyWith<_$CreateRecurringTransactionImpl>
-      get copyWith => __$$CreateRecurringTransactionImplCopyWithImpl<
-          _$CreateRecurringTransactionImpl>(this, _$identity);
+  get copyWith =>
+      __$$CreateRecurringTransactionImplCopyWithImpl<
+        _$CreateRecurringTransactionImpl
+      >(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String userId) loadRecurringTransactions,
     required TResult Function(
-            String userId,
-            double amount,
-            String category,
-            String description,
-            RecurringFrequency frequency,
-            DateTime nextDueDate,
-            String? paymentMethod,
-            String? notes)
-        createRecurringTransaction,
+      String userId,
+      double amount,
+      String category,
+      String description,
+      RecurringFrequency frequency,
+      DateTime nextDueDate,
+      String? paymentMethod,
+      String? notes,
+    )
+    createRecurringTransaction,
     required TResult Function(
-            String id,
-            String userId,
-            double amount,
-            String category,
-            String description,
-            RecurringFrequency frequency,
-            DateTime nextDueDate,
-            bool isActive,
-            String? paymentMethod,
-            String? notes,
-            DateTime createdAt)
-        toggleRecurringTransaction,
+      String id,
+      String userId,
+      double amount,
+      String category,
+      String description,
+      RecurringFrequency frequency,
+      DateTime nextDueDate,
+      bool isActive,
+      String? paymentMethod,
+      String? notes,
+      DateTime createdAt,
+    )
+    toggleRecurringTransaction,
     required TResult Function(String userId, String transactionId)
-        deleteRecurringTransaction,
+    deleteRecurringTransaction,
     required TResult Function(String userId) detectRecurringPatterns,
     required TResult Function(String userId) processRecurringTransactions,
   }) {
-    return createRecurringTransaction(userId, amount, category, description,
-        frequency, nextDueDate, paymentMethod, notes);
+    return createRecurringTransaction(
+      userId,
+      amount,
+      category,
+      description,
+      frequency,
+      nextDueDate,
+      paymentMethod,
+      notes,
+    );
   }
 
   @override
@@ -632,35 +668,45 @@ class _$CreateRecurringTransactionImpl implements CreateRecurringTransaction {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String userId)? loadRecurringTransactions,
     TResult? Function(
-            String userId,
-            double amount,
-            String category,
-            String description,
-            RecurringFrequency frequency,
-            DateTime nextDueDate,
-            String? paymentMethod,
-            String? notes)?
-        createRecurringTransaction,
+      String userId,
+      double amount,
+      String category,
+      String description,
+      RecurringFrequency frequency,
+      DateTime nextDueDate,
+      String? paymentMethod,
+      String? notes,
+    )?
+    createRecurringTransaction,
     TResult? Function(
-            String id,
-            String userId,
-            double amount,
-            String category,
-            String description,
-            RecurringFrequency frequency,
-            DateTime nextDueDate,
-            bool isActive,
-            String? paymentMethod,
-            String? notes,
-            DateTime createdAt)?
-        toggleRecurringTransaction,
+      String id,
+      String userId,
+      double amount,
+      String category,
+      String description,
+      RecurringFrequency frequency,
+      DateTime nextDueDate,
+      bool isActive,
+      String? paymentMethod,
+      String? notes,
+      DateTime createdAt,
+    )?
+    toggleRecurringTransaction,
     TResult? Function(String userId, String transactionId)?
-        deleteRecurringTransaction,
+    deleteRecurringTransaction,
     TResult? Function(String userId)? detectRecurringPatterns,
     TResult? Function(String userId)? processRecurringTransactions,
   }) {
-    return createRecurringTransaction?.call(userId, amount, category,
-        description, frequency, nextDueDate, paymentMethod, notes);
+    return createRecurringTransaction?.call(
+      userId,
+      amount,
+      category,
+      description,
+      frequency,
+      nextDueDate,
+      paymentMethod,
+      notes,
+    );
   }
 
   @override
@@ -668,37 +714,47 @@ class _$CreateRecurringTransactionImpl implements CreateRecurringTransaction {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String userId)? loadRecurringTransactions,
     TResult Function(
-            String userId,
-            double amount,
-            String category,
-            String description,
-            RecurringFrequency frequency,
-            DateTime nextDueDate,
-            String? paymentMethod,
-            String? notes)?
-        createRecurringTransaction,
+      String userId,
+      double amount,
+      String category,
+      String description,
+      RecurringFrequency frequency,
+      DateTime nextDueDate,
+      String? paymentMethod,
+      String? notes,
+    )?
+    createRecurringTransaction,
     TResult Function(
-            String id,
-            String userId,
-            double amount,
-            String category,
-            String description,
-            RecurringFrequency frequency,
-            DateTime nextDueDate,
-            bool isActive,
-            String? paymentMethod,
-            String? notes,
-            DateTime createdAt)?
-        toggleRecurringTransaction,
+      String id,
+      String userId,
+      double amount,
+      String category,
+      String description,
+      RecurringFrequency frequency,
+      DateTime nextDueDate,
+      bool isActive,
+      String? paymentMethod,
+      String? notes,
+      DateTime createdAt,
+    )?
+    toggleRecurringTransaction,
     TResult Function(String userId, String transactionId)?
-        deleteRecurringTransaction,
+    deleteRecurringTransaction,
     TResult Function(String userId)? detectRecurringPatterns,
     TResult Function(String userId)? processRecurringTransactions,
     required TResult orElse(),
   }) {
     if (createRecurringTransaction != null) {
-      return createRecurringTransaction(userId, amount, category, description,
-          frequency, nextDueDate, paymentMethod, notes);
+      return createRecurringTransaction(
+        userId,
+        amount,
+        category,
+        description,
+        frequency,
+        nextDueDate,
+        paymentMethod,
+        notes,
+      );
     }
     return orElse();
   }
@@ -707,17 +763,17 @@ class _$CreateRecurringTransactionImpl implements CreateRecurringTransaction {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(LoadRecurringTransactions value)
-        loadRecurringTransactions,
+    loadRecurringTransactions,
     required TResult Function(CreateRecurringTransaction value)
-        createRecurringTransaction,
+    createRecurringTransaction,
     required TResult Function(ToggleRecurringTransaction value)
-        toggleRecurringTransaction,
+    toggleRecurringTransaction,
     required TResult Function(DeleteRecurringTransaction value)
-        deleteRecurringTransaction,
+    deleteRecurringTransaction,
     required TResult Function(DetectRecurringPatterns value)
-        detectRecurringPatterns,
+    detectRecurringPatterns,
     required TResult Function(ProcessRecurringTransactions value)
-        processRecurringTransactions,
+    processRecurringTransactions,
   }) {
     return createRecurringTransaction(this);
   }
@@ -726,16 +782,16 @@ class _$CreateRecurringTransactionImpl implements CreateRecurringTransaction {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(LoadRecurringTransactions value)?
-        loadRecurringTransactions,
+    loadRecurringTransactions,
     TResult? Function(CreateRecurringTransaction value)?
-        createRecurringTransaction,
+    createRecurringTransaction,
     TResult? Function(ToggleRecurringTransaction value)?
-        toggleRecurringTransaction,
+    toggleRecurringTransaction,
     TResult? Function(DeleteRecurringTransaction value)?
-        deleteRecurringTransaction,
+    deleteRecurringTransaction,
     TResult? Function(DetectRecurringPatterns value)? detectRecurringPatterns,
     TResult? Function(ProcessRecurringTransactions value)?
-        processRecurringTransactions,
+    processRecurringTransactions,
   }) {
     return createRecurringTransaction?.call(this);
   }
@@ -744,16 +800,16 @@ class _$CreateRecurringTransactionImpl implements CreateRecurringTransaction {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(LoadRecurringTransactions value)?
-        loadRecurringTransactions,
+    loadRecurringTransactions,
     TResult Function(CreateRecurringTransaction value)?
-        createRecurringTransaction,
+    createRecurringTransaction,
     TResult Function(ToggleRecurringTransaction value)?
-        toggleRecurringTransaction,
+    toggleRecurringTransaction,
     TResult Function(DeleteRecurringTransaction value)?
-        deleteRecurringTransaction,
+    deleteRecurringTransaction,
     TResult Function(DetectRecurringPatterns value)? detectRecurringPatterns,
     TResult Function(ProcessRecurringTransactions value)?
-        processRecurringTransactions,
+    processRecurringTransactions,
     required TResult orElse(),
   }) {
     if (createRecurringTransaction != null) {
@@ -764,15 +820,16 @@ class _$CreateRecurringTransactionImpl implements CreateRecurringTransaction {
 }
 
 abstract class CreateRecurringTransaction implements RecurringEvent {
-  const factory CreateRecurringTransaction(
-      {required final String userId,
-      required final double amount,
-      required final String category,
-      required final String description,
-      required final RecurringFrequency frequency,
-      required final DateTime nextDueDate,
-      final String? paymentMethod,
-      final String? notes}) = _$CreateRecurringTransactionImpl;
+  const factory CreateRecurringTransaction({
+    required final String userId,
+    required final double amount,
+    required final String category,
+    required final String description,
+    required final RecurringFrequency frequency,
+    required final DateTime nextDueDate,
+    final String? paymentMethod,
+    final String? notes,
+  }) = _$CreateRecurringTransactionImpl;
 
   @override
   String get userId;
@@ -786,30 +843,31 @@ abstract class CreateRecurringTransaction implements RecurringEvent {
   @override
   @JsonKey(ignore: true)
   _$$CreateRecurringTransactionImplCopyWith<_$CreateRecurringTransactionImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class _$$ToggleRecurringTransactionImplCopyWith<$Res>
     implements $RecurringEventCopyWith<$Res> {
   factory _$$ToggleRecurringTransactionImplCopyWith(
-          _$ToggleRecurringTransactionImpl value,
-          $Res Function(_$ToggleRecurringTransactionImpl) then) =
-      __$$ToggleRecurringTransactionImplCopyWithImpl<$Res>;
+    _$ToggleRecurringTransactionImpl value,
+    $Res Function(_$ToggleRecurringTransactionImpl) then,
+  ) = __$$ToggleRecurringTransactionImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {String id,
-      String userId,
-      double amount,
-      String category,
-      String description,
-      RecurringFrequency frequency,
-      DateTime nextDueDate,
-      bool isActive,
-      String? paymentMethod,
-      String? notes,
-      DateTime createdAt});
+  $Res call({
+    String id,
+    String userId,
+    double amount,
+    String category,
+    String description,
+    RecurringFrequency frequency,
+    DateTime nextDueDate,
+    bool isActive,
+    String? paymentMethod,
+    String? notes,
+    DateTime createdAt,
+  });
 }
 
 /// @nodoc
@@ -817,9 +875,9 @@ class __$$ToggleRecurringTransactionImplCopyWithImpl<$Res>
     extends _$RecurringEventCopyWithImpl<$Res, _$ToggleRecurringTransactionImpl>
     implements _$$ToggleRecurringTransactionImplCopyWith<$Res> {
   __$$ToggleRecurringTransactionImplCopyWithImpl(
-      _$ToggleRecurringTransactionImpl _value,
-      $Res Function(_$ToggleRecurringTransactionImpl) _then)
-      : super(_value, _then);
+    _$ToggleRecurringTransactionImpl _value,
+    $Res Function(_$ToggleRecurringTransactionImpl) _then,
+  ) : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
@@ -836,70 +894,73 @@ class __$$ToggleRecurringTransactionImplCopyWithImpl<$Res>
     Object? notes = freezed,
     Object? createdAt = null,
   }) {
-    return _then(_$ToggleRecurringTransactionImpl(
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String,
-      userId: null == userId
-          ? _value.userId
-          : userId // ignore: cast_nullable_to_non_nullable
-              as String,
-      amount: null == amount
-          ? _value.amount
-          : amount // ignore: cast_nullable_to_non_nullable
-              as double,
-      category: null == category
-          ? _value.category
-          : category // ignore: cast_nullable_to_non_nullable
-              as String,
-      description: null == description
-          ? _value.description
-          : description // ignore: cast_nullable_to_non_nullable
-              as String,
-      frequency: null == frequency
-          ? _value.frequency
-          : frequency // ignore: cast_nullable_to_non_nullable
-              as RecurringFrequency,
-      nextDueDate: null == nextDueDate
-          ? _value.nextDueDate
-          : nextDueDate // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-      isActive: null == isActive
-          ? _value.isActive
-          : isActive // ignore: cast_nullable_to_non_nullable
-              as bool,
-      paymentMethod: freezed == paymentMethod
-          ? _value.paymentMethod
-          : paymentMethod // ignore: cast_nullable_to_non_nullable
-              as String?,
-      notes: freezed == notes
-          ? _value.notes
-          : notes // ignore: cast_nullable_to_non_nullable
-              as String?,
-      createdAt: null == createdAt
-          ? _value.createdAt
-          : createdAt // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-    ));
+    return _then(
+      _$ToggleRecurringTransactionImpl(
+        id: null == id
+            ? _value.id
+            : id // ignore: cast_nullable_to_non_nullable
+                  as String,
+        userId: null == userId
+            ? _value.userId
+            : userId // ignore: cast_nullable_to_non_nullable
+                  as String,
+        amount: null == amount
+            ? _value.amount
+            : amount // ignore: cast_nullable_to_non_nullable
+                  as double,
+        category: null == category
+            ? _value.category
+            : category // ignore: cast_nullable_to_non_nullable
+                  as String,
+        description: null == description
+            ? _value.description
+            : description // ignore: cast_nullable_to_non_nullable
+                  as String,
+        frequency: null == frequency
+            ? _value.frequency
+            : frequency // ignore: cast_nullable_to_non_nullable
+                  as RecurringFrequency,
+        nextDueDate: null == nextDueDate
+            ? _value.nextDueDate
+            : nextDueDate // ignore: cast_nullable_to_non_nullable
+                  as DateTime,
+        isActive: null == isActive
+            ? _value.isActive
+            : isActive // ignore: cast_nullable_to_non_nullable
+                  as bool,
+        paymentMethod: freezed == paymentMethod
+            ? _value.paymentMethod
+            : paymentMethod // ignore: cast_nullable_to_non_nullable
+                  as String?,
+        notes: freezed == notes
+            ? _value.notes
+            : notes // ignore: cast_nullable_to_non_nullable
+                  as String?,
+        createdAt: null == createdAt
+            ? _value.createdAt
+            : createdAt // ignore: cast_nullable_to_non_nullable
+                  as DateTime,
+      ),
+    );
   }
 }
 
 /// @nodoc
 
 class _$ToggleRecurringTransactionImpl implements ToggleRecurringTransaction {
-  const _$ToggleRecurringTransactionImpl(
-      {required this.id,
-      required this.userId,
-      required this.amount,
-      required this.category,
-      required this.description,
-      required this.frequency,
-      required this.nextDueDate,
-      required this.isActive,
-      this.paymentMethod,
-      this.notes,
-      required this.createdAt});
+  const _$ToggleRecurringTransactionImpl({
+    required this.id,
+    required this.userId,
+    required this.amount,
+    required this.category,
+    required this.description,
+    required this.frequency,
+    required this.nextDueDate,
+    required this.isActive,
+    this.paymentMethod,
+    this.notes,
+    required this.createdAt,
+  });
 
   @override
   final String id;
@@ -956,7 +1017,64 @@ class _$ToggleRecurringTransactionImpl implements ToggleRecurringTransaction {
 
   @override
   int get hashCode => Object.hash(
-      runtimeType,
+    runtimeType,
+    id,
+    userId,
+    amount,
+    category,
+    description,
+    frequency,
+    nextDueDate,
+    isActive,
+    paymentMethod,
+    notes,
+    createdAt,
+  );
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ToggleRecurringTransactionImplCopyWith<_$ToggleRecurringTransactionImpl>
+  get copyWith =>
+      __$$ToggleRecurringTransactionImplCopyWithImpl<
+        _$ToggleRecurringTransactionImpl
+      >(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String userId) loadRecurringTransactions,
+    required TResult Function(
+      String userId,
+      double amount,
+      String category,
+      String description,
+      RecurringFrequency frequency,
+      DateTime nextDueDate,
+      String? paymentMethod,
+      String? notes,
+    )
+    createRecurringTransaction,
+    required TResult Function(
+      String id,
+      String userId,
+      double amount,
+      String category,
+      String description,
+      RecurringFrequency frequency,
+      DateTime nextDueDate,
+      bool isActive,
+      String? paymentMethod,
+      String? notes,
+      DateTime createdAt,
+    )
+    toggleRecurringTransaction,
+    required TResult Function(String userId, String transactionId)
+    deleteRecurringTransaction,
+    required TResult Function(String userId) detectRecurringPatterns,
+    required TResult Function(String userId) processRecurringTransactions,
+  }) {
+    return toggleRecurringTransaction(
       id,
       userId,
       amount,
@@ -967,49 +1085,8 @@ class _$ToggleRecurringTransactionImpl implements ToggleRecurringTransaction {
       isActive,
       paymentMethod,
       notes,
-      createdAt);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$ToggleRecurringTransactionImplCopyWith<_$ToggleRecurringTransactionImpl>
-      get copyWith => __$$ToggleRecurringTransactionImplCopyWithImpl<
-          _$ToggleRecurringTransactionImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(String userId) loadRecurringTransactions,
-    required TResult Function(
-            String userId,
-            double amount,
-            String category,
-            String description,
-            RecurringFrequency frequency,
-            DateTime nextDueDate,
-            String? paymentMethod,
-            String? notes)
-        createRecurringTransaction,
-    required TResult Function(
-            String id,
-            String userId,
-            double amount,
-            String category,
-            String description,
-            RecurringFrequency frequency,
-            DateTime nextDueDate,
-            bool isActive,
-            String? paymentMethod,
-            String? notes,
-            DateTime createdAt)
-        toggleRecurringTransaction,
-    required TResult Function(String userId, String transactionId)
-        deleteRecurringTransaction,
-    required TResult Function(String userId) detectRecurringPatterns,
-    required TResult Function(String userId) processRecurringTransactions,
-  }) {
-    return toggleRecurringTransaction(id, userId, amount, category, description,
-        frequency, nextDueDate, isActive, paymentMethod, notes, createdAt);
+      createdAt,
+    );
   }
 
   @override
@@ -1017,34 +1094,87 @@ class _$ToggleRecurringTransactionImpl implements ToggleRecurringTransaction {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String userId)? loadRecurringTransactions,
     TResult? Function(
-            String userId,
-            double amount,
-            String category,
-            String description,
-            RecurringFrequency frequency,
-            DateTime nextDueDate,
-            String? paymentMethod,
-            String? notes)?
-        createRecurringTransaction,
+      String userId,
+      double amount,
+      String category,
+      String description,
+      RecurringFrequency frequency,
+      DateTime nextDueDate,
+      String? paymentMethod,
+      String? notes,
+    )?
+    createRecurringTransaction,
     TResult? Function(
-            String id,
-            String userId,
-            double amount,
-            String category,
-            String description,
-            RecurringFrequency frequency,
-            DateTime nextDueDate,
-            bool isActive,
-            String? paymentMethod,
-            String? notes,
-            DateTime createdAt)?
-        toggleRecurringTransaction,
+      String id,
+      String userId,
+      double amount,
+      String category,
+      String description,
+      RecurringFrequency frequency,
+      DateTime nextDueDate,
+      bool isActive,
+      String? paymentMethod,
+      String? notes,
+      DateTime createdAt,
+    )?
+    toggleRecurringTransaction,
     TResult? Function(String userId, String transactionId)?
-        deleteRecurringTransaction,
+    deleteRecurringTransaction,
     TResult? Function(String userId)? detectRecurringPatterns,
     TResult? Function(String userId)? processRecurringTransactions,
   }) {
     return toggleRecurringTransaction?.call(
+      id,
+      userId,
+      amount,
+      category,
+      description,
+      frequency,
+      nextDueDate,
+      isActive,
+      paymentMethod,
+      notes,
+      createdAt,
+    );
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String userId)? loadRecurringTransactions,
+    TResult Function(
+      String userId,
+      double amount,
+      String category,
+      String description,
+      RecurringFrequency frequency,
+      DateTime nextDueDate,
+      String? paymentMethod,
+      String? notes,
+    )?
+    createRecurringTransaction,
+    TResult Function(
+      String id,
+      String userId,
+      double amount,
+      String category,
+      String description,
+      RecurringFrequency frequency,
+      DateTime nextDueDate,
+      bool isActive,
+      String? paymentMethod,
+      String? notes,
+      DateTime createdAt,
+    )?
+    toggleRecurringTransaction,
+    TResult Function(String userId, String transactionId)?
+    deleteRecurringTransaction,
+    TResult Function(String userId)? detectRecurringPatterns,
+    TResult Function(String userId)? processRecurringTransactions,
+    required TResult orElse(),
+  }) {
+    if (toggleRecurringTransaction != null) {
+      return toggleRecurringTransaction(
         id,
         userId,
         amount,
@@ -1055,55 +1185,8 @@ class _$ToggleRecurringTransactionImpl implements ToggleRecurringTransaction {
         isActive,
         paymentMethod,
         notes,
-        createdAt);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String userId)? loadRecurringTransactions,
-    TResult Function(
-            String userId,
-            double amount,
-            String category,
-            String description,
-            RecurringFrequency frequency,
-            DateTime nextDueDate,
-            String? paymentMethod,
-            String? notes)?
-        createRecurringTransaction,
-    TResult Function(
-            String id,
-            String userId,
-            double amount,
-            String category,
-            String description,
-            RecurringFrequency frequency,
-            DateTime nextDueDate,
-            bool isActive,
-            String? paymentMethod,
-            String? notes,
-            DateTime createdAt)?
-        toggleRecurringTransaction,
-    TResult Function(String userId, String transactionId)?
-        deleteRecurringTransaction,
-    TResult Function(String userId)? detectRecurringPatterns,
-    TResult Function(String userId)? processRecurringTransactions,
-    required TResult orElse(),
-  }) {
-    if (toggleRecurringTransaction != null) {
-      return toggleRecurringTransaction(
-          id,
-          userId,
-          amount,
-          category,
-          description,
-          frequency,
-          nextDueDate,
-          isActive,
-          paymentMethod,
-          notes,
-          createdAt);
+        createdAt,
+      );
     }
     return orElse();
   }
@@ -1112,17 +1195,17 @@ class _$ToggleRecurringTransactionImpl implements ToggleRecurringTransaction {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(LoadRecurringTransactions value)
-        loadRecurringTransactions,
+    loadRecurringTransactions,
     required TResult Function(CreateRecurringTransaction value)
-        createRecurringTransaction,
+    createRecurringTransaction,
     required TResult Function(ToggleRecurringTransaction value)
-        toggleRecurringTransaction,
+    toggleRecurringTransaction,
     required TResult Function(DeleteRecurringTransaction value)
-        deleteRecurringTransaction,
+    deleteRecurringTransaction,
     required TResult Function(DetectRecurringPatterns value)
-        detectRecurringPatterns,
+    detectRecurringPatterns,
     required TResult Function(ProcessRecurringTransactions value)
-        processRecurringTransactions,
+    processRecurringTransactions,
   }) {
     return toggleRecurringTransaction(this);
   }
@@ -1131,16 +1214,16 @@ class _$ToggleRecurringTransactionImpl implements ToggleRecurringTransaction {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(LoadRecurringTransactions value)?
-        loadRecurringTransactions,
+    loadRecurringTransactions,
     TResult? Function(CreateRecurringTransaction value)?
-        createRecurringTransaction,
+    createRecurringTransaction,
     TResult? Function(ToggleRecurringTransaction value)?
-        toggleRecurringTransaction,
+    toggleRecurringTransaction,
     TResult? Function(DeleteRecurringTransaction value)?
-        deleteRecurringTransaction,
+    deleteRecurringTransaction,
     TResult? Function(DetectRecurringPatterns value)? detectRecurringPatterns,
     TResult? Function(ProcessRecurringTransactions value)?
-        processRecurringTransactions,
+    processRecurringTransactions,
   }) {
     return toggleRecurringTransaction?.call(this);
   }
@@ -1149,16 +1232,16 @@ class _$ToggleRecurringTransactionImpl implements ToggleRecurringTransaction {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(LoadRecurringTransactions value)?
-        loadRecurringTransactions,
+    loadRecurringTransactions,
     TResult Function(CreateRecurringTransaction value)?
-        createRecurringTransaction,
+    createRecurringTransaction,
     TResult Function(ToggleRecurringTransaction value)?
-        toggleRecurringTransaction,
+    toggleRecurringTransaction,
     TResult Function(DeleteRecurringTransaction value)?
-        deleteRecurringTransaction,
+    deleteRecurringTransaction,
     TResult Function(DetectRecurringPatterns value)? detectRecurringPatterns,
     TResult Function(ProcessRecurringTransactions value)?
-        processRecurringTransactions,
+    processRecurringTransactions,
     required TResult orElse(),
   }) {
     if (toggleRecurringTransaction != null) {
@@ -1169,18 +1252,19 @@ class _$ToggleRecurringTransactionImpl implements ToggleRecurringTransaction {
 }
 
 abstract class ToggleRecurringTransaction implements RecurringEvent {
-  const factory ToggleRecurringTransaction(
-      {required final String id,
-      required final String userId,
-      required final double amount,
-      required final String category,
-      required final String description,
-      required final RecurringFrequency frequency,
-      required final DateTime nextDueDate,
-      required final bool isActive,
-      final String? paymentMethod,
-      final String? notes,
-      required final DateTime createdAt}) = _$ToggleRecurringTransactionImpl;
+  const factory ToggleRecurringTransaction({
+    required final String id,
+    required final String userId,
+    required final double amount,
+    required final String category,
+    required final String description,
+    required final RecurringFrequency frequency,
+    required final DateTime nextDueDate,
+    required final bool isActive,
+    final String? paymentMethod,
+    final String? notes,
+    required final DateTime createdAt,
+  }) = _$ToggleRecurringTransactionImpl;
 
   String get id;
   @override
@@ -1197,16 +1281,16 @@ abstract class ToggleRecurringTransaction implements RecurringEvent {
   @override
   @JsonKey(ignore: true)
   _$$ToggleRecurringTransactionImplCopyWith<_$ToggleRecurringTransactionImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class _$$DeleteRecurringTransactionImplCopyWith<$Res>
     implements $RecurringEventCopyWith<$Res> {
   factory _$$DeleteRecurringTransactionImplCopyWith(
-          _$DeleteRecurringTransactionImpl value,
-          $Res Function(_$DeleteRecurringTransactionImpl) then) =
-      __$$DeleteRecurringTransactionImplCopyWithImpl<$Res>;
+    _$DeleteRecurringTransactionImpl value,
+    $Res Function(_$DeleteRecurringTransactionImpl) then,
+  ) = __$$DeleteRecurringTransactionImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String userId, String transactionId});
@@ -1217,34 +1301,35 @@ class __$$DeleteRecurringTransactionImplCopyWithImpl<$Res>
     extends _$RecurringEventCopyWithImpl<$Res, _$DeleteRecurringTransactionImpl>
     implements _$$DeleteRecurringTransactionImplCopyWith<$Res> {
   __$$DeleteRecurringTransactionImplCopyWithImpl(
-      _$DeleteRecurringTransactionImpl _value,
-      $Res Function(_$DeleteRecurringTransactionImpl) _then)
-      : super(_value, _then);
+    _$DeleteRecurringTransactionImpl _value,
+    $Res Function(_$DeleteRecurringTransactionImpl) _then,
+  ) : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? userId = null,
-    Object? transactionId = null,
-  }) {
-    return _then(_$DeleteRecurringTransactionImpl(
-      userId: null == userId
-          ? _value.userId
-          : userId // ignore: cast_nullable_to_non_nullable
-              as String,
-      transactionId: null == transactionId
-          ? _value.transactionId
-          : transactionId // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
+  $Res call({Object? userId = null, Object? transactionId = null}) {
+    return _then(
+      _$DeleteRecurringTransactionImpl(
+        userId: null == userId
+            ? _value.userId
+            : userId // ignore: cast_nullable_to_non_nullable
+                  as String,
+        transactionId: null == transactionId
+            ? _value.transactionId
+            : transactionId // ignore: cast_nullable_to_non_nullable
+                  as String,
+      ),
+    );
   }
 }
 
 /// @nodoc
 
 class _$DeleteRecurringTransactionImpl implements DeleteRecurringTransaction {
-  const _$DeleteRecurringTransactionImpl(
-      {required this.userId, required this.transactionId});
+  const _$DeleteRecurringTransactionImpl({
+    required this.userId,
+    required this.transactionId,
+  });
 
   @override
   final String userId;
@@ -1273,38 +1358,42 @@ class _$DeleteRecurringTransactionImpl implements DeleteRecurringTransaction {
   @override
   @pragma('vm:prefer-inline')
   _$$DeleteRecurringTransactionImplCopyWith<_$DeleteRecurringTransactionImpl>
-      get copyWith => __$$DeleteRecurringTransactionImplCopyWithImpl<
-          _$DeleteRecurringTransactionImpl>(this, _$identity);
+  get copyWith =>
+      __$$DeleteRecurringTransactionImplCopyWithImpl<
+        _$DeleteRecurringTransactionImpl
+      >(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String userId) loadRecurringTransactions,
     required TResult Function(
-            String userId,
-            double amount,
-            String category,
-            String description,
-            RecurringFrequency frequency,
-            DateTime nextDueDate,
-            String? paymentMethod,
-            String? notes)
-        createRecurringTransaction,
+      String userId,
+      double amount,
+      String category,
+      String description,
+      RecurringFrequency frequency,
+      DateTime nextDueDate,
+      String? paymentMethod,
+      String? notes,
+    )
+    createRecurringTransaction,
     required TResult Function(
-            String id,
-            String userId,
-            double amount,
-            String category,
-            String description,
-            RecurringFrequency frequency,
-            DateTime nextDueDate,
-            bool isActive,
-            String? paymentMethod,
-            String? notes,
-            DateTime createdAt)
-        toggleRecurringTransaction,
+      String id,
+      String userId,
+      double amount,
+      String category,
+      String description,
+      RecurringFrequency frequency,
+      DateTime nextDueDate,
+      bool isActive,
+      String? paymentMethod,
+      String? notes,
+      DateTime createdAt,
+    )
+    toggleRecurringTransaction,
     required TResult Function(String userId, String transactionId)
-        deleteRecurringTransaction,
+    deleteRecurringTransaction,
     required TResult Function(String userId) detectRecurringPatterns,
     required TResult Function(String userId) processRecurringTransactions,
   }) {
@@ -1316,30 +1405,32 @@ class _$DeleteRecurringTransactionImpl implements DeleteRecurringTransaction {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String userId)? loadRecurringTransactions,
     TResult? Function(
-            String userId,
-            double amount,
-            String category,
-            String description,
-            RecurringFrequency frequency,
-            DateTime nextDueDate,
-            String? paymentMethod,
-            String? notes)?
-        createRecurringTransaction,
+      String userId,
+      double amount,
+      String category,
+      String description,
+      RecurringFrequency frequency,
+      DateTime nextDueDate,
+      String? paymentMethod,
+      String? notes,
+    )?
+    createRecurringTransaction,
     TResult? Function(
-            String id,
-            String userId,
-            double amount,
-            String category,
-            String description,
-            RecurringFrequency frequency,
-            DateTime nextDueDate,
-            bool isActive,
-            String? paymentMethod,
-            String? notes,
-            DateTime createdAt)?
-        toggleRecurringTransaction,
+      String id,
+      String userId,
+      double amount,
+      String category,
+      String description,
+      RecurringFrequency frequency,
+      DateTime nextDueDate,
+      bool isActive,
+      String? paymentMethod,
+      String? notes,
+      DateTime createdAt,
+    )?
+    toggleRecurringTransaction,
     TResult? Function(String userId, String transactionId)?
-        deleteRecurringTransaction,
+    deleteRecurringTransaction,
     TResult? Function(String userId)? detectRecurringPatterns,
     TResult? Function(String userId)? processRecurringTransactions,
   }) {
@@ -1351,30 +1442,32 @@ class _$DeleteRecurringTransactionImpl implements DeleteRecurringTransaction {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String userId)? loadRecurringTransactions,
     TResult Function(
-            String userId,
-            double amount,
-            String category,
-            String description,
-            RecurringFrequency frequency,
-            DateTime nextDueDate,
-            String? paymentMethod,
-            String? notes)?
-        createRecurringTransaction,
+      String userId,
+      double amount,
+      String category,
+      String description,
+      RecurringFrequency frequency,
+      DateTime nextDueDate,
+      String? paymentMethod,
+      String? notes,
+    )?
+    createRecurringTransaction,
     TResult Function(
-            String id,
-            String userId,
-            double amount,
-            String category,
-            String description,
-            RecurringFrequency frequency,
-            DateTime nextDueDate,
-            bool isActive,
-            String? paymentMethod,
-            String? notes,
-            DateTime createdAt)?
-        toggleRecurringTransaction,
+      String id,
+      String userId,
+      double amount,
+      String category,
+      String description,
+      RecurringFrequency frequency,
+      DateTime nextDueDate,
+      bool isActive,
+      String? paymentMethod,
+      String? notes,
+      DateTime createdAt,
+    )?
+    toggleRecurringTransaction,
     TResult Function(String userId, String transactionId)?
-        deleteRecurringTransaction,
+    deleteRecurringTransaction,
     TResult Function(String userId)? detectRecurringPatterns,
     TResult Function(String userId)? processRecurringTransactions,
     required TResult orElse(),
@@ -1389,17 +1482,17 @@ class _$DeleteRecurringTransactionImpl implements DeleteRecurringTransaction {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(LoadRecurringTransactions value)
-        loadRecurringTransactions,
+    loadRecurringTransactions,
     required TResult Function(CreateRecurringTransaction value)
-        createRecurringTransaction,
+    createRecurringTransaction,
     required TResult Function(ToggleRecurringTransaction value)
-        toggleRecurringTransaction,
+    toggleRecurringTransaction,
     required TResult Function(DeleteRecurringTransaction value)
-        deleteRecurringTransaction,
+    deleteRecurringTransaction,
     required TResult Function(DetectRecurringPatterns value)
-        detectRecurringPatterns,
+    detectRecurringPatterns,
     required TResult Function(ProcessRecurringTransactions value)
-        processRecurringTransactions,
+    processRecurringTransactions,
   }) {
     return deleteRecurringTransaction(this);
   }
@@ -1408,16 +1501,16 @@ class _$DeleteRecurringTransactionImpl implements DeleteRecurringTransaction {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(LoadRecurringTransactions value)?
-        loadRecurringTransactions,
+    loadRecurringTransactions,
     TResult? Function(CreateRecurringTransaction value)?
-        createRecurringTransaction,
+    createRecurringTransaction,
     TResult? Function(ToggleRecurringTransaction value)?
-        toggleRecurringTransaction,
+    toggleRecurringTransaction,
     TResult? Function(DeleteRecurringTransaction value)?
-        deleteRecurringTransaction,
+    deleteRecurringTransaction,
     TResult? Function(DetectRecurringPatterns value)? detectRecurringPatterns,
     TResult? Function(ProcessRecurringTransactions value)?
-        processRecurringTransactions,
+    processRecurringTransactions,
   }) {
     return deleteRecurringTransaction?.call(this);
   }
@@ -1426,16 +1519,16 @@ class _$DeleteRecurringTransactionImpl implements DeleteRecurringTransaction {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(LoadRecurringTransactions value)?
-        loadRecurringTransactions,
+    loadRecurringTransactions,
     TResult Function(CreateRecurringTransaction value)?
-        createRecurringTransaction,
+    createRecurringTransaction,
     TResult Function(ToggleRecurringTransaction value)?
-        toggleRecurringTransaction,
+    toggleRecurringTransaction,
     TResult Function(DeleteRecurringTransaction value)?
-        deleteRecurringTransaction,
+    deleteRecurringTransaction,
     TResult Function(DetectRecurringPatterns value)? detectRecurringPatterns,
     TResult Function(ProcessRecurringTransactions value)?
-        processRecurringTransactions,
+    processRecurringTransactions,
     required TResult orElse(),
   }) {
     if (deleteRecurringTransaction != null) {
@@ -1446,9 +1539,10 @@ class _$DeleteRecurringTransactionImpl implements DeleteRecurringTransaction {
 }
 
 abstract class DeleteRecurringTransaction implements RecurringEvent {
-  const factory DeleteRecurringTransaction(
-      {required final String userId,
-      required final String transactionId}) = _$DeleteRecurringTransactionImpl;
+  const factory DeleteRecurringTransaction({
+    required final String userId,
+    required final String transactionId,
+  }) = _$DeleteRecurringTransactionImpl;
 
   @override
   String get userId;
@@ -1456,16 +1550,16 @@ abstract class DeleteRecurringTransaction implements RecurringEvent {
   @override
   @JsonKey(ignore: true)
   _$$DeleteRecurringTransactionImplCopyWith<_$DeleteRecurringTransactionImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class _$$DetectRecurringPatternsImplCopyWith<$Res>
     implements $RecurringEventCopyWith<$Res> {
   factory _$$DetectRecurringPatternsImplCopyWith(
-          _$DetectRecurringPatternsImpl value,
-          $Res Function(_$DetectRecurringPatternsImpl) then) =
-      __$$DetectRecurringPatternsImplCopyWithImpl<$Res>;
+    _$DetectRecurringPatternsImpl value,
+    $Res Function(_$DetectRecurringPatternsImpl) then,
+  ) = __$$DetectRecurringPatternsImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String userId});
@@ -1476,21 +1570,21 @@ class __$$DetectRecurringPatternsImplCopyWithImpl<$Res>
     extends _$RecurringEventCopyWithImpl<$Res, _$DetectRecurringPatternsImpl>
     implements _$$DetectRecurringPatternsImplCopyWith<$Res> {
   __$$DetectRecurringPatternsImplCopyWithImpl(
-      _$DetectRecurringPatternsImpl _value,
-      $Res Function(_$DetectRecurringPatternsImpl) _then)
-      : super(_value, _then);
+    _$DetectRecurringPatternsImpl _value,
+    $Res Function(_$DetectRecurringPatternsImpl) _then,
+  ) : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? userId = null,
-  }) {
-    return _then(_$DetectRecurringPatternsImpl(
-      userId: null == userId
-          ? _value.userId
-          : userId // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
+  $Res call({Object? userId = null}) {
+    return _then(
+      _$DetectRecurringPatternsImpl(
+        userId: null == userId
+            ? _value.userId
+            : userId // ignore: cast_nullable_to_non_nullable
+                  as String,
+      ),
+    );
   }
 }
 
@@ -1522,38 +1616,42 @@ class _$DetectRecurringPatternsImpl implements DetectRecurringPatterns {
   @override
   @pragma('vm:prefer-inline')
   _$$DetectRecurringPatternsImplCopyWith<_$DetectRecurringPatternsImpl>
-      get copyWith => __$$DetectRecurringPatternsImplCopyWithImpl<
-          _$DetectRecurringPatternsImpl>(this, _$identity);
+  get copyWith =>
+      __$$DetectRecurringPatternsImplCopyWithImpl<
+        _$DetectRecurringPatternsImpl
+      >(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String userId) loadRecurringTransactions,
     required TResult Function(
-            String userId,
-            double amount,
-            String category,
-            String description,
-            RecurringFrequency frequency,
-            DateTime nextDueDate,
-            String? paymentMethod,
-            String? notes)
-        createRecurringTransaction,
+      String userId,
+      double amount,
+      String category,
+      String description,
+      RecurringFrequency frequency,
+      DateTime nextDueDate,
+      String? paymentMethod,
+      String? notes,
+    )
+    createRecurringTransaction,
     required TResult Function(
-            String id,
-            String userId,
-            double amount,
-            String category,
-            String description,
-            RecurringFrequency frequency,
-            DateTime nextDueDate,
-            bool isActive,
-            String? paymentMethod,
-            String? notes,
-            DateTime createdAt)
-        toggleRecurringTransaction,
+      String id,
+      String userId,
+      double amount,
+      String category,
+      String description,
+      RecurringFrequency frequency,
+      DateTime nextDueDate,
+      bool isActive,
+      String? paymentMethod,
+      String? notes,
+      DateTime createdAt,
+    )
+    toggleRecurringTransaction,
     required TResult Function(String userId, String transactionId)
-        deleteRecurringTransaction,
+    deleteRecurringTransaction,
     required TResult Function(String userId) detectRecurringPatterns,
     required TResult Function(String userId) processRecurringTransactions,
   }) {
@@ -1565,30 +1663,32 @@ class _$DetectRecurringPatternsImpl implements DetectRecurringPatterns {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String userId)? loadRecurringTransactions,
     TResult? Function(
-            String userId,
-            double amount,
-            String category,
-            String description,
-            RecurringFrequency frequency,
-            DateTime nextDueDate,
-            String? paymentMethod,
-            String? notes)?
-        createRecurringTransaction,
+      String userId,
+      double amount,
+      String category,
+      String description,
+      RecurringFrequency frequency,
+      DateTime nextDueDate,
+      String? paymentMethod,
+      String? notes,
+    )?
+    createRecurringTransaction,
     TResult? Function(
-            String id,
-            String userId,
-            double amount,
-            String category,
-            String description,
-            RecurringFrequency frequency,
-            DateTime nextDueDate,
-            bool isActive,
-            String? paymentMethod,
-            String? notes,
-            DateTime createdAt)?
-        toggleRecurringTransaction,
+      String id,
+      String userId,
+      double amount,
+      String category,
+      String description,
+      RecurringFrequency frequency,
+      DateTime nextDueDate,
+      bool isActive,
+      String? paymentMethod,
+      String? notes,
+      DateTime createdAt,
+    )?
+    toggleRecurringTransaction,
     TResult? Function(String userId, String transactionId)?
-        deleteRecurringTransaction,
+    deleteRecurringTransaction,
     TResult? Function(String userId)? detectRecurringPatterns,
     TResult? Function(String userId)? processRecurringTransactions,
   }) {
@@ -1600,30 +1700,32 @@ class _$DetectRecurringPatternsImpl implements DetectRecurringPatterns {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String userId)? loadRecurringTransactions,
     TResult Function(
-            String userId,
-            double amount,
-            String category,
-            String description,
-            RecurringFrequency frequency,
-            DateTime nextDueDate,
-            String? paymentMethod,
-            String? notes)?
-        createRecurringTransaction,
+      String userId,
+      double amount,
+      String category,
+      String description,
+      RecurringFrequency frequency,
+      DateTime nextDueDate,
+      String? paymentMethod,
+      String? notes,
+    )?
+    createRecurringTransaction,
     TResult Function(
-            String id,
-            String userId,
-            double amount,
-            String category,
-            String description,
-            RecurringFrequency frequency,
-            DateTime nextDueDate,
-            bool isActive,
-            String? paymentMethod,
-            String? notes,
-            DateTime createdAt)?
-        toggleRecurringTransaction,
+      String id,
+      String userId,
+      double amount,
+      String category,
+      String description,
+      RecurringFrequency frequency,
+      DateTime nextDueDate,
+      bool isActive,
+      String? paymentMethod,
+      String? notes,
+      DateTime createdAt,
+    )?
+    toggleRecurringTransaction,
     TResult Function(String userId, String transactionId)?
-        deleteRecurringTransaction,
+    deleteRecurringTransaction,
     TResult Function(String userId)? detectRecurringPatterns,
     TResult Function(String userId)? processRecurringTransactions,
     required TResult orElse(),
@@ -1638,17 +1740,17 @@ class _$DetectRecurringPatternsImpl implements DetectRecurringPatterns {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(LoadRecurringTransactions value)
-        loadRecurringTransactions,
+    loadRecurringTransactions,
     required TResult Function(CreateRecurringTransaction value)
-        createRecurringTransaction,
+    createRecurringTransaction,
     required TResult Function(ToggleRecurringTransaction value)
-        toggleRecurringTransaction,
+    toggleRecurringTransaction,
     required TResult Function(DeleteRecurringTransaction value)
-        deleteRecurringTransaction,
+    deleteRecurringTransaction,
     required TResult Function(DetectRecurringPatterns value)
-        detectRecurringPatterns,
+    detectRecurringPatterns,
     required TResult Function(ProcessRecurringTransactions value)
-        processRecurringTransactions,
+    processRecurringTransactions,
   }) {
     return detectRecurringPatterns(this);
   }
@@ -1657,16 +1759,16 @@ class _$DetectRecurringPatternsImpl implements DetectRecurringPatterns {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(LoadRecurringTransactions value)?
-        loadRecurringTransactions,
+    loadRecurringTransactions,
     TResult? Function(CreateRecurringTransaction value)?
-        createRecurringTransaction,
+    createRecurringTransaction,
     TResult? Function(ToggleRecurringTransaction value)?
-        toggleRecurringTransaction,
+    toggleRecurringTransaction,
     TResult? Function(DeleteRecurringTransaction value)?
-        deleteRecurringTransaction,
+    deleteRecurringTransaction,
     TResult? Function(DetectRecurringPatterns value)? detectRecurringPatterns,
     TResult? Function(ProcessRecurringTransactions value)?
-        processRecurringTransactions,
+    processRecurringTransactions,
   }) {
     return detectRecurringPatterns?.call(this);
   }
@@ -1675,16 +1777,16 @@ class _$DetectRecurringPatternsImpl implements DetectRecurringPatterns {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(LoadRecurringTransactions value)?
-        loadRecurringTransactions,
+    loadRecurringTransactions,
     TResult Function(CreateRecurringTransaction value)?
-        createRecurringTransaction,
+    createRecurringTransaction,
     TResult Function(ToggleRecurringTransaction value)?
-        toggleRecurringTransaction,
+    toggleRecurringTransaction,
     TResult Function(DeleteRecurringTransaction value)?
-        deleteRecurringTransaction,
+    deleteRecurringTransaction,
     TResult Function(DetectRecurringPatterns value)? detectRecurringPatterns,
     TResult Function(ProcessRecurringTransactions value)?
-        processRecurringTransactions,
+    processRecurringTransactions,
     required TResult orElse(),
   }) {
     if (detectRecurringPatterns != null) {
@@ -1703,16 +1805,16 @@ abstract class DetectRecurringPatterns implements RecurringEvent {
   @override
   @JsonKey(ignore: true)
   _$$DetectRecurringPatternsImplCopyWith<_$DetectRecurringPatternsImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class _$$ProcessRecurringTransactionsImplCopyWith<$Res>
     implements $RecurringEventCopyWith<$Res> {
   factory _$$ProcessRecurringTransactionsImplCopyWith(
-          _$ProcessRecurringTransactionsImpl value,
-          $Res Function(_$ProcessRecurringTransactionsImpl) then) =
-      __$$ProcessRecurringTransactionsImplCopyWithImpl<$Res>;
+    _$ProcessRecurringTransactionsImpl value,
+    $Res Function(_$ProcessRecurringTransactionsImpl) then,
+  ) = __$$ProcessRecurringTransactionsImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String userId});
@@ -1720,25 +1822,25 @@ abstract class _$$ProcessRecurringTransactionsImplCopyWith<$Res>
 
 /// @nodoc
 class __$$ProcessRecurringTransactionsImplCopyWithImpl<$Res>
-    extends _$RecurringEventCopyWithImpl<$Res,
-        _$ProcessRecurringTransactionsImpl>
+    extends
+        _$RecurringEventCopyWithImpl<$Res, _$ProcessRecurringTransactionsImpl>
     implements _$$ProcessRecurringTransactionsImplCopyWith<$Res> {
   __$$ProcessRecurringTransactionsImplCopyWithImpl(
-      _$ProcessRecurringTransactionsImpl _value,
-      $Res Function(_$ProcessRecurringTransactionsImpl) _then)
-      : super(_value, _then);
+    _$ProcessRecurringTransactionsImpl _value,
+    $Res Function(_$ProcessRecurringTransactionsImpl) _then,
+  ) : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? userId = null,
-  }) {
-    return _then(_$ProcessRecurringTransactionsImpl(
-      userId: null == userId
-          ? _value.userId
-          : userId // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
+  $Res call({Object? userId = null}) {
+    return _then(
+      _$ProcessRecurringTransactionsImpl(
+        userId: null == userId
+            ? _value.userId
+            : userId // ignore: cast_nullable_to_non_nullable
+                  as String,
+      ),
+    );
   }
 }
 
@@ -1771,39 +1873,44 @@ class _$ProcessRecurringTransactionsImpl
   @override
   @pragma('vm:prefer-inline')
   _$$ProcessRecurringTransactionsImplCopyWith<
-          _$ProcessRecurringTransactionsImpl>
-      get copyWith => __$$ProcessRecurringTransactionsImplCopyWithImpl<
-          _$ProcessRecurringTransactionsImpl>(this, _$identity);
+    _$ProcessRecurringTransactionsImpl
+  >
+  get copyWith =>
+      __$$ProcessRecurringTransactionsImplCopyWithImpl<
+        _$ProcessRecurringTransactionsImpl
+      >(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String userId) loadRecurringTransactions,
     required TResult Function(
-            String userId,
-            double amount,
-            String category,
-            String description,
-            RecurringFrequency frequency,
-            DateTime nextDueDate,
-            String? paymentMethod,
-            String? notes)
-        createRecurringTransaction,
+      String userId,
+      double amount,
+      String category,
+      String description,
+      RecurringFrequency frequency,
+      DateTime nextDueDate,
+      String? paymentMethod,
+      String? notes,
+    )
+    createRecurringTransaction,
     required TResult Function(
-            String id,
-            String userId,
-            double amount,
-            String category,
-            String description,
-            RecurringFrequency frequency,
-            DateTime nextDueDate,
-            bool isActive,
-            String? paymentMethod,
-            String? notes,
-            DateTime createdAt)
-        toggleRecurringTransaction,
+      String id,
+      String userId,
+      double amount,
+      String category,
+      String description,
+      RecurringFrequency frequency,
+      DateTime nextDueDate,
+      bool isActive,
+      String? paymentMethod,
+      String? notes,
+      DateTime createdAt,
+    )
+    toggleRecurringTransaction,
     required TResult Function(String userId, String transactionId)
-        deleteRecurringTransaction,
+    deleteRecurringTransaction,
     required TResult Function(String userId) detectRecurringPatterns,
     required TResult Function(String userId) processRecurringTransactions,
   }) {
@@ -1815,30 +1922,32 @@ class _$ProcessRecurringTransactionsImpl
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String userId)? loadRecurringTransactions,
     TResult? Function(
-            String userId,
-            double amount,
-            String category,
-            String description,
-            RecurringFrequency frequency,
-            DateTime nextDueDate,
-            String? paymentMethod,
-            String? notes)?
-        createRecurringTransaction,
+      String userId,
+      double amount,
+      String category,
+      String description,
+      RecurringFrequency frequency,
+      DateTime nextDueDate,
+      String? paymentMethod,
+      String? notes,
+    )?
+    createRecurringTransaction,
     TResult? Function(
-            String id,
-            String userId,
-            double amount,
-            String category,
-            String description,
-            RecurringFrequency frequency,
-            DateTime nextDueDate,
-            bool isActive,
-            String? paymentMethod,
-            String? notes,
-            DateTime createdAt)?
-        toggleRecurringTransaction,
+      String id,
+      String userId,
+      double amount,
+      String category,
+      String description,
+      RecurringFrequency frequency,
+      DateTime nextDueDate,
+      bool isActive,
+      String? paymentMethod,
+      String? notes,
+      DateTime createdAt,
+    )?
+    toggleRecurringTransaction,
     TResult? Function(String userId, String transactionId)?
-        deleteRecurringTransaction,
+    deleteRecurringTransaction,
     TResult? Function(String userId)? detectRecurringPatterns,
     TResult? Function(String userId)? processRecurringTransactions,
   }) {
@@ -1850,30 +1959,32 @@ class _$ProcessRecurringTransactionsImpl
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String userId)? loadRecurringTransactions,
     TResult Function(
-            String userId,
-            double amount,
-            String category,
-            String description,
-            RecurringFrequency frequency,
-            DateTime nextDueDate,
-            String? paymentMethod,
-            String? notes)?
-        createRecurringTransaction,
+      String userId,
+      double amount,
+      String category,
+      String description,
+      RecurringFrequency frequency,
+      DateTime nextDueDate,
+      String? paymentMethod,
+      String? notes,
+    )?
+    createRecurringTransaction,
     TResult Function(
-            String id,
-            String userId,
-            double amount,
-            String category,
-            String description,
-            RecurringFrequency frequency,
-            DateTime nextDueDate,
-            bool isActive,
-            String? paymentMethod,
-            String? notes,
-            DateTime createdAt)?
-        toggleRecurringTransaction,
+      String id,
+      String userId,
+      double amount,
+      String category,
+      String description,
+      RecurringFrequency frequency,
+      DateTime nextDueDate,
+      bool isActive,
+      String? paymentMethod,
+      String? notes,
+      DateTime createdAt,
+    )?
+    toggleRecurringTransaction,
     TResult Function(String userId, String transactionId)?
-        deleteRecurringTransaction,
+    deleteRecurringTransaction,
     TResult Function(String userId)? detectRecurringPatterns,
     TResult Function(String userId)? processRecurringTransactions,
     required TResult orElse(),
@@ -1888,17 +1999,17 @@ class _$ProcessRecurringTransactionsImpl
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(LoadRecurringTransactions value)
-        loadRecurringTransactions,
+    loadRecurringTransactions,
     required TResult Function(CreateRecurringTransaction value)
-        createRecurringTransaction,
+    createRecurringTransaction,
     required TResult Function(ToggleRecurringTransaction value)
-        toggleRecurringTransaction,
+    toggleRecurringTransaction,
     required TResult Function(DeleteRecurringTransaction value)
-        deleteRecurringTransaction,
+    deleteRecurringTransaction,
     required TResult Function(DetectRecurringPatterns value)
-        detectRecurringPatterns,
+    detectRecurringPatterns,
     required TResult Function(ProcessRecurringTransactions value)
-        processRecurringTransactions,
+    processRecurringTransactions,
   }) {
     return processRecurringTransactions(this);
   }
@@ -1907,16 +2018,16 @@ class _$ProcessRecurringTransactionsImpl
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(LoadRecurringTransactions value)?
-        loadRecurringTransactions,
+    loadRecurringTransactions,
     TResult? Function(CreateRecurringTransaction value)?
-        createRecurringTransaction,
+    createRecurringTransaction,
     TResult? Function(ToggleRecurringTransaction value)?
-        toggleRecurringTransaction,
+    toggleRecurringTransaction,
     TResult? Function(DeleteRecurringTransaction value)?
-        deleteRecurringTransaction,
+    deleteRecurringTransaction,
     TResult? Function(DetectRecurringPatterns value)? detectRecurringPatterns,
     TResult? Function(ProcessRecurringTransactions value)?
-        processRecurringTransactions,
+    processRecurringTransactions,
   }) {
     return processRecurringTransactions?.call(this);
   }
@@ -1925,16 +2036,16 @@ class _$ProcessRecurringTransactionsImpl
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(LoadRecurringTransactions value)?
-        loadRecurringTransactions,
+    loadRecurringTransactions,
     TResult Function(CreateRecurringTransaction value)?
-        createRecurringTransaction,
+    createRecurringTransaction,
     TResult Function(ToggleRecurringTransaction value)?
-        toggleRecurringTransaction,
+    toggleRecurringTransaction,
     TResult Function(DeleteRecurringTransaction value)?
-        deleteRecurringTransaction,
+    deleteRecurringTransaction,
     TResult Function(DetectRecurringPatterns value)? detectRecurringPatterns,
     TResult Function(ProcessRecurringTransactions value)?
-        processRecurringTransactions,
+    processRecurringTransactions,
     required TResult orElse(),
   }) {
     if (processRecurringTransactions != null) {
@@ -1953,6 +2064,7 @@ abstract class ProcessRecurringTransactions implements RecurringEvent {
   @override
   @JsonKey(ignore: true)
   _$$ProcessRecurringTransactionsImplCopyWith<
-          _$ProcessRecurringTransactionsImpl>
-      get copyWith => throw _privateConstructorUsedError;
+    _$ProcessRecurringTransactionsImpl
+  >
+  get copyWith => throw _privateConstructorUsedError;
 }

@@ -13,9 +13,9 @@ class TransactionBloc extends Bloc<TransactionEvent, TransactionState> {
   TransactionBloc({
     required TransactionRepository transactionRepository,
     required CategoryRepository categoryRepository,
-  })  : _transactionRepository = transactionRepository,
-        _categoryRepository = categoryRepository,
-        super(const TransactionState.initial()) {
+  }) : _transactionRepository = transactionRepository,
+       _categoryRepository = categoryRepository,
+       super(const TransactionState.initial()) {
     on<LoadTransactions>(_onLoadTransactions);
     on<LoadTransactionsForMonth>(_onLoadTransactionsForMonth);
     on<CreateTransaction>(_onCreateTransaction);
@@ -48,7 +48,9 @@ class TransactionBloc extends Bloc<TransactionEvent, TransactionState> {
       );
     } catch (e) {
       AppLogger.error('Load transactions error', error: e);
-      emit(const TransactionState.error(message: 'An unexpected error occurred'));
+      emit(
+        const TransactionState.error(message: 'An unexpected error occurred'),
+      );
     }
   }
 
@@ -75,7 +77,9 @@ class TransactionBloc extends Bloc<TransactionEvent, TransactionState> {
       );
     } catch (e) {
       AppLogger.error('Load transactions for month error', error: e);
-      emit(const TransactionState.error(message: 'An unexpected error occurred'));
+      emit(
+        const TransactionState.error(message: 'An unexpected error occurred'),
+      );
     }
   }
 
@@ -89,7 +93,9 @@ class TransactionBloc extends Bloc<TransactionEvent, TransactionState> {
       // Get smart category suggestion if description is provided
       String category = event.category;
       if (category.isEmpty && event.description.isNotEmpty) {
-        final suggestion = await _categoryRepository.suggestCategory(event.description);
+        final suggestion = await _categoryRepository.suggestCategory(
+          event.description,
+        );
         if (suggestion != null) {
           category = suggestion;
         }
@@ -112,13 +118,19 @@ class TransactionBloc extends Bloc<TransactionEvent, TransactionState> {
         },
         (transaction) {
           AppLogger.info('Transaction created: ${transaction.id}');
-          emit(const TransactionState.success(message: 'Transaction added successfully'));
+          emit(
+            const TransactionState.success(
+              message: 'Transaction added successfully',
+            ),
+          );
           add(LoadTransactions(userId: event.userId));
         },
       );
     } catch (e) {
       AppLogger.error('Create transaction error', error: e);
-      emit(const TransactionState.error(message: 'An unexpected error occurred'));
+      emit(
+        const TransactionState.error(message: 'An unexpected error occurred'),
+      );
     }
   }
 
@@ -152,13 +164,19 @@ class TransactionBloc extends Bloc<TransactionEvent, TransactionState> {
         },
         (updatedTransaction) {
           AppLogger.info('Transaction updated: ${updatedTransaction.id}');
-          emit(const TransactionState.success(message: 'Transaction updated successfully'));
+          emit(
+            const TransactionState.success(
+              message: 'Transaction updated successfully',
+            ),
+          );
           add(LoadTransactions(userId: event.userId));
         },
       );
     } catch (e) {
       AppLogger.error('Update transaction error', error: e);
-      emit(const TransactionState.error(message: 'An unexpected error occurred'));
+      emit(
+        const TransactionState.error(message: 'An unexpected error occurred'),
+      );
     }
   }
 
@@ -181,13 +199,19 @@ class TransactionBloc extends Bloc<TransactionEvent, TransactionState> {
         },
         (_) {
           AppLogger.info('Transaction deleted: ${event.transactionId}');
-          emit(const TransactionState.success(message: 'Transaction deleted successfully'));
+          emit(
+            const TransactionState.success(
+              message: 'Transaction deleted successfully',
+            ),
+          );
           add(LoadTransactions(userId: event.userId));
         },
       );
     } catch (e) {
       AppLogger.error('Delete transaction error', error: e);
-      emit(const TransactionState.error(message: 'An unexpected error occurred'));
+      emit(
+        const TransactionState.error(message: 'An unexpected error occurred'),
+      );
     }
   }
 
@@ -213,7 +237,9 @@ class TransactionBloc extends Bloc<TransactionEvent, TransactionState> {
       );
     } catch (e) {
       AppLogger.error('Search transactions error', error: e);
-      emit(const TransactionState.error(message: 'An unexpected error occurred'));
+      emit(
+        const TransactionState.error(message: 'An unexpected error occurred'),
+      );
     }
   }
 
@@ -240,7 +266,9 @@ class TransactionBloc extends Bloc<TransactionEvent, TransactionState> {
       );
     } catch (e) {
       AppLogger.error('Filter transactions error', error: e);
-      emit(const TransactionState.error(message: 'An unexpected error occurred'));
+      emit(
+        const TransactionState.error(message: 'An unexpected error occurred'),
+      );
     }
   }
 
@@ -249,15 +277,14 @@ class TransactionBloc extends Bloc<TransactionEvent, TransactionState> {
     Emitter<TransactionState> emit,
   ) async {
     try {
-      final result = await _transactionRepository.syncAllTransactions(event.userId);
-
-      result.fold(
-        (error) => AppLogger.warning('Sync failed: $error'),
-        (_) {
-          AppLogger.info('Transactions synced successfully');
-          add(LoadTransactions(userId: event.userId));
-        },
+      final result = await _transactionRepository.syncAllTransactions(
+        event.userId,
       );
+
+      result.fold((error) => AppLogger.warning('Sync failed: $error'), (_) {
+        AppLogger.info('Transactions synced successfully');
+        add(LoadTransactions(userId: event.userId));
+      });
     } catch (e) {
       AppLogger.error('Sync transactions error', error: e);
     }

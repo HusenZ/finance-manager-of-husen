@@ -9,19 +9,13 @@ class IncomeState with _$IncomeState {
 
   const factory IncomeState.loading() = IncomeLoading;
 
-  const factory IncomeState.loaded({
-    required List<Income> incomes,
-  }) = IncomeLoaded;
+  const factory IncomeState.loaded({required List<Income> incomes}) =
+      IncomeLoaded;
 
-  const factory IncomeState.totalCalculated({
-    required double total,
-  }) = IncomeTotalCalculated;
+  const factory IncomeState.totalCalculated({required double total}) =
+      IncomeTotalCalculated;
 
-  const factory IncomeState.success({
-    required String message,
-  }) = IncomeSuccess;
+  const factory IncomeState.success({required String message}) = IncomeSuccess;
 
-  const factory IncomeState.error({
-    required String message,
-  }) = IncomeError;
+  const factory IncomeState.error({required String message}) = IncomeError;
 }

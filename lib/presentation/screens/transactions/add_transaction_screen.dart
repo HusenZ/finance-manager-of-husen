@@ -3,8 +3,12 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:intl/intl.dart';
+import 'package:sizer/sizer.dart';
+
+import '../../../core/breakpoints.dart';
 import '../../../core/constants/app_colors.dart';
-import '../../../core/constants/app_constants.dart';
+import '../../../core/font_size.dart';
+import '../../../core/spacing.dart';
 import '../../../core/utils/validators.dart';
 import '../../bloc/auth/auth_bloc.dart';
 import '../../bloc/auth/auth_state.dart';
@@ -12,8 +16,6 @@ import '../../bloc/transaction/transaction_bloc.dart';
 import '../../bloc/transaction/transaction_event.dart';
 import '../../bloc/transaction/transaction_state.dart';
 import '../../widgets/common/custom_app_bar.dart';
-import '../../widgets/common/custom_button.dart';
-import '../../widgets/common/custom_text_field.dart';
 import '../../widgets/common/loading_widget.dart';
 
 class AddTransactionScreen extends StatefulWidget {
@@ -94,25 +96,28 @@ class _AddTransactionScreenState extends State<AddTransactionScreen> {
     final notes = _notesController.text.trim();
 
     context.read<TransactionBloc>().add(
-          TransactionEvent.createTransaction(
-            userId: authState.user.id,
-            amount: amount,
-            category: _selectedCategory,
-            description: description,
-            date: _selectedDate,
-            paymentMethod: _selectedPaymentMethod,
-            notes: notes.isEmpty ? null : notes,
-          ),
-        );
+      TransactionEvent.createTransaction(
+        userId: authState.user.id,
+        amount: amount,
+        category: _selectedCategory,
+        description: description,
+        date: _selectedDate,
+        paymentMethod: _selectedPaymentMethod,
+        notes: notes.isEmpty ? null : notes,
+      ),
+    );
   }
 
   @override
   Widget build(BuildContext context) {
     final isDark = Theme.of(context).brightness == Brightness.dark;
+    final isDesktop = AppBreakpoints.isDesktop(context);
+    final isTablet = AppBreakpoints.isTablet(context);
 
     return Scaffold(
-      backgroundColor:
-          isDark ? AppColors.backgroundDark : AppColors.backgroundLight,
+      backgroundColor: isDark
+          ? AppColors.backgroundDark
+          : AppColors.backgroundLight,
       appBar: const CustomAppBar(title: 'Add Transaction'),
       body: BlocConsumer<TransactionBloc, TransactionState>(
         listener: (context, state) {
@@ -137,237 +142,368 @@ class _AddTransactionScreenState extends State<AddTransactionScreen> {
           );
         },
         builder: (context, state) {
-          final isLoading = state is TransactionLoading;
-
-          if (isLoading) {
+          if (state is TransactionLoading) {
             return const LoadingWidget(message: 'Adding transaction...');
           }
 
-          return SingleChildScrollView(
-            padding: const EdgeInsets.all(AppConstants.spacing16),
-            child: Form(
-              key: _formKey,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: [
-                  // Amount Card
-                  Card(
-                    elevation: 2,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(16),
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.all(AppConstants.spacing24),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            'Amount',
-                            style: Theme.of(context)
-                                .textTheme
-                                .titleMedium
-                                ?.copyWith(
-                                  fontWeight: FontWeight.bold,
-                                ),
-                          ),
-                          const SizedBox(height: AppConstants.spacing16),
-                          CustomTextField(
-                            controller: _amountController,
-                            labelText: 'Enter amount',
-                            hintText: '0.00',
-                            keyboardType: const TextInputType.numberWithOptions(
-                              decimal: true,
-                            ),
-                            prefixIcon: const Icon(Icons.currency_rupee),
-                            inputFormatters: [
-                              FilteringTextInputFormatter.allow(
-                                RegExp(r'^\d+\.?\d{0,2}'),
+          return SafeArea(
+            child: Center(
+              child: ConstrainedBox(
+                constraints: BoxConstraints(
+                  maxWidth: isDesktop
+                      ? 1200
+                      : (isTablet ? 900 : double.infinity),
+                ),
+                child: SingleChildScrollView(
+                  padding: EdgeInsets.symmetric(
+                    horizontal: isDesktop ? 4.w : 3.w,
+                    vertical: 2.h,
+                  ),
+                  child: Form(
+                    key: _formKey,
+                    child: isDesktop
+                        ? Row(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Expanded(
+                                flex: 7,
+                                child: _buildFormColumn(context),
+                              ),
+                              SizedBox(width: 2.w),
+                              Expanded(
+                                flex: 3,
+                                child: _buildRightPanel(context),
                               ),
                             ],
-                            validator: Validators.validateAmount,
+                          )
+                        : Column(
+                            children: [
+                              _buildFormColumn(context),
+                              SizedBox(height: AppSpacing.md),
+                              _buildActions(context, isDesktop: false),
+                            ],
                           ),
-                        ],
-                      ),
-                    ),
                   ),
-                  const SizedBox(height: AppConstants.spacing16),
-
-                  // Description Card
-                  Card(
-                    elevation: 2,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(16),
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.all(AppConstants.spacing24),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            'Details',
-                            style: Theme.of(context)
-                                .textTheme
-                                .titleMedium
-                                ?.copyWith(
-                                  fontWeight: FontWeight.bold,
-                                ),
-                          ),
-                          const SizedBox(height: AppConstants.spacing16),
-                          CustomTextField(
-                            controller: _descriptionController,
-                            labelText: 'Description',
-                            hintText: 'What did you spend on?',
-                            prefixIcon: const Icon(Icons.description_outlined),
-                            validator: (value) {
-                              if (value == null || value.isEmpty) {
-                                return 'Please enter a description';
-                              }
-                              return null;
-                            },
-                            textCapitalization: TextCapitalization.sentences,
-                          ),
-                          const SizedBox(height: AppConstants.spacing16),
-
-                          // Category Dropdown
-                          DropdownButtonFormField<String>(
-                            initialValue: _selectedCategory,
-                            decoration: InputDecoration(
-                              labelText: 'Category',
-                              prefixIcon: Icon(
-                                _getCategoryIcon(_selectedCategory),
-                                color: AppColors.getCategoryColor(
-                                    _selectedCategory),
-                              ),
-                              border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(12),
-                              ),
-                            ),
-                            items: _categories.map((category) {
-                              return DropdownMenuItem(
-                                value: category,
-                                child: Row(
-                                  children: [
-                                    Icon(
-                                      _getCategoryIcon(category),
-                                      size: 20,
-                                      color: AppColors.getCategoryColor(
-                                          category),
-                                    ),
-                                    const SizedBox(width: 12),
-                                    Text(category),
-                                  ],
-                                ),
-                              );
-                            }).toList(),
-                            onChanged: (value) {
-                              if (value != null) {
-                                setState(() {
-                                  _selectedCategory = value;
-                                });
-                              }
-                            },
-                          ),
-                          const SizedBox(height: AppConstants.spacing16),
-
-                          // Payment Method Dropdown
-                          DropdownButtonFormField<String>(
-                            initialValue: _selectedPaymentMethod,
-                            decoration: InputDecoration(
-                              labelText: 'Payment Method',
-                              prefixIcon: Icon(
-                                _getPaymentMethodIcon(_selectedPaymentMethod),
-                              ),
-                              border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(12),
-                              ),
-                            ),
-                            items: _paymentMethods.map((method) {
-                              return DropdownMenuItem(
-                                value: method,
-                                child: Row(
-                                  children: [
-                                    Icon(
-                                      _getPaymentMethodIcon(method),
-                                      size: 20,
-                                    ),
-                                    const SizedBox(width: 12),
-                                    Text(method),
-                                  ],
-                                ),
-                              );
-                            }).toList(),
-                            onChanged: (value) {
-                              if (value != null) {
-                                setState(() {
-                                  _selectedPaymentMethod = value;
-                                });
-                              }
-                            },
-                          ),
-                          const SizedBox(height: AppConstants.spacing16),
-
-                          // Date Picker
-                          InkWell(
-                            onTap: () => _selectDate(context),
-                            child: InputDecorator(
-                              decoration: InputDecoration(
-                                labelText: 'Date',
-                                prefixIcon: const Icon(Icons.calendar_today),
-                                border: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(12),
-                                ),
-                              ),
-                              child: Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Text(
-                                    DateFormat('MMM dd, yyyy')
-                                        .format(_selectedDate),
-                                  ),
-                                  const Icon(Icons.arrow_drop_down),
-                                ],
-                              ),
-                            ),
-                          ),
-                          const SizedBox(height: AppConstants.spacing16),
-
-                          // Notes (Optional)
-                          CustomTextField(
-                            controller: _notesController,
-                            labelText: 'Notes (Optional)',
-                            hintText: 'Add any additional notes',
-                            prefixIcon: const Icon(Icons.note_outlined),
-                            maxLines: 3,
-                            textCapitalization: TextCapitalization.sentences,
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                  const SizedBox(height: AppConstants.spacing24),
-
-                  // Submit Button
-                  CustomButton(
-                    text: 'Add Transaction',
-                    onPressed: _handleSubmit,
-                    type: ButtonType.primary,
-                    icon: Icons.add,
-                  ),
-                  const SizedBox(height: AppConstants.spacing8),
-
-                  // Cancel Button
-                  CustomButton(
-                    text: 'Cancel',
-                    onPressed: () => context.pop(),
-                    type: ButtonType.outlined,
-                  ),
-                ],
+                ),
               ),
             ),
           );
         },
       ),
+    );
+  }
+
+  Widget _buildFormColumn(BuildContext context) {
+    final isDesktop = AppBreakpoints.isDesktop(context);
+
+    return Column(
+      children: [
+        _sectionCard(
+          title: 'Amount',
+          child: TextFormField(
+            controller: _amountController,
+            onChanged: (_) => setState(() {}),
+            keyboardType: const TextInputType.numberWithOptions(decimal: true),
+            inputFormatters: [
+              FilteringTextInputFormatter.allow(RegExp(r'^\d+\.?\d{0,2}')),
+            ],
+            validator: Validators.validateAmount,
+            style: TextStyle(fontSize: AppFontSize.of(14)),
+            decoration: InputDecoration(
+              labelText: 'Enter amount',
+              hintText: '0.00',
+              prefixIcon: Icon(Icons.currency_rupee, size: 3.h),
+            ),
+          ),
+        ),
+        SizedBox(height: AppSpacing.md),
+        _sectionCard(
+          title: 'Transaction Details',
+          child: Column(
+            children: [
+              TextFormField(
+                controller: _descriptionController,
+                onChanged: (_) => setState(() {}),
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Please enter a description';
+                  }
+                  return null;
+                },
+                style: TextStyle(fontSize: AppFontSize.of(14)),
+                decoration: InputDecoration(
+                  labelText: 'Description',
+                  hintText: 'What did you spend on?',
+                  prefixIcon: Icon(Icons.description_outlined, size: 3.h),
+                ),
+              ),
+              SizedBox(height: AppSpacing.md),
+              DropdownButtonFormField<String>(
+                initialValue: _selectedCategory,
+                isExpanded: true,
+                decoration: InputDecoration(
+                  labelText: 'Category',
+                  prefixIcon: Icon(
+                    _getCategoryIcon(_selectedCategory),
+                    size: 3.h,
+                  ),
+                ),
+                items: _categories
+                    .map(
+                      (category) => DropdownMenuItem(
+                        value: category,
+                        child: Row(
+                          children: [
+                            Icon(_getCategoryIcon(category), size: 2.5.h),
+                            SizedBox(width: 1.w),
+                            Expanded(
+                              child: Text(
+                                category,
+                                overflow: TextOverflow.ellipsis,
+                                style: TextStyle(fontSize: AppFontSize.of(13)),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    )
+                    .toList(),
+                onChanged: (value) {
+                  if (value != null) {
+                    setState(() {
+                      _selectedCategory = value;
+                    });
+                  }
+                },
+              ),
+              SizedBox(height: AppSpacing.md),
+              DropdownButtonFormField<String>(
+                initialValue: _selectedPaymentMethod,
+                isExpanded: true,
+                decoration: InputDecoration(
+                  labelText: 'Payment Method',
+                  prefixIcon: Icon(
+                    _getPaymentMethodIcon(_selectedPaymentMethod),
+                    size: 3.h,
+                  ),
+                ),
+                items: _paymentMethods
+                    .map(
+                      (method) => DropdownMenuItem(
+                        value: method,
+                        child: Row(
+                          children: [
+                            Icon(_getPaymentMethodIcon(method), size: 2.5.h),
+                            SizedBox(width: 1.w),
+                            Expanded(
+                              child: Text(
+                                method,
+                                overflow: TextOverflow.ellipsis,
+                                style: TextStyle(fontSize: AppFontSize.of(13)),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    )
+                    .toList(),
+                onChanged: (value) {
+                  if (value != null) {
+                    setState(() {
+                      _selectedPaymentMethod = value;
+                    });
+                  }
+                },
+              ),
+              SizedBox(height: AppSpacing.md),
+              MouseRegion(
+                cursor: SystemMouseCursors.click,
+                child: InkWell(
+                  onTap: () => _selectDate(context),
+                  child: InputDecorator(
+                    decoration: InputDecoration(
+                      labelText: 'Date',
+                      prefixIcon: Icon(Icons.calendar_today_rounded, size: 3.h),
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          DateFormat('MMM dd, yyyy').format(_selectedDate),
+                          style: TextStyle(fontSize: AppFontSize.of(14)),
+                        ),
+                        Icon(Icons.arrow_drop_down_rounded, size: 3.h),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+              SizedBox(height: AppSpacing.md),
+              TextFormField(
+                controller: _notesController,
+                maxLines: 3,
+                style: TextStyle(fontSize: AppFontSize.of(14)),
+                decoration: InputDecoration(
+                  labelText: 'Notes (Optional)',
+                  hintText: 'Add any additional notes',
+                  prefixIcon: Icon(Icons.note_outlined, size: 3.h),
+                ),
+              ),
+            ],
+          ),
+        ),
+        if (isDesktop) ...[
+          SizedBox(height: AppSpacing.md),
+          _buildActions(context, isDesktop: true),
+        ],
+      ],
+    );
+  }
+
+  Widget _buildRightPanel(BuildContext context) {
+    return Column(
+      children: [
+        _sectionCard(
+          title: 'Live Preview',
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              _previewRow(
+                'Amount',
+                _amountController.text.isEmpty
+                    ? '0.00'
+                    : _amountController.text,
+              ),
+              SizedBox(height: AppSpacing.sm),
+              _previewRow('Category', _selectedCategory),
+              SizedBox(height: AppSpacing.sm),
+              _previewRow('Payment', _selectedPaymentMethod),
+              SizedBox(height: AppSpacing.sm),
+              _previewRow(
+                'Date',
+                DateFormat('MMM dd, yyyy').format(_selectedDate),
+              ),
+              SizedBox(height: AppSpacing.sm),
+              _previewRow(
+                'Description',
+                _descriptionController.text.isEmpty
+                    ? '-'
+                    : _descriptionController.text,
+              ),
+            ],
+          ),
+        ),
+        SizedBox(height: AppSpacing.md),
+        _sectionCard(
+          title: 'Tips',
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                '• Keep descriptions short and specific',
+                style: TextStyle(fontSize: AppFontSize.of(12)),
+              ),
+              SizedBox(height: AppSpacing.xs),
+              Text(
+                '• Choose the exact payment method',
+                style: TextStyle(fontSize: AppFontSize.of(12)),
+              ),
+              SizedBox(height: AppSpacing.xs),
+              Text(
+                '• Add notes only when needed',
+                style: TextStyle(fontSize: AppFontSize.of(12)),
+              ),
+            ],
+          ),
+        ),
+      ],
+    );
+  }
+
+  Widget _buildActions(BuildContext context, {required bool isDesktop}) {
+    return Row(
+      children: [
+        Expanded(
+          child: SizedBox(
+            height: 6.h,
+            child: ElevatedButton.icon(
+              onPressed: _handleSubmit,
+              icon: Icon(Icons.add_rounded, size: 3.h),
+              label: Text(
+                'Add Transaction',
+                style: TextStyle(fontSize: AppFontSize.of(14)),
+              ),
+            ),
+          ),
+        ),
+        SizedBox(width: isDesktop ? 1.w : 2.w),
+        Expanded(
+          child: SizedBox(
+            height: 6.h,
+            child: OutlinedButton(
+              onPressed: () => context.pop(),
+              child: Text(
+                'Cancel',
+                style: TextStyle(fontSize: AppFontSize.of(14)),
+              ),
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+
+  Widget _sectionCard({required String title, required Widget child}) {
+    return MouseRegion(
+      cursor: SystemMouseCursors.basic,
+      child: Card(
+        elevation: 2,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+        child: Padding(
+          padding: EdgeInsets.all(2.h),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                title,
+                style: TextStyle(
+                  fontSize: AppFontSize.of(15),
+                  fontWeight: FontWeight.w700,
+                ),
+              ),
+              SizedBox(height: AppSpacing.md),
+              child,
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget _previewRow(String label, String value) {
+    return Row(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        SizedBox(
+          width: 8.w,
+          child: Text(
+            label,
+            style: TextStyle(fontSize: AppFontSize.of(12), color: Colors.grey),
+          ),
+        ),
+        SizedBox(width: 1.w),
+        Expanded(
+          child: Text(
+            value,
+            maxLines: 2,
+            overflow: TextOverflow.ellipsis,
+            style: TextStyle(
+              fontSize: AppFontSize.of(13),
+              fontWeight: FontWeight.w600,
+            ),
+          ),
+        ),
+      ],
     );
   }
 

@@ -32,10 +32,8 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
   void _handleResetPassword() {
     if (_formKey.currentState!.validate()) {
       context.read<AuthBloc>().add(
-            AuthEvent.resetPasswordRequested(
-              email: _emailController.text.trim(),
-            ),
-          );
+        AuthEvent.resetPasswordRequested(email: _emailController.text.trim()),
+      );
     }
   }
 
@@ -44,16 +42,20 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
     final isDark = Theme.of(context).brightness == Brightness.dark;
 
     return Scaffold(
-      backgroundColor:
-          isDark ? AppColors.backgroundDark : AppColors.backgroundLight,
+      backgroundColor: isDark
+          ? AppColors.backgroundDark
+          : AppColors.backgroundLight,
       appBar: AppBar(
-        backgroundColor:
-            isDark ? AppColors.backgroundDark : AppColors.backgroundLight,
+        backgroundColor: isDark
+            ? AppColors.backgroundDark
+            : AppColors.backgroundLight,
         elevation: 0,
         leading: IconButton(
           icon: Icon(
             Icons.arrow_back,
-            color: isDark ? AppColors.textPrimaryDark : AppColors.textPrimaryLight,
+            color: isDark
+                ? AppColors.textPrimaryDark
+                : AppColors.textPrimaryLight,
           ),
           onPressed: () => context.pop(),
         ),
@@ -64,9 +66,7 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
             passwordResetSent: (email) {
               ScaffoldMessenger.of(context).showSnackBar(
                 SnackBar(
-                  content: Text(
-                    'Password reset link sent to $email',
-                  ),
+                  content: Text('Password reset link sent to $email'),
                   backgroundColor: AppColors.success,
                 ),
               );
@@ -90,7 +90,8 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
         },
         builder: (context, state) {
           return state.maybeWhen(
-            loading: () => const LoadingWidget(message: 'Sending reset link...'),
+            loading: () =>
+                const LoadingWidget(message: 'Sending reset link...'),
             orElse: () => SafeArea(
               child: Center(
                 child: SingleChildScrollView(

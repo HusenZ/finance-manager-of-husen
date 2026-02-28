@@ -5,21 +5,27 @@ import '../services/hive_service.dart';
 import '../models/category.dart';
 import '../../core/utils/app_logger.dart';
 import '../../core/constants/app_constants.dart';
+import '../../services/subscription_service.dart';
 
 class CategoryRepository {
   final FirebaseService _firebaseService;
   final HiveService _hiveService;
+  final SubscriptionService _subscriptionService;
   final Uuid _uuid;
 
   CategoryRepository({
     required FirebaseService firebaseService,
     required HiveService hiveService,
+    required SubscriptionService subscriptionService,
     Uuid? uuid,
-  })  : _firebaseService = firebaseService,
-        _hiveService = hiveService,
-        _uuid = uuid ?? const Uuid();
+  }) : _firebaseService = firebaseService,
+       _hiveService = hiveService,
+       _subscriptionService = subscriptionService,
+       _uuid = uuid ?? const Uuid();
 
-  Future<Either<String, void>> initializeDefaultCategories(String userId) async {
+  Future<Either<String, void>> initializeDefaultCategories(
+    String userId,
+  ) async {
     try {
       final categories = AppConstants.defaultCategories.map((categoryData) {
         return Category(
@@ -35,14 +41,20 @@ class CategoryRepository {
 
       await _hiveService.saveCategories(categories);
 
-      for (final category in categories) {
-        await _firebaseService.saveCategory(category);
+      if (_subscriptionService.canUseCloudSync()) {
+        for (final category in categories) {
+          await _firebaseService.saveCategory(category);
+        }
       }
 
       AppLogger.info('Default categories initialized');
       return const Right(null);
     } catch (e, stackTrace) {
-      AppLogger.error('Failed to initialize default categories', error: e, stackTrace: stackTrace);
+      AppLogger.error(
+        'Failed to initialize default categories',
+        error: e,
+        stackTrace: stackTrace,
+      );
       return Left('Failed to initialize categories: ${e.toString()}');
     }
   }
@@ -54,6 +66,12 @@ class CategoryRepository {
     required String color,
   }) async {
     try {
+      final existing = await _hiveService.getAllCategories();
+      final currentCustomCount = existing.where((c) => c.isCustom).length;
+      if (!_subscriptionService.canAddCategory(currentCustomCount)) {
+        return const Left('Free tier allows up to 3 custom categories.');
+      }
+
       final category = Category(
         id: _uuid.v4(),
         userId: userId,
@@ -65,12 +83,17 @@ class CategoryRepository {
       );
 
       await _hiveService.saveCategory(category);
+      if (!_subscriptionService.canUseCloudSync()) {
+        return Right(category);
+      }
 
       final result = await _firebaseService.saveCategory(category);
 
       return result.fold(
         (error) {
-          AppLogger.warning('Category saved locally but failed to sync: $error');
+          AppLogger.warning(
+            'Category saved locally but failed to sync: $error',
+          );
           return Right(category);
         },
         (_) {
@@ -79,7 +102,11 @@ class CategoryRepository {
         },
       );
     } catch (e, stackTrace) {
-      AppLogger.error('Failed to create category', error: e, stackTrace: stackTrace);
+      AppLogger.error(
+        'Failed to create category',
+        error: e,
+        stackTrace: stackTrace,
+      );
       return Left('Failed to create category: ${e.toString()}');
     }
   }
@@ -88,26 +115,35 @@ class CategoryRepository {
     required Category category,
   }) async {
     try {
-      final updatedCategory = category.copyWith(
-        updatedAt: DateTime.now(),
-      );
+      final updatedCategory = category.copyWith(updatedAt: DateTime.now());
 
       await _hiveService.saveCategory(updatedCategory);
+      if (!_subscriptionService.canUseCloudSync()) {
+        return Right(updatedCategory);
+      }
 
       final result = await _firebaseService.saveCategory(updatedCategory);
 
       return result.fold(
         (error) {
-          AppLogger.warning('Category updated locally but failed to sync: $error');
+          AppLogger.warning(
+            'Category updated locally but failed to sync: $error',
+          );
           return Right(updatedCategory);
         },
         (_) {
-          AppLogger.info('Category updated and synced: ${updatedCategory.name}');
+          AppLogger.info(
+            'Category updated and synced: ${updatedCategory.name}',
+          );
           return Right(updatedCategory);
         },
       );
     } catch (e, stackTrace) {
-      AppLogger.error('Failed to update category', error: e, stackTrace: stackTrace);
+      AppLogger.error(
+        'Failed to update category',
+        error: e,
+        stackTrace: stackTrace,
+      );
       return Left('Failed to update category: ${e.toString()}');
     }
   }
@@ -118,12 +154,17 @@ class CategoryRepository {
   }) async {
     try {
       await _hiveService.deleteCategory(categoryId);
+      if (!_subscriptionService.canUseCloudSync()) {
+        return const Right(null);
+      }
 
       final result = await _firebaseService.deleteCategory(userId, categoryId);
 
       return result.fold(
         (error) {
-          AppLogger.warning('Category deleted locally but failed to sync: $error');
+          AppLogger.warning(
+            'Category deleted locally but failed to sync: $error',
+          );
           return const Right(null);
         },
         (_) {
@@ -132,7 +173,11 @@ class CategoryRepository {
         },
       );
     } catch (e, stackTrace) {
-      AppLogger.error('Failed to delete category', error: e, stackTrace: stackTrace);
+      AppLogger.error(
+        'Failed to delete category',
+        error: e,
+        stackTrace: stackTrace,
+      );
       return Left('Failed to delete category: ${e.toString()}');
     }
   }
@@ -149,12 +194,18 @@ class CategoryRepository {
         return Right(await _hiveService.getAllCategories());
       }
 
-      // Sync from Firestore in the background
-      _syncCategoriesFromFirestore(userId);
+      // Sync from Firestore in the background for paid tiers
+      if (_subscriptionService.canUseCloudSync()) {
+        _syncCategoriesFromFirestore(userId);
+      }
 
       return Right(localCategories);
     } catch (e, stackTrace) {
-      AppLogger.error('Failed to get all categories', error: e, stackTrace: stackTrace);
+      AppLogger.error(
+        'Failed to get all categories',
+        error: e,
+        stackTrace: stackTrace,
+      );
       return Left('Failed to get categories: ${e.toString()}');
     }
   }
@@ -165,15 +216,16 @@ class CategoryRepository {
     try {
       final result = await getAllCategories(userId: userId);
 
-      return result.fold(
-        (error) => Left(error),
-        (categories) {
-          final customCategories = categories.where((c) => c.isCustom).toList();
-          return Right(customCategories);
-        },
-      );
+      return result.fold((error) => Left(error), (categories) {
+        final customCategories = categories.where((c) => c.isCustom).toList();
+        return Right(customCategories);
+      });
     } catch (e, stackTrace) {
-      AppLogger.error('Failed to get custom categories', error: e, stackTrace: stackTrace);
+      AppLogger.error(
+        'Failed to get custom categories',
+        error: e,
+        stackTrace: stackTrace,
+      );
       return Left('Failed to get categories: ${e.toString()}');
     }
   }
@@ -185,7 +237,9 @@ class CategoryRepository {
       for (final entry in AppConstants.categoryKeywords.entries) {
         for (final keyword in entry.value) {
           if (lowerDescription.contains(keyword)) {
-            AppLogger.debug('Suggested category: ${entry.key} for description: $description');
+            AppLogger.debug(
+              'Suggested category: ${entry.key} for description: $description',
+            );
             return entry.key;
           }
         }
@@ -203,10 +257,14 @@ class CategoryRepository {
       final result = await _firebaseService.getCategories(userId);
 
       result.fold(
-        (error) => AppLogger.warning('Failed to sync categories from Firestore: $error'),
+        (error) => AppLogger.warning(
+          'Failed to sync categories from Firestore: $error',
+        ),
         (categories) async {
           await _hiveService.saveCategories(categories);
-          AppLogger.info('Synced ${categories.length} categories from Firestore');
+          AppLogger.info(
+            'Synced ${categories.length} categories from Firestore',
+          );
         },
       );
     } catch (e) {
@@ -216,18 +274,22 @@ class CategoryRepository {
 
   Future<Either<String, void>> syncAllCategories(String userId) async {
     try {
+      if (!_subscriptionService.canUseCloudSync()) {
+        return const Right(null);
+      }
       final result = await _firebaseService.getCategories(userId);
 
-      return result.fold(
-        (error) => Left(error),
-        (categories) async {
-          await _hiveService.saveCategories(categories);
-          AppLogger.info('Successfully synced all categories');
-          return const Right(null);
-        },
-      );
+      return result.fold((error) => Left(error), (categories) async {
+        await _hiveService.saveCategories(categories);
+        AppLogger.info('Successfully synced all categories');
+        return const Right(null);
+      });
     } catch (e, stackTrace) {
-      AppLogger.error('Failed to sync categories', error: e, stackTrace: stackTrace);
+      AppLogger.error(
+        'Failed to sync categories',
+        error: e,
+        stackTrace: stackTrace,
+      );
       return Left('Failed to sync: ${e.toString()}');
     }
   }

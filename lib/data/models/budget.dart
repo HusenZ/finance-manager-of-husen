@@ -18,8 +18,7 @@ class Budget with _$Budget {
     @HiveField(7) DateTime? updatedAt,
   }) = _Budget;
 
-  factory Budget.fromJson(Map<String, dynamic> json) =>
-      _$BudgetFromJson(json);
+  factory Budget.fromJson(Map<String, dynamic> json) => _$BudgetFromJson(json);
 
   factory Budget.fromFirestore(Map<String, dynamic> data, String id) {
     return Budget(

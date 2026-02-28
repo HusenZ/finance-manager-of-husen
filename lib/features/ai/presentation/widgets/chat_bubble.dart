@@ -11,10 +11,7 @@ import '../../domain/entities/ai_message.dart';
 class ChatBubble extends StatelessWidget {
   final AIMessage message;
 
-  const ChatBubble({
-    Key? key,
-    required this.message,
-  }) : super(key: key);
+  const ChatBubble({Key? key, required this.message}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -24,8 +21,9 @@ class ChatBubble extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
       child: Row(
-        mainAxisAlignment:
-            isUser ? MainAxisAlignment.end : MainAxisAlignment.start,
+        mainAxisAlignment: isUser
+            ? MainAxisAlignment.end
+            : MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           // AI avatar (only for AI messages)
@@ -37,8 +35,9 @@ class ChatBubble extends StatelessWidget {
           // Message bubble
           Flexible(
             child: Column(
-              crossAxisAlignment:
-                  isUser ? CrossAxisAlignment.end : CrossAxisAlignment.start,
+              crossAxisAlignment: isUser
+                  ? CrossAxisAlignment.end
+                  : CrossAxisAlignment.start,
               children: [
                 Container(
                   padding: const EdgeInsets.symmetric(
@@ -88,11 +87,7 @@ class ChatBubble extends StatelessWidget {
           // User avatar (only for user messages)
           if (isUser) ...[
             const SizedBox(width: 8),
-            _buildAvatar(
-              context,
-              '👤',
-              theme.colorScheme.primaryContainer,
-            ),
+            _buildAvatar(context, '👤', theme.colorScheme.primaryContainer),
           ],
         ],
       ),
@@ -104,16 +99,8 @@ class ChatBubble extends StatelessWidget {
     return Container(
       width: 36,
       height: 36,
-      decoration: BoxDecoration(
-        color: color,
-        shape: BoxShape.circle,
-      ),
-      child: Center(
-        child: Text(
-          emoji,
-          style: const TextStyle(fontSize: 20),
-        ),
-      ),
+      decoration: BoxDecoration(color: color, shape: BoxShape.circle),
+      child: Center(child: Text(emoji, style: const TextStyle(fontSize: 20))),
     );
   }
 

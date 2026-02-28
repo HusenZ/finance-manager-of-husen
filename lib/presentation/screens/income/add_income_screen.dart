@@ -91,17 +91,17 @@ class _AddIncomeScreenState extends State<AddIncomeScreen> {
     final amount = double.parse(_amountController.text);
 
     context.read<IncomeBloc>().add(
-          IncomeEvent.createIncome(
-            userId: authState.user.id,
-            amount: amount,
-            source: _selectedSource,
-            description: _descriptionController.text,
-            date: _selectedDate,
-            notes: _notesController.text.isNotEmpty ? _notesController.text : null,
-            isRecurring: _isRecurring,
-            recurrenceFrequency: _isRecurring ? _recurrenceFrequency : null,
-          ),
-        );
+      IncomeEvent.createIncome(
+        userId: authState.user.id,
+        amount: amount,
+        source: _selectedSource,
+        description: _descriptionController.text,
+        date: _selectedDate,
+        notes: _notesController.text.isNotEmpty ? _notesController.text : null,
+        isRecurring: _isRecurring,
+        recurrenceFrequency: _isRecurring ? _recurrenceFrequency : null,
+      ),
+    );
   }
 
   @override
@@ -109,8 +109,9 @@ class _AddIncomeScreenState extends State<AddIncomeScreen> {
     final isDark = Theme.of(context).brightness == Brightness.dark;
 
     return Scaffold(
-      backgroundColor:
-          isDark ? AppColors.backgroundDark : AppColors.backgroundLight,
+      backgroundColor: isDark
+          ? AppColors.backgroundDark
+          : AppColors.backgroundLight,
       appBar: const CustomAppBar(title: 'Add Income'),
       body: BlocConsumer<IncomeBloc, IncomeState>(
         listener: (context, state) {
@@ -168,12 +169,8 @@ class _AddIncomeScreenState extends State<AddIncomeScreen> {
                           Expanded(
                             child: Text(
                               'Track all your income sources to get a complete financial picture',
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .bodyMedium
-                                  ?.copyWith(
-                                    color: AppColors.success,
-                                  ),
+                              style: Theme.of(context).textTheme.bodyMedium
+                                  ?.copyWith(color: AppColors.success),
                             ),
                           ),
                         ],
@@ -195,12 +192,8 @@ class _AddIncomeScreenState extends State<AddIncomeScreen> {
                         children: [
                           Text(
                             'Income Details',
-                            style: Theme.of(context)
-                                .textTheme
-                                .titleMedium
-                                ?.copyWith(
-                                  fontWeight: FontWeight.bold,
-                                ),
+                            style: Theme.of(context).textTheme.titleMedium
+                                ?.copyWith(fontWeight: FontWeight.bold),
                           ),
                           const SizedBox(height: AppConstants.spacing16),
 
@@ -287,8 +280,9 @@ class _AddIncomeScreenState extends State<AddIncomeScreen> {
                                     MainAxisAlignment.spaceBetween,
                                 children: [
                                   Text(
-                                    DateFormat('MMM dd, yyyy')
-                                        .format(_selectedDate),
+                                    DateFormat(
+                                      'MMM dd, yyyy',
+                                    ).format(_selectedDate),
                                   ),
                                   const Icon(Icons.arrow_drop_down),
                                 ],
@@ -332,12 +326,8 @@ class _AddIncomeScreenState extends State<AddIncomeScreen> {
                               const SizedBox(width: AppConstants.spacing8),
                               Text(
                                 'Recurring Income',
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .titleSmall
-                                    ?.copyWith(
-                                      fontWeight: FontWeight.bold,
-                                    ),
+                                style: Theme.of(context).textTheme.titleSmall
+                                    ?.copyWith(fontWeight: FontWeight.bold),
                               ),
                             ],
                           ),

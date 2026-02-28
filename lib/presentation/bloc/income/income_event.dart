@@ -24,9 +24,8 @@ class IncomeEvent with _$IncomeEvent {
     String? recurrenceFrequency,
   }) = CreateIncomeEvent;
 
-  const factory IncomeEvent.updateIncome({
-    required Income income,
-  }) = UpdateIncomeEvent;
+  const factory IncomeEvent.updateIncome({required Income income}) =
+      UpdateIncomeEvent;
 
   const factory IncomeEvent.deleteIncome({
     required String userId,
@@ -43,16 +42,14 @@ class IncomeEvent with _$IncomeEvent {
     required String source,
   }) = FilterBySourceEvent;
 
-  const factory IncomeEvent.getRecurringIncomes({
-    required String userId,
-  }) = GetRecurringIncomesEvent;
+  const factory IncomeEvent.getRecurringIncomes({required String userId}) =
+      GetRecurringIncomesEvent;
 
   const factory IncomeEvent.getTotalIncomeForMonth({
     required String userId,
     required DateTime month,
   }) = GetTotalIncomeForMonthEvent;
 
-  const factory IncomeEvent.syncIncomes({
-    required String userId,
-  }) = SyncIncomesEvent;
+  const factory IncomeEvent.syncIncomes({required String userId}) =
+      SyncIncomesEvent;
 }

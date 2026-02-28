@@ -7,7 +7,8 @@ part 'budget_state.freezed.dart';
 class BudgetState with _$BudgetState {
   const factory BudgetState.initial() = BudgetInitial;
   const factory BudgetState.loading() = BudgetLoading;
-  const factory BudgetState.loaded({required List<Budget> budgets}) = BudgetLoaded;
+  const factory BudgetState.loaded({required List<Budget> budgets}) =
+      BudgetLoaded;
   const factory BudgetState.error({required String message}) = BudgetError;
   const factory BudgetState.success({required String message}) = BudgetSuccess;
 }

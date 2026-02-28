@@ -78,21 +78,21 @@ class IncomeAdapter extends TypeAdapter<Income> {
 // **************************************************************************
 
 _$IncomeImpl _$$IncomeImplFromJson(Map<String, dynamic> json) => _$IncomeImpl(
-      id: json['id'] as String,
-      userId: json['userId'] as String,
-      amount: (json['amount'] as num).toDouble(),
-      source: json['source'] as String,
-      description: json['description'] as String,
-      date: DateTime.parse(json['date'] as String),
-      notes: json['notes'] as String?,
-      isRecurring: json['isRecurring'] as bool? ?? false,
-      recurrenceFrequency: json['recurrenceFrequency'] as String?,
-      createdAt: DateTime.parse(json['createdAt'] as String),
-      updatedAt: json['updatedAt'] == null
-          ? null
-          : DateTime.parse(json['updatedAt'] as String),
-      isSynced: json['isSynced'] as bool? ?? false,
-    );
+  id: json['id'] as String,
+  userId: json['userId'] as String,
+  amount: (json['amount'] as num).toDouble(),
+  source: json['source'] as String,
+  description: json['description'] as String,
+  date: DateTime.parse(json['date'] as String),
+  notes: json['notes'] as String?,
+  isRecurring: json['isRecurring'] as bool? ?? false,
+  recurrenceFrequency: json['recurrenceFrequency'] as String?,
+  createdAt: DateTime.parse(json['createdAt'] as String),
+  updatedAt: json['updatedAt'] == null
+      ? null
+      : DateTime.parse(json['updatedAt'] as String),
+  isSynced: json['isSynced'] as bool? ?? false,
+);
 
 Map<String, dynamic> _$$IncomeImplToJson(_$IncomeImpl instance) =>
     <String, dynamic>{

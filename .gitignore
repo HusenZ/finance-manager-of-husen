@@ -69,3 +69,28 @@ firebase-debug.log
 # (Optional) ignore any accidental google-service copies
 **/*google-services*.json
 **/*GoogleService*.plist
+
+# Environment
+.env
+*.env
+.env.*
+!.env.example
+
+# Secrets and credentials
+lib/core/secrets.dart
+**/secrets.dart
+**/service-account*.json
+**/*serviceAccount*.json
+**/*credentials*.json
+**/*credential*.json
+*.pem
+*.key
+*.p8
+*.p12
+*.jks
+*.keystore
+*.mobileprovision
+
+# Firebase / Google auth configs (defense in depth)
+GoogleService-Info.plist
+google-services.json

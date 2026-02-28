@@ -87,7 +87,11 @@ class DateFormatter {
     }
   }
 
-  static List<DateTime> getMonthsInRange(DateTime start, DateTime end, int count) {
+  static List<DateTime> getMonthsInRange(
+    DateTime start,
+    DateTime end,
+    int count,
+  ) {
     final months = <DateTime>[];
     var current = DateTime(end.year, end.month, 1);
 

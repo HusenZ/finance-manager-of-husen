@@ -5,7 +5,7 @@ import 'package:uuid/uuid.dart';
 
 class GeminiDatasource {
   // TODO: Replace with your actual Gemini API key
-  static const String _apiKey = 'add yours';
+  static const String _apiKey = 'AIzaSyAfyiS7PrULlK3QoXxqGVrWS0Fyf1MOLgI';
 
   late final GenerativeModel _model;
 

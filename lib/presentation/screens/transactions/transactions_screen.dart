@@ -5,6 +5,9 @@ import '../../../core/constants/app_colors.dart';
 import '../../../core/constants/app_constants.dart';
 import '../../../core/router/app_router.dart';
 import '../../../data/models/transaction.dart';
+import '../../../service_locator.dart';
+import '../../../services/subscription_service.dart';
+import '../../../widgets/paywall_bottom_sheet.dart';
 import '../../bloc/auth/auth_bloc.dart';
 import '../../bloc/auth/auth_state.dart';
 import '../../bloc/transaction/transaction_bloc.dart';
@@ -26,6 +29,7 @@ class _TransactionsScreenState extends State<TransactionsScreen> {
   final _searchController = TextEditingController();
   String? _selectedCategory;
   bool _isSearching = false;
+  final SubscriptionService _subscriptionService = getIt<SubscriptionService>();
 
   @override
   void initState() {
@@ -43,8 +47,8 @@ class _TransactionsScreenState extends State<TransactionsScreen> {
     final authState = context.read<AuthBloc>().state;
     if (authState is AuthAuthenticated) {
       context.read<TransactionBloc>().add(
-            TransactionEvent.loadTransactions(userId: authState.user.id),
-          );
+        TransactionEvent.loadTransactions(userId: authState.user.id),
+      );
     }
   }
 
@@ -53,10 +57,8 @@ class _TransactionsScreenState extends State<TransactionsScreen> {
       _loadTransactions();
     } else {
       context.read<TransactionBloc>().add(
-            TransactionEvent.searchTransactions(
-              query: query,
-            ),
-          );
+        TransactionEvent.searchTransactions(query: query),
+      );
     }
   }
 
@@ -71,11 +73,11 @@ class _TransactionsScreenState extends State<TransactionsScreen> {
         _loadTransactions();
       } else {
         context.read<TransactionBloc>().add(
-              TransactionEvent.filterByCategory(
-                userId: authState.user.id,
-                category: category,
-              ),
-            );
+          TransactionEvent.filterByCategory(
+            userId: authState.user.id,
+            category: category,
+          ),
+        );
       }
     }
   }
@@ -85,11 +87,11 @@ class _TransactionsScreenState extends State<TransactionsScreen> {
     if (authState is! AuthAuthenticated) return;
 
     context.read<TransactionBloc>().add(
-          TransactionEvent.deleteTransaction(
-            userId: authState.user.id,
-            transactionId: transaction.id,
-          ),
-        );
+      TransactionEvent.deleteTransaction(
+        userId: authState.user.id,
+        transactionId: transaction.id,
+      ),
+    );
 
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
@@ -124,8 +126,9 @@ class _TransactionsScreenState extends State<TransactionsScreen> {
     final currency = authState.user.currency ?? 'INR';
 
     return Scaffold(
-      backgroundColor:
-          isDark ? AppColors.backgroundDark : AppColors.backgroundLight,
+      backgroundColor: isDark
+          ? AppColors.backgroundDark
+          : AppColors.backgroundLight,
       appBar: _isSearching
           ? _buildSearchAppBar(isDark)
           : _buildNormalAppBar(isDark),
@@ -166,8 +169,9 @@ class _TransactionsScreenState extends State<TransactionsScreen> {
                     }
 
                     // Sort by date (newest first)
-                    final sortedTransactions = List<Transaction>.from(transactions)
-                      ..sort((a, b) => b.date.compareTo(a.date));
+                    final sortedTransactions = List<Transaction>.from(
+                      transactions,
+                    )..sort((a, b) => b.date.compareTo(a.date));
 
                     return RefreshIndicator(
                       onRefresh: () async {
@@ -195,12 +199,35 @@ class _TransactionsScreenState extends State<TransactionsScreen> {
                     message: message,
                     onRetry: _loadTransactions,
                   ),
-                  success: (_) =>
-                      const LoadingWidget(message: 'Updating...'),
+                  success: (_) => const LoadingWidget(message: 'Updating...'),
                 );
               },
             ),
           ),
+          if (!_subscriptionService.canViewHistory(3))
+            Container(
+              width: double.infinity,
+              padding: const EdgeInsets.all(12),
+              color: AppColors.primary.withValues(alpha: 0.08),
+              child: Row(
+                children: [
+                  const Expanded(child: Text('Upgrade to see full history')),
+                  TextButton(
+                    onPressed: () {
+                      showModalBottomSheet<void>(
+                        context: context,
+                        isScrollControlled: true,
+                        builder: (_) => const PaywallBottomSheet(
+                          reason:
+                              'Free tier includes only the last 2 months of history.',
+                        ),
+                      );
+                    },
+                    child: const Text('Upgrade'),
+                  ),
+                ],
+              ),
+            ),
         ],
       ),
       floatingActionButton: FloatingActionButton(
@@ -214,8 +241,9 @@ class _TransactionsScreenState extends State<TransactionsScreen> {
 
   PreferredSizeWidget _buildNormalAppBar(bool isDark) {
     return AppBar(
-      backgroundColor:
-          isDark ? AppColors.backgroundDark : AppColors.backgroundLight,
+      backgroundColor: isDark
+          ? AppColors.backgroundDark
+          : AppColors.backgroundLight,
       title: const Text('Transactions'),
       actions: [
         IconButton(
@@ -238,8 +266,9 @@ class _TransactionsScreenState extends State<TransactionsScreen> {
 
   PreferredSizeWidget _buildSearchAppBar(bool isDark) {
     return AppBar(
-      backgroundColor:
-          isDark ? AppColors.backgroundDark : AppColors.backgroundLight,
+      backgroundColor: isDark
+          ? AppColors.backgroundDark
+          : AppColors.backgroundLight,
       leading: IconButton(
         icon: const Icon(Icons.arrow_back),
         onPressed: () {
@@ -316,8 +345,8 @@ class _TransactionsScreenState extends State<TransactionsScreen> {
                 color: isSelected
                     ? AppColors.primary
                     : (isDark
-                        ? AppColors.textPrimaryDark
-                        : AppColors.textPrimaryLight),
+                          ? AppColors.textPrimaryDark
+                          : AppColors.textPrimaryLight),
               ),
             ),
           );
@@ -329,9 +358,7 @@ class _TransactionsScreenState extends State<TransactionsScreen> {
   void _showFilterOptions() {
     // TODO: Implement more advanced filtering options
     ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(
-        content: Text('Advanced filters coming soon!'),
-      ),
+      const SnackBar(content: Text('Advanced filters coming soon!')),
     );
   }
 }

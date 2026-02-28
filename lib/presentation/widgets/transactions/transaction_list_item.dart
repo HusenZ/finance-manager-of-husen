@@ -34,10 +34,7 @@ class TransactionListItem extends StatelessWidget {
         alignment: Alignment.centerRight,
         padding: const EdgeInsets.only(right: AppConstants.spacing16),
         color: AppColors.error,
-        child: const Icon(
-          Icons.delete,
-          color: Colors.white,
-        ),
+        child: const Icon(Icons.delete, color: Colors.white),
       ),
       confirmDismiss: (direction) async {
         return await showDialog(
@@ -55,9 +52,7 @@ class TransactionListItem extends StatelessWidget {
                 ),
                 TextButton(
                   onPressed: () => Navigator.of(context).pop(true),
-                  style: TextButton.styleFrom(
-                    foregroundColor: AppColors.error,
-                  ),
+                  style: TextButton.styleFrom(foregroundColor: AppColors.error),
                   child: const Text('Delete'),
                 ),
               ],
@@ -161,13 +156,14 @@ class TransactionListItem extends StatelessWidget {
                   children: [
                     Text(
                       transaction.amount.toCurrency(currency: currency),
-                      style: (isDark
-                              ? AppTextStyles.labelLargeDark
-                              : AppTextStyles.labelLargeLight)
-                          .copyWith(
-                        color: AppColors.error,
-                        fontWeight: FontWeight.bold,
-                      ),
+                      style:
+                          (isDark
+                                  ? AppTextStyles.labelLargeDark
+                                  : AppTextStyles.labelLargeLight)
+                              .copyWith(
+                                color: AppColors.error,
+                                fontWeight: FontWeight.bold,
+                              ),
                     ),
                     const SizedBox(height: AppConstants.spacing4),
                     Container(
@@ -176,19 +172,23 @@ class TransactionListItem extends StatelessWidget {
                         vertical: AppConstants.spacing4,
                       ),
                       decoration: BoxDecoration(
-                        color: _getPaymentMethodColor(transaction.paymentMethod)
-                            .withValues(alpha: 0.1),
+                        color: _getPaymentMethodColor(
+                          transaction.paymentMethod,
+                        ).withValues(alpha: 0.1),
                         borderRadius: BorderRadius.circular(8),
                       ),
                       child: Text(
                         transaction.paymentMethod,
-                        style: (isDark
-                                ? AppTextStyles.labelSmallDark
-                                : AppTextStyles.labelSmallLight)
-                            .copyWith(
-                          color: _getPaymentMethodColor(transaction.paymentMethod),
-                          fontWeight: FontWeight.w600,
-                        ),
+                        style:
+                            (isDark
+                                    ? AppTextStyles.labelSmallDark
+                                    : AppTextStyles.labelSmallLight)
+                                .copyWith(
+                                  color: _getPaymentMethodColor(
+                                    transaction.paymentMethod,
+                                  ),
+                                  fontWeight: FontWeight.w600,
+                                ),
                       ),
                     ),
                   ],

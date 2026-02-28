@@ -21,9 +21,9 @@ class AIChatBloc extends Bloc<AIChatEvent, AIChatState> {
   AIChatBloc({
     required GeminiDatasource geminiDatasource,
     required GetFinancialContext getFinancialContext,
-  })  : _geminiDatasource = geminiDatasource,
-        _getFinancialContext = getFinancialContext,
-        super(const AIChatState.initial()) {
+  }) : _geminiDatasource = geminiDatasource,
+       _getFinancialContext = getFinancialContext,
+       super(const AIChatState.initial()) {
     on<SendMessageEvent>(_onSendMessage);
     on<LoadHistoryEvent>(_onLoadHistory);
     on<ClearHistoryEvent>(_onClearHistory);
@@ -58,10 +58,12 @@ class AIChatBloc extends Bloc<AIChatEvent, AIChatState> {
       _messages.add(aiResponse);
       emit(AIChatState.success(messages: List.from(_messages)));
     } catch (e) {
-      emit(AIChatState.error(
-        message: 'Failed to chat with AI: ${e.toString()}',
-        messages: List.from(_messages),
-      ));
+      emit(
+        AIChatState.error(
+          message: 'Failed to chat with AI: ${e.toString()}',
+          messages: List.from(_messages),
+        ),
+      );
     }
   }
 
@@ -99,23 +101,28 @@ class AIChatBloc extends Bloc<AIChatEvent, AIChatState> {
     emit(AIChatState.loading(messages: List.from(_messages)));
 
     try {
-      final category =
-          await _geminiDatasource.categorizeExpense(event.description);
+      final category = await _geminiDatasource.categorizeExpense(
+        event.description,
+      );
 
       final aiMessage = AIMessageX.ai(
         'I would categorize "${event.description}" as: $category',
       );
       _messages.add(aiMessage);
 
-      emit(AIChatState.categorySuggested(
-        category: category,
-        messages: List.from(_messages),
-      ));
+      emit(
+        AIChatState.categorySuggested(
+          category: category,
+          messages: List.from(_messages),
+        ),
+      );
     } catch (e) {
-      emit(AIChatState.error(
-        message: 'Failed to categorize expense: ${e.toString()}',
-        messages: List.from(_messages),
-      ));
+      emit(
+        AIChatState.error(
+          message: 'Failed to categorize expense: ${e.toString()}',
+          messages: List.from(_messages),
+        ),
+      );
     }
   }
 
@@ -159,15 +166,19 @@ class AIChatBloc extends Bloc<AIChatEvent, AIChatState> {
       );
       _messages.add(aiMessage);
 
-      emit(AIChatState.insightsGenerated(
-        insights: insights,
-        messages: List.from(_messages),
-      ));
+      emit(
+        AIChatState.insightsGenerated(
+          insights: insights,
+          messages: List.from(_messages),
+        ),
+      );
     } catch (e) {
-      emit(AIChatState.error(
-        message: 'Failed to generate insights: ${e.toString()}',
-        messages: List.from(_messages),
-      ));
+      emit(
+        AIChatState.error(
+          message: 'Failed to generate insights: ${e.toString()}',
+          messages: List.from(_messages),
+        ),
+      );
     }
   }
 
@@ -202,10 +213,12 @@ class AIChatBloc extends Bloc<AIChatEvent, AIChatState> {
 
       emit(AIChatState.success(messages: List.from(_messages)));
     } catch (e) {
-      emit(AIChatState.error(
-        message: 'Failed to get purchase advice: ${e.toString()}',
-        messages: List.from(_messages),
-      ));
+      emit(
+        AIChatState.error(
+          message: 'Failed to get purchase advice: ${e.toString()}',
+          messages: List.from(_messages),
+        ),
+      );
     }
   }
 
@@ -233,10 +246,12 @@ class AIChatBloc extends Bloc<AIChatEvent, AIChatState> {
       _messages.add(systemMessage);
       emit(AIChatState.success(messages: List.from(_messages)));
     } catch (e) {
-      emit(AIChatState.error(
-        message: 'Failed to refresh financial data: ${e.toString()}',
-        messages: List.from(_messages),
-      ));
+      emit(
+        AIChatState.error(
+          message: 'Failed to refresh financial data: ${e.toString()}',
+          messages: List.from(_messages),
+        ),
+      );
     }
   }
 }

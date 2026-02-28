@@ -103,10 +103,22 @@ class _DashboardScreenState extends State<DashboardScreen> {
                         mainAxisSize: MainAxisSize.min,
                         children: [
                           Text(
-                            'Hello, ${user.name.split(' ').first}!',
+                            'Hello,',
                             style: TextStyle(
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold,
+                              fontSize: 12,
+                              fontWeight: FontWeight.w500,
+                              color: isDark
+                                  ? AppColors.textPrimaryDark
+                                  : AppColors.textPrimaryLight,
+                            ),
+                            maxLines: 1,
+                            overflow: TextOverflow.ellipsis,
+                          ),
+                          Text(
+                            user.name,
+                            style: TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.w600,
                               color: isDark
                                   ? AppColors.textPrimaryDark
                                   : AppColors.textPrimaryLight,
@@ -295,9 +307,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
 
     return Card(
       elevation: 2,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(16),
-      ),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
       child: InkWell(
         onTap: () => context.push(AppRouter.aiChat),
         borderRadius: BorderRadius.circular(16),
@@ -325,10 +335,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                   borderRadius: BorderRadius.circular(12),
                 ),
                 child: const Center(
-                  child: Text(
-                    '🤖',
-                    style: TextStyle(fontSize: 32),
-                  ),
+                  child: Text('🤖', style: TextStyle(fontSize: 32)),
                 ),
               ),
               const SizedBox(width: AppConstants.spacing16),
@@ -357,10 +364,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                           decoration: BoxDecoration(
                             color: Colors.green.withOpacity(0.2),
                             borderRadius: BorderRadius.circular(4),
-                            border: Border.all(
-                              color: Colors.green,
-                              width: 1,
-                            ),
+                            border: Border.all(color: Colors.green, width: 1),
                           ),
                           child: Text(
                             'NEW',

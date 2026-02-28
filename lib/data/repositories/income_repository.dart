@@ -2,18 +2,27 @@ import 'package:dartz/dartz.dart';
 import '../models/income.dart';
 import '../services/firebase_service.dart';
 import '../services/hive_service.dart';
+import '../../services/subscription_service.dart';
 
 class IncomeRepository {
   final FirebaseService _firebaseService;
   final HiveService _hiveService;
+  final SubscriptionService _subscriptionService;
 
-  IncomeRepository(this._firebaseService, this._hiveService);
+  IncomeRepository(
+    this._firebaseService,
+    this._hiveService,
+    this._subscriptionService,
+  );
 
   // Create income
   Future<Either<String, Income>> createIncome(Income income) async {
     try {
       // Save to Hive first (offline-first)
       await _hiveService.saveIncome(income);
+      if (!_subscriptionService.canUseCloudSync()) {
+        return Right(income);
+      }
 
       // Try to sync to Firebase
       try {
@@ -33,6 +42,11 @@ class IncomeRepository {
   // Get all incomes for a user
   Future<Either<String, List<Income>>> getIncomes(String userId) async {
     try {
+      if (!_subscriptionService.canUseCloudSync()) {
+        final incomes = await _hiveService.getIncomes(userId);
+        return Right(incomes);
+      }
+
       // Try to fetch from Firebase first
       final result = await _firebaseService.getIncomes(userId);
       return result.fold(
@@ -61,16 +75,13 @@ class IncomeRepository {
   ) async {
     try {
       final result = await getIncomes(userId);
-      return result.fold(
-        (error) => Left(error),
-        (incomes) {
-          final filtered = incomes.where((income) {
-            return income.date.year == month.year &&
-                income.date.month == month.month;
-          }).toList();
-          return Right(filtered);
-        },
-      );
+      return result.fold((error) => Left(error), (incomes) {
+        final filtered = incomes.where((income) {
+          return income.date.year == month.year &&
+              income.date.month == month.month;
+        }).toList();
+        return Right(filtered);
+      });
     } catch (e) {
       return Left('Failed to load monthly incomes: ${e.toString()}');
     }
@@ -86,6 +97,9 @@ class IncomeRepository {
 
       // Update Hive first
       await _hiveService.saveIncome(updatedIncome);
+      if (!_subscriptionService.canUseCloudSync()) {
+        return Right(updatedIncome);
+      }
 
       // Try to sync to Firebase
       try {
@@ -109,6 +123,9 @@ class IncomeRepository {
     try {
       // Delete from Hive first
       await _hiveService.deleteIncome(incomeId);
+      if (!_subscriptionService.canUseCloudSync()) {
+        return const Right(null);
+      }
 
       // Try to delete from Firebase
       try {
@@ -130,17 +147,16 @@ class IncomeRepository {
   ) async {
     try {
       final result = await getIncomes(userId);
-      return result.fold(
-        (error) => Left(error),
-        (incomes) {
-          final filtered = incomes.where((income) {
-            return income.description.toLowerCase().contains(query.toLowerCase()) ||
-                income.source.toLowerCase().contains(query.toLowerCase()) ||
-                income.notes?.toLowerCase().contains(query.toLowerCase()) == true;
-          }).toList();
-          return Right(filtered);
-        },
-      );
+      return result.fold((error) => Left(error), (incomes) {
+        final filtered = incomes.where((income) {
+          return income.description.toLowerCase().contains(
+                query.toLowerCase(),
+              ) ||
+              income.source.toLowerCase().contains(query.toLowerCase()) ||
+              income.notes?.toLowerCase().contains(query.toLowerCase()) == true;
+        }).toList();
+        return Right(filtered);
+      });
     } catch (e) {
       return Left('Failed to search incomes: ${e.toString()}');
     }
@@ -153,15 +169,12 @@ class IncomeRepository {
   ) async {
     try {
       final result = await getIncomes(userId);
-      return result.fold(
-        (error) => Left(error),
-        (incomes) {
-          final filtered = incomes.where((income) {
-            return income.source.toLowerCase() == source.toLowerCase();
-          }).toList();
-          return Right(filtered);
-        },
-      );
+      return result.fold((error) => Left(error), (incomes) {
+        final filtered = incomes.where((income) {
+          return income.source.toLowerCase() == source.toLowerCase();
+        }).toList();
+        return Right(filtered);
+      });
     } catch (e) {
       return Left('Failed to filter incomes: ${e.toString()}');
     }
@@ -174,29 +187,30 @@ class IncomeRepository {
   ) async {
     try {
       final result = await getIncomesForMonth(userId, month);
-      return result.fold(
-        (error) => Left(error),
-        (incomes) {
-          final total = incomes.fold<double>(0, (sum, income) => sum + income.amount);
-          return Right(total);
-        },
-      );
+      return result.fold((error) => Left(error), (incomes) {
+        final total = incomes.fold<double>(
+          0,
+          (sum, income) => sum + income.amount,
+        );
+        return Right(total);
+      });
     } catch (e) {
       return Left('Failed to calculate total income: ${e.toString()}');
     }
   }
 
   // Get recurring incomes
-  Future<Either<String, List<Income>>> getRecurringIncomes(String userId) async {
+  Future<Either<String, List<Income>>> getRecurringIncomes(
+    String userId,
+  ) async {
     try {
       final result = await getIncomes(userId);
-      return result.fold(
-        (error) => Left(error),
-        (incomes) {
-          final recurring = incomes.where((income) => income.isRecurring).toList();
-          return Right(recurring);
-        },
-      );
+      return result.fold((error) => Left(error), (incomes) {
+        final recurring = incomes
+            .where((income) => income.isRecurring)
+            .toList();
+        return Right(recurring);
+      });
     } catch (e) {
       return Left('Failed to load recurring incomes: ${e.toString()}');
     }
@@ -205,6 +219,9 @@ class IncomeRepository {
   // Sync unsynced incomes
   Future<Either<String, void>> syncIncomes(String userId) async {
     try {
+      if (!_subscriptionService.canUseCloudSync()) {
+        return const Right(null);
+      }
       final incomes = await _hiveService.getIncomes(userId);
       final unsynced = incomes.where((income) => !income.isSynced).toList();
 

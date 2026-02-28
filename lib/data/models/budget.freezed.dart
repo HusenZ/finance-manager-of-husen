@@ -12,7 +12,8 @@ part of 'budget.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 Budget _$BudgetFromJson(Map<String, dynamic> json) {
   return _Budget.fromJson(json);
@@ -47,15 +48,16 @@ abstract class $BudgetCopyWith<$Res> {
   factory $BudgetCopyWith(Budget value, $Res Function(Budget) then) =
       _$BudgetCopyWithImpl<$Res, Budget>;
   @useResult
-  $Res call(
-      {@HiveField(0) String id,
-      @HiveField(1) String userId,
-      @HiveField(2) String category,
-      @HiveField(3) double limit,
-      @HiveField(4) String month,
-      @HiveField(5) double spent,
-      @HiveField(6) DateTime createdAt,
-      @HiveField(7) DateTime? updatedAt});
+  $Res call({
+    @HiveField(0) String id,
+    @HiveField(1) String userId,
+    @HiveField(2) String category,
+    @HiveField(3) double limit,
+    @HiveField(4) String month,
+    @HiveField(5) double spent,
+    @HiveField(6) DateTime createdAt,
+    @HiveField(7) DateTime? updatedAt,
+  });
 }
 
 /// @nodoc
@@ -80,59 +82,64 @@ class _$BudgetCopyWithImpl<$Res, $Val extends Budget>
     Object? createdAt = null,
     Object? updatedAt = freezed,
   }) {
-    return _then(_value.copyWith(
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String,
-      userId: null == userId
-          ? _value.userId
-          : userId // ignore: cast_nullable_to_non_nullable
-              as String,
-      category: null == category
-          ? _value.category
-          : category // ignore: cast_nullable_to_non_nullable
-              as String,
-      limit: null == limit
-          ? _value.limit
-          : limit // ignore: cast_nullable_to_non_nullable
-              as double,
-      month: null == month
-          ? _value.month
-          : month // ignore: cast_nullable_to_non_nullable
-              as String,
-      spent: null == spent
-          ? _value.spent
-          : spent // ignore: cast_nullable_to_non_nullable
-              as double,
-      createdAt: null == createdAt
-          ? _value.createdAt
-          : createdAt // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-      updatedAt: freezed == updatedAt
-          ? _value.updatedAt
-          : updatedAt // ignore: cast_nullable_to_non_nullable
-              as DateTime?,
-    ) as $Val);
+    return _then(
+      _value.copyWith(
+            id: null == id
+                ? _value.id
+                : id // ignore: cast_nullable_to_non_nullable
+                      as String,
+            userId: null == userId
+                ? _value.userId
+                : userId // ignore: cast_nullable_to_non_nullable
+                      as String,
+            category: null == category
+                ? _value.category
+                : category // ignore: cast_nullable_to_non_nullable
+                      as String,
+            limit: null == limit
+                ? _value.limit
+                : limit // ignore: cast_nullable_to_non_nullable
+                      as double,
+            month: null == month
+                ? _value.month
+                : month // ignore: cast_nullable_to_non_nullable
+                      as String,
+            spent: null == spent
+                ? _value.spent
+                : spent // ignore: cast_nullable_to_non_nullable
+                      as double,
+            createdAt: null == createdAt
+                ? _value.createdAt
+                : createdAt // ignore: cast_nullable_to_non_nullable
+                      as DateTime,
+            updatedAt: freezed == updatedAt
+                ? _value.updatedAt
+                : updatedAt // ignore: cast_nullable_to_non_nullable
+                      as DateTime?,
+          )
+          as $Val,
+    );
   }
 }
 
 /// @nodoc
 abstract class _$$BudgetImplCopyWith<$Res> implements $BudgetCopyWith<$Res> {
   factory _$$BudgetImplCopyWith(
-          _$BudgetImpl value, $Res Function(_$BudgetImpl) then) =
-      __$$BudgetImplCopyWithImpl<$Res>;
+    _$BudgetImpl value,
+    $Res Function(_$BudgetImpl) then,
+  ) = __$$BudgetImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {@HiveField(0) String id,
-      @HiveField(1) String userId,
-      @HiveField(2) String category,
-      @HiveField(3) double limit,
-      @HiveField(4) String month,
-      @HiveField(5) double spent,
-      @HiveField(6) DateTime createdAt,
-      @HiveField(7) DateTime? updatedAt});
+  $Res call({
+    @HiveField(0) String id,
+    @HiveField(1) String userId,
+    @HiveField(2) String category,
+    @HiveField(3) double limit,
+    @HiveField(4) String month,
+    @HiveField(5) double spent,
+    @HiveField(6) DateTime createdAt,
+    @HiveField(7) DateTime? updatedAt,
+  });
 }
 
 /// @nodoc
@@ -140,8 +147,9 @@ class __$$BudgetImplCopyWithImpl<$Res>
     extends _$BudgetCopyWithImpl<$Res, _$BudgetImpl>
     implements _$$BudgetImplCopyWith<$Res> {
   __$$BudgetImplCopyWithImpl(
-      _$BudgetImpl _value, $Res Function(_$BudgetImpl) _then)
-      : super(_value, _then);
+    _$BudgetImpl _value,
+    $Res Function(_$BudgetImpl) _then,
+  ) : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
@@ -155,55 +163,58 @@ class __$$BudgetImplCopyWithImpl<$Res>
     Object? createdAt = null,
     Object? updatedAt = freezed,
   }) {
-    return _then(_$BudgetImpl(
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String,
-      userId: null == userId
-          ? _value.userId
-          : userId // ignore: cast_nullable_to_non_nullable
-              as String,
-      category: null == category
-          ? _value.category
-          : category // ignore: cast_nullable_to_non_nullable
-              as String,
-      limit: null == limit
-          ? _value.limit
-          : limit // ignore: cast_nullable_to_non_nullable
-              as double,
-      month: null == month
-          ? _value.month
-          : month // ignore: cast_nullable_to_non_nullable
-              as String,
-      spent: null == spent
-          ? _value.spent
-          : spent // ignore: cast_nullable_to_non_nullable
-              as double,
-      createdAt: null == createdAt
-          ? _value.createdAt
-          : createdAt // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-      updatedAt: freezed == updatedAt
-          ? _value.updatedAt
-          : updatedAt // ignore: cast_nullable_to_non_nullable
-              as DateTime?,
-    ));
+    return _then(
+      _$BudgetImpl(
+        id: null == id
+            ? _value.id
+            : id // ignore: cast_nullable_to_non_nullable
+                  as String,
+        userId: null == userId
+            ? _value.userId
+            : userId // ignore: cast_nullable_to_non_nullable
+                  as String,
+        category: null == category
+            ? _value.category
+            : category // ignore: cast_nullable_to_non_nullable
+                  as String,
+        limit: null == limit
+            ? _value.limit
+            : limit // ignore: cast_nullable_to_non_nullable
+                  as double,
+        month: null == month
+            ? _value.month
+            : month // ignore: cast_nullable_to_non_nullable
+                  as String,
+        spent: null == spent
+            ? _value.spent
+            : spent // ignore: cast_nullable_to_non_nullable
+                  as double,
+        createdAt: null == createdAt
+            ? _value.createdAt
+            : createdAt // ignore: cast_nullable_to_non_nullable
+                  as DateTime,
+        updatedAt: freezed == updatedAt
+            ? _value.updatedAt
+            : updatedAt // ignore: cast_nullable_to_non_nullable
+                  as DateTime?,
+      ),
+    );
   }
 }
 
 /// @nodoc
 @JsonSerializable()
 class _$BudgetImpl implements _Budget {
-  const _$BudgetImpl(
-      {@HiveField(0) required this.id,
-      @HiveField(1) required this.userId,
-      @HiveField(2) required this.category,
-      @HiveField(3) required this.limit,
-      @HiveField(4) required this.month,
-      @HiveField(5) this.spent = 0.0,
-      @HiveField(6) required this.createdAt,
-      @HiveField(7) this.updatedAt});
+  const _$BudgetImpl({
+    @HiveField(0) required this.id,
+    @HiveField(1) required this.userId,
+    @HiveField(2) required this.category,
+    @HiveField(3) required this.limit,
+    @HiveField(4) required this.month,
+    @HiveField(5) this.spent = 0.0,
+    @HiveField(6) required this.createdAt,
+    @HiveField(7) this.updatedAt,
+  });
 
   factory _$BudgetImpl.fromJson(Map<String, dynamic> json) =>
       _$$BudgetImplFromJson(json);
@@ -259,8 +270,17 @@ class _$BudgetImpl implements _Budget {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, id, userId, category, limit,
-      month, spent, createdAt, updatedAt);
+  int get hashCode => Object.hash(
+    runtimeType,
+    id,
+    userId,
+    category,
+    limit,
+    month,
+    spent,
+    createdAt,
+    updatedAt,
+  );
 
   @JsonKey(ignore: true)
   @override
@@ -270,22 +290,21 @@ class _$BudgetImpl implements _Budget {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$BudgetImplToJson(
-      this,
-    );
+    return _$$BudgetImplToJson(this);
   }
 }
 
 abstract class _Budget implements Budget {
-  const factory _Budget(
-      {@HiveField(0) required final String id,
-      @HiveField(1) required final String userId,
-      @HiveField(2) required final String category,
-      @HiveField(3) required final double limit,
-      @HiveField(4) required final String month,
-      @HiveField(5) final double spent,
-      @HiveField(6) required final DateTime createdAt,
-      @HiveField(7) final DateTime? updatedAt}) = _$BudgetImpl;
+  const factory _Budget({
+    @HiveField(0) required final String id,
+    @HiveField(1) required final String userId,
+    @HiveField(2) required final String category,
+    @HiveField(3) required final double limit,
+    @HiveField(4) required final String month,
+    @HiveField(5) final double spent,
+    @HiveField(6) required final DateTime createdAt,
+    @HiveField(7) final DateTime? updatedAt,
+  }) = _$BudgetImpl;
 
   factory _Budget.fromJson(Map<String, dynamic> json) = _$BudgetImpl.fromJson;
 

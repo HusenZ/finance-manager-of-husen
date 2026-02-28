@@ -21,6 +21,8 @@ import '../../presentation/screens/income/incomes_screen.dart';
 import '../../presentation/screens/income/add_income_screen.dart';
 import '../../features/ai/presentation/screens/ai_chat_screen.dart';
 import '../../features/ai/presentation/bloc/ai_chat_bloc.dart';
+import '../../features/subscription/subscription_screen.dart';
+import '../../widgets/subscription_gate.dart';
 import '../../service_locator.dart';
 
 class AppRouter {
@@ -41,6 +43,7 @@ class AppRouter {
   static const String incomes = '/incomes';
   static const String addIncome = '/incomes/add';
   static const String aiChat = '/ai-chat';
+  static const String subscription = '/subscription';
 
   static GoRouter router(BuildContext context) {
     return GoRouter(
@@ -48,7 +51,8 @@ class AppRouter {
       redirect: (BuildContext context, GoRouterState state) {
         final authState = context.read<AuthBloc>().state;
         final isAuthenticated = authState is AuthAuthenticated;
-        final isGoingToAuth = state.matchedLocation == login ||
+        final isGoingToAuth =
+            state.matchedLocation == login ||
             state.matchedLocation == signup ||
             state.matchedLocation == forgotPassword;
         final isOnSplash = state.matchedLocation == splash;
@@ -70,10 +74,7 @@ class AppRouter {
           path: splash,
           builder: (context, state) => const SplashScreen(),
         ),
-        GoRoute(
-          path: login,
-          builder: (context, state) => const LoginScreen(),
-        ),
+        GoRoute(path: login, builder: (context, state) => const LoginScreen()),
         GoRoute(
           path: signup,
           builder: (context, state) => const SignupScreen(),
@@ -111,7 +112,11 @@ class AppRouter {
         ),
         GoRoute(
           path: analytics,
-          builder: (context, state) => const AnalyticsScreen(),
+          builder: (context, state) => const SubscriptionGate(
+            requiredTier: 'pro',
+            reason: 'Upgrade to Pro to unlock analytics and charts.',
+            child: AnalyticsScreen(),
+          ),
         ),
         GoRoute(
           path: settings,
@@ -123,7 +128,11 @@ class AppRouter {
         ),
         GoRoute(
           path: recurring,
-          builder: (context, state) => const RecurringScreen(),
+          builder: (context, state) => const SubscriptionGate(
+            requiredTier: 'premium',
+            reason: 'Recurring automation is available on Premium.',
+            child: RecurringScreen(),
+          ),
         ),
         GoRoute(
           path: incomes,
@@ -135,10 +144,18 @@ class AppRouter {
         ),
         GoRoute(
           path: aiChat,
-          builder: (context, state) => BlocProvider(
-            create: (context) => getIt<AIChatBloc>(),
-            child: const AIChatScreen(),
+          builder: (context, state) => SubscriptionGate(
+            requiredTier: 'pro',
+            reason: 'Upgrade to Pro to use the AI financial assistant.',
+            child: BlocProvider(
+              create: (context) => getIt<AIChatBloc>(),
+              child: const AIChatScreen(),
+            ),
           ),
+        ),
+        GoRoute(
+          path: subscription,
+          builder: (context, state) => const SubscriptionScreen(),
         ),
       ],
     );

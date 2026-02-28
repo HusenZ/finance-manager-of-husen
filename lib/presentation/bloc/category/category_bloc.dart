@@ -8,10 +8,9 @@ import 'category_state.dart';
 class CategoryBloc extends Bloc<CategoryEvent, CategoryState> {
   final CategoryRepository _categoryRepository;
 
-  CategoryBloc({
-    required CategoryRepository categoryRepository,
-  })  : _categoryRepository = categoryRepository,
-        super(const CategoryState.initial()) {
+  CategoryBloc({required CategoryRepository categoryRepository})
+    : _categoryRepository = categoryRepository,
+      super(const CategoryState.initial()) {
     on<LoadCategories>(_onLoadCategories);
     on<CreateCategory>(_onCreateCategory);
     on<UpdateCategory>(_onUpdateCategory);
@@ -65,7 +64,9 @@ class CategoryBloc extends Bloc<CategoryEvent, CategoryState> {
         },
         (category) {
           AppLogger.info('Category created: ${category.name}');
-          emit(const CategoryState.success(message: 'Category added successfully'));
+          emit(
+            const CategoryState.success(message: 'Category added successfully'),
+          );
           add(LoadCategories(userId: event.userId));
         },
       );
@@ -103,7 +104,11 @@ class CategoryBloc extends Bloc<CategoryEvent, CategoryState> {
         },
         (updatedCategory) {
           AppLogger.info('Category updated: ${updatedCategory.name}');
-          emit(const CategoryState.success(message: 'Category updated successfully'));
+          emit(
+            const CategoryState.success(
+              message: 'Category updated successfully',
+            ),
+          );
           add(LoadCategories(userId: event.userId));
         },
       );
@@ -132,7 +137,11 @@ class CategoryBloc extends Bloc<CategoryEvent, CategoryState> {
         },
         (_) {
           AppLogger.info('Category deleted: ${event.categoryId}');
-          emit(const CategoryState.success(message: 'Category deleted successfully'));
+          emit(
+            const CategoryState.success(
+              message: 'Category deleted successfully',
+            ),
+          );
           add(LoadCategories(userId: event.userId));
         },
       );

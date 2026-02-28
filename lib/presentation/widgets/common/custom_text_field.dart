@@ -61,7 +61,9 @@ class CustomTextField extends StatelessWidget {
       inputFormatters: inputFormatters,
       textCapitalization: textCapitalization,
       autofocus: autofocus,
-      style: isDark ? AppTextStyles.bodyMediumDark : AppTextStyles.bodyMediumLight,
+      style: isDark
+          ? AppTextStyles.bodyMediumDark
+          : AppTextStyles.bodyMediumLight,
       decoration: InputDecoration(
         labelText: labelText,
         hintText: hintText,
@@ -69,9 +71,7 @@ class CustomTextField extends StatelessWidget {
         prefixIcon: prefixIcon,
         suffixIcon: suffixIcon,
         filled: true,
-        fillColor: isDark
-            ? AppColors.surfaceDark
-            : AppColors.surfaceLight,
+        fillColor: isDark ? AppColors.surfaceDark : AppColors.surfaceLight,
         contentPadding: const EdgeInsets.symmetric(
           horizontal: AppConstants.spacing16,
           vertical: AppConstants.spacing16,
@@ -90,23 +90,15 @@ class CustomTextField extends StatelessWidget {
         ),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(AppConstants.borderRadiusMedium),
-          borderSide: const BorderSide(
-            color: AppColors.primary,
-            width: 2,
-          ),
+          borderSide: const BorderSide(color: AppColors.primary, width: 2),
         ),
         errorBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(AppConstants.borderRadiusMedium),
-          borderSide: const BorderSide(
-            color: AppColors.error,
-          ),
+          borderSide: const BorderSide(color: AppColors.error),
         ),
         focusedErrorBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(AppConstants.borderRadiusMedium),
-          borderSide: const BorderSide(
-            color: AppColors.error,
-            width: 2,
-          ),
+          borderSide: const BorderSide(color: AppColors.error, width: 2),
         ),
         disabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(AppConstants.borderRadiusMedium),

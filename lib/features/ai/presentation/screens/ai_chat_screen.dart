@@ -6,6 +6,9 @@ import '../bloc/ai_chat_state.dart';
 import '../widgets/chat_bubble.dart';
 import '../widgets/quick_action_chip.dart';
 import '../widgets/insight_card.dart';
+import '../../../../service_locator.dart';
+import '../../../../services/subscription_service.dart';
+import '../../../../widgets/paywall_bottom_sheet.dart';
 
 /// Main AI Chat Screen
 ///
@@ -25,10 +28,13 @@ class AIChatScreen extends StatefulWidget {
 class _AIChatScreenState extends State<AIChatScreen> {
   final TextEditingController _messageController = TextEditingController();
   final ScrollController _scrollController = ScrollController();
+  final SubscriptionService _subscriptionService = getIt<SubscriptionService>();
+  bool _showLimitBanner = false;
 
   @override
   void initState() {
     super.initState();
+    _subscriptionService.addListener(_onSubscriptionChanged);
     // Load financial context when screen opens
     WidgetsBinding.instance.addPostFrameCallback((_) {
       if (mounted) {
@@ -41,14 +47,25 @@ class _AIChatScreenState extends State<AIChatScreen> {
 
   @override
   void dispose() {
+    _subscriptionService.removeListener(_onSubscriptionChanged);
     _messageController.dispose();
     _scrollController.dispose();
     super.dispose();
   }
 
+  void _onSubscriptionChanged() {
+    if (!mounted) return;
+    setState(() {});
+  }
+
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
+    final hasUnlimited = _subscriptionService.hasUnlimitedAI();
+    final remaining = _subscriptionService.aiMessagesRemaining();
+    final usageSubtitle = hasUnlimited
+        ? 'Unlimited messages'
+        : '$remaining messages remaining';
 
     return Scaffold(
       appBar: AppBar(
@@ -68,7 +85,7 @@ class _AIChatScreenState extends State<AIChatScreen> {
                   style: theme.textTheme.titleMedium,
                 ),
                 Text(
-                  'Powered by Gemini',
+                  usageSubtitle,
                   style: theme.textTheme.bodySmall?.copyWith(
                     color: theme.colorScheme.onSurface.withOpacity(0.6),
                   ),
@@ -102,6 +119,9 @@ class _AIChatScreenState extends State<AIChatScreen> {
       ),
       body: Column(
         children: [
+          if (_showLimitBanner) _buildAiLimitBanner(context),
+          if (!hasUnlimited && remaining <= 5 && remaining > 0)
+            _buildLowUsageBanner(context, remaining),
           // Quick action chips
           _buildQuickActions(context),
 
@@ -447,7 +467,20 @@ class _AIChatScreenState extends State<AIChatScreen> {
   }
 
   /// Send message to AI (with real financial context)
-  void _sendMessage(BuildContext context, String message) {
+  Future<void> _sendMessage(BuildContext context, String message) async {
+    if (!_subscriptionService.canUseAI()) {
+      setState(() => _showLimitBanner = true);
+      return;
+    }
+
+    if (!_subscriptionService.hasUnlimitedAI() &&
+        _subscriptionService.aiMessagesRemaining() <= 0) {
+      setState(() => _showLimitBanner = true);
+      return;
+    }
+
+    await _subscriptionService.incrementAiUsage();
+    setState(() => _showLimitBanner = false);
     context.read<AIChatBloc>().add(AIChatEvent.sendMessage(message));
     _messageController.clear();
   }
@@ -600,6 +633,57 @@ class _AIChatScreenState extends State<AIChatScreen> {
             ],
           ),
         ),
+      ),
+    );
+  }
+
+  Widget _buildAiLimitBanner(BuildContext context) {
+    final theme = Theme.of(context);
+    return Container(
+      width: double.infinity,
+      margin: const EdgeInsets.all(12),
+      padding: const EdgeInsets.all(12),
+      decoration: BoxDecoration(
+        color: theme.colorScheme.errorContainer,
+        borderRadius: BorderRadius.circular(12),
+      ),
+      child: Row(
+        children: [
+          Icon(Icons.lock_outline, color: theme.colorScheme.error),
+          const SizedBox(width: 10),
+          const Expanded(
+            child: Text('AI limit reached. Upgrade to continue chatting.'),
+          ),
+          TextButton(
+            onPressed: () {
+              showModalBottomSheet<void>(
+                context: context,
+                isScrollControlled: true,
+                builder: (_) => const PaywallBottomSheet(
+                  reason: 'Upgrade for more AI assistant messages.',
+                ),
+              );
+            },
+            child: const Text('Upgrade'),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildLowUsageBanner(BuildContext context, int remaining) {
+    final theme = Theme.of(context);
+    return Container(
+      width: double.infinity,
+      margin: const EdgeInsets.fromLTRB(12, 12, 12, 0),
+      padding: const EdgeInsets.all(10),
+      decoration: BoxDecoration(
+        color: theme.colorScheme.tertiaryContainer,
+        borderRadius: BorderRadius.circular(10),
+      ),
+      child: Text(
+        '$remaining AI messages remaining this month.',
+        style: theme.textTheme.bodyMedium,
       ),
     );
   }

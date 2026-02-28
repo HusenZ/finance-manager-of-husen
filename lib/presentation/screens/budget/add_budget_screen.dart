@@ -80,13 +80,13 @@ class _AddBudgetScreenState extends State<AddBudgetScreen> {
     final limit = double.parse(_limitController.text);
 
     context.read<BudgetBloc>().add(
-          BudgetEvent.createBudget(
-            userId: authState.user.id,
-            category: _selectedCategory,
-            limit: limit,
-            month: _selectedMonth,
-          ),
-        );
+      BudgetEvent.createBudget(
+        userId: authState.user.id,
+        category: _selectedCategory,
+        limit: limit,
+        month: _selectedMonth,
+      ),
+    );
   }
 
   @override
@@ -94,8 +94,9 @@ class _AddBudgetScreenState extends State<AddBudgetScreen> {
     final isDark = Theme.of(context).brightness == Brightness.dark;
 
     return Scaffold(
-      backgroundColor:
-          isDark ? AppColors.backgroundDark : AppColors.backgroundLight,
+      backgroundColor: isDark
+          ? AppColors.backgroundDark
+          : AppColors.backgroundLight,
       appBar: const CustomAppBar(title: 'Create Budget'),
       body: BlocConsumer<BudgetBloc, BudgetState>(
         listener: (context, state) {
@@ -153,12 +154,8 @@ class _AddBudgetScreenState extends State<AddBudgetScreen> {
                           Expanded(
                             child: Text(
                               'Set a spending limit for a category to track your expenses',
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .bodyMedium
-                                  ?.copyWith(
-                                    color: AppColors.primary,
-                                  ),
+                              style: Theme.of(context).textTheme.bodyMedium
+                                  ?.copyWith(color: AppColors.primary),
                             ),
                           ),
                         ],
@@ -180,12 +177,8 @@ class _AddBudgetScreenState extends State<AddBudgetScreen> {
                         children: [
                           Text(
                             'Budget Details',
-                            style: Theme.of(context)
-                                .textTheme
-                                .titleMedium
-                                ?.copyWith(
-                                  fontWeight: FontWeight.bold,
-                                ),
+                            style: Theme.of(context).textTheme.titleMedium
+                                ?.copyWith(fontWeight: FontWeight.bold),
                           ),
                           const SizedBox(height: AppConstants.spacing16),
 
@@ -197,7 +190,8 @@ class _AddBudgetScreenState extends State<AddBudgetScreen> {
                               prefixIcon: Icon(
                                 _getCategoryIcon(_selectedCategory),
                                 color: AppColors.getCategoryColor(
-                                    _selectedCategory),
+                                  _selectedCategory,
+                                ),
                               ),
                               border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(12),
@@ -212,7 +206,8 @@ class _AddBudgetScreenState extends State<AddBudgetScreen> {
                                       _getCategoryIcon(category),
                                       size: 20,
                                       color: AppColors.getCategoryColor(
-                                          category),
+                                        category,
+                                      ),
                                     ),
                                     const SizedBox(width: 12),
                                     Text(category),
@@ -264,8 +259,9 @@ class _AddBudgetScreenState extends State<AddBudgetScreen> {
                                     MainAxisAlignment.spaceBetween,
                                 children: [
                                   Text(
-                                    DateFormat('MMMM yyyy')
-                                        .format(_selectedMonth),
+                                    DateFormat(
+                                      'MMMM yyyy',
+                                    ).format(_selectedMonth),
                                   ),
                                   const Icon(Icons.arrow_drop_down),
                                 ],
@@ -300,9 +296,7 @@ class _AddBudgetScreenState extends State<AddBudgetScreen> {
                               const SizedBox(width: AppConstants.spacing8),
                               Text(
                                 'Budget Alerts',
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .titleSmall
+                                style: Theme.of(context).textTheme.titleSmall
                                     ?.copyWith(
                                       fontWeight: FontWeight.bold,
                                       color: Colors.orange.shade700,

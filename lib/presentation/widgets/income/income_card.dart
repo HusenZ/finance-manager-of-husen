@@ -31,9 +31,7 @@ class IncomeCard extends StatelessWidget {
         vertical: AppConstants.spacing8,
       ),
       elevation: 2,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(12),
-      ),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
       child: InkWell(
         onTap: onTap,
         borderRadius: BorderRadius.circular(12),
@@ -49,7 +47,9 @@ class IncomeCard extends StatelessWidget {
                     width: 48,
                     height: 48,
                     decoration: BoxDecoration(
-                      color: _getSourceColor(income.source).withValues(alpha: 0.2),
+                      color: _getSourceColor(
+                        income.source,
+                      ).withValues(alpha: 0.2),
                       borderRadius: BorderRadius.circular(12),
                     ),
                     child: Icon(
@@ -70,12 +70,8 @@ class IncomeCard extends StatelessWidget {
                             Expanded(
                               child: Text(
                                 income.description,
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .titleMedium
-                                    ?.copyWith(
-                                      fontWeight: FontWeight.w600,
-                                    ),
+                                style: Theme.of(context).textTheme.titleMedium
+                                    ?.copyWith(fontWeight: FontWeight.w600),
                                 maxLines: 1,
                                 overflow: TextOverflow.ellipsis,
                               ),
@@ -83,13 +79,16 @@ class IncomeCard extends StatelessWidget {
                             if (income.isRecurring)
                               Container(
                                 margin: const EdgeInsets.only(
-                                    left: AppConstants.spacing8),
+                                  left: AppConstants.spacing8,
+                                ),
                                 padding: const EdgeInsets.symmetric(
                                   horizontal: AppConstants.spacing8,
                                   vertical: AppConstants.spacing4,
                                 ),
                                 decoration: BoxDecoration(
-                                  color: AppColors.success.withValues(alpha: 0.2),
+                                  color: AppColors.success.withValues(
+                                    alpha: 0.2,
+                                  ),
                                   borderRadius: BorderRadius.circular(8),
                                 ),
                                 child: Row(
@@ -117,12 +116,12 @@ class IncomeCard extends StatelessWidget {
                         const SizedBox(height: AppConstants.spacing4),
                         Text(
                           income.source,
-                          style:
-                              Theme.of(context).textTheme.bodyMedium?.copyWith(
-                                    color: isDark
-                                        ? AppColors.textSecondaryDark
-                                        : AppColors.textSecondaryLight,
-                                  ),
+                          style: Theme.of(context).textTheme.bodyMedium
+                              ?.copyWith(
+                                color: isDark
+                                    ? AppColors.textSecondaryDark
+                                    : AppColors.textSecondaryLight,
+                              ),
                         ),
                       ],
                     ),
@@ -139,9 +138,9 @@ class IncomeCard extends StatelessWidget {
                   Text(
                     '$currencySymbol${NumberFormat('#,##,##0.00').format(income.amount)}',
                     style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                          color: AppColors.success,
-                          fontWeight: FontWeight.bold,
-                        ),
+                      color: AppColors.success,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
 
                   // Date
@@ -158,10 +157,10 @@ class IncomeCard extends StatelessWidget {
                       Text(
                         DateFormat('MMM dd, yyyy').format(income.date),
                         style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                              color: isDark
-                                  ? AppColors.textSecondaryDark
-                                  : AppColors.textSecondaryLight,
-                            ),
+                          color: isDark
+                              ? AppColors.textSecondaryDark
+                              : AppColors.textSecondaryLight,
+                        ),
                       ),
                     ],
                   ),
@@ -192,12 +191,12 @@ class IncomeCard extends StatelessWidget {
                       Expanded(
                         child: Text(
                           income.notes!,
-                          style:
-                              Theme.of(context).textTheme.bodySmall?.copyWith(
-                                    color: isDark
-                                        ? AppColors.textSecondaryDark
-                                        : AppColors.textSecondaryLight,
-                                  ),
+                          style: Theme.of(context).textTheme.bodySmall
+                              ?.copyWith(
+                                color: isDark
+                                    ? AppColors.textSecondaryDark
+                                    : AppColors.textSecondaryLight,
+                              ),
                           maxLines: 2,
                           overflow: TextOverflow.ellipsis,
                         ),

@@ -21,7 +21,10 @@ class IncomeSummaryCard extends StatelessWidget {
     final isDark = Theme.of(context).brightness == Brightness.dark;
     final currencySymbol = _getCurrencySymbol(currencyCode);
 
-    final totalIncome = incomes.fold<double>(0, (sum, income) => sum + income.amount);
+    final totalIncome = incomes.fold<double>(
+      0,
+      (sum, income) => sum + income.amount,
+    );
     final recurringIncome = incomes
         .where((income) => income.isRecurring)
         .fold<double>(0, (sum, income) => sum + income.amount);
@@ -47,9 +50,7 @@ class IncomeSummaryCard extends StatelessWidget {
     return Card(
       margin: const EdgeInsets.all(AppConstants.spacing16),
       elevation: 4,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(16),
-      ),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
       child: Container(
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(16),
@@ -76,7 +77,8 @@ class IncomeSummaryCard extends StatelessWidget {
                     children: [
                       Text(
                         'Total Income',
-                        style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                        style: Theme.of(context).textTheme.titleMedium
+                            ?.copyWith(
                               color: Colors.white.withValues(alpha: 0.9),
                               fontWeight: FontWeight.w500,
                             ),
@@ -85,8 +87,8 @@ class IncomeSummaryCard extends StatelessWidget {
                       Text(
                         DateFormat('MMMM yyyy').format(month),
                         style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                              color: Colors.white.withValues(alpha: 0.7),
-                            ),
+                          color: Colors.white.withValues(alpha: 0.7),
+                        ),
                       ),
                     ],
                   ),
@@ -110,9 +112,9 @@ class IncomeSummaryCard extends StatelessWidget {
               Text(
                 '$currencySymbol${NumberFormat('#,##,##0.00').format(totalIncome)}',
                 style: Theme.of(context).textTheme.headlineMedium?.copyWith(
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold,
-                    ),
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
               const SizedBox(height: AppConstants.spacing8),
 
@@ -131,9 +133,9 @@ class IncomeSummaryCard extends StatelessWidget {
                     child: Text(
                       '${incomes.length} ${incomes.length == 1 ? 'income' : 'incomes'}',
                       style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                            color: Colors.white,
-                            fontWeight: FontWeight.w500,
-                          ),
+                        color: Colors.white,
+                        fontWeight: FontWeight.w500,
+                      ),
                     ),
                   ),
                 ],
@@ -141,10 +143,7 @@ class IncomeSummaryCard extends StatelessWidget {
               const SizedBox(height: AppConstants.spacing20),
 
               // Divider
-              Container(
-                height: 1,
-                color: Colors.white.withValues(alpha: 0.3),
-              ),
+              Container(height: 1, color: Colors.white.withValues(alpha: 0.3)),
               const SizedBox(height: AppConstants.spacing16),
 
               // Income breakdown
@@ -197,18 +196,14 @@ class IncomeSummaryCard extends StatelessWidget {
                           children: [
                             Text(
                               'Top Source',
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .bodySmall
+                              style: Theme.of(context).textTheme.bodySmall
                                   ?.copyWith(
                                     color: Colors.white.withValues(alpha: 0.7),
                                   ),
                             ),
                             Text(
                               topSource,
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .titleSmall
+                              style: Theme.of(context).textTheme.titleSmall
                                   ?.copyWith(
                                     color: Colors.white,
                                     fontWeight: FontWeight.w600,
@@ -219,7 +214,8 @@ class IncomeSummaryCard extends StatelessWidget {
                       ),
                       Text(
                         '$currencySymbol${NumberFormat('#,##,##0').format(topAmount)}',
-                        style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                        style: Theme.of(context).textTheme.titleMedium
+                            ?.copyWith(
                               color: Colors.white,
                               fontWeight: FontWeight.bold,
                             ),
@@ -235,28 +231,28 @@ class IncomeSummaryCard extends StatelessWidget {
   }
 
   Widget _buildStatItem(
-      BuildContext context, String label, String value, IconData icon) {
+    BuildContext context,
+    String label,
+    String value,
+    IconData icon,
+  ) {
     return Column(
       children: [
-        Icon(
-          icon,
-          color: Colors.white.withValues(alpha: 0.7),
-          size: 20,
-        ),
+        Icon(icon, color: Colors.white.withValues(alpha: 0.7), size: 20),
         const SizedBox(height: AppConstants.spacing4),
         Text(
           label,
           style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                color: Colors.white.withValues(alpha: 0.7),
-              ),
+            color: Colors.white.withValues(alpha: 0.7),
+          ),
         ),
         const SizedBox(height: AppConstants.spacing4),
         Text(
           value,
           style: Theme.of(context).textTheme.titleSmall?.copyWith(
-                color: Colors.white,
-                fontWeight: FontWeight.bold,
-              ),
+            color: Colors.white,
+            fontWeight: FontWeight.bold,
+          ),
         ),
       ],
     );

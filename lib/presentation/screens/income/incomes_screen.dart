@@ -54,11 +54,11 @@ class _IncomesScreenState extends State<IncomesScreen> {
     final authState = context.read<AuthBloc>().state;
     if (authState is AuthAuthenticated) {
       context.read<IncomeBloc>().add(
-            IncomeEvent.loadIncomesForMonth(
-              userId: authState.user.id,
-              month: _selectedMonth,
-            ),
-          );
+        IncomeEvent.loadIncomesForMonth(
+          userId: authState.user.id,
+          month: _selectedMonth,
+        ),
+      );
     }
   }
 
@@ -69,11 +69,8 @@ class _IncomesScreenState extends State<IncomesScreen> {
         _loadIncomes();
       } else {
         context.read<IncomeBloc>().add(
-              IncomeEvent.searchIncomes(
-                userId: authState.user.id,
-                query: query,
-              ),
-            );
+          IncomeEvent.searchIncomes(userId: authState.user.id, query: query),
+        );
       }
     }
   }
@@ -90,11 +87,8 @@ class _IncomesScreenState extends State<IncomesScreen> {
         _loadIncomes();
       } else {
         context.read<IncomeBloc>().add(
-              IncomeEvent.filterBySource(
-                userId: authState.user.id,
-                source: filter,
-              ),
-            );
+          IncomeEvent.filterBySource(userId: authState.user.id, source: filter),
+        );
       }
     }
   }
@@ -133,15 +127,13 @@ class _IncomesScreenState extends State<IncomesScreen> {
             onPressed: () {
               Navigator.of(context).pop();
               context.read<IncomeBloc>().add(
-                    IncomeEvent.deleteIncome(
-                      userId: authState.user.id,
-                      incomeId: incomeId,
-                    ),
-                  );
+                IncomeEvent.deleteIncome(
+                  userId: authState.user.id,
+                  incomeId: incomeId,
+                ),
+              );
             },
-            style: TextButton.styleFrom(
-              foregroundColor: AppColors.error,
-            ),
+            style: TextButton.styleFrom(foregroundColor: AppColors.error),
             child: const Text('Delete'),
           ),
         ],
@@ -156,7 +148,9 @@ class _IncomesScreenState extends State<IncomesScreen> {
 
     if (authState is! AuthAuthenticated) {
       return Scaffold(
-        backgroundColor: isDark ? AppColors.backgroundDark : AppColors.backgroundLight,
+        backgroundColor: isDark
+            ? AppColors.backgroundDark
+            : AppColors.backgroundLight,
         appBar: const CustomAppBar(title: 'Income'),
         body: Center(
           child: Column(
@@ -181,16 +175,15 @@ class _IncomesScreenState extends State<IncomesScreen> {
     final currencyCode = authState.user.currency ?? 'INR';
 
     return Scaffold(
-      backgroundColor: isDark ? AppColors.backgroundDark : AppColors.backgroundLight,
+      backgroundColor: isDark
+          ? AppColors.backgroundDark
+          : AppColors.backgroundLight,
       appBar: const CustomAppBar(title: 'Income'),
       floatingActionButton: FloatingActionButton.extended(
         onPressed: () => context.push(AppRouter.addIncome),
         backgroundColor: AppColors.primary,
         icon: const Icon(Icons.add, color: Colors.white),
-        label: const Text(
-          'Add Income',
-          style: TextStyle(color: Colors.white),
-        ),
+        label: const Text('Add Income', style: TextStyle(color: Colors.white)),
       ),
       body: BlocConsumer<IncomeBloc, IncomeState>(
         listener: (context, state) {
@@ -268,7 +261,9 @@ class _IncomesScreenState extends State<IncomesScreen> {
                                   // TODO: Navigate to edit screen
                                   ScaffoldMessenger.of(context).showSnackBar(
                                     const SnackBar(
-                                      content: Text('Edit feature coming soon!'),
+                                      content: Text(
+                                        'Edit feature coming soon!',
+                                      ),
                                     ),
                                   );
                                 },
@@ -295,12 +290,8 @@ class _IncomesScreenState extends State<IncomesScreen> {
                             const SizedBox(height: AppConstants.spacing16),
                             Text(
                               'Error',
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .titleLarge
-                                  ?.copyWith(
-                                    fontWeight: FontWeight.bold,
-                                  ),
+                              style: Theme.of(context).textTheme.titleLarge
+                                  ?.copyWith(fontWeight: FontWeight.bold),
                             ),
                             const SizedBox(height: AppConstants.spacing8),
                             Text(
@@ -339,9 +330,7 @@ class _IncomesScreenState extends State<IncomesScreen> {
         color: isDark ? AppColors.cardDark : AppColors.cardLight,
         borderRadius: BorderRadius.circular(12),
         border: Border.all(
-          color: isDark
-              ? AppColors.borderDark
-              : AppColors.borderLight,
+          color: isDark ? AppColors.borderDark : AppColors.borderLight,
         ),
       ),
       child: Row(
@@ -368,14 +357,11 @@ class _IncomesScreenState extends State<IncomesScreen> {
                     Text(
                       DateFormat('MMMM yyyy').format(_selectedMonth),
                       style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                            fontWeight: FontWeight.bold,
-                          ),
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                     const SizedBox(width: AppConstants.spacing8),
-                    Icon(
-                      Icons.calendar_month,
-                      color: AppColors.primary,
-                    ),
+                    Icon(Icons.calendar_month, color: AppColors.primary),
                   ],
                 ),
               ),
@@ -416,9 +402,7 @@ class _IncomesScreenState extends State<IncomesScreen> {
                   },
                 )
               : null,
-          border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(12),
-          ),
+          border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
           filled: true,
           fillColor: isDark ? AppColors.cardDark : AppColors.cardLight,
         ),
@@ -474,9 +458,9 @@ class _IncomesScreenState extends State<IncomesScreen> {
             const SizedBox(height: AppConstants.spacing24),
             Text(
               'No Income Yet',
-              style: Theme.of(context).textTheme.headlineSmall?.copyWith(
-                    fontWeight: FontWeight.bold,
-                  ),
+              style: Theme.of(
+                context,
+              ).textTheme.headlineSmall?.copyWith(fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: AppConstants.spacing8),
             Text(

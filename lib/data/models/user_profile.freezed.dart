@@ -12,7 +12,8 @@ part of 'user_profile.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 UserProfile _$UserProfileFromJson(Map<String, dynamic> json) {
   return _UserProfile.fromJson(json);
@@ -44,17 +45,19 @@ mixin _$UserProfile {
 /// @nodoc
 abstract class $UserProfileCopyWith<$Res> {
   factory $UserProfileCopyWith(
-          UserProfile value, $Res Function(UserProfile) then) =
-      _$UserProfileCopyWithImpl<$Res, UserProfile>;
+    UserProfile value,
+    $Res Function(UserProfile) then,
+  ) = _$UserProfileCopyWithImpl<$Res, UserProfile>;
   @useResult
-  $Res call(
-      {@HiveField(0) String id,
-      @HiveField(1) String email,
-      @HiveField(2) String name,
-      @HiveField(3) String? profilePicture,
-      @HiveField(4) String currency,
-      @HiveField(5) DateTime createdAt,
-      @HiveField(6) DateTime? updatedAt});
+  $Res call({
+    @HiveField(0) String id,
+    @HiveField(1) String email,
+    @HiveField(2) String name,
+    @HiveField(3) String? profilePicture,
+    @HiveField(4) String currency,
+    @HiveField(5) DateTime createdAt,
+    @HiveField(6) DateTime? updatedAt,
+  });
 }
 
 /// @nodoc
@@ -78,36 +81,39 @@ class _$UserProfileCopyWithImpl<$Res, $Val extends UserProfile>
     Object? createdAt = null,
     Object? updatedAt = freezed,
   }) {
-    return _then(_value.copyWith(
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String,
-      email: null == email
-          ? _value.email
-          : email // ignore: cast_nullable_to_non_nullable
-              as String,
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String,
-      profilePicture: freezed == profilePicture
-          ? _value.profilePicture
-          : profilePicture // ignore: cast_nullable_to_non_nullable
-              as String?,
-      currency: null == currency
-          ? _value.currency
-          : currency // ignore: cast_nullable_to_non_nullable
-              as String,
-      createdAt: null == createdAt
-          ? _value.createdAt
-          : createdAt // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-      updatedAt: freezed == updatedAt
-          ? _value.updatedAt
-          : updatedAt // ignore: cast_nullable_to_non_nullable
-              as DateTime?,
-    ) as $Val);
+    return _then(
+      _value.copyWith(
+            id: null == id
+                ? _value.id
+                : id // ignore: cast_nullable_to_non_nullable
+                      as String,
+            email: null == email
+                ? _value.email
+                : email // ignore: cast_nullable_to_non_nullable
+                      as String,
+            name: null == name
+                ? _value.name
+                : name // ignore: cast_nullable_to_non_nullable
+                      as String,
+            profilePicture: freezed == profilePicture
+                ? _value.profilePicture
+                : profilePicture // ignore: cast_nullable_to_non_nullable
+                      as String?,
+            currency: null == currency
+                ? _value.currency
+                : currency // ignore: cast_nullable_to_non_nullable
+                      as String,
+            createdAt: null == createdAt
+                ? _value.createdAt
+                : createdAt // ignore: cast_nullable_to_non_nullable
+                      as DateTime,
+            updatedAt: freezed == updatedAt
+                ? _value.updatedAt
+                : updatedAt // ignore: cast_nullable_to_non_nullable
+                      as DateTime?,
+          )
+          as $Val,
+    );
   }
 }
 
@@ -115,18 +121,20 @@ class _$UserProfileCopyWithImpl<$Res, $Val extends UserProfile>
 abstract class _$$UserProfileImplCopyWith<$Res>
     implements $UserProfileCopyWith<$Res> {
   factory _$$UserProfileImplCopyWith(
-          _$UserProfileImpl value, $Res Function(_$UserProfileImpl) then) =
-      __$$UserProfileImplCopyWithImpl<$Res>;
+    _$UserProfileImpl value,
+    $Res Function(_$UserProfileImpl) then,
+  ) = __$$UserProfileImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {@HiveField(0) String id,
-      @HiveField(1) String email,
-      @HiveField(2) String name,
-      @HiveField(3) String? profilePicture,
-      @HiveField(4) String currency,
-      @HiveField(5) DateTime createdAt,
-      @HiveField(6) DateTime? updatedAt});
+  $Res call({
+    @HiveField(0) String id,
+    @HiveField(1) String email,
+    @HiveField(2) String name,
+    @HiveField(3) String? profilePicture,
+    @HiveField(4) String currency,
+    @HiveField(5) DateTime createdAt,
+    @HiveField(6) DateTime? updatedAt,
+  });
 }
 
 /// @nodoc
@@ -134,8 +142,9 @@ class __$$UserProfileImplCopyWithImpl<$Res>
     extends _$UserProfileCopyWithImpl<$Res, _$UserProfileImpl>
     implements _$$UserProfileImplCopyWith<$Res> {
   __$$UserProfileImplCopyWithImpl(
-      _$UserProfileImpl _value, $Res Function(_$UserProfileImpl) _then)
-      : super(_value, _then);
+    _$UserProfileImpl _value,
+    $Res Function(_$UserProfileImpl) _then,
+  ) : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
@@ -148,50 +157,53 @@ class __$$UserProfileImplCopyWithImpl<$Res>
     Object? createdAt = null,
     Object? updatedAt = freezed,
   }) {
-    return _then(_$UserProfileImpl(
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String,
-      email: null == email
-          ? _value.email
-          : email // ignore: cast_nullable_to_non_nullable
-              as String,
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String,
-      profilePicture: freezed == profilePicture
-          ? _value.profilePicture
-          : profilePicture // ignore: cast_nullable_to_non_nullable
-              as String?,
-      currency: null == currency
-          ? _value.currency
-          : currency // ignore: cast_nullable_to_non_nullable
-              as String,
-      createdAt: null == createdAt
-          ? _value.createdAt
-          : createdAt // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-      updatedAt: freezed == updatedAt
-          ? _value.updatedAt
-          : updatedAt // ignore: cast_nullable_to_non_nullable
-              as DateTime?,
-    ));
+    return _then(
+      _$UserProfileImpl(
+        id: null == id
+            ? _value.id
+            : id // ignore: cast_nullable_to_non_nullable
+                  as String,
+        email: null == email
+            ? _value.email
+            : email // ignore: cast_nullable_to_non_nullable
+                  as String,
+        name: null == name
+            ? _value.name
+            : name // ignore: cast_nullable_to_non_nullable
+                  as String,
+        profilePicture: freezed == profilePicture
+            ? _value.profilePicture
+            : profilePicture // ignore: cast_nullable_to_non_nullable
+                  as String?,
+        currency: null == currency
+            ? _value.currency
+            : currency // ignore: cast_nullable_to_non_nullable
+                  as String,
+        createdAt: null == createdAt
+            ? _value.createdAt
+            : createdAt // ignore: cast_nullable_to_non_nullable
+                  as DateTime,
+        updatedAt: freezed == updatedAt
+            ? _value.updatedAt
+            : updatedAt // ignore: cast_nullable_to_non_nullable
+                  as DateTime?,
+      ),
+    );
   }
 }
 
 /// @nodoc
 @JsonSerializable()
 class _$UserProfileImpl implements _UserProfile {
-  const _$UserProfileImpl(
-      {@HiveField(0) required this.id,
-      @HiveField(1) required this.email,
-      @HiveField(2) required this.name,
-      @HiveField(3) this.profilePicture,
-      @HiveField(4) this.currency = 'INR',
-      @HiveField(5) required this.createdAt,
-      @HiveField(6) this.updatedAt});
+  const _$UserProfileImpl({
+    @HiveField(0) required this.id,
+    @HiveField(1) required this.email,
+    @HiveField(2) required this.name,
+    @HiveField(3) this.profilePicture,
+    @HiveField(4) this.currency = 'INR',
+    @HiveField(5) required this.createdAt,
+    @HiveField(6) this.updatedAt,
+  });
 
   factory _$UserProfileImpl.fromJson(Map<String, dynamic> json) =>
       _$$UserProfileImplFromJson(json);
@@ -244,8 +256,16 @@ class _$UserProfileImpl implements _UserProfile {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, id, email, name, profilePicture,
-      currency, createdAt, updatedAt);
+  int get hashCode => Object.hash(
+    runtimeType,
+    id,
+    email,
+    name,
+    profilePicture,
+    currency,
+    createdAt,
+    updatedAt,
+  );
 
   @JsonKey(ignore: true)
   @override
@@ -255,21 +275,20 @@ class _$UserProfileImpl implements _UserProfile {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$UserProfileImplToJson(
-      this,
-    );
+    return _$$UserProfileImplToJson(this);
   }
 }
 
 abstract class _UserProfile implements UserProfile {
-  const factory _UserProfile(
-      {@HiveField(0) required final String id,
-      @HiveField(1) required final String email,
-      @HiveField(2) required final String name,
-      @HiveField(3) final String? profilePicture,
-      @HiveField(4) final String currency,
-      @HiveField(5) required final DateTime createdAt,
-      @HiveField(6) final DateTime? updatedAt}) = _$UserProfileImpl;
+  const factory _UserProfile({
+    @HiveField(0) required final String id,
+    @HiveField(1) required final String email,
+    @HiveField(2) required final String name,
+    @HiveField(3) final String? profilePicture,
+    @HiveField(4) final String currency,
+    @HiveField(5) required final DateTime createdAt,
+    @HiveField(6) final DateTime? updatedAt,
+  }) = _$UserProfileImpl;
 
   factory _UserProfile.fromJson(Map<String, dynamic> json) =
       _$UserProfileImpl.fromJson;

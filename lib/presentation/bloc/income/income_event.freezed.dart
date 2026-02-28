@@ -12,7 +12,8 @@ part of 'income_event.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 /// @nodoc
 mixin _$IncomeEvent {
@@ -20,41 +21,42 @@ mixin _$IncomeEvent {
   TResult when<TResult extends Object?>({
     required TResult Function(String userId) loadIncomes,
     required TResult Function(String userId, DateTime month)
-        loadIncomesForMonth,
+    loadIncomesForMonth,
     required TResult Function(
-            String userId,
-            double amount,
-            String source,
-            String description,
-            DateTime date,
-            String? notes,
-            bool isRecurring,
-            String? recurrenceFrequency)
-        createIncome,
+      String userId,
+      double amount,
+      String source,
+      String description,
+      DateTime date,
+      String? notes,
+      bool isRecurring,
+      String? recurrenceFrequency,
+    )
+    createIncome,
     required TResult Function(Income income) updateIncome,
     required TResult Function(String userId, String incomeId) deleteIncome,
     required TResult Function(String userId, String query) searchIncomes,
     required TResult Function(String userId, String source) filterBySource,
     required TResult Function(String userId) getRecurringIncomes,
     required TResult Function(String userId, DateTime month)
-        getTotalIncomeForMonth,
+    getTotalIncomeForMonth,
     required TResult Function(String userId) syncIncomes,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String userId)? loadIncomes,
     TResult? Function(String userId, DateTime month)? loadIncomesForMonth,
     TResult? Function(
-            String userId,
-            double amount,
-            String source,
-            String description,
-            DateTime date,
-            String? notes,
-            bool isRecurring,
-            String? recurrenceFrequency)?
-        createIncome,
+      String userId,
+      double amount,
+      String source,
+      String description,
+      DateTime date,
+      String? notes,
+      bool isRecurring,
+      String? recurrenceFrequency,
+    )?
+    createIncome,
     TResult? Function(Income income)? updateIncome,
     TResult? Function(String userId, String incomeId)? deleteIncome,
     TResult? Function(String userId, String query)? searchIncomes,
@@ -62,22 +64,22 @@ mixin _$IncomeEvent {
     TResult? Function(String userId)? getRecurringIncomes,
     TResult? Function(String userId, DateTime month)? getTotalIncomeForMonth,
     TResult? Function(String userId)? syncIncomes,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String userId)? loadIncomes,
     TResult Function(String userId, DateTime month)? loadIncomesForMonth,
     TResult Function(
-            String userId,
-            double amount,
-            String source,
-            String description,
-            DateTime date,
-            String? notes,
-            bool isRecurring,
-            String? recurrenceFrequency)?
-        createIncome,
+      String userId,
+      double amount,
+      String source,
+      String description,
+      DateTime date,
+      String? notes,
+      bool isRecurring,
+      String? recurrenceFrequency,
+    )?
+    createIncome,
     TResult Function(Income income)? updateIncome,
     TResult Function(String userId, String incomeId)? deleteIncome,
     TResult Function(String userId, String query)? searchIncomes,
@@ -86,25 +88,23 @@ mixin _$IncomeEvent {
     TResult Function(String userId, DateTime month)? getTotalIncomeForMonth,
     TResult Function(String userId)? syncIncomes,
     required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(LoadIncomesEvent value) loadIncomes,
     required TResult Function(LoadIncomesForMonthEvent value)
-        loadIncomesForMonth,
+    loadIncomesForMonth,
     required TResult Function(CreateIncomeEvent value) createIncome,
     required TResult Function(UpdateIncomeEvent value) updateIncome,
     required TResult Function(DeleteIncomeEvent value) deleteIncome,
     required TResult Function(SearchIncomesEvent value) searchIncomes,
     required TResult Function(FilterBySourceEvent value) filterBySource,
     required TResult Function(GetRecurringIncomesEvent value)
-        getRecurringIncomes,
+    getRecurringIncomes,
     required TResult Function(GetTotalIncomeForMonthEvent value)
-        getTotalIncomeForMonth,
+    getTotalIncomeForMonth,
     required TResult Function(SyncIncomesEvent value) syncIncomes,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(LoadIncomesEvent value)? loadIncomes,
@@ -116,10 +116,9 @@ mixin _$IncomeEvent {
     TResult? Function(FilterBySourceEvent value)? filterBySource,
     TResult? Function(GetRecurringIncomesEvent value)? getRecurringIncomes,
     TResult? Function(GetTotalIncomeForMonthEvent value)?
-        getTotalIncomeForMonth,
+    getTotalIncomeForMonth,
     TResult? Function(SyncIncomesEvent value)? syncIncomes,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(LoadIncomesEvent value)? loadIncomes,
@@ -133,15 +132,15 @@ mixin _$IncomeEvent {
     TResult Function(GetTotalIncomeForMonthEvent value)? getTotalIncomeForMonth,
     TResult Function(SyncIncomesEvent value)? syncIncomes,
     required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $IncomeEventCopyWith<$Res> {
   factory $IncomeEventCopyWith(
-          IncomeEvent value, $Res Function(IncomeEvent) then) =
-      _$IncomeEventCopyWithImpl<$Res, IncomeEvent>;
+    IncomeEvent value,
+    $Res Function(IncomeEvent) then,
+  ) = _$IncomeEventCopyWithImpl<$Res, IncomeEvent>;
 }
 
 /// @nodoc
@@ -157,9 +156,10 @@ class _$IncomeEventCopyWithImpl<$Res, $Val extends IncomeEvent>
 
 /// @nodoc
 abstract class _$$LoadIncomesEventImplCopyWith<$Res> {
-  factory _$$LoadIncomesEventImplCopyWith(_$LoadIncomesEventImpl value,
-          $Res Function(_$LoadIncomesEventImpl) then) =
-      __$$LoadIncomesEventImplCopyWithImpl<$Res>;
+  factory _$$LoadIncomesEventImplCopyWith(
+    _$LoadIncomesEventImpl value,
+    $Res Function(_$LoadIncomesEventImpl) then,
+  ) = __$$LoadIncomesEventImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String userId});
 }
@@ -168,21 +168,22 @@ abstract class _$$LoadIncomesEventImplCopyWith<$Res> {
 class __$$LoadIncomesEventImplCopyWithImpl<$Res>
     extends _$IncomeEventCopyWithImpl<$Res, _$LoadIncomesEventImpl>
     implements _$$LoadIncomesEventImplCopyWith<$Res> {
-  __$$LoadIncomesEventImplCopyWithImpl(_$LoadIncomesEventImpl _value,
-      $Res Function(_$LoadIncomesEventImpl) _then)
-      : super(_value, _then);
+  __$$LoadIncomesEventImplCopyWithImpl(
+    _$LoadIncomesEventImpl _value,
+    $Res Function(_$LoadIncomesEventImpl) _then,
+  ) : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? userId = null,
-  }) {
-    return _then(_$LoadIncomesEventImpl(
-      userId: null == userId
-          ? _value.userId
-          : userId // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
+  $Res call({Object? userId = null}) {
+    return _then(
+      _$LoadIncomesEventImpl(
+        userId: null == userId
+            ? _value.userId
+            : userId // ignore: cast_nullable_to_non_nullable
+                  as String,
+      ),
+    );
   }
 }
 
@@ -215,31 +216,34 @@ class _$LoadIncomesEventImpl implements LoadIncomesEvent {
   @pragma('vm:prefer-inline')
   _$$LoadIncomesEventImplCopyWith<_$LoadIncomesEventImpl> get copyWith =>
       __$$LoadIncomesEventImplCopyWithImpl<_$LoadIncomesEventImpl>(
-          this, _$identity);
+        this,
+        _$identity,
+      );
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String userId) loadIncomes,
     required TResult Function(String userId, DateTime month)
-        loadIncomesForMonth,
+    loadIncomesForMonth,
     required TResult Function(
-            String userId,
-            double amount,
-            String source,
-            String description,
-            DateTime date,
-            String? notes,
-            bool isRecurring,
-            String? recurrenceFrequency)
-        createIncome,
+      String userId,
+      double amount,
+      String source,
+      String description,
+      DateTime date,
+      String? notes,
+      bool isRecurring,
+      String? recurrenceFrequency,
+    )
+    createIncome,
     required TResult Function(Income income) updateIncome,
     required TResult Function(String userId, String incomeId) deleteIncome,
     required TResult Function(String userId, String query) searchIncomes,
     required TResult Function(String userId, String source) filterBySource,
     required TResult Function(String userId) getRecurringIncomes,
     required TResult Function(String userId, DateTime month)
-        getTotalIncomeForMonth,
+    getTotalIncomeForMonth,
     required TResult Function(String userId) syncIncomes,
   }) {
     return loadIncomes(userId);
@@ -251,15 +255,16 @@ class _$LoadIncomesEventImpl implements LoadIncomesEvent {
     TResult? Function(String userId)? loadIncomes,
     TResult? Function(String userId, DateTime month)? loadIncomesForMonth,
     TResult? Function(
-            String userId,
-            double amount,
-            String source,
-            String description,
-            DateTime date,
-            String? notes,
-            bool isRecurring,
-            String? recurrenceFrequency)?
-        createIncome,
+      String userId,
+      double amount,
+      String source,
+      String description,
+      DateTime date,
+      String? notes,
+      bool isRecurring,
+      String? recurrenceFrequency,
+    )?
+    createIncome,
     TResult? Function(Income income)? updateIncome,
     TResult? Function(String userId, String incomeId)? deleteIncome,
     TResult? Function(String userId, String query)? searchIncomes,
@@ -277,15 +282,16 @@ class _$LoadIncomesEventImpl implements LoadIncomesEvent {
     TResult Function(String userId)? loadIncomes,
     TResult Function(String userId, DateTime month)? loadIncomesForMonth,
     TResult Function(
-            String userId,
-            double amount,
-            String source,
-            String description,
-            DateTime date,
-            String? notes,
-            bool isRecurring,
-            String? recurrenceFrequency)?
-        createIncome,
+      String userId,
+      double amount,
+      String source,
+      String description,
+      DateTime date,
+      String? notes,
+      bool isRecurring,
+      String? recurrenceFrequency,
+    )?
+    createIncome,
     TResult Function(Income income)? updateIncome,
     TResult Function(String userId, String incomeId)? deleteIncome,
     TResult Function(String userId, String query)? searchIncomes,
@@ -306,16 +312,16 @@ class _$LoadIncomesEventImpl implements LoadIncomesEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(LoadIncomesEvent value) loadIncomes,
     required TResult Function(LoadIncomesForMonthEvent value)
-        loadIncomesForMonth,
+    loadIncomesForMonth,
     required TResult Function(CreateIncomeEvent value) createIncome,
     required TResult Function(UpdateIncomeEvent value) updateIncome,
     required TResult Function(DeleteIncomeEvent value) deleteIncome,
     required TResult Function(SearchIncomesEvent value) searchIncomes,
     required TResult Function(FilterBySourceEvent value) filterBySource,
     required TResult Function(GetRecurringIncomesEvent value)
-        getRecurringIncomes,
+    getRecurringIncomes,
     required TResult Function(GetTotalIncomeForMonthEvent value)
-        getTotalIncomeForMonth,
+    getTotalIncomeForMonth,
     required TResult Function(SyncIncomesEvent value) syncIncomes,
   }) {
     return loadIncomes(this);
@@ -333,7 +339,7 @@ class _$LoadIncomesEventImpl implements LoadIncomesEvent {
     TResult? Function(FilterBySourceEvent value)? filterBySource,
     TResult? Function(GetRecurringIncomesEvent value)? getRecurringIncomes,
     TResult? Function(GetTotalIncomeForMonthEvent value)?
-        getTotalIncomeForMonth,
+    getTotalIncomeForMonth,
     TResult? Function(SyncIncomesEvent value)? syncIncomes,
   }) {
     return loadIncomes?.call(this);
@@ -374,9 +380,9 @@ abstract class LoadIncomesEvent implements IncomeEvent {
 /// @nodoc
 abstract class _$$LoadIncomesForMonthEventImplCopyWith<$Res> {
   factory _$$LoadIncomesForMonthEventImplCopyWith(
-          _$LoadIncomesForMonthEventImpl value,
-          $Res Function(_$LoadIncomesForMonthEventImpl) then) =
-      __$$LoadIncomesForMonthEventImplCopyWithImpl<$Res>;
+    _$LoadIncomesForMonthEventImpl value,
+    $Res Function(_$LoadIncomesForMonthEventImpl) then,
+  ) = __$$LoadIncomesForMonthEventImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String userId, DateTime month});
 }
@@ -386,34 +392,35 @@ class __$$LoadIncomesForMonthEventImplCopyWithImpl<$Res>
     extends _$IncomeEventCopyWithImpl<$Res, _$LoadIncomesForMonthEventImpl>
     implements _$$LoadIncomesForMonthEventImplCopyWith<$Res> {
   __$$LoadIncomesForMonthEventImplCopyWithImpl(
-      _$LoadIncomesForMonthEventImpl _value,
-      $Res Function(_$LoadIncomesForMonthEventImpl) _then)
-      : super(_value, _then);
+    _$LoadIncomesForMonthEventImpl _value,
+    $Res Function(_$LoadIncomesForMonthEventImpl) _then,
+  ) : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? userId = null,
-    Object? month = null,
-  }) {
-    return _then(_$LoadIncomesForMonthEventImpl(
-      userId: null == userId
-          ? _value.userId
-          : userId // ignore: cast_nullable_to_non_nullable
-              as String,
-      month: null == month
-          ? _value.month
-          : month // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-    ));
+  $Res call({Object? userId = null, Object? month = null}) {
+    return _then(
+      _$LoadIncomesForMonthEventImpl(
+        userId: null == userId
+            ? _value.userId
+            : userId // ignore: cast_nullable_to_non_nullable
+                  as String,
+        month: null == month
+            ? _value.month
+            : month // ignore: cast_nullable_to_non_nullable
+                  as DateTime,
+      ),
+    );
   }
 }
 
 /// @nodoc
 
 class _$LoadIncomesForMonthEventImpl implements LoadIncomesForMonthEvent {
-  const _$LoadIncomesForMonthEventImpl(
-      {required this.userId, required this.month});
+  const _$LoadIncomesForMonthEventImpl({
+    required this.userId,
+    required this.month,
+  });
 
   @override
   final String userId;
@@ -441,32 +448,35 @@ class _$LoadIncomesForMonthEventImpl implements LoadIncomesForMonthEvent {
   @override
   @pragma('vm:prefer-inline')
   _$$LoadIncomesForMonthEventImplCopyWith<_$LoadIncomesForMonthEventImpl>
-      get copyWith => __$$LoadIncomesForMonthEventImplCopyWithImpl<
-          _$LoadIncomesForMonthEventImpl>(this, _$identity);
+  get copyWith =>
+      __$$LoadIncomesForMonthEventImplCopyWithImpl<
+        _$LoadIncomesForMonthEventImpl
+      >(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String userId) loadIncomes,
     required TResult Function(String userId, DateTime month)
-        loadIncomesForMonth,
+    loadIncomesForMonth,
     required TResult Function(
-            String userId,
-            double amount,
-            String source,
-            String description,
-            DateTime date,
-            String? notes,
-            bool isRecurring,
-            String? recurrenceFrequency)
-        createIncome,
+      String userId,
+      double amount,
+      String source,
+      String description,
+      DateTime date,
+      String? notes,
+      bool isRecurring,
+      String? recurrenceFrequency,
+    )
+    createIncome,
     required TResult Function(Income income) updateIncome,
     required TResult Function(String userId, String incomeId) deleteIncome,
     required TResult Function(String userId, String query) searchIncomes,
     required TResult Function(String userId, String source) filterBySource,
     required TResult Function(String userId) getRecurringIncomes,
     required TResult Function(String userId, DateTime month)
-        getTotalIncomeForMonth,
+    getTotalIncomeForMonth,
     required TResult Function(String userId) syncIncomes,
   }) {
     return loadIncomesForMonth(userId, month);
@@ -478,15 +488,16 @@ class _$LoadIncomesForMonthEventImpl implements LoadIncomesForMonthEvent {
     TResult? Function(String userId)? loadIncomes,
     TResult? Function(String userId, DateTime month)? loadIncomesForMonth,
     TResult? Function(
-            String userId,
-            double amount,
-            String source,
-            String description,
-            DateTime date,
-            String? notes,
-            bool isRecurring,
-            String? recurrenceFrequency)?
-        createIncome,
+      String userId,
+      double amount,
+      String source,
+      String description,
+      DateTime date,
+      String? notes,
+      bool isRecurring,
+      String? recurrenceFrequency,
+    )?
+    createIncome,
     TResult? Function(Income income)? updateIncome,
     TResult? Function(String userId, String incomeId)? deleteIncome,
     TResult? Function(String userId, String query)? searchIncomes,
@@ -504,15 +515,16 @@ class _$LoadIncomesForMonthEventImpl implements LoadIncomesForMonthEvent {
     TResult Function(String userId)? loadIncomes,
     TResult Function(String userId, DateTime month)? loadIncomesForMonth,
     TResult Function(
-            String userId,
-            double amount,
-            String source,
-            String description,
-            DateTime date,
-            String? notes,
-            bool isRecurring,
-            String? recurrenceFrequency)?
-        createIncome,
+      String userId,
+      double amount,
+      String source,
+      String description,
+      DateTime date,
+      String? notes,
+      bool isRecurring,
+      String? recurrenceFrequency,
+    )?
+    createIncome,
     TResult Function(Income income)? updateIncome,
     TResult Function(String userId, String incomeId)? deleteIncome,
     TResult Function(String userId, String query)? searchIncomes,
@@ -533,16 +545,16 @@ class _$LoadIncomesForMonthEventImpl implements LoadIncomesForMonthEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(LoadIncomesEvent value) loadIncomes,
     required TResult Function(LoadIncomesForMonthEvent value)
-        loadIncomesForMonth,
+    loadIncomesForMonth,
     required TResult Function(CreateIncomeEvent value) createIncome,
     required TResult Function(UpdateIncomeEvent value) updateIncome,
     required TResult Function(DeleteIncomeEvent value) deleteIncome,
     required TResult Function(SearchIncomesEvent value) searchIncomes,
     required TResult Function(FilterBySourceEvent value) filterBySource,
     required TResult Function(GetRecurringIncomesEvent value)
-        getRecurringIncomes,
+    getRecurringIncomes,
     required TResult Function(GetTotalIncomeForMonthEvent value)
-        getTotalIncomeForMonth,
+    getTotalIncomeForMonth,
     required TResult Function(SyncIncomesEvent value) syncIncomes,
   }) {
     return loadIncomesForMonth(this);
@@ -560,7 +572,7 @@ class _$LoadIncomesForMonthEventImpl implements LoadIncomesForMonthEvent {
     TResult? Function(FilterBySourceEvent value)? filterBySource,
     TResult? Function(GetRecurringIncomesEvent value)? getRecurringIncomes,
     TResult? Function(GetTotalIncomeForMonthEvent value)?
-        getTotalIncomeForMonth,
+    getTotalIncomeForMonth,
     TResult? Function(SyncIncomesEvent value)? syncIncomes,
   }) {
     return loadIncomesForMonth?.call(this);
@@ -589,41 +601,45 @@ class _$LoadIncomesForMonthEventImpl implements LoadIncomesForMonthEvent {
 }
 
 abstract class LoadIncomesForMonthEvent implements IncomeEvent {
-  const factory LoadIncomesForMonthEvent(
-      {required final String userId,
-      required final DateTime month}) = _$LoadIncomesForMonthEventImpl;
+  const factory LoadIncomesForMonthEvent({
+    required final String userId,
+    required final DateTime month,
+  }) = _$LoadIncomesForMonthEventImpl;
 
   String get userId;
   DateTime get month;
   @JsonKey(ignore: true)
   _$$LoadIncomesForMonthEventImplCopyWith<_$LoadIncomesForMonthEventImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class _$$CreateIncomeEventImplCopyWith<$Res> {
-  factory _$$CreateIncomeEventImplCopyWith(_$CreateIncomeEventImpl value,
-          $Res Function(_$CreateIncomeEventImpl) then) =
-      __$$CreateIncomeEventImplCopyWithImpl<$Res>;
+  factory _$$CreateIncomeEventImplCopyWith(
+    _$CreateIncomeEventImpl value,
+    $Res Function(_$CreateIncomeEventImpl) then,
+  ) = __$$CreateIncomeEventImplCopyWithImpl<$Res>;
   @useResult
-  $Res call(
-      {String userId,
-      double amount,
-      String source,
-      String description,
-      DateTime date,
-      String? notes,
-      bool isRecurring,
-      String? recurrenceFrequency});
+  $Res call({
+    String userId,
+    double amount,
+    String source,
+    String description,
+    DateTime date,
+    String? notes,
+    bool isRecurring,
+    String? recurrenceFrequency,
+  });
 }
 
 /// @nodoc
 class __$$CreateIncomeEventImplCopyWithImpl<$Res>
     extends _$IncomeEventCopyWithImpl<$Res, _$CreateIncomeEventImpl>
     implements _$$CreateIncomeEventImplCopyWith<$Res> {
-  __$$CreateIncomeEventImplCopyWithImpl(_$CreateIncomeEventImpl _value,
-      $Res Function(_$CreateIncomeEventImpl) _then)
-      : super(_value, _then);
+  __$$CreateIncomeEventImplCopyWithImpl(
+    _$CreateIncomeEventImpl _value,
+    $Res Function(_$CreateIncomeEventImpl) _then,
+  ) : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
@@ -637,55 +653,58 @@ class __$$CreateIncomeEventImplCopyWithImpl<$Res>
     Object? isRecurring = null,
     Object? recurrenceFrequency = freezed,
   }) {
-    return _then(_$CreateIncomeEventImpl(
-      userId: null == userId
-          ? _value.userId
-          : userId // ignore: cast_nullable_to_non_nullable
-              as String,
-      amount: null == amount
-          ? _value.amount
-          : amount // ignore: cast_nullable_to_non_nullable
-              as double,
-      source: null == source
-          ? _value.source
-          : source // ignore: cast_nullable_to_non_nullable
-              as String,
-      description: null == description
-          ? _value.description
-          : description // ignore: cast_nullable_to_non_nullable
-              as String,
-      date: null == date
-          ? _value.date
-          : date // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-      notes: freezed == notes
-          ? _value.notes
-          : notes // ignore: cast_nullable_to_non_nullable
-              as String?,
-      isRecurring: null == isRecurring
-          ? _value.isRecurring
-          : isRecurring // ignore: cast_nullable_to_non_nullable
-              as bool,
-      recurrenceFrequency: freezed == recurrenceFrequency
-          ? _value.recurrenceFrequency
-          : recurrenceFrequency // ignore: cast_nullable_to_non_nullable
-              as String?,
-    ));
+    return _then(
+      _$CreateIncomeEventImpl(
+        userId: null == userId
+            ? _value.userId
+            : userId // ignore: cast_nullable_to_non_nullable
+                  as String,
+        amount: null == amount
+            ? _value.amount
+            : amount // ignore: cast_nullable_to_non_nullable
+                  as double,
+        source: null == source
+            ? _value.source
+            : source // ignore: cast_nullable_to_non_nullable
+                  as String,
+        description: null == description
+            ? _value.description
+            : description // ignore: cast_nullable_to_non_nullable
+                  as String,
+        date: null == date
+            ? _value.date
+            : date // ignore: cast_nullable_to_non_nullable
+                  as DateTime,
+        notes: freezed == notes
+            ? _value.notes
+            : notes // ignore: cast_nullable_to_non_nullable
+                  as String?,
+        isRecurring: null == isRecurring
+            ? _value.isRecurring
+            : isRecurring // ignore: cast_nullable_to_non_nullable
+                  as bool,
+        recurrenceFrequency: freezed == recurrenceFrequency
+            ? _value.recurrenceFrequency
+            : recurrenceFrequency // ignore: cast_nullable_to_non_nullable
+                  as String?,
+      ),
+    );
   }
 }
 
 /// @nodoc
 
 class _$CreateIncomeEventImpl implements CreateIncomeEvent {
-  const _$CreateIncomeEventImpl(
-      {required this.userId,
-      required this.amount,
-      required this.source,
-      required this.description,
-      required this.date,
-      this.notes,
-      this.isRecurring = false,
-      this.recurrenceFrequency});
+  const _$CreateIncomeEventImpl({
+    required this.userId,
+    required this.amount,
+    required this.source,
+    required this.description,
+    required this.date,
+    this.notes,
+    this.isRecurring = false,
+    this.recurrenceFrequency,
+  });
 
   @override
   final String userId;
@@ -729,43 +748,63 @@ class _$CreateIncomeEventImpl implements CreateIncomeEvent {
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, userId, amount, source,
-      description, date, notes, isRecurring, recurrenceFrequency);
+  int get hashCode => Object.hash(
+    runtimeType,
+    userId,
+    amount,
+    source,
+    description,
+    date,
+    notes,
+    isRecurring,
+    recurrenceFrequency,
+  );
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$CreateIncomeEventImplCopyWith<_$CreateIncomeEventImpl> get copyWith =>
       __$$CreateIncomeEventImplCopyWithImpl<_$CreateIncomeEventImpl>(
-          this, _$identity);
+        this,
+        _$identity,
+      );
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String userId) loadIncomes,
     required TResult Function(String userId, DateTime month)
-        loadIncomesForMonth,
+    loadIncomesForMonth,
     required TResult Function(
-            String userId,
-            double amount,
-            String source,
-            String description,
-            DateTime date,
-            String? notes,
-            bool isRecurring,
-            String? recurrenceFrequency)
-        createIncome,
+      String userId,
+      double amount,
+      String source,
+      String description,
+      DateTime date,
+      String? notes,
+      bool isRecurring,
+      String? recurrenceFrequency,
+    )
+    createIncome,
     required TResult Function(Income income) updateIncome,
     required TResult Function(String userId, String incomeId) deleteIncome,
     required TResult Function(String userId, String query) searchIncomes,
     required TResult Function(String userId, String source) filterBySource,
     required TResult Function(String userId) getRecurringIncomes,
     required TResult Function(String userId, DateTime month)
-        getTotalIncomeForMonth,
+    getTotalIncomeForMonth,
     required TResult Function(String userId) syncIncomes,
   }) {
-    return createIncome(userId, amount, source, description, date, notes,
-        isRecurring, recurrenceFrequency);
+    return createIncome(
+      userId,
+      amount,
+      source,
+      description,
+      date,
+      notes,
+      isRecurring,
+      recurrenceFrequency,
+    );
   }
 
   @override
@@ -774,15 +813,16 @@ class _$CreateIncomeEventImpl implements CreateIncomeEvent {
     TResult? Function(String userId)? loadIncomes,
     TResult? Function(String userId, DateTime month)? loadIncomesForMonth,
     TResult? Function(
-            String userId,
-            double amount,
-            String source,
-            String description,
-            DateTime date,
-            String? notes,
-            bool isRecurring,
-            String? recurrenceFrequency)?
-        createIncome,
+      String userId,
+      double amount,
+      String source,
+      String description,
+      DateTime date,
+      String? notes,
+      bool isRecurring,
+      String? recurrenceFrequency,
+    )?
+    createIncome,
     TResult? Function(Income income)? updateIncome,
     TResult? Function(String userId, String incomeId)? deleteIncome,
     TResult? Function(String userId, String query)? searchIncomes,
@@ -791,8 +831,16 @@ class _$CreateIncomeEventImpl implements CreateIncomeEvent {
     TResult? Function(String userId, DateTime month)? getTotalIncomeForMonth,
     TResult? Function(String userId)? syncIncomes,
   }) {
-    return createIncome?.call(userId, amount, source, description, date, notes,
-        isRecurring, recurrenceFrequency);
+    return createIncome?.call(
+      userId,
+      amount,
+      source,
+      description,
+      date,
+      notes,
+      isRecurring,
+      recurrenceFrequency,
+    );
   }
 
   @override
@@ -801,15 +849,16 @@ class _$CreateIncomeEventImpl implements CreateIncomeEvent {
     TResult Function(String userId)? loadIncomes,
     TResult Function(String userId, DateTime month)? loadIncomesForMonth,
     TResult Function(
-            String userId,
-            double amount,
-            String source,
-            String description,
-            DateTime date,
-            String? notes,
-            bool isRecurring,
-            String? recurrenceFrequency)?
-        createIncome,
+      String userId,
+      double amount,
+      String source,
+      String description,
+      DateTime date,
+      String? notes,
+      bool isRecurring,
+      String? recurrenceFrequency,
+    )?
+    createIncome,
     TResult Function(Income income)? updateIncome,
     TResult Function(String userId, String incomeId)? deleteIncome,
     TResult Function(String userId, String query)? searchIncomes,
@@ -820,8 +869,16 @@ class _$CreateIncomeEventImpl implements CreateIncomeEvent {
     required TResult orElse(),
   }) {
     if (createIncome != null) {
-      return createIncome(userId, amount, source, description, date, notes,
-          isRecurring, recurrenceFrequency);
+      return createIncome(
+        userId,
+        amount,
+        source,
+        description,
+        date,
+        notes,
+        isRecurring,
+        recurrenceFrequency,
+      );
     }
     return orElse();
   }
@@ -831,16 +888,16 @@ class _$CreateIncomeEventImpl implements CreateIncomeEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(LoadIncomesEvent value) loadIncomes,
     required TResult Function(LoadIncomesForMonthEvent value)
-        loadIncomesForMonth,
+    loadIncomesForMonth,
     required TResult Function(CreateIncomeEvent value) createIncome,
     required TResult Function(UpdateIncomeEvent value) updateIncome,
     required TResult Function(DeleteIncomeEvent value) deleteIncome,
     required TResult Function(SearchIncomesEvent value) searchIncomes,
     required TResult Function(FilterBySourceEvent value) filterBySource,
     required TResult Function(GetRecurringIncomesEvent value)
-        getRecurringIncomes,
+    getRecurringIncomes,
     required TResult Function(GetTotalIncomeForMonthEvent value)
-        getTotalIncomeForMonth,
+    getTotalIncomeForMonth,
     required TResult Function(SyncIncomesEvent value) syncIncomes,
   }) {
     return createIncome(this);
@@ -858,7 +915,7 @@ class _$CreateIncomeEventImpl implements CreateIncomeEvent {
     TResult? Function(FilterBySourceEvent value)? filterBySource,
     TResult? Function(GetRecurringIncomesEvent value)? getRecurringIncomes,
     TResult? Function(GetTotalIncomeForMonthEvent value)?
-        getTotalIncomeForMonth,
+    getTotalIncomeForMonth,
     TResult? Function(SyncIncomesEvent value)? syncIncomes,
   }) {
     return createIncome?.call(this);
@@ -887,15 +944,16 @@ class _$CreateIncomeEventImpl implements CreateIncomeEvent {
 }
 
 abstract class CreateIncomeEvent implements IncomeEvent {
-  const factory CreateIncomeEvent(
-      {required final String userId,
-      required final double amount,
-      required final String source,
-      required final String description,
-      required final DateTime date,
-      final String? notes,
-      final bool isRecurring,
-      final String? recurrenceFrequency}) = _$CreateIncomeEventImpl;
+  const factory CreateIncomeEvent({
+    required final String userId,
+    required final double amount,
+    required final String source,
+    required final String description,
+    required final DateTime date,
+    final String? notes,
+    final bool isRecurring,
+    final String? recurrenceFrequency,
+  }) = _$CreateIncomeEventImpl;
 
   String get userId;
   double get amount;
@@ -912,9 +970,10 @@ abstract class CreateIncomeEvent implements IncomeEvent {
 
 /// @nodoc
 abstract class _$$UpdateIncomeEventImplCopyWith<$Res> {
-  factory _$$UpdateIncomeEventImplCopyWith(_$UpdateIncomeEventImpl value,
-          $Res Function(_$UpdateIncomeEventImpl) then) =
-      __$$UpdateIncomeEventImplCopyWithImpl<$Res>;
+  factory _$$UpdateIncomeEventImplCopyWith(
+    _$UpdateIncomeEventImpl value,
+    $Res Function(_$UpdateIncomeEventImpl) then,
+  ) = __$$UpdateIncomeEventImplCopyWithImpl<$Res>;
   @useResult
   $Res call({Income income});
 
@@ -925,21 +984,22 @@ abstract class _$$UpdateIncomeEventImplCopyWith<$Res> {
 class __$$UpdateIncomeEventImplCopyWithImpl<$Res>
     extends _$IncomeEventCopyWithImpl<$Res, _$UpdateIncomeEventImpl>
     implements _$$UpdateIncomeEventImplCopyWith<$Res> {
-  __$$UpdateIncomeEventImplCopyWithImpl(_$UpdateIncomeEventImpl _value,
-      $Res Function(_$UpdateIncomeEventImpl) _then)
-      : super(_value, _then);
+  __$$UpdateIncomeEventImplCopyWithImpl(
+    _$UpdateIncomeEventImpl _value,
+    $Res Function(_$UpdateIncomeEventImpl) _then,
+  ) : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? income = null,
-  }) {
-    return _then(_$UpdateIncomeEventImpl(
-      income: null == income
-          ? _value.income
-          : income // ignore: cast_nullable_to_non_nullable
-              as Income,
-    ));
+  $Res call({Object? income = null}) {
+    return _then(
+      _$UpdateIncomeEventImpl(
+        income: null == income
+            ? _value.income
+            : income // ignore: cast_nullable_to_non_nullable
+                  as Income,
+      ),
+    );
   }
 
   @override
@@ -980,31 +1040,34 @@ class _$UpdateIncomeEventImpl implements UpdateIncomeEvent {
   @pragma('vm:prefer-inline')
   _$$UpdateIncomeEventImplCopyWith<_$UpdateIncomeEventImpl> get copyWith =>
       __$$UpdateIncomeEventImplCopyWithImpl<_$UpdateIncomeEventImpl>(
-          this, _$identity);
+        this,
+        _$identity,
+      );
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String userId) loadIncomes,
     required TResult Function(String userId, DateTime month)
-        loadIncomesForMonth,
+    loadIncomesForMonth,
     required TResult Function(
-            String userId,
-            double amount,
-            String source,
-            String description,
-            DateTime date,
-            String? notes,
-            bool isRecurring,
-            String? recurrenceFrequency)
-        createIncome,
+      String userId,
+      double amount,
+      String source,
+      String description,
+      DateTime date,
+      String? notes,
+      bool isRecurring,
+      String? recurrenceFrequency,
+    )
+    createIncome,
     required TResult Function(Income income) updateIncome,
     required TResult Function(String userId, String incomeId) deleteIncome,
     required TResult Function(String userId, String query) searchIncomes,
     required TResult Function(String userId, String source) filterBySource,
     required TResult Function(String userId) getRecurringIncomes,
     required TResult Function(String userId, DateTime month)
-        getTotalIncomeForMonth,
+    getTotalIncomeForMonth,
     required TResult Function(String userId) syncIncomes,
   }) {
     return updateIncome(income);
@@ -1016,15 +1079,16 @@ class _$UpdateIncomeEventImpl implements UpdateIncomeEvent {
     TResult? Function(String userId)? loadIncomes,
     TResult? Function(String userId, DateTime month)? loadIncomesForMonth,
     TResult? Function(
-            String userId,
-            double amount,
-            String source,
-            String description,
-            DateTime date,
-            String? notes,
-            bool isRecurring,
-            String? recurrenceFrequency)?
-        createIncome,
+      String userId,
+      double amount,
+      String source,
+      String description,
+      DateTime date,
+      String? notes,
+      bool isRecurring,
+      String? recurrenceFrequency,
+    )?
+    createIncome,
     TResult? Function(Income income)? updateIncome,
     TResult? Function(String userId, String incomeId)? deleteIncome,
     TResult? Function(String userId, String query)? searchIncomes,
@@ -1042,15 +1106,16 @@ class _$UpdateIncomeEventImpl implements UpdateIncomeEvent {
     TResult Function(String userId)? loadIncomes,
     TResult Function(String userId, DateTime month)? loadIncomesForMonth,
     TResult Function(
-            String userId,
-            double amount,
-            String source,
-            String description,
-            DateTime date,
-            String? notes,
-            bool isRecurring,
-            String? recurrenceFrequency)?
-        createIncome,
+      String userId,
+      double amount,
+      String source,
+      String description,
+      DateTime date,
+      String? notes,
+      bool isRecurring,
+      String? recurrenceFrequency,
+    )?
+    createIncome,
     TResult Function(Income income)? updateIncome,
     TResult Function(String userId, String incomeId)? deleteIncome,
     TResult Function(String userId, String query)? searchIncomes,
@@ -1071,16 +1136,16 @@ class _$UpdateIncomeEventImpl implements UpdateIncomeEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(LoadIncomesEvent value) loadIncomes,
     required TResult Function(LoadIncomesForMonthEvent value)
-        loadIncomesForMonth,
+    loadIncomesForMonth,
     required TResult Function(CreateIncomeEvent value) createIncome,
     required TResult Function(UpdateIncomeEvent value) updateIncome,
     required TResult Function(DeleteIncomeEvent value) deleteIncome,
     required TResult Function(SearchIncomesEvent value) searchIncomes,
     required TResult Function(FilterBySourceEvent value) filterBySource,
     required TResult Function(GetRecurringIncomesEvent value)
-        getRecurringIncomes,
+    getRecurringIncomes,
     required TResult Function(GetTotalIncomeForMonthEvent value)
-        getTotalIncomeForMonth,
+    getTotalIncomeForMonth,
     required TResult Function(SyncIncomesEvent value) syncIncomes,
   }) {
     return updateIncome(this);
@@ -1098,7 +1163,7 @@ class _$UpdateIncomeEventImpl implements UpdateIncomeEvent {
     TResult? Function(FilterBySourceEvent value)? filterBySource,
     TResult? Function(GetRecurringIncomesEvent value)? getRecurringIncomes,
     TResult? Function(GetTotalIncomeForMonthEvent value)?
-        getTotalIncomeForMonth,
+    getTotalIncomeForMonth,
     TResult? Function(SyncIncomesEvent value)? syncIncomes,
   }) {
     return updateIncome?.call(this);
@@ -1138,9 +1203,10 @@ abstract class UpdateIncomeEvent implements IncomeEvent {
 
 /// @nodoc
 abstract class _$$DeleteIncomeEventImplCopyWith<$Res> {
-  factory _$$DeleteIncomeEventImplCopyWith(_$DeleteIncomeEventImpl value,
-          $Res Function(_$DeleteIncomeEventImpl) then) =
-      __$$DeleteIncomeEventImplCopyWithImpl<$Res>;
+  factory _$$DeleteIncomeEventImplCopyWith(
+    _$DeleteIncomeEventImpl value,
+    $Res Function(_$DeleteIncomeEventImpl) then,
+  ) = __$$DeleteIncomeEventImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String userId, String incomeId});
 }
@@ -1149,26 +1215,26 @@ abstract class _$$DeleteIncomeEventImplCopyWith<$Res> {
 class __$$DeleteIncomeEventImplCopyWithImpl<$Res>
     extends _$IncomeEventCopyWithImpl<$Res, _$DeleteIncomeEventImpl>
     implements _$$DeleteIncomeEventImplCopyWith<$Res> {
-  __$$DeleteIncomeEventImplCopyWithImpl(_$DeleteIncomeEventImpl _value,
-      $Res Function(_$DeleteIncomeEventImpl) _then)
-      : super(_value, _then);
+  __$$DeleteIncomeEventImplCopyWithImpl(
+    _$DeleteIncomeEventImpl _value,
+    $Res Function(_$DeleteIncomeEventImpl) _then,
+  ) : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? userId = null,
-    Object? incomeId = null,
-  }) {
-    return _then(_$DeleteIncomeEventImpl(
-      userId: null == userId
-          ? _value.userId
-          : userId // ignore: cast_nullable_to_non_nullable
-              as String,
-      incomeId: null == incomeId
-          ? _value.incomeId
-          : incomeId // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
+  $Res call({Object? userId = null, Object? incomeId = null}) {
+    return _then(
+      _$DeleteIncomeEventImpl(
+        userId: null == userId
+            ? _value.userId
+            : userId // ignore: cast_nullable_to_non_nullable
+                  as String,
+        incomeId: null == incomeId
+            ? _value.incomeId
+            : incomeId // ignore: cast_nullable_to_non_nullable
+                  as String,
+      ),
+    );
   }
 }
 
@@ -1205,31 +1271,34 @@ class _$DeleteIncomeEventImpl implements DeleteIncomeEvent {
   @pragma('vm:prefer-inline')
   _$$DeleteIncomeEventImplCopyWith<_$DeleteIncomeEventImpl> get copyWith =>
       __$$DeleteIncomeEventImplCopyWithImpl<_$DeleteIncomeEventImpl>(
-          this, _$identity);
+        this,
+        _$identity,
+      );
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String userId) loadIncomes,
     required TResult Function(String userId, DateTime month)
-        loadIncomesForMonth,
+    loadIncomesForMonth,
     required TResult Function(
-            String userId,
-            double amount,
-            String source,
-            String description,
-            DateTime date,
-            String? notes,
-            bool isRecurring,
-            String? recurrenceFrequency)
-        createIncome,
+      String userId,
+      double amount,
+      String source,
+      String description,
+      DateTime date,
+      String? notes,
+      bool isRecurring,
+      String? recurrenceFrequency,
+    )
+    createIncome,
     required TResult Function(Income income) updateIncome,
     required TResult Function(String userId, String incomeId) deleteIncome,
     required TResult Function(String userId, String query) searchIncomes,
     required TResult Function(String userId, String source) filterBySource,
     required TResult Function(String userId) getRecurringIncomes,
     required TResult Function(String userId, DateTime month)
-        getTotalIncomeForMonth,
+    getTotalIncomeForMonth,
     required TResult Function(String userId) syncIncomes,
   }) {
     return deleteIncome(userId, incomeId);
@@ -1241,15 +1310,16 @@ class _$DeleteIncomeEventImpl implements DeleteIncomeEvent {
     TResult? Function(String userId)? loadIncomes,
     TResult? Function(String userId, DateTime month)? loadIncomesForMonth,
     TResult? Function(
-            String userId,
-            double amount,
-            String source,
-            String description,
-            DateTime date,
-            String? notes,
-            bool isRecurring,
-            String? recurrenceFrequency)?
-        createIncome,
+      String userId,
+      double amount,
+      String source,
+      String description,
+      DateTime date,
+      String? notes,
+      bool isRecurring,
+      String? recurrenceFrequency,
+    )?
+    createIncome,
     TResult? Function(Income income)? updateIncome,
     TResult? Function(String userId, String incomeId)? deleteIncome,
     TResult? Function(String userId, String query)? searchIncomes,
@@ -1267,15 +1337,16 @@ class _$DeleteIncomeEventImpl implements DeleteIncomeEvent {
     TResult Function(String userId)? loadIncomes,
     TResult Function(String userId, DateTime month)? loadIncomesForMonth,
     TResult Function(
-            String userId,
-            double amount,
-            String source,
-            String description,
-            DateTime date,
-            String? notes,
-            bool isRecurring,
-            String? recurrenceFrequency)?
-        createIncome,
+      String userId,
+      double amount,
+      String source,
+      String description,
+      DateTime date,
+      String? notes,
+      bool isRecurring,
+      String? recurrenceFrequency,
+    )?
+    createIncome,
     TResult Function(Income income)? updateIncome,
     TResult Function(String userId, String incomeId)? deleteIncome,
     TResult Function(String userId, String query)? searchIncomes,
@@ -1296,16 +1367,16 @@ class _$DeleteIncomeEventImpl implements DeleteIncomeEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(LoadIncomesEvent value) loadIncomes,
     required TResult Function(LoadIncomesForMonthEvent value)
-        loadIncomesForMonth,
+    loadIncomesForMonth,
     required TResult Function(CreateIncomeEvent value) createIncome,
     required TResult Function(UpdateIncomeEvent value) updateIncome,
     required TResult Function(DeleteIncomeEvent value) deleteIncome,
     required TResult Function(SearchIncomesEvent value) searchIncomes,
     required TResult Function(FilterBySourceEvent value) filterBySource,
     required TResult Function(GetRecurringIncomesEvent value)
-        getRecurringIncomes,
+    getRecurringIncomes,
     required TResult Function(GetTotalIncomeForMonthEvent value)
-        getTotalIncomeForMonth,
+    getTotalIncomeForMonth,
     required TResult Function(SyncIncomesEvent value) syncIncomes,
   }) {
     return deleteIncome(this);
@@ -1323,7 +1394,7 @@ class _$DeleteIncomeEventImpl implements DeleteIncomeEvent {
     TResult? Function(FilterBySourceEvent value)? filterBySource,
     TResult? Function(GetRecurringIncomesEvent value)? getRecurringIncomes,
     TResult? Function(GetTotalIncomeForMonthEvent value)?
-        getTotalIncomeForMonth,
+    getTotalIncomeForMonth,
     TResult? Function(SyncIncomesEvent value)? syncIncomes,
   }) {
     return deleteIncome?.call(this);
@@ -1352,9 +1423,10 @@ class _$DeleteIncomeEventImpl implements DeleteIncomeEvent {
 }
 
 abstract class DeleteIncomeEvent implements IncomeEvent {
-  const factory DeleteIncomeEvent(
-      {required final String userId,
-      required final String incomeId}) = _$DeleteIncomeEventImpl;
+  const factory DeleteIncomeEvent({
+    required final String userId,
+    required final String incomeId,
+  }) = _$DeleteIncomeEventImpl;
 
   String get userId;
   String get incomeId;
@@ -1365,9 +1437,10 @@ abstract class DeleteIncomeEvent implements IncomeEvent {
 
 /// @nodoc
 abstract class _$$SearchIncomesEventImplCopyWith<$Res> {
-  factory _$$SearchIncomesEventImplCopyWith(_$SearchIncomesEventImpl value,
-          $Res Function(_$SearchIncomesEventImpl) then) =
-      __$$SearchIncomesEventImplCopyWithImpl<$Res>;
+  factory _$$SearchIncomesEventImplCopyWith(
+    _$SearchIncomesEventImpl value,
+    $Res Function(_$SearchIncomesEventImpl) then,
+  ) = __$$SearchIncomesEventImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String userId, String query});
 }
@@ -1376,26 +1449,26 @@ abstract class _$$SearchIncomesEventImplCopyWith<$Res> {
 class __$$SearchIncomesEventImplCopyWithImpl<$Res>
     extends _$IncomeEventCopyWithImpl<$Res, _$SearchIncomesEventImpl>
     implements _$$SearchIncomesEventImplCopyWith<$Res> {
-  __$$SearchIncomesEventImplCopyWithImpl(_$SearchIncomesEventImpl _value,
-      $Res Function(_$SearchIncomesEventImpl) _then)
-      : super(_value, _then);
+  __$$SearchIncomesEventImplCopyWithImpl(
+    _$SearchIncomesEventImpl _value,
+    $Res Function(_$SearchIncomesEventImpl) _then,
+  ) : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? userId = null,
-    Object? query = null,
-  }) {
-    return _then(_$SearchIncomesEventImpl(
-      userId: null == userId
-          ? _value.userId
-          : userId // ignore: cast_nullable_to_non_nullable
-              as String,
-      query: null == query
-          ? _value.query
-          : query // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
+  $Res call({Object? userId = null, Object? query = null}) {
+    return _then(
+      _$SearchIncomesEventImpl(
+        userId: null == userId
+            ? _value.userId
+            : userId // ignore: cast_nullable_to_non_nullable
+                  as String,
+        query: null == query
+            ? _value.query
+            : query // ignore: cast_nullable_to_non_nullable
+                  as String,
+      ),
+    );
   }
 }
 
@@ -1431,31 +1504,34 @@ class _$SearchIncomesEventImpl implements SearchIncomesEvent {
   @pragma('vm:prefer-inline')
   _$$SearchIncomesEventImplCopyWith<_$SearchIncomesEventImpl> get copyWith =>
       __$$SearchIncomesEventImplCopyWithImpl<_$SearchIncomesEventImpl>(
-          this, _$identity);
+        this,
+        _$identity,
+      );
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String userId) loadIncomes,
     required TResult Function(String userId, DateTime month)
-        loadIncomesForMonth,
+    loadIncomesForMonth,
     required TResult Function(
-            String userId,
-            double amount,
-            String source,
-            String description,
-            DateTime date,
-            String? notes,
-            bool isRecurring,
-            String? recurrenceFrequency)
-        createIncome,
+      String userId,
+      double amount,
+      String source,
+      String description,
+      DateTime date,
+      String? notes,
+      bool isRecurring,
+      String? recurrenceFrequency,
+    )
+    createIncome,
     required TResult Function(Income income) updateIncome,
     required TResult Function(String userId, String incomeId) deleteIncome,
     required TResult Function(String userId, String query) searchIncomes,
     required TResult Function(String userId, String source) filterBySource,
     required TResult Function(String userId) getRecurringIncomes,
     required TResult Function(String userId, DateTime month)
-        getTotalIncomeForMonth,
+    getTotalIncomeForMonth,
     required TResult Function(String userId) syncIncomes,
   }) {
     return searchIncomes(userId, query);
@@ -1467,15 +1543,16 @@ class _$SearchIncomesEventImpl implements SearchIncomesEvent {
     TResult? Function(String userId)? loadIncomes,
     TResult? Function(String userId, DateTime month)? loadIncomesForMonth,
     TResult? Function(
-            String userId,
-            double amount,
-            String source,
-            String description,
-            DateTime date,
-            String? notes,
-            bool isRecurring,
-            String? recurrenceFrequency)?
-        createIncome,
+      String userId,
+      double amount,
+      String source,
+      String description,
+      DateTime date,
+      String? notes,
+      bool isRecurring,
+      String? recurrenceFrequency,
+    )?
+    createIncome,
     TResult? Function(Income income)? updateIncome,
     TResult? Function(String userId, String incomeId)? deleteIncome,
     TResult? Function(String userId, String query)? searchIncomes,
@@ -1493,15 +1570,16 @@ class _$SearchIncomesEventImpl implements SearchIncomesEvent {
     TResult Function(String userId)? loadIncomes,
     TResult Function(String userId, DateTime month)? loadIncomesForMonth,
     TResult Function(
-            String userId,
-            double amount,
-            String source,
-            String description,
-            DateTime date,
-            String? notes,
-            bool isRecurring,
-            String? recurrenceFrequency)?
-        createIncome,
+      String userId,
+      double amount,
+      String source,
+      String description,
+      DateTime date,
+      String? notes,
+      bool isRecurring,
+      String? recurrenceFrequency,
+    )?
+    createIncome,
     TResult Function(Income income)? updateIncome,
     TResult Function(String userId, String incomeId)? deleteIncome,
     TResult Function(String userId, String query)? searchIncomes,
@@ -1522,16 +1600,16 @@ class _$SearchIncomesEventImpl implements SearchIncomesEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(LoadIncomesEvent value) loadIncomes,
     required TResult Function(LoadIncomesForMonthEvent value)
-        loadIncomesForMonth,
+    loadIncomesForMonth,
     required TResult Function(CreateIncomeEvent value) createIncome,
     required TResult Function(UpdateIncomeEvent value) updateIncome,
     required TResult Function(DeleteIncomeEvent value) deleteIncome,
     required TResult Function(SearchIncomesEvent value) searchIncomes,
     required TResult Function(FilterBySourceEvent value) filterBySource,
     required TResult Function(GetRecurringIncomesEvent value)
-        getRecurringIncomes,
+    getRecurringIncomes,
     required TResult Function(GetTotalIncomeForMonthEvent value)
-        getTotalIncomeForMonth,
+    getTotalIncomeForMonth,
     required TResult Function(SyncIncomesEvent value) syncIncomes,
   }) {
     return searchIncomes(this);
@@ -1549,7 +1627,7 @@ class _$SearchIncomesEventImpl implements SearchIncomesEvent {
     TResult? Function(FilterBySourceEvent value)? filterBySource,
     TResult? Function(GetRecurringIncomesEvent value)? getRecurringIncomes,
     TResult? Function(GetTotalIncomeForMonthEvent value)?
-        getTotalIncomeForMonth,
+    getTotalIncomeForMonth,
     TResult? Function(SyncIncomesEvent value)? syncIncomes,
   }) {
     return searchIncomes?.call(this);
@@ -1578,9 +1656,10 @@ class _$SearchIncomesEventImpl implements SearchIncomesEvent {
 }
 
 abstract class SearchIncomesEvent implements IncomeEvent {
-  const factory SearchIncomesEvent(
-      {required final String userId,
-      required final String query}) = _$SearchIncomesEventImpl;
+  const factory SearchIncomesEvent({
+    required final String userId,
+    required final String query,
+  }) = _$SearchIncomesEventImpl;
 
   String get userId;
   String get query;
@@ -1591,9 +1670,10 @@ abstract class SearchIncomesEvent implements IncomeEvent {
 
 /// @nodoc
 abstract class _$$FilterBySourceEventImplCopyWith<$Res> {
-  factory _$$FilterBySourceEventImplCopyWith(_$FilterBySourceEventImpl value,
-          $Res Function(_$FilterBySourceEventImpl) then) =
-      __$$FilterBySourceEventImplCopyWithImpl<$Res>;
+  factory _$$FilterBySourceEventImplCopyWith(
+    _$FilterBySourceEventImpl value,
+    $Res Function(_$FilterBySourceEventImpl) then,
+  ) = __$$FilterBySourceEventImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String userId, String source});
 }
@@ -1602,26 +1682,26 @@ abstract class _$$FilterBySourceEventImplCopyWith<$Res> {
 class __$$FilterBySourceEventImplCopyWithImpl<$Res>
     extends _$IncomeEventCopyWithImpl<$Res, _$FilterBySourceEventImpl>
     implements _$$FilterBySourceEventImplCopyWith<$Res> {
-  __$$FilterBySourceEventImplCopyWithImpl(_$FilterBySourceEventImpl _value,
-      $Res Function(_$FilterBySourceEventImpl) _then)
-      : super(_value, _then);
+  __$$FilterBySourceEventImplCopyWithImpl(
+    _$FilterBySourceEventImpl _value,
+    $Res Function(_$FilterBySourceEventImpl) _then,
+  ) : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? userId = null,
-    Object? source = null,
-  }) {
-    return _then(_$FilterBySourceEventImpl(
-      userId: null == userId
-          ? _value.userId
-          : userId // ignore: cast_nullable_to_non_nullable
-              as String,
-      source: null == source
-          ? _value.source
-          : source // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
+  $Res call({Object? userId = null, Object? source = null}) {
+    return _then(
+      _$FilterBySourceEventImpl(
+        userId: null == userId
+            ? _value.userId
+            : userId // ignore: cast_nullable_to_non_nullable
+                  as String,
+        source: null == source
+            ? _value.source
+            : source // ignore: cast_nullable_to_non_nullable
+                  as String,
+      ),
+    );
   }
 }
 
@@ -1657,31 +1737,34 @@ class _$FilterBySourceEventImpl implements FilterBySourceEvent {
   @pragma('vm:prefer-inline')
   _$$FilterBySourceEventImplCopyWith<_$FilterBySourceEventImpl> get copyWith =>
       __$$FilterBySourceEventImplCopyWithImpl<_$FilterBySourceEventImpl>(
-          this, _$identity);
+        this,
+        _$identity,
+      );
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String userId) loadIncomes,
     required TResult Function(String userId, DateTime month)
-        loadIncomesForMonth,
+    loadIncomesForMonth,
     required TResult Function(
-            String userId,
-            double amount,
-            String source,
-            String description,
-            DateTime date,
-            String? notes,
-            bool isRecurring,
-            String? recurrenceFrequency)
-        createIncome,
+      String userId,
+      double amount,
+      String source,
+      String description,
+      DateTime date,
+      String? notes,
+      bool isRecurring,
+      String? recurrenceFrequency,
+    )
+    createIncome,
     required TResult Function(Income income) updateIncome,
     required TResult Function(String userId, String incomeId) deleteIncome,
     required TResult Function(String userId, String query) searchIncomes,
     required TResult Function(String userId, String source) filterBySource,
     required TResult Function(String userId) getRecurringIncomes,
     required TResult Function(String userId, DateTime month)
-        getTotalIncomeForMonth,
+    getTotalIncomeForMonth,
     required TResult Function(String userId) syncIncomes,
   }) {
     return filterBySource(userId, source);
@@ -1693,15 +1776,16 @@ class _$FilterBySourceEventImpl implements FilterBySourceEvent {
     TResult? Function(String userId)? loadIncomes,
     TResult? Function(String userId, DateTime month)? loadIncomesForMonth,
     TResult? Function(
-            String userId,
-            double amount,
-            String source,
-            String description,
-            DateTime date,
-            String? notes,
-            bool isRecurring,
-            String? recurrenceFrequency)?
-        createIncome,
+      String userId,
+      double amount,
+      String source,
+      String description,
+      DateTime date,
+      String? notes,
+      bool isRecurring,
+      String? recurrenceFrequency,
+    )?
+    createIncome,
     TResult? Function(Income income)? updateIncome,
     TResult? Function(String userId, String incomeId)? deleteIncome,
     TResult? Function(String userId, String query)? searchIncomes,
@@ -1719,15 +1803,16 @@ class _$FilterBySourceEventImpl implements FilterBySourceEvent {
     TResult Function(String userId)? loadIncomes,
     TResult Function(String userId, DateTime month)? loadIncomesForMonth,
     TResult Function(
-            String userId,
-            double amount,
-            String source,
-            String description,
-            DateTime date,
-            String? notes,
-            bool isRecurring,
-            String? recurrenceFrequency)?
-        createIncome,
+      String userId,
+      double amount,
+      String source,
+      String description,
+      DateTime date,
+      String? notes,
+      bool isRecurring,
+      String? recurrenceFrequency,
+    )?
+    createIncome,
     TResult Function(Income income)? updateIncome,
     TResult Function(String userId, String incomeId)? deleteIncome,
     TResult Function(String userId, String query)? searchIncomes,
@@ -1748,16 +1833,16 @@ class _$FilterBySourceEventImpl implements FilterBySourceEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(LoadIncomesEvent value) loadIncomes,
     required TResult Function(LoadIncomesForMonthEvent value)
-        loadIncomesForMonth,
+    loadIncomesForMonth,
     required TResult Function(CreateIncomeEvent value) createIncome,
     required TResult Function(UpdateIncomeEvent value) updateIncome,
     required TResult Function(DeleteIncomeEvent value) deleteIncome,
     required TResult Function(SearchIncomesEvent value) searchIncomes,
     required TResult Function(FilterBySourceEvent value) filterBySource,
     required TResult Function(GetRecurringIncomesEvent value)
-        getRecurringIncomes,
+    getRecurringIncomes,
     required TResult Function(GetTotalIncomeForMonthEvent value)
-        getTotalIncomeForMonth,
+    getTotalIncomeForMonth,
     required TResult Function(SyncIncomesEvent value) syncIncomes,
   }) {
     return filterBySource(this);
@@ -1775,7 +1860,7 @@ class _$FilterBySourceEventImpl implements FilterBySourceEvent {
     TResult? Function(FilterBySourceEvent value)? filterBySource,
     TResult? Function(GetRecurringIncomesEvent value)? getRecurringIncomes,
     TResult? Function(GetTotalIncomeForMonthEvent value)?
-        getTotalIncomeForMonth,
+    getTotalIncomeForMonth,
     TResult? Function(SyncIncomesEvent value)? syncIncomes,
   }) {
     return filterBySource?.call(this);
@@ -1804,9 +1889,10 @@ class _$FilterBySourceEventImpl implements FilterBySourceEvent {
 }
 
 abstract class FilterBySourceEvent implements IncomeEvent {
-  const factory FilterBySourceEvent(
-      {required final String userId,
-      required final String source}) = _$FilterBySourceEventImpl;
+  const factory FilterBySourceEvent({
+    required final String userId,
+    required final String source,
+  }) = _$FilterBySourceEventImpl;
 
   String get userId;
   String get source;
@@ -1818,9 +1904,9 @@ abstract class FilterBySourceEvent implements IncomeEvent {
 /// @nodoc
 abstract class _$$GetRecurringIncomesEventImplCopyWith<$Res> {
   factory _$$GetRecurringIncomesEventImplCopyWith(
-          _$GetRecurringIncomesEventImpl value,
-          $Res Function(_$GetRecurringIncomesEventImpl) then) =
-      __$$GetRecurringIncomesEventImplCopyWithImpl<$Res>;
+    _$GetRecurringIncomesEventImpl value,
+    $Res Function(_$GetRecurringIncomesEventImpl) then,
+  ) = __$$GetRecurringIncomesEventImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String userId});
 }
@@ -1830,21 +1916,21 @@ class __$$GetRecurringIncomesEventImplCopyWithImpl<$Res>
     extends _$IncomeEventCopyWithImpl<$Res, _$GetRecurringIncomesEventImpl>
     implements _$$GetRecurringIncomesEventImplCopyWith<$Res> {
   __$$GetRecurringIncomesEventImplCopyWithImpl(
-      _$GetRecurringIncomesEventImpl _value,
-      $Res Function(_$GetRecurringIncomesEventImpl) _then)
-      : super(_value, _then);
+    _$GetRecurringIncomesEventImpl _value,
+    $Res Function(_$GetRecurringIncomesEventImpl) _then,
+  ) : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? userId = null,
-  }) {
-    return _then(_$GetRecurringIncomesEventImpl(
-      userId: null == userId
-          ? _value.userId
-          : userId // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
+  $Res call({Object? userId = null}) {
+    return _then(
+      _$GetRecurringIncomesEventImpl(
+        userId: null == userId
+            ? _value.userId
+            : userId // ignore: cast_nullable_to_non_nullable
+                  as String,
+      ),
+    );
   }
 }
 
@@ -1876,32 +1962,35 @@ class _$GetRecurringIncomesEventImpl implements GetRecurringIncomesEvent {
   @override
   @pragma('vm:prefer-inline')
   _$$GetRecurringIncomesEventImplCopyWith<_$GetRecurringIncomesEventImpl>
-      get copyWith => __$$GetRecurringIncomesEventImplCopyWithImpl<
-          _$GetRecurringIncomesEventImpl>(this, _$identity);
+  get copyWith =>
+      __$$GetRecurringIncomesEventImplCopyWithImpl<
+        _$GetRecurringIncomesEventImpl
+      >(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String userId) loadIncomes,
     required TResult Function(String userId, DateTime month)
-        loadIncomesForMonth,
+    loadIncomesForMonth,
     required TResult Function(
-            String userId,
-            double amount,
-            String source,
-            String description,
-            DateTime date,
-            String? notes,
-            bool isRecurring,
-            String? recurrenceFrequency)
-        createIncome,
+      String userId,
+      double amount,
+      String source,
+      String description,
+      DateTime date,
+      String? notes,
+      bool isRecurring,
+      String? recurrenceFrequency,
+    )
+    createIncome,
     required TResult Function(Income income) updateIncome,
     required TResult Function(String userId, String incomeId) deleteIncome,
     required TResult Function(String userId, String query) searchIncomes,
     required TResult Function(String userId, String source) filterBySource,
     required TResult Function(String userId) getRecurringIncomes,
     required TResult Function(String userId, DateTime month)
-        getTotalIncomeForMonth,
+    getTotalIncomeForMonth,
     required TResult Function(String userId) syncIncomes,
   }) {
     return getRecurringIncomes(userId);
@@ -1913,15 +2002,16 @@ class _$GetRecurringIncomesEventImpl implements GetRecurringIncomesEvent {
     TResult? Function(String userId)? loadIncomes,
     TResult? Function(String userId, DateTime month)? loadIncomesForMonth,
     TResult? Function(
-            String userId,
-            double amount,
-            String source,
-            String description,
-            DateTime date,
-            String? notes,
-            bool isRecurring,
-            String? recurrenceFrequency)?
-        createIncome,
+      String userId,
+      double amount,
+      String source,
+      String description,
+      DateTime date,
+      String? notes,
+      bool isRecurring,
+      String? recurrenceFrequency,
+    )?
+    createIncome,
     TResult? Function(Income income)? updateIncome,
     TResult? Function(String userId, String incomeId)? deleteIncome,
     TResult? Function(String userId, String query)? searchIncomes,
@@ -1939,15 +2029,16 @@ class _$GetRecurringIncomesEventImpl implements GetRecurringIncomesEvent {
     TResult Function(String userId)? loadIncomes,
     TResult Function(String userId, DateTime month)? loadIncomesForMonth,
     TResult Function(
-            String userId,
-            double amount,
-            String source,
-            String description,
-            DateTime date,
-            String? notes,
-            bool isRecurring,
-            String? recurrenceFrequency)?
-        createIncome,
+      String userId,
+      double amount,
+      String source,
+      String description,
+      DateTime date,
+      String? notes,
+      bool isRecurring,
+      String? recurrenceFrequency,
+    )?
+    createIncome,
     TResult Function(Income income)? updateIncome,
     TResult Function(String userId, String incomeId)? deleteIncome,
     TResult Function(String userId, String query)? searchIncomes,
@@ -1968,16 +2059,16 @@ class _$GetRecurringIncomesEventImpl implements GetRecurringIncomesEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(LoadIncomesEvent value) loadIncomes,
     required TResult Function(LoadIncomesForMonthEvent value)
-        loadIncomesForMonth,
+    loadIncomesForMonth,
     required TResult Function(CreateIncomeEvent value) createIncome,
     required TResult Function(UpdateIncomeEvent value) updateIncome,
     required TResult Function(DeleteIncomeEvent value) deleteIncome,
     required TResult Function(SearchIncomesEvent value) searchIncomes,
     required TResult Function(FilterBySourceEvent value) filterBySource,
     required TResult Function(GetRecurringIncomesEvent value)
-        getRecurringIncomes,
+    getRecurringIncomes,
     required TResult Function(GetTotalIncomeForMonthEvent value)
-        getTotalIncomeForMonth,
+    getTotalIncomeForMonth,
     required TResult Function(SyncIncomesEvent value) syncIncomes,
   }) {
     return getRecurringIncomes(this);
@@ -1995,7 +2086,7 @@ class _$GetRecurringIncomesEventImpl implements GetRecurringIncomesEvent {
     TResult? Function(FilterBySourceEvent value)? filterBySource,
     TResult? Function(GetRecurringIncomesEvent value)? getRecurringIncomes,
     TResult? Function(GetTotalIncomeForMonthEvent value)?
-        getTotalIncomeForMonth,
+    getTotalIncomeForMonth,
     TResult? Function(SyncIncomesEvent value)? syncIncomes,
   }) {
     return getRecurringIncomes?.call(this);
@@ -2030,15 +2121,15 @@ abstract class GetRecurringIncomesEvent implements IncomeEvent {
   String get userId;
   @JsonKey(ignore: true)
   _$$GetRecurringIncomesEventImplCopyWith<_$GetRecurringIncomesEventImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class _$$GetTotalIncomeForMonthEventImplCopyWith<$Res> {
   factory _$$GetTotalIncomeForMonthEventImplCopyWith(
-          _$GetTotalIncomeForMonthEventImpl value,
-          $Res Function(_$GetTotalIncomeForMonthEventImpl) then) =
-      __$$GetTotalIncomeForMonthEventImplCopyWithImpl<$Res>;
+    _$GetTotalIncomeForMonthEventImpl value,
+    $Res Function(_$GetTotalIncomeForMonthEventImpl) then,
+  ) = __$$GetTotalIncomeForMonthEventImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String userId, DateTime month});
 }
@@ -2048,34 +2139,35 @@ class __$$GetTotalIncomeForMonthEventImplCopyWithImpl<$Res>
     extends _$IncomeEventCopyWithImpl<$Res, _$GetTotalIncomeForMonthEventImpl>
     implements _$$GetTotalIncomeForMonthEventImplCopyWith<$Res> {
   __$$GetTotalIncomeForMonthEventImplCopyWithImpl(
-      _$GetTotalIncomeForMonthEventImpl _value,
-      $Res Function(_$GetTotalIncomeForMonthEventImpl) _then)
-      : super(_value, _then);
+    _$GetTotalIncomeForMonthEventImpl _value,
+    $Res Function(_$GetTotalIncomeForMonthEventImpl) _then,
+  ) : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? userId = null,
-    Object? month = null,
-  }) {
-    return _then(_$GetTotalIncomeForMonthEventImpl(
-      userId: null == userId
-          ? _value.userId
-          : userId // ignore: cast_nullable_to_non_nullable
-              as String,
-      month: null == month
-          ? _value.month
-          : month // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-    ));
+  $Res call({Object? userId = null, Object? month = null}) {
+    return _then(
+      _$GetTotalIncomeForMonthEventImpl(
+        userId: null == userId
+            ? _value.userId
+            : userId // ignore: cast_nullable_to_non_nullable
+                  as String,
+        month: null == month
+            ? _value.month
+            : month // ignore: cast_nullable_to_non_nullable
+                  as DateTime,
+      ),
+    );
   }
 }
 
 /// @nodoc
 
 class _$GetTotalIncomeForMonthEventImpl implements GetTotalIncomeForMonthEvent {
-  const _$GetTotalIncomeForMonthEventImpl(
-      {required this.userId, required this.month});
+  const _$GetTotalIncomeForMonthEventImpl({
+    required this.userId,
+    required this.month,
+  });
 
   @override
   final String userId;
@@ -2103,32 +2195,35 @@ class _$GetTotalIncomeForMonthEventImpl implements GetTotalIncomeForMonthEvent {
   @override
   @pragma('vm:prefer-inline')
   _$$GetTotalIncomeForMonthEventImplCopyWith<_$GetTotalIncomeForMonthEventImpl>
-      get copyWith => __$$GetTotalIncomeForMonthEventImplCopyWithImpl<
-          _$GetTotalIncomeForMonthEventImpl>(this, _$identity);
+  get copyWith =>
+      __$$GetTotalIncomeForMonthEventImplCopyWithImpl<
+        _$GetTotalIncomeForMonthEventImpl
+      >(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String userId) loadIncomes,
     required TResult Function(String userId, DateTime month)
-        loadIncomesForMonth,
+    loadIncomesForMonth,
     required TResult Function(
-            String userId,
-            double amount,
-            String source,
-            String description,
-            DateTime date,
-            String? notes,
-            bool isRecurring,
-            String? recurrenceFrequency)
-        createIncome,
+      String userId,
+      double amount,
+      String source,
+      String description,
+      DateTime date,
+      String? notes,
+      bool isRecurring,
+      String? recurrenceFrequency,
+    )
+    createIncome,
     required TResult Function(Income income) updateIncome,
     required TResult Function(String userId, String incomeId) deleteIncome,
     required TResult Function(String userId, String query) searchIncomes,
     required TResult Function(String userId, String source) filterBySource,
     required TResult Function(String userId) getRecurringIncomes,
     required TResult Function(String userId, DateTime month)
-        getTotalIncomeForMonth,
+    getTotalIncomeForMonth,
     required TResult Function(String userId) syncIncomes,
   }) {
     return getTotalIncomeForMonth(userId, month);
@@ -2140,15 +2235,16 @@ class _$GetTotalIncomeForMonthEventImpl implements GetTotalIncomeForMonthEvent {
     TResult? Function(String userId)? loadIncomes,
     TResult? Function(String userId, DateTime month)? loadIncomesForMonth,
     TResult? Function(
-            String userId,
-            double amount,
-            String source,
-            String description,
-            DateTime date,
-            String? notes,
-            bool isRecurring,
-            String? recurrenceFrequency)?
-        createIncome,
+      String userId,
+      double amount,
+      String source,
+      String description,
+      DateTime date,
+      String? notes,
+      bool isRecurring,
+      String? recurrenceFrequency,
+    )?
+    createIncome,
     TResult? Function(Income income)? updateIncome,
     TResult? Function(String userId, String incomeId)? deleteIncome,
     TResult? Function(String userId, String query)? searchIncomes,
@@ -2166,15 +2262,16 @@ class _$GetTotalIncomeForMonthEventImpl implements GetTotalIncomeForMonthEvent {
     TResult Function(String userId)? loadIncomes,
     TResult Function(String userId, DateTime month)? loadIncomesForMonth,
     TResult Function(
-            String userId,
-            double amount,
-            String source,
-            String description,
-            DateTime date,
-            String? notes,
-            bool isRecurring,
-            String? recurrenceFrequency)?
-        createIncome,
+      String userId,
+      double amount,
+      String source,
+      String description,
+      DateTime date,
+      String? notes,
+      bool isRecurring,
+      String? recurrenceFrequency,
+    )?
+    createIncome,
     TResult Function(Income income)? updateIncome,
     TResult Function(String userId, String incomeId)? deleteIncome,
     TResult Function(String userId, String query)? searchIncomes,
@@ -2195,16 +2292,16 @@ class _$GetTotalIncomeForMonthEventImpl implements GetTotalIncomeForMonthEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(LoadIncomesEvent value) loadIncomes,
     required TResult Function(LoadIncomesForMonthEvent value)
-        loadIncomesForMonth,
+    loadIncomesForMonth,
     required TResult Function(CreateIncomeEvent value) createIncome,
     required TResult Function(UpdateIncomeEvent value) updateIncome,
     required TResult Function(DeleteIncomeEvent value) deleteIncome,
     required TResult Function(SearchIncomesEvent value) searchIncomes,
     required TResult Function(FilterBySourceEvent value) filterBySource,
     required TResult Function(GetRecurringIncomesEvent value)
-        getRecurringIncomes,
+    getRecurringIncomes,
     required TResult Function(GetTotalIncomeForMonthEvent value)
-        getTotalIncomeForMonth,
+    getTotalIncomeForMonth,
     required TResult Function(SyncIncomesEvent value) syncIncomes,
   }) {
     return getTotalIncomeForMonth(this);
@@ -2222,7 +2319,7 @@ class _$GetTotalIncomeForMonthEventImpl implements GetTotalIncomeForMonthEvent {
     TResult? Function(FilterBySourceEvent value)? filterBySource,
     TResult? Function(GetRecurringIncomesEvent value)? getRecurringIncomes,
     TResult? Function(GetTotalIncomeForMonthEvent value)?
-        getTotalIncomeForMonth,
+    getTotalIncomeForMonth,
     TResult? Function(SyncIncomesEvent value)? syncIncomes,
   }) {
     return getTotalIncomeForMonth?.call(this);
@@ -2251,22 +2348,24 @@ class _$GetTotalIncomeForMonthEventImpl implements GetTotalIncomeForMonthEvent {
 }
 
 abstract class GetTotalIncomeForMonthEvent implements IncomeEvent {
-  const factory GetTotalIncomeForMonthEvent(
-      {required final String userId,
-      required final DateTime month}) = _$GetTotalIncomeForMonthEventImpl;
+  const factory GetTotalIncomeForMonthEvent({
+    required final String userId,
+    required final DateTime month,
+  }) = _$GetTotalIncomeForMonthEventImpl;
 
   String get userId;
   DateTime get month;
   @JsonKey(ignore: true)
   _$$GetTotalIncomeForMonthEventImplCopyWith<_$GetTotalIncomeForMonthEventImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class _$$SyncIncomesEventImplCopyWith<$Res> {
-  factory _$$SyncIncomesEventImplCopyWith(_$SyncIncomesEventImpl value,
-          $Res Function(_$SyncIncomesEventImpl) then) =
-      __$$SyncIncomesEventImplCopyWithImpl<$Res>;
+  factory _$$SyncIncomesEventImplCopyWith(
+    _$SyncIncomesEventImpl value,
+    $Res Function(_$SyncIncomesEventImpl) then,
+  ) = __$$SyncIncomesEventImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String userId});
 }
@@ -2275,21 +2374,22 @@ abstract class _$$SyncIncomesEventImplCopyWith<$Res> {
 class __$$SyncIncomesEventImplCopyWithImpl<$Res>
     extends _$IncomeEventCopyWithImpl<$Res, _$SyncIncomesEventImpl>
     implements _$$SyncIncomesEventImplCopyWith<$Res> {
-  __$$SyncIncomesEventImplCopyWithImpl(_$SyncIncomesEventImpl _value,
-      $Res Function(_$SyncIncomesEventImpl) _then)
-      : super(_value, _then);
+  __$$SyncIncomesEventImplCopyWithImpl(
+    _$SyncIncomesEventImpl _value,
+    $Res Function(_$SyncIncomesEventImpl) _then,
+  ) : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? userId = null,
-  }) {
-    return _then(_$SyncIncomesEventImpl(
-      userId: null == userId
-          ? _value.userId
-          : userId // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
+  $Res call({Object? userId = null}) {
+    return _then(
+      _$SyncIncomesEventImpl(
+        userId: null == userId
+            ? _value.userId
+            : userId // ignore: cast_nullable_to_non_nullable
+                  as String,
+      ),
+    );
   }
 }
 
@@ -2322,31 +2422,34 @@ class _$SyncIncomesEventImpl implements SyncIncomesEvent {
   @pragma('vm:prefer-inline')
   _$$SyncIncomesEventImplCopyWith<_$SyncIncomesEventImpl> get copyWith =>
       __$$SyncIncomesEventImplCopyWithImpl<_$SyncIncomesEventImpl>(
-          this, _$identity);
+        this,
+        _$identity,
+      );
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String userId) loadIncomes,
     required TResult Function(String userId, DateTime month)
-        loadIncomesForMonth,
+    loadIncomesForMonth,
     required TResult Function(
-            String userId,
-            double amount,
-            String source,
-            String description,
-            DateTime date,
-            String? notes,
-            bool isRecurring,
-            String? recurrenceFrequency)
-        createIncome,
+      String userId,
+      double amount,
+      String source,
+      String description,
+      DateTime date,
+      String? notes,
+      bool isRecurring,
+      String? recurrenceFrequency,
+    )
+    createIncome,
     required TResult Function(Income income) updateIncome,
     required TResult Function(String userId, String incomeId) deleteIncome,
     required TResult Function(String userId, String query) searchIncomes,
     required TResult Function(String userId, String source) filterBySource,
     required TResult Function(String userId) getRecurringIncomes,
     required TResult Function(String userId, DateTime month)
-        getTotalIncomeForMonth,
+    getTotalIncomeForMonth,
     required TResult Function(String userId) syncIncomes,
   }) {
     return syncIncomes(userId);
@@ -2358,15 +2461,16 @@ class _$SyncIncomesEventImpl implements SyncIncomesEvent {
     TResult? Function(String userId)? loadIncomes,
     TResult? Function(String userId, DateTime month)? loadIncomesForMonth,
     TResult? Function(
-            String userId,
-            double amount,
-            String source,
-            String description,
-            DateTime date,
-            String? notes,
-            bool isRecurring,
-            String? recurrenceFrequency)?
-        createIncome,
+      String userId,
+      double amount,
+      String source,
+      String description,
+      DateTime date,
+      String? notes,
+      bool isRecurring,
+      String? recurrenceFrequency,
+    )?
+    createIncome,
     TResult? Function(Income income)? updateIncome,
     TResult? Function(String userId, String incomeId)? deleteIncome,
     TResult? Function(String userId, String query)? searchIncomes,
@@ -2384,15 +2488,16 @@ class _$SyncIncomesEventImpl implements SyncIncomesEvent {
     TResult Function(String userId)? loadIncomes,
     TResult Function(String userId, DateTime month)? loadIncomesForMonth,
     TResult Function(
-            String userId,
-            double amount,
-            String source,
-            String description,
-            DateTime date,
-            String? notes,
-            bool isRecurring,
-            String? recurrenceFrequency)?
-        createIncome,
+      String userId,
+      double amount,
+      String source,
+      String description,
+      DateTime date,
+      String? notes,
+      bool isRecurring,
+      String? recurrenceFrequency,
+    )?
+    createIncome,
     TResult Function(Income income)? updateIncome,
     TResult Function(String userId, String incomeId)? deleteIncome,
     TResult Function(String userId, String query)? searchIncomes,
@@ -2413,16 +2518,16 @@ class _$SyncIncomesEventImpl implements SyncIncomesEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(LoadIncomesEvent value) loadIncomes,
     required TResult Function(LoadIncomesForMonthEvent value)
-        loadIncomesForMonth,
+    loadIncomesForMonth,
     required TResult Function(CreateIncomeEvent value) createIncome,
     required TResult Function(UpdateIncomeEvent value) updateIncome,
     required TResult Function(DeleteIncomeEvent value) deleteIncome,
     required TResult Function(SearchIncomesEvent value) searchIncomes,
     required TResult Function(FilterBySourceEvent value) filterBySource,
     required TResult Function(GetRecurringIncomesEvent value)
-        getRecurringIncomes,
+    getRecurringIncomes,
     required TResult Function(GetTotalIncomeForMonthEvent value)
-        getTotalIncomeForMonth,
+    getTotalIncomeForMonth,
     required TResult Function(SyncIncomesEvent value) syncIncomes,
   }) {
     return syncIncomes(this);
@@ -2440,7 +2545,7 @@ class _$SyncIncomesEventImpl implements SyncIncomesEvent {
     TResult? Function(FilterBySourceEvent value)? filterBySource,
     TResult? Function(GetRecurringIncomesEvent value)? getRecurringIncomes,
     TResult? Function(GetTotalIncomeForMonthEvent value)?
-        getTotalIncomeForMonth,
+    getTotalIncomeForMonth,
     TResult? Function(SyncIncomesEvent value)? syncIncomes,
   }) {
     return syncIncomes?.call(this);

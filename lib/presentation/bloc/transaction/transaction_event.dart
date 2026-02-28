@@ -4,9 +4,8 @@ part 'transaction_event.freezed.dart';
 
 @freezed
 class TransactionEvent with _$TransactionEvent {
-  const factory TransactionEvent.loadTransactions({
-    required String userId,
-  }) = LoadTransactions;
+  const factory TransactionEvent.loadTransactions({required String userId}) =
+      LoadTransactions;
 
   const factory TransactionEvent.loadTransactionsForMonth({
     required String userId,
@@ -40,16 +39,14 @@ class TransactionEvent with _$TransactionEvent {
     required String transactionId,
   }) = DeleteTransaction;
 
-  const factory TransactionEvent.searchTransactions({
-    required String query,
-  }) = SearchTransactions;
+  const factory TransactionEvent.searchTransactions({required String query}) =
+      SearchTransactions;
 
   const factory TransactionEvent.filterByCategory({
     required String userId,
     required String category,
   }) = FilterByCategory;
 
-  const factory TransactionEvent.syncTransactions({
-    required String userId,
-  }) = SyncTransactions;
+  const factory TransactionEvent.syncTransactions({required String userId}) =
+      SyncTransactions;
 }

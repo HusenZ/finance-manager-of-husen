@@ -8,18 +8,12 @@ class RecurringScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const CustomAppBar(
-        title: 'Recurring Transactions',
-      ),
+      appBar: const CustomAppBar(title: 'Recurring Transactions'),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Icon(
-              Icons.repeat,
-              size: 64,
-              color: AppColors.primary,
-            ),
+            Icon(Icons.repeat, size: 64, color: AppColors.primary),
             const SizedBox(height: 16),
             Text(
               'Recurring Transactions Screen',

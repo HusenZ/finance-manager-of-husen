@@ -1,0 +1,80 @@
+%PDF-1.4
+%‚„œ”
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [3 0 R] /Count 1 >>
+endobj
+3 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 4 0 R /F2 5 0 R >> >> /Contents 6 0 R >>
+endobj
+4 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+5 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>
+endobj
+6 0 obj
+<< /Length 4303 >>
+stream
+BT /F2 18.00 Tf 1 0 0 1 42 735.50 Tm (Finance Manager - One Page App Summary) Tj ET
+BT /F1 10.00 Tf 1 0 0 1 42 717.00 Tm (Evidence source: repository files \(README.md, lib/main.dart, router, services, repositories, feature modules\).) Tj ET
+BT /F1 10.00 Tf 1 0 0 1 42 702.50 Tm () Tj ET
+BT /F2 12.00 Tf 1 0 0 1 42 682.00 Tm (What It Is) Tj ET
+BT /F1 10.00 Tf 1 0 0 1 42 669.50 Tm (- Finance Manager is a Flutter app for personal money management with local-first data storage and) Tj ET
+BT /F1 10.00 Tf 1 0 0 1 42 657.00 Tm (  cloud sync support. It combines transaction, income, budget, category, recurring, analytics, and AI) Tj ET
+BT /F1 10.00 Tf 1 0 0 1 42 644.50 Tm (  assistant flows in one mobile app.) Tj ET
+BT /F1 10.00 Tf 1 0 0 1 42 630.00 Tm () Tj ET
+BT /F2 12.00 Tf 1 0 0 1 42 609.50 Tm (Who It Is For) Tj ET
+BT /F1 10.00 Tf 1 0 0 1 42 597.00 Tm (- Primary persona: an individual user who wants to track spending and income, monitor budgets, and) Tj ET
+BT /F1 10.00 Tf 1 0 0 1 42 584.50 Tm (  review trends with optional AI guidance.) Tj ET
+BT /F1 10.00 Tf 1 0 0 1 42 570.00 Tm () Tj ET
+BT /F2 12.00 Tf 1 0 0 1 42 549.50 Tm (What It Does) Tj ET
+BT /F1 10.00 Tf 1 0 0 1 42 537.00 Tm (- Email/password and Google sign-in via Firebase Auth.) Tj ET
+BT /F1 10.00 Tf 1 0 0 1 42 524.50 Tm (- Tracks expenses and incomes with month filtering, search, and CRUD flows.) Tj ET
+BT /F1 10.00 Tf 1 0 0 1 42 512.00 Tm (- Manages category budgets with spent calculations and warning/exceeded states.) Tj ET
+BT /F1 10.00 Tf 1 0 0 1 42 499.50 Tm (- Initializes default categories and supports custom category management.) Tj ET
+BT /F1 10.00 Tf 1 0 0 1 42 487.00 Tm (- Stores data locally in Hive, then syncs to Firestore with graceful fallback.) Tj ET
+BT /F1 10.00 Tf 1 0 0 1 42 474.50 Tm (- Provides analytics screens/charts for balance and spending breakdowns.) Tj ET
+BT /F1 10.00 Tf 1 0 0 1 42 462.00 Tm (- Includes an AI chat assistant \(Gemini\) for category suggestions and insights.) Tj ET
+BT /F1 10.00 Tf 1 0 0 1 42 447.50 Tm () Tj ET
+BT /F2 12.00 Tf 1 0 0 1 42 427.00 Tm (How It Works \(Repo Evidence\)) Tj ET
+BT /F1 10.00 Tf 1 0 0 1 42 414.50 Tm (- App startup in lib/main.dart initializes Firebase + Hive, registers adapters, configures GetIt, and) Tj ET
+BT /F1 10.00 Tf 1 0 0 1 42 402.00 Tm (  mounts MultiBlocProvider.) Tj ET
+BT /F1 10.00 Tf 1 0 0 1 42 389.50 Tm (- Routing in lib/core/router/app_router.dart uses GoRouter with auth-based redirects.) Tj ET
+BT /F1 10.00 Tf 1 0 0 1 42 377.00 Tm (- BLoCs \(auth, transactions, budgets, categories, recurring, incomes, AI\) orchestrate UI state and) Tj ET
+BT /F1 10.00 Tf 1 0 0 1 42 364.50 Tm (  actions.) Tj ET
+BT /F1 10.00 Tf 1 0 0 1 42 352.00 Tm (- Repositories in lib/data/repositories/ call HiveService first and FirebaseService second for offline-) Tj ET
+BT /F1 10.00 Tf 1 0 0 1 42 339.50 Tm (  first behavior.) Tj ET
+BT /F1 10.00 Tf 1 0 0 1 42 327.00 Tm (- FirebaseService persists documents in Firestore collections and uses FirebaseAuth for identity.) Tj ET
+BT /F1 10.00 Tf 1 0 0 1 42 314.50 Tm (- AI path: AIChatBloc -> GeminiDatasource + GetFinancialContext\(use case over transaction/income/budget) Tj ET
+BT /F1 10.00 Tf 1 0 0 1 42 302.00 Tm (  repositories\).) Tj ET
+BT /F1 10.00 Tf 1 0 0 1 42 287.50 Tm () Tj ET
+BT /F2 12.00 Tf 1 0 0 1 42 267.00 Tm (How To Run \(Minimal\)) Tj ET
+BT /F1 10.00 Tf 1 0 0 1 42 254.50 Tm (- Install Flutter SDK \(3.9.2+\) and run: flutter pub get) Tj ET
+BT /F1 10.00 Tf 1 0 0 1 42 242.00 Tm (- Configure Firebase for Android/iOS and keep lib/firebase_options.dart in place.) Tj ET
+BT /F1 10.00 Tf 1 0 0 1 42 229.50 Tm (- Run code generation once: flutter pub run build_runner build --delete-conflicting-outputs) Tj ET
+BT /F1 10.00 Tf 1 0 0 1 42 217.00 Tm (- Start app: flutter run) Tj ET
+BT /F1 10.00 Tf 1 0 0 1 42 202.50 Tm () Tj ET
+BT /F2 12.00 Tf 1 0 0 1 42 182.00 Tm (Not Found In Repo) Tj ET
+BT /F1 10.00 Tf 1 0 0 1 42 169.50 Tm (- A secure runtime secret-management approach for the Gemini API key \(current key is hardcoded in) Tj ET
+BT /F1 10.00 Tf 1 0 0 1 42 157.00 Tm (  lib/features/ai/data/datasources/gemini_datasource.dart\).) Tj ET
+BT /F1 10.00 Tf 1 0 0 1 42 144.50 Tm (- Formal deployment/release pipeline documentation \(CI/CD steps\).) Tj ET
+BT /F1 10.00 Tf 1 0 0 1 42 130.00 Tm () Tj ET
+endstream
+endobj
+xref
+0 7
+0000000000 65535 f 
+0000000015 00000 n 
+0000000064 00000 n 
+0000000121 00000 n 
+0000000257 00000 n 
+0000000327 00000 n 
+0000000402 00000 n 
+trailer
+<< /Size 7 /Root 1 0 R >>
+startxref
+4757
+%%EOF

@@ -6,7 +6,10 @@ extension NumExtensions on num {
   }
 
   String toCompactCurrency({String? currency}) {
-    return NumberFormatter.formatCompactCurrency(toDouble(), currency: currency);
+    return NumberFormatter.formatCompactCurrency(
+      toDouble(),
+      currency: currency,
+    );
   }
 
   String toPercentage({int decimals = 1}) {

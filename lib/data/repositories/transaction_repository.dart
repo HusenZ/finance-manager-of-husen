@@ -5,19 +5,23 @@ import '../services/hive_service.dart';
 import '../models/transaction.dart' as models;
 import '../../core/utils/app_logger.dart';
 import '../../core/extensions/date_extensions.dart';
+import '../../services/subscription_service.dart';
 
 class TransactionRepository {
   final FirebaseService _firebaseService;
   final HiveService _hiveService;
+  final SubscriptionService _subscriptionService;
   final Uuid _uuid;
 
   TransactionRepository({
     required FirebaseService firebaseService,
     required HiveService hiveService,
+    required SubscriptionService subscriptionService,
     Uuid? uuid,
-  })  : _firebaseService = firebaseService,
-        _hiveService = hiveService,
-        _uuid = uuid ?? const Uuid();
+  }) : _firebaseService = firebaseService,
+       _hiveService = hiveService,
+       _subscriptionService = subscriptionService,
+       _uuid = uuid ?? const Uuid();
 
   Future<Either<String, models.Transaction>> createTransaction({
     required String userId,
@@ -48,12 +52,18 @@ class TransactionRepository {
       // Save to local storage first
       await _hiveService.saveTransaction(transaction);
 
-      // Then sync to Firestore
+      if (!_subscriptionService.canUseCloudSync()) {
+        return Right(transaction);
+      }
+
+      // Then sync to Firestore for paid tiers
       final result = await _firebaseService.saveTransaction(transaction);
 
       return result.fold(
         (error) {
-          AppLogger.warning('Transaction saved locally but failed to sync: $error');
+          AppLogger.warning(
+            'Transaction saved locally but failed to sync: $error',
+          );
           return Right(transaction);
         },
         (_) {
@@ -62,7 +72,11 @@ class TransactionRepository {
         },
       );
     } catch (e, stackTrace) {
-      AppLogger.error('Failed to create transaction', error: e, stackTrace: stackTrace);
+      AppLogger.error(
+        'Failed to create transaction',
+        error: e,
+        stackTrace: stackTrace,
+      );
       return Left('Failed to create transaction: ${e.toString()}');
     }
   }
@@ -76,21 +90,32 @@ class TransactionRepository {
       );
 
       await _hiveService.saveTransaction(updatedTransaction);
+      if (!_subscriptionService.canUseCloudSync()) {
+        return Right(updatedTransaction);
+      }
 
       final result = await _firebaseService.saveTransaction(updatedTransaction);
 
       return result.fold(
         (error) {
-          AppLogger.warning('Transaction updated locally but failed to sync: $error');
+          AppLogger.warning(
+            'Transaction updated locally but failed to sync: $error',
+          );
           return Right(updatedTransaction);
         },
         (_) {
-          AppLogger.info('Transaction updated and synced: ${updatedTransaction.id}');
+          AppLogger.info(
+            'Transaction updated and synced: ${updatedTransaction.id}',
+          );
           return Right(updatedTransaction);
         },
       );
     } catch (e, stackTrace) {
-      AppLogger.error('Failed to update transaction', error: e, stackTrace: stackTrace);
+      AppLogger.error(
+        'Failed to update transaction',
+        error: e,
+        stackTrace: stackTrace,
+      );
       return Left('Failed to update transaction: ${e.toString()}');
     }
   }
@@ -101,12 +126,20 @@ class TransactionRepository {
   }) async {
     try {
       await _hiveService.deleteTransaction(transactionId);
+      if (!_subscriptionService.canUseCloudSync()) {
+        return const Right(null);
+      }
 
-      final result = await _firebaseService.deleteTransaction(userId, transactionId);
+      final result = await _firebaseService.deleteTransaction(
+        userId,
+        transactionId,
+      );
 
       return result.fold(
         (error) {
-          AppLogger.warning('Transaction deleted locally but failed to sync: $error');
+          AppLogger.warning(
+            'Transaction deleted locally but failed to sync: $error',
+          );
           return const Right(null);
         },
         (_) {
@@ -115,7 +148,11 @@ class TransactionRepository {
         },
       );
     } catch (e, stackTrace) {
-      AppLogger.error('Failed to delete transaction', error: e, stackTrace: stackTrace);
+      AppLogger.error(
+        'Failed to delete transaction',
+        error: e,
+        stackTrace: stackTrace,
+      );
       return Left('Failed to delete transaction: ${e.toString()}');
     }
   }
@@ -125,14 +162,20 @@ class TransactionRepository {
   }) async {
     try {
       // Try to load from local storage first
-      final localTransactions = await _hiveService.getAllTransactions();
+      final localTransactions = _applyHistoryLimit(
+        await _hiveService.getAllTransactions(),
+      );
 
       // Sync from Firestore in the background
       _syncTransactionsFromFirestore(userId);
 
       return Right(localTransactions);
     } catch (e, stackTrace) {
-      AppLogger.error('Failed to get all transactions', error: e, stackTrace: stackTrace);
+      AppLogger.error(
+        'Failed to get all transactions',
+        error: e,
+        stackTrace: stackTrace,
+      );
       return Left('Failed to get transactions: ${e.toString()}');
     }
   }
@@ -143,18 +186,26 @@ class TransactionRepository {
     required DateTime endDate,
   }) async {
     try {
-      final allTransactions = await _hiveService.getAllTransactions();
+      final allTransactions = _applyHistoryLimit(
+        await _hiveService.getAllTransactions(),
+      );
 
       final filtered = allTransactions.where((transaction) {
-        return transaction.date.isAfter(startDate.subtract(const Duration(days: 1))) &&
-               transaction.date.isBefore(endDate.add(const Duration(days: 1)));
+        return transaction.date.isAfter(
+              startDate.subtract(const Duration(days: 1)),
+            ) &&
+            transaction.date.isBefore(endDate.add(const Duration(days: 1)));
       }).toList();
 
       filtered.sort((a, b) => b.date.compareTo(a.date));
 
       return Right(filtered);
     } catch (e, stackTrace) {
-      AppLogger.error('Failed to get transactions by date range', error: e, stackTrace: stackTrace);
+      AppLogger.error(
+        'Failed to get transactions by date range',
+        error: e,
+        stackTrace: stackTrace,
+      );
       return Left('Failed to get transactions: ${e.toString()}');
     }
   }
@@ -164,7 +215,9 @@ class TransactionRepository {
     required String category,
   }) async {
     try {
-      final allTransactions = await _hiveService.getAllTransactions();
+      final allTransactions = _applyHistoryLimit(
+        await _hiveService.getAllTransactions(),
+      );
 
       final filtered = allTransactions
           .where((transaction) => transaction.category == category)
@@ -174,7 +227,11 @@ class TransactionRepository {
 
       return Right(filtered);
     } catch (e, stackTrace) {
-      AppLogger.error('Failed to get transactions by category', error: e, stackTrace: stackTrace);
+      AppLogger.error(
+        'Failed to get transactions by category',
+        error: e,
+        stackTrace: stackTrace,
+      );
       return Left('Failed to get transactions: ${e.toString()}');
     }
   }
@@ -193,7 +250,11 @@ class TransactionRepository {
         endDate: endOfMonth,
       );
     } catch (e, stackTrace) {
-      AppLogger.error('Failed to get transactions for month', error: e, stackTrace: stackTrace);
+      AppLogger.error(
+        'Failed to get transactions for month',
+        error: e,
+        stackTrace: stackTrace,
+      );
       return Left('Failed to get transactions: ${e.toString()}');
     }
   }
@@ -203,20 +264,24 @@ class TransactionRepository {
     required DateTime month,
   }) async {
     try {
-      final result = await getTransactionsForMonth(userId: userId, month: month);
-
-      return result.fold(
-        (error) => Left(error),
-        (transactions) {
-          final total = transactions.fold<double>(
-            0.0,
-            (sum, transaction) => sum + transaction.amount,
-          );
-          return Right(total);
-        },
+      final result = await getTransactionsForMonth(
+        userId: userId,
+        month: month,
       );
+
+      return result.fold((error) => Left(error), (transactions) {
+        final total = transactions.fold<double>(
+          0.0,
+          (sum, transaction) => sum + transaction.amount,
+        );
+        return Right(total);
+      });
     } catch (e, stackTrace) {
-      AppLogger.error('Failed to calculate total spent', error: e, stackTrace: stackTrace);
+      AppLogger.error(
+        'Failed to calculate total spent',
+        error: e,
+        stackTrace: stackTrace,
+      );
       return Left('Failed to calculate total: ${e.toString()}');
     }
   }
@@ -226,23 +291,28 @@ class TransactionRepository {
     required DateTime month,
   }) async {
     try {
-      final result = await getTransactionsForMonth(userId: userId, month: month);
-
-      return result.fold(
-        (error) => Left(error),
-        (transactions) {
-          final categoryTotals = <String, double>{};
-
-          for (final transaction in transactions) {
-            categoryTotals[transaction.category] =
-                (categoryTotals[transaction.category] ?? 0.0) + transaction.amount;
-          }
-
-          return Right(categoryTotals);
-        },
+      final result = await getTransactionsForMonth(
+        userId: userId,
+        month: month,
       );
+
+      return result.fold((error) => Left(error), (transactions) {
+        final categoryTotals = <String, double>{};
+
+        for (final transaction in transactions) {
+          categoryTotals[transaction.category] =
+              (categoryTotals[transaction.category] ?? 0.0) +
+              transaction.amount;
+        }
+
+        return Right(categoryTotals);
+      });
     } catch (e, stackTrace) {
-      AppLogger.error('Failed to calculate category-wise spending', error: e, stackTrace: stackTrace);
+      AppLogger.error(
+        'Failed to calculate category-wise spending',
+        error: e,
+        stackTrace: stackTrace,
+      );
       return Left('Failed to calculate spending: ${e.toString()}');
     }
   }
@@ -251,34 +321,47 @@ class TransactionRepository {
     required String query,
   }) async {
     try {
-      final allTransactions = await _hiveService.getAllTransactions();
+      final allTransactions = _applyHistoryLimit(
+        await _hiveService.getAllTransactions(),
+      );
 
       final filtered = allTransactions.where((transaction) {
         final lowerQuery = query.toLowerCase();
         return transaction.description.toLowerCase().contains(lowerQuery) ||
-               transaction.category.toLowerCase().contains(lowerQuery) ||
-               transaction.paymentMethod.toLowerCase().contains(lowerQuery) ||
-               (transaction.notes?.toLowerCase().contains(lowerQuery) ?? false);
+            transaction.category.toLowerCase().contains(lowerQuery) ||
+            transaction.paymentMethod.toLowerCase().contains(lowerQuery) ||
+            (transaction.notes?.toLowerCase().contains(lowerQuery) ?? false);
       }).toList();
 
       filtered.sort((a, b) => b.date.compareTo(a.date));
 
       return Right(filtered);
     } catch (e, stackTrace) {
-      AppLogger.error('Failed to search transactions', error: e, stackTrace: stackTrace);
+      AppLogger.error(
+        'Failed to search transactions',
+        error: e,
+        stackTrace: stackTrace,
+      );
       return Left('Failed to search transactions: ${e.toString()}');
     }
   }
 
   Future<void> _syncTransactionsFromFirestore(String userId) async {
     try {
+      if (!_subscriptionService.canUseCloudSync()) {
+        return;
+      }
       final result = await _firebaseService.getTransactions(userId);
 
       result.fold(
-        (error) => AppLogger.warning('Failed to sync transactions from Firestore: $error'),
+        (error) => AppLogger.warning(
+          'Failed to sync transactions from Firestore: $error',
+        ),
         (transactions) async {
           await _hiveService.saveTransactions(transactions);
-          AppLogger.info('Synced ${transactions.length} transactions from Firestore');
+          AppLogger.info(
+            'Synced ${transactions.length} transactions from Firestore',
+          );
         },
       );
     } catch (e) {
@@ -288,19 +371,41 @@ class TransactionRepository {
 
   Future<Either<String, void>> syncAllTransactions(String userId) async {
     try {
+      if (!_subscriptionService.canUseCloudSync()) {
+        return const Right(null);
+      }
       final result = await _firebaseService.getTransactions(userId);
 
-      return result.fold(
-        (error) => Left(error),
-        (transactions) async {
-          await _hiveService.saveTransactions(transactions);
-          AppLogger.info('Successfully synced all transactions');
-          return const Right(null);
-        },
-      );
+      return result.fold((error) => Left(error), (transactions) async {
+        await _hiveService.saveTransactions(transactions);
+        AppLogger.info('Successfully synced all transactions');
+        return const Right(null);
+      });
     } catch (e, stackTrace) {
-      AppLogger.error('Failed to sync transactions', error: e, stackTrace: stackTrace);
+      AppLogger.error(
+        'Failed to sync transactions',
+        error: e,
+        stackTrace: stackTrace,
+      );
       return Left('Failed to sync: ${e.toString()}');
     }
+  }
+
+  List<models.Transaction> _applyHistoryLimit(
+    List<models.Transaction> transactions,
+  ) {
+    if (_subscriptionService.isOwner()) {
+      return transactions;
+    }
+
+    final cutoff = DateTime.now().subtract(const Duration(days: 62));
+    final shouldLimit = !_subscriptionService.canViewHistory(3);
+    if (!shouldLimit) {
+      return transactions;
+    }
+
+    return transactions
+        .where((transaction) => transaction.date.isAfter(cutoff))
+        .toList();
   }
 }

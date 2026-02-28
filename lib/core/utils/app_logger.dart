@@ -6,30 +6,23 @@ class AppLogger {
   static const String _tag = 'FinanceManager';
 
   static void debug(String message, {String? tag}) {
-    developer.log(
-      message,
-      name: tag ?? _tag,
-      level: 500,
-    );
+    developer.log(message, name: tag ?? _tag, level: 500);
   }
 
   static void info(String message, {String? tag}) {
-    developer.log(
-      message,
-      name: tag ?? _tag,
-      level: 800,
-    );
+    developer.log(message, name: tag ?? _tag, level: 800);
   }
 
   static void warning(String message, {String? tag}) {
-    developer.log(
-      message,
-      name: tag ?? _tag,
-      level: 900,
-    );
+    developer.log(message, name: tag ?? _tag, level: 900);
   }
 
-  static void error(String message, {Object? error, StackTrace? stackTrace, String? tag}) {
+  static void error(
+    String message, {
+    Object? error,
+    StackTrace? stackTrace,
+    String? tag,
+  }) {
     developer.log(
       message,
       name: tag ?? _tag,
@@ -39,7 +32,11 @@ class AppLogger {
     );
   }
 
-  static void logException(Exception exception, {StackTrace? stackTrace, String? context}) {
+  static void logException(
+    Exception exception, {
+    StackTrace? stackTrace,
+    String? context,
+  }) {
     error(
       'Exception occurred${context != null ? ' in $context' : ''}',
       error: exception,

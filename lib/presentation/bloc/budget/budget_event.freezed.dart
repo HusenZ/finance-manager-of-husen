@@ -12,7 +12,8 @@ part of 'budget_event.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 /// @nodoc
 mixin _$BudgetEvent {
@@ -21,43 +22,73 @@ mixin _$BudgetEvent {
   TResult when<TResult extends Object?>({
     required TResult Function(String userId) loadBudgets,
     required TResult Function(String userId, DateTime month)
-        loadBudgetsForMonth,
+    loadBudgetsForMonth,
     required TResult Function(
-            String userId, String category, double limit, DateTime month)
-        createBudget,
-    required TResult Function(String id, String userId, String category,
-            double limit, String month, double spent, DateTime createdAt)
-        updateBudget,
+      String userId,
+      String category,
+      double limit,
+      DateTime month,
+    )
+    createBudget,
+    required TResult Function(
+      String id,
+      String userId,
+      String category,
+      double limit,
+      String month,
+      double spent,
+      DateTime createdAt,
+    )
+    updateBudget,
     required TResult Function(String userId, String budgetId) deleteBudget,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String userId)? loadBudgets,
     TResult? Function(String userId, DateTime month)? loadBudgetsForMonth,
     TResult? Function(
-            String userId, String category, double limit, DateTime month)?
-        createBudget,
-    TResult? Function(String id, String userId, String category, double limit,
-            String month, double spent, DateTime createdAt)?
-        updateBudget,
+      String userId,
+      String category,
+      double limit,
+      DateTime month,
+    )?
+    createBudget,
+    TResult? Function(
+      String id,
+      String userId,
+      String category,
+      double limit,
+      String month,
+      double spent,
+      DateTime createdAt,
+    )?
+    updateBudget,
     TResult? Function(String userId, String budgetId)? deleteBudget,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String userId)? loadBudgets,
     TResult Function(String userId, DateTime month)? loadBudgetsForMonth,
     TResult Function(
-            String userId, String category, double limit, DateTime month)?
-        createBudget,
-    TResult Function(String id, String userId, String category, double limit,
-            String month, double spent, DateTime createdAt)?
-        updateBudget,
+      String userId,
+      String category,
+      double limit,
+      DateTime month,
+    )?
+    createBudget,
+    TResult Function(
+      String id,
+      String userId,
+      String category,
+      double limit,
+      String month,
+      double spent,
+      DateTime createdAt,
+    )?
+    updateBudget,
     TResult Function(String userId, String budgetId)? deleteBudget,
     required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(LoadBudgets value) loadBudgets,
@@ -65,8 +96,7 @@ mixin _$BudgetEvent {
     required TResult Function(CreateBudget value) createBudget,
     required TResult Function(UpdateBudget value) updateBudget,
     required TResult Function(DeleteBudget value) deleteBudget,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(LoadBudgets value)? loadBudgets,
@@ -74,8 +104,7 @@ mixin _$BudgetEvent {
     TResult? Function(CreateBudget value)? createBudget,
     TResult? Function(UpdateBudget value)? updateBudget,
     TResult? Function(DeleteBudget value)? deleteBudget,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(LoadBudgets value)? loadBudgets,
@@ -84,8 +113,7 @@ mixin _$BudgetEvent {
     TResult Function(UpdateBudget value)? updateBudget,
     TResult Function(DeleteBudget value)? deleteBudget,
     required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $BudgetEventCopyWith<BudgetEvent> get copyWith =>
@@ -95,8 +123,9 @@ mixin _$BudgetEvent {
 /// @nodoc
 abstract class $BudgetEventCopyWith<$Res> {
   factory $BudgetEventCopyWith(
-          BudgetEvent value, $Res Function(BudgetEvent) then) =
-      _$BudgetEventCopyWithImpl<$Res, BudgetEvent>;
+    BudgetEvent value,
+    $Res Function(BudgetEvent) then,
+  ) = _$BudgetEventCopyWithImpl<$Res, BudgetEvent>;
   @useResult
   $Res call({String userId});
 }
@@ -113,15 +142,16 @@ class _$BudgetEventCopyWithImpl<$Res, $Val extends BudgetEvent>
 
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? userId = null,
-  }) {
-    return _then(_value.copyWith(
-      userId: null == userId
-          ? _value.userId
-          : userId // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
+  $Res call({Object? userId = null}) {
+    return _then(
+      _value.copyWith(
+            userId: null == userId
+                ? _value.userId
+                : userId // ignore: cast_nullable_to_non_nullable
+                      as String,
+          )
+          as $Val,
+    );
   }
 }
 
@@ -129,8 +159,9 @@ class _$BudgetEventCopyWithImpl<$Res, $Val extends BudgetEvent>
 abstract class _$$LoadBudgetsImplCopyWith<$Res>
     implements $BudgetEventCopyWith<$Res> {
   factory _$$LoadBudgetsImplCopyWith(
-          _$LoadBudgetsImpl value, $Res Function(_$LoadBudgetsImpl) then) =
-      __$$LoadBudgetsImplCopyWithImpl<$Res>;
+    _$LoadBudgetsImpl value,
+    $Res Function(_$LoadBudgetsImpl) then,
+  ) = __$$LoadBudgetsImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String userId});
@@ -141,20 +172,21 @@ class __$$LoadBudgetsImplCopyWithImpl<$Res>
     extends _$BudgetEventCopyWithImpl<$Res, _$LoadBudgetsImpl>
     implements _$$LoadBudgetsImplCopyWith<$Res> {
   __$$LoadBudgetsImplCopyWithImpl(
-      _$LoadBudgetsImpl _value, $Res Function(_$LoadBudgetsImpl) _then)
-      : super(_value, _then);
+    _$LoadBudgetsImpl _value,
+    $Res Function(_$LoadBudgetsImpl) _then,
+  ) : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? userId = null,
-  }) {
-    return _then(_$LoadBudgetsImpl(
-      userId: null == userId
-          ? _value.userId
-          : userId // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
+  $Res call({Object? userId = null}) {
+    return _then(
+      _$LoadBudgetsImpl(
+        userId: null == userId
+            ? _value.userId
+            : userId // ignore: cast_nullable_to_non_nullable
+                  as String,
+      ),
+    );
   }
 }
 
@@ -193,13 +225,24 @@ class _$LoadBudgetsImpl implements LoadBudgets {
   TResult when<TResult extends Object?>({
     required TResult Function(String userId) loadBudgets,
     required TResult Function(String userId, DateTime month)
-        loadBudgetsForMonth,
+    loadBudgetsForMonth,
     required TResult Function(
-            String userId, String category, double limit, DateTime month)
-        createBudget,
-    required TResult Function(String id, String userId, String category,
-            double limit, String month, double spent, DateTime createdAt)
-        updateBudget,
+      String userId,
+      String category,
+      double limit,
+      DateTime month,
+    )
+    createBudget,
+    required TResult Function(
+      String id,
+      String userId,
+      String category,
+      double limit,
+      String month,
+      double spent,
+      DateTime createdAt,
+    )
+    updateBudget,
     required TResult Function(String userId, String budgetId) deleteBudget,
   }) {
     return loadBudgets(userId);
@@ -211,11 +254,22 @@ class _$LoadBudgetsImpl implements LoadBudgets {
     TResult? Function(String userId)? loadBudgets,
     TResult? Function(String userId, DateTime month)? loadBudgetsForMonth,
     TResult? Function(
-            String userId, String category, double limit, DateTime month)?
-        createBudget,
-    TResult? Function(String id, String userId, String category, double limit,
-            String month, double spent, DateTime createdAt)?
-        updateBudget,
+      String userId,
+      String category,
+      double limit,
+      DateTime month,
+    )?
+    createBudget,
+    TResult? Function(
+      String id,
+      String userId,
+      String category,
+      double limit,
+      String month,
+      double spent,
+      DateTime createdAt,
+    )?
+    updateBudget,
     TResult? Function(String userId, String budgetId)? deleteBudget,
   }) {
     return loadBudgets?.call(userId);
@@ -227,11 +281,22 @@ class _$LoadBudgetsImpl implements LoadBudgets {
     TResult Function(String userId)? loadBudgets,
     TResult Function(String userId, DateTime month)? loadBudgetsForMonth,
     TResult Function(
-            String userId, String category, double limit, DateTime month)?
-        createBudget,
-    TResult Function(String id, String userId, String category, double limit,
-            String month, double spent, DateTime createdAt)?
-        updateBudget,
+      String userId,
+      String category,
+      double limit,
+      DateTime month,
+    )?
+    createBudget,
+    TResult Function(
+      String id,
+      String userId,
+      String category,
+      double limit,
+      String month,
+      double spent,
+      DateTime createdAt,
+    )?
+    updateBudget,
     TResult Function(String userId, String budgetId)? deleteBudget,
     required TResult orElse(),
   }) {
@@ -296,9 +361,10 @@ abstract class LoadBudgets implements BudgetEvent {
 /// @nodoc
 abstract class _$$LoadBudgetsForMonthImplCopyWith<$Res>
     implements $BudgetEventCopyWith<$Res> {
-  factory _$$LoadBudgetsForMonthImplCopyWith(_$LoadBudgetsForMonthImpl value,
-          $Res Function(_$LoadBudgetsForMonthImpl) then) =
-      __$$LoadBudgetsForMonthImplCopyWithImpl<$Res>;
+  factory _$$LoadBudgetsForMonthImplCopyWith(
+    _$LoadBudgetsForMonthImpl value,
+    $Res Function(_$LoadBudgetsForMonthImpl) then,
+  ) = __$$LoadBudgetsForMonthImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String userId, DateTime month});
@@ -308,26 +374,26 @@ abstract class _$$LoadBudgetsForMonthImplCopyWith<$Res>
 class __$$LoadBudgetsForMonthImplCopyWithImpl<$Res>
     extends _$BudgetEventCopyWithImpl<$Res, _$LoadBudgetsForMonthImpl>
     implements _$$LoadBudgetsForMonthImplCopyWith<$Res> {
-  __$$LoadBudgetsForMonthImplCopyWithImpl(_$LoadBudgetsForMonthImpl _value,
-      $Res Function(_$LoadBudgetsForMonthImpl) _then)
-      : super(_value, _then);
+  __$$LoadBudgetsForMonthImplCopyWithImpl(
+    _$LoadBudgetsForMonthImpl _value,
+    $Res Function(_$LoadBudgetsForMonthImpl) _then,
+  ) : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? userId = null,
-    Object? month = null,
-  }) {
-    return _then(_$LoadBudgetsForMonthImpl(
-      userId: null == userId
-          ? _value.userId
-          : userId // ignore: cast_nullable_to_non_nullable
-              as String,
-      month: null == month
-          ? _value.month
-          : month // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-    ));
+  $Res call({Object? userId = null, Object? month = null}) {
+    return _then(
+      _$LoadBudgetsForMonthImpl(
+        userId: null == userId
+            ? _value.userId
+            : userId // ignore: cast_nullable_to_non_nullable
+                  as String,
+        month: null == month
+            ? _value.month
+            : month // ignore: cast_nullable_to_non_nullable
+                  as DateTime,
+      ),
+    );
   }
 }
 
@@ -363,20 +429,33 @@ class _$LoadBudgetsForMonthImpl implements LoadBudgetsForMonth {
   @pragma('vm:prefer-inline')
   _$$LoadBudgetsForMonthImplCopyWith<_$LoadBudgetsForMonthImpl> get copyWith =>
       __$$LoadBudgetsForMonthImplCopyWithImpl<_$LoadBudgetsForMonthImpl>(
-          this, _$identity);
+        this,
+        _$identity,
+      );
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String userId) loadBudgets,
     required TResult Function(String userId, DateTime month)
-        loadBudgetsForMonth,
+    loadBudgetsForMonth,
     required TResult Function(
-            String userId, String category, double limit, DateTime month)
-        createBudget,
-    required TResult Function(String id, String userId, String category,
-            double limit, String month, double spent, DateTime createdAt)
-        updateBudget,
+      String userId,
+      String category,
+      double limit,
+      DateTime month,
+    )
+    createBudget,
+    required TResult Function(
+      String id,
+      String userId,
+      String category,
+      double limit,
+      String month,
+      double spent,
+      DateTime createdAt,
+    )
+    updateBudget,
     required TResult Function(String userId, String budgetId) deleteBudget,
   }) {
     return loadBudgetsForMonth(userId, month);
@@ -388,11 +467,22 @@ class _$LoadBudgetsForMonthImpl implements LoadBudgetsForMonth {
     TResult? Function(String userId)? loadBudgets,
     TResult? Function(String userId, DateTime month)? loadBudgetsForMonth,
     TResult? Function(
-            String userId, String category, double limit, DateTime month)?
-        createBudget,
-    TResult? Function(String id, String userId, String category, double limit,
-            String month, double spent, DateTime createdAt)?
-        updateBudget,
+      String userId,
+      String category,
+      double limit,
+      DateTime month,
+    )?
+    createBudget,
+    TResult? Function(
+      String id,
+      String userId,
+      String category,
+      double limit,
+      String month,
+      double spent,
+      DateTime createdAt,
+    )?
+    updateBudget,
     TResult? Function(String userId, String budgetId)? deleteBudget,
   }) {
     return loadBudgetsForMonth?.call(userId, month);
@@ -404,11 +494,22 @@ class _$LoadBudgetsForMonthImpl implements LoadBudgetsForMonth {
     TResult Function(String userId)? loadBudgets,
     TResult Function(String userId, DateTime month)? loadBudgetsForMonth,
     TResult Function(
-            String userId, String category, double limit, DateTime month)?
-        createBudget,
-    TResult Function(String id, String userId, String category, double limit,
-            String month, double spent, DateTime createdAt)?
-        updateBudget,
+      String userId,
+      String category,
+      double limit,
+      DateTime month,
+    )?
+    createBudget,
+    TResult Function(
+      String id,
+      String userId,
+      String category,
+      double limit,
+      String month,
+      double spent,
+      DateTime createdAt,
+    )?
+    updateBudget,
     TResult Function(String userId, String budgetId)? deleteBudget,
     required TResult orElse(),
   }) {
@@ -460,9 +561,10 @@ class _$LoadBudgetsForMonthImpl implements LoadBudgetsForMonth {
 }
 
 abstract class LoadBudgetsForMonth implements BudgetEvent {
-  const factory LoadBudgetsForMonth(
-      {required final String userId,
-      required final DateTime month}) = _$LoadBudgetsForMonthImpl;
+  const factory LoadBudgetsForMonth({
+    required final String userId,
+    required final DateTime month,
+  }) = _$LoadBudgetsForMonthImpl;
 
   @override
   String get userId;
@@ -477,8 +579,9 @@ abstract class LoadBudgetsForMonth implements BudgetEvent {
 abstract class _$$CreateBudgetImplCopyWith<$Res>
     implements $BudgetEventCopyWith<$Res> {
   factory _$$CreateBudgetImplCopyWith(
-          _$CreateBudgetImpl value, $Res Function(_$CreateBudgetImpl) then) =
-      __$$CreateBudgetImplCopyWithImpl<$Res>;
+    _$CreateBudgetImpl value,
+    $Res Function(_$CreateBudgetImpl) then,
+  ) = __$$CreateBudgetImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String userId, String category, double limit, DateTime month});
@@ -489,8 +592,9 @@ class __$$CreateBudgetImplCopyWithImpl<$Res>
     extends _$BudgetEventCopyWithImpl<$Res, _$CreateBudgetImpl>
     implements _$$CreateBudgetImplCopyWith<$Res> {
   __$$CreateBudgetImplCopyWithImpl(
-      _$CreateBudgetImpl _value, $Res Function(_$CreateBudgetImpl) _then)
-      : super(_value, _then);
+    _$CreateBudgetImpl _value,
+    $Res Function(_$CreateBudgetImpl) _then,
+  ) : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
@@ -500,35 +604,38 @@ class __$$CreateBudgetImplCopyWithImpl<$Res>
     Object? limit = null,
     Object? month = null,
   }) {
-    return _then(_$CreateBudgetImpl(
-      userId: null == userId
-          ? _value.userId
-          : userId // ignore: cast_nullable_to_non_nullable
-              as String,
-      category: null == category
-          ? _value.category
-          : category // ignore: cast_nullable_to_non_nullable
-              as String,
-      limit: null == limit
-          ? _value.limit
-          : limit // ignore: cast_nullable_to_non_nullable
-              as double,
-      month: null == month
-          ? _value.month
-          : month // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-    ));
+    return _then(
+      _$CreateBudgetImpl(
+        userId: null == userId
+            ? _value.userId
+            : userId // ignore: cast_nullable_to_non_nullable
+                  as String,
+        category: null == category
+            ? _value.category
+            : category // ignore: cast_nullable_to_non_nullable
+                  as String,
+        limit: null == limit
+            ? _value.limit
+            : limit // ignore: cast_nullable_to_non_nullable
+                  as double,
+        month: null == month
+            ? _value.month
+            : month // ignore: cast_nullable_to_non_nullable
+                  as DateTime,
+      ),
+    );
   }
 }
 
 /// @nodoc
 
 class _$CreateBudgetImpl implements CreateBudget {
-  const _$CreateBudgetImpl(
-      {required this.userId,
-      required this.category,
-      required this.limit,
-      required this.month});
+  const _$CreateBudgetImpl({
+    required this.userId,
+    required this.category,
+    required this.limit,
+    required this.month,
+  });
 
   @override
   final String userId;
@@ -570,13 +677,24 @@ class _$CreateBudgetImpl implements CreateBudget {
   TResult when<TResult extends Object?>({
     required TResult Function(String userId) loadBudgets,
     required TResult Function(String userId, DateTime month)
-        loadBudgetsForMonth,
+    loadBudgetsForMonth,
     required TResult Function(
-            String userId, String category, double limit, DateTime month)
-        createBudget,
-    required TResult Function(String id, String userId, String category,
-            double limit, String month, double spent, DateTime createdAt)
-        updateBudget,
+      String userId,
+      String category,
+      double limit,
+      DateTime month,
+    )
+    createBudget,
+    required TResult Function(
+      String id,
+      String userId,
+      String category,
+      double limit,
+      String month,
+      double spent,
+      DateTime createdAt,
+    )
+    updateBudget,
     required TResult Function(String userId, String budgetId) deleteBudget,
   }) {
     return createBudget(userId, category, limit, month);
@@ -588,11 +706,22 @@ class _$CreateBudgetImpl implements CreateBudget {
     TResult? Function(String userId)? loadBudgets,
     TResult? Function(String userId, DateTime month)? loadBudgetsForMonth,
     TResult? Function(
-            String userId, String category, double limit, DateTime month)?
-        createBudget,
-    TResult? Function(String id, String userId, String category, double limit,
-            String month, double spent, DateTime createdAt)?
-        updateBudget,
+      String userId,
+      String category,
+      double limit,
+      DateTime month,
+    )?
+    createBudget,
+    TResult? Function(
+      String id,
+      String userId,
+      String category,
+      double limit,
+      String month,
+      double spent,
+      DateTime createdAt,
+    )?
+    updateBudget,
     TResult? Function(String userId, String budgetId)? deleteBudget,
   }) {
     return createBudget?.call(userId, category, limit, month);
@@ -604,11 +733,22 @@ class _$CreateBudgetImpl implements CreateBudget {
     TResult Function(String userId)? loadBudgets,
     TResult Function(String userId, DateTime month)? loadBudgetsForMonth,
     TResult Function(
-            String userId, String category, double limit, DateTime month)?
-        createBudget,
-    TResult Function(String id, String userId, String category, double limit,
-            String month, double spent, DateTime createdAt)?
-        updateBudget,
+      String userId,
+      String category,
+      double limit,
+      DateTime month,
+    )?
+    createBudget,
+    TResult Function(
+      String id,
+      String userId,
+      String category,
+      double limit,
+      String month,
+      double spent,
+      DateTime createdAt,
+    )?
+    updateBudget,
     TResult Function(String userId, String budgetId)? deleteBudget,
     required TResult orElse(),
   }) {
@@ -660,11 +800,12 @@ class _$CreateBudgetImpl implements CreateBudget {
 }
 
 abstract class CreateBudget implements BudgetEvent {
-  const factory CreateBudget(
-      {required final String userId,
-      required final String category,
-      required final double limit,
-      required final DateTime month}) = _$CreateBudgetImpl;
+  const factory CreateBudget({
+    required final String userId,
+    required final String category,
+    required final double limit,
+    required final DateTime month,
+  }) = _$CreateBudgetImpl;
 
   @override
   String get userId;
@@ -681,18 +822,20 @@ abstract class CreateBudget implements BudgetEvent {
 abstract class _$$UpdateBudgetImplCopyWith<$Res>
     implements $BudgetEventCopyWith<$Res> {
   factory _$$UpdateBudgetImplCopyWith(
-          _$UpdateBudgetImpl value, $Res Function(_$UpdateBudgetImpl) then) =
-      __$$UpdateBudgetImplCopyWithImpl<$Res>;
+    _$UpdateBudgetImpl value,
+    $Res Function(_$UpdateBudgetImpl) then,
+  ) = __$$UpdateBudgetImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {String id,
-      String userId,
-      String category,
-      double limit,
-      String month,
-      double spent,
-      DateTime createdAt});
+  $Res call({
+    String id,
+    String userId,
+    String category,
+    double limit,
+    String month,
+    double spent,
+    DateTime createdAt,
+  });
 }
 
 /// @nodoc
@@ -700,8 +843,9 @@ class __$$UpdateBudgetImplCopyWithImpl<$Res>
     extends _$BudgetEventCopyWithImpl<$Res, _$UpdateBudgetImpl>
     implements _$$UpdateBudgetImplCopyWith<$Res> {
   __$$UpdateBudgetImplCopyWithImpl(
-      _$UpdateBudgetImpl _value, $Res Function(_$UpdateBudgetImpl) _then)
-      : super(_value, _then);
+    _$UpdateBudgetImpl _value,
+    $Res Function(_$UpdateBudgetImpl) _then,
+  ) : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
@@ -714,50 +858,53 @@ class __$$UpdateBudgetImplCopyWithImpl<$Res>
     Object? spent = null,
     Object? createdAt = null,
   }) {
-    return _then(_$UpdateBudgetImpl(
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String,
-      userId: null == userId
-          ? _value.userId
-          : userId // ignore: cast_nullable_to_non_nullable
-              as String,
-      category: null == category
-          ? _value.category
-          : category // ignore: cast_nullable_to_non_nullable
-              as String,
-      limit: null == limit
-          ? _value.limit
-          : limit // ignore: cast_nullable_to_non_nullable
-              as double,
-      month: null == month
-          ? _value.month
-          : month // ignore: cast_nullable_to_non_nullable
-              as String,
-      spent: null == spent
-          ? _value.spent
-          : spent // ignore: cast_nullable_to_non_nullable
-              as double,
-      createdAt: null == createdAt
-          ? _value.createdAt
-          : createdAt // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-    ));
+    return _then(
+      _$UpdateBudgetImpl(
+        id: null == id
+            ? _value.id
+            : id // ignore: cast_nullable_to_non_nullable
+                  as String,
+        userId: null == userId
+            ? _value.userId
+            : userId // ignore: cast_nullable_to_non_nullable
+                  as String,
+        category: null == category
+            ? _value.category
+            : category // ignore: cast_nullable_to_non_nullable
+                  as String,
+        limit: null == limit
+            ? _value.limit
+            : limit // ignore: cast_nullable_to_non_nullable
+                  as double,
+        month: null == month
+            ? _value.month
+            : month // ignore: cast_nullable_to_non_nullable
+                  as String,
+        spent: null == spent
+            ? _value.spent
+            : spent // ignore: cast_nullable_to_non_nullable
+                  as double,
+        createdAt: null == createdAt
+            ? _value.createdAt
+            : createdAt // ignore: cast_nullable_to_non_nullable
+                  as DateTime,
+      ),
+    );
   }
 }
 
 /// @nodoc
 
 class _$UpdateBudgetImpl implements UpdateBudget {
-  const _$UpdateBudgetImpl(
-      {required this.id,
-      required this.userId,
-      required this.category,
-      required this.limit,
-      required this.month,
-      required this.spent,
-      required this.createdAt});
+  const _$UpdateBudgetImpl({
+    required this.id,
+    required this.userId,
+    required this.category,
+    required this.limit,
+    required this.month,
+    required this.spent,
+    required this.createdAt,
+  });
 
   @override
   final String id;
@@ -797,7 +944,15 @@ class _$UpdateBudgetImpl implements UpdateBudget {
 
   @override
   int get hashCode => Object.hash(
-      runtimeType, id, userId, category, limit, month, spent, createdAt);
+    runtimeType,
+    id,
+    userId,
+    category,
+    limit,
+    month,
+    spent,
+    createdAt,
+  );
 
   @JsonKey(ignore: true)
   @override
@@ -810,13 +965,24 @@ class _$UpdateBudgetImpl implements UpdateBudget {
   TResult when<TResult extends Object?>({
     required TResult Function(String userId) loadBudgets,
     required TResult Function(String userId, DateTime month)
-        loadBudgetsForMonth,
+    loadBudgetsForMonth,
     required TResult Function(
-            String userId, String category, double limit, DateTime month)
-        createBudget,
-    required TResult Function(String id, String userId, String category,
-            double limit, String month, double spent, DateTime createdAt)
-        updateBudget,
+      String userId,
+      String category,
+      double limit,
+      DateTime month,
+    )
+    createBudget,
+    required TResult Function(
+      String id,
+      String userId,
+      String category,
+      double limit,
+      String month,
+      double spent,
+      DateTime createdAt,
+    )
+    updateBudget,
     required TResult Function(String userId, String budgetId) deleteBudget,
   }) {
     return updateBudget(id, userId, category, limit, month, spent, createdAt);
@@ -828,15 +994,33 @@ class _$UpdateBudgetImpl implements UpdateBudget {
     TResult? Function(String userId)? loadBudgets,
     TResult? Function(String userId, DateTime month)? loadBudgetsForMonth,
     TResult? Function(
-            String userId, String category, double limit, DateTime month)?
-        createBudget,
-    TResult? Function(String id, String userId, String category, double limit,
-            String month, double spent, DateTime createdAt)?
-        updateBudget,
+      String userId,
+      String category,
+      double limit,
+      DateTime month,
+    )?
+    createBudget,
+    TResult? Function(
+      String id,
+      String userId,
+      String category,
+      double limit,
+      String month,
+      double spent,
+      DateTime createdAt,
+    )?
+    updateBudget,
     TResult? Function(String userId, String budgetId)? deleteBudget,
   }) {
     return updateBudget?.call(
-        id, userId, category, limit, month, spent, createdAt);
+      id,
+      userId,
+      category,
+      limit,
+      month,
+      spent,
+      createdAt,
+    );
   }
 
   @override
@@ -845,11 +1029,22 @@ class _$UpdateBudgetImpl implements UpdateBudget {
     TResult Function(String userId)? loadBudgets,
     TResult Function(String userId, DateTime month)? loadBudgetsForMonth,
     TResult Function(
-            String userId, String category, double limit, DateTime month)?
-        createBudget,
-    TResult Function(String id, String userId, String category, double limit,
-            String month, double spent, DateTime createdAt)?
-        updateBudget,
+      String userId,
+      String category,
+      double limit,
+      DateTime month,
+    )?
+    createBudget,
+    TResult Function(
+      String id,
+      String userId,
+      String category,
+      double limit,
+      String month,
+      double spent,
+      DateTime createdAt,
+    )?
+    updateBudget,
     TResult Function(String userId, String budgetId)? deleteBudget,
     required TResult orElse(),
   }) {
@@ -901,14 +1096,15 @@ class _$UpdateBudgetImpl implements UpdateBudget {
 }
 
 abstract class UpdateBudget implements BudgetEvent {
-  const factory UpdateBudget(
-      {required final String id,
-      required final String userId,
-      required final String category,
-      required final double limit,
-      required final String month,
-      required final double spent,
-      required final DateTime createdAt}) = _$UpdateBudgetImpl;
+  const factory UpdateBudget({
+    required final String id,
+    required final String userId,
+    required final String category,
+    required final double limit,
+    required final String month,
+    required final double spent,
+    required final DateTime createdAt,
+  }) = _$UpdateBudgetImpl;
 
   String get id;
   @override
@@ -928,8 +1124,9 @@ abstract class UpdateBudget implements BudgetEvent {
 abstract class _$$DeleteBudgetImplCopyWith<$Res>
     implements $BudgetEventCopyWith<$Res> {
   factory _$$DeleteBudgetImplCopyWith(
-          _$DeleteBudgetImpl value, $Res Function(_$DeleteBudgetImpl) then) =
-      __$$DeleteBudgetImplCopyWithImpl<$Res>;
+    _$DeleteBudgetImpl value,
+    $Res Function(_$DeleteBudgetImpl) then,
+  ) = __$$DeleteBudgetImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String userId, String budgetId});
@@ -940,25 +1137,25 @@ class __$$DeleteBudgetImplCopyWithImpl<$Res>
     extends _$BudgetEventCopyWithImpl<$Res, _$DeleteBudgetImpl>
     implements _$$DeleteBudgetImplCopyWith<$Res> {
   __$$DeleteBudgetImplCopyWithImpl(
-      _$DeleteBudgetImpl _value, $Res Function(_$DeleteBudgetImpl) _then)
-      : super(_value, _then);
+    _$DeleteBudgetImpl _value,
+    $Res Function(_$DeleteBudgetImpl) _then,
+  ) : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? userId = null,
-    Object? budgetId = null,
-  }) {
-    return _then(_$DeleteBudgetImpl(
-      userId: null == userId
-          ? _value.userId
-          : userId // ignore: cast_nullable_to_non_nullable
-              as String,
-      budgetId: null == budgetId
-          ? _value.budgetId
-          : budgetId // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
+  $Res call({Object? userId = null, Object? budgetId = null}) {
+    return _then(
+      _$DeleteBudgetImpl(
+        userId: null == userId
+            ? _value.userId
+            : userId // ignore: cast_nullable_to_non_nullable
+                  as String,
+        budgetId: null == budgetId
+            ? _value.budgetId
+            : budgetId // ignore: cast_nullable_to_non_nullable
+                  as String,
+      ),
+    );
   }
 }
 
@@ -1001,13 +1198,24 @@ class _$DeleteBudgetImpl implements DeleteBudget {
   TResult when<TResult extends Object?>({
     required TResult Function(String userId) loadBudgets,
     required TResult Function(String userId, DateTime month)
-        loadBudgetsForMonth,
+    loadBudgetsForMonth,
     required TResult Function(
-            String userId, String category, double limit, DateTime month)
-        createBudget,
-    required TResult Function(String id, String userId, String category,
-            double limit, String month, double spent, DateTime createdAt)
-        updateBudget,
+      String userId,
+      String category,
+      double limit,
+      DateTime month,
+    )
+    createBudget,
+    required TResult Function(
+      String id,
+      String userId,
+      String category,
+      double limit,
+      String month,
+      double spent,
+      DateTime createdAt,
+    )
+    updateBudget,
     required TResult Function(String userId, String budgetId) deleteBudget,
   }) {
     return deleteBudget(userId, budgetId);
@@ -1019,11 +1227,22 @@ class _$DeleteBudgetImpl implements DeleteBudget {
     TResult? Function(String userId)? loadBudgets,
     TResult? Function(String userId, DateTime month)? loadBudgetsForMonth,
     TResult? Function(
-            String userId, String category, double limit, DateTime month)?
-        createBudget,
-    TResult? Function(String id, String userId, String category, double limit,
-            String month, double spent, DateTime createdAt)?
-        updateBudget,
+      String userId,
+      String category,
+      double limit,
+      DateTime month,
+    )?
+    createBudget,
+    TResult? Function(
+      String id,
+      String userId,
+      String category,
+      double limit,
+      String month,
+      double spent,
+      DateTime createdAt,
+    )?
+    updateBudget,
     TResult? Function(String userId, String budgetId)? deleteBudget,
   }) {
     return deleteBudget?.call(userId, budgetId);
@@ -1035,11 +1254,22 @@ class _$DeleteBudgetImpl implements DeleteBudget {
     TResult Function(String userId)? loadBudgets,
     TResult Function(String userId, DateTime month)? loadBudgetsForMonth,
     TResult Function(
-            String userId, String category, double limit, DateTime month)?
-        createBudget,
-    TResult Function(String id, String userId, String category, double limit,
-            String month, double spent, DateTime createdAt)?
-        updateBudget,
+      String userId,
+      String category,
+      double limit,
+      DateTime month,
+    )?
+    createBudget,
+    TResult Function(
+      String id,
+      String userId,
+      String category,
+      double limit,
+      String month,
+      double spent,
+      DateTime createdAt,
+    )?
+    updateBudget,
     TResult Function(String userId, String budgetId)? deleteBudget,
     required TResult orElse(),
   }) {
@@ -1091,9 +1321,10 @@ class _$DeleteBudgetImpl implements DeleteBudget {
 }
 
 abstract class DeleteBudget implements BudgetEvent {
-  const factory DeleteBudget(
-      {required final String userId,
-      required final String budgetId}) = _$DeleteBudgetImpl;
+  const factory DeleteBudget({
+    required final String userId,
+    required final String budgetId,
+  }) = _$DeleteBudgetImpl;
 
   @override
   String get userId;

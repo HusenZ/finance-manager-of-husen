@@ -4,14 +4,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'recurring_transaction.freezed.dart';
 part 'recurring_transaction.g.dart';
 
-enum RecurringFrequency {
-  daily,
-  weekly,
-  biweekly,
-  monthly,
-  quarterly,
-  yearly,
-}
+enum RecurringFrequency { daily, weekly, biweekly, monthly, quarterly, yearly }
 
 @freezed
 @HiveType(typeId: 4)
@@ -35,7 +28,9 @@ class RecurringTransaction with _$RecurringTransaction {
       _$RecurringTransactionFromJson(json);
 
   factory RecurringTransaction.fromFirestore(
-      Map<String, dynamic> data, String id) {
+    Map<String, dynamic> data,
+    String id,
+  ) {
     return RecurringTransaction(
       id: id,
       userId: data['userId'] as String? ?? '',

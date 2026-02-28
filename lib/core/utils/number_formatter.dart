@@ -5,7 +5,9 @@ class NumberFormatter {
   NumberFormatter._();
 
   static String formatCurrency(double amount, {String? currency}) {
-    final currencySymbol = AppConstants.currencies[currency ?? AppConstants.defaultCurrency] ?? '₹';
+    final currencySymbol =
+        AppConstants.currencies[currency ?? AppConstants.defaultCurrency] ??
+        '₹';
     final formatter = NumberFormat('#,##,##0.00', 'en_IN');
     return '$currencySymbol${formatter.format(amount)}';
   }
@@ -16,7 +18,9 @@ class NumberFormatter {
   }
 
   static String formatCompactCurrency(double amount, {String? currency}) {
-    final currencySymbol = AppConstants.currencies[currency ?? AppConstants.defaultCurrency] ?? '₹';
+    final currencySymbol =
+        AppConstants.currencies[currency ?? AppConstants.defaultCurrency] ??
+        '₹';
 
     if (amount >= 10000000) {
       // Crores

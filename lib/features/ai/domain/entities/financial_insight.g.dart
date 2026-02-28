@@ -7,28 +7,28 @@ part of 'financial_insight.dart';
 // **************************************************************************
 
 _$FinancialInsightImpl _$$FinancialInsightImplFromJson(
-        Map<String, dynamic> json) =>
-    _$FinancialInsightImpl(
-      id: json['id'] as String,
-      title: json['title'] as String,
-      description: json['description'] as String,
-      type: $enumDecode(_$InsightTypeEnumMap, json['type']),
-      priority: $enumDecode(_$InsightPriorityEnumMap, json['priority']),
-      generatedAt: DateTime.parse(json['generatedAt'] as String),
-      actionLink: json['actionLink'] as String?,
-    );
+  Map<String, dynamic> json,
+) => _$FinancialInsightImpl(
+  id: json['id'] as String,
+  title: json['title'] as String,
+  description: json['description'] as String,
+  type: $enumDecode(_$InsightTypeEnumMap, json['type']),
+  priority: $enumDecode(_$InsightPriorityEnumMap, json['priority']),
+  generatedAt: DateTime.parse(json['generatedAt'] as String),
+  actionLink: json['actionLink'] as String?,
+);
 
 Map<String, dynamic> _$$FinancialInsightImplToJson(
-        _$FinancialInsightImpl instance) =>
-    <String, dynamic>{
-      'id': instance.id,
-      'title': instance.title,
-      'description': instance.description,
-      'type': _$InsightTypeEnumMap[instance.type]!,
-      'priority': _$InsightPriorityEnumMap[instance.priority]!,
-      'generatedAt': instance.generatedAt.toIso8601String(),
-      'actionLink': instance.actionLink,
-    };
+  _$FinancialInsightImpl instance,
+) => <String, dynamic>{
+  'id': instance.id,
+  'title': instance.title,
+  'description': instance.description,
+  'type': _$InsightTypeEnumMap[instance.type]!,
+  'priority': _$InsightPriorityEnumMap[instance.priority]!,
+  'generatedAt': instance.generatedAt.toIso8601String(),
+  'actionLink': instance.actionLink,
+};
 
 const _$InsightTypeEnumMap = {
   InsightType.spending: 'spending',

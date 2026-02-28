@@ -9,10 +9,9 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
   final AuthRepository _authRepository;
   StreamSubscription? _authStateSubscription;
 
-  AuthBloc({
-    required AuthRepository authRepository,
-  })  : _authRepository = authRepository,
-        super(const AuthState.initial()) {
+  AuthBloc({required AuthRepository authRepository})
+    : _authRepository = authRepository,
+      super(const AuthState.initial()) {
     on<SignUpRequested>(_onSignUpRequested);
     on<SignInRequested>(_onSignInRequested);
     on<SignInWithGoogleRequested>(_onSignInWithGoogleRequested);
@@ -22,6 +21,8 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     on<AuthStateChanged>(_onAuthStateChanged);
 
     _initializeAuthStateListener();
+    // Ensure persisted session is reflected on cold start/restart.
+    add(const AuthEvent.authStateChanged());
   }
 
   void _initializeAuthStateListener() {
@@ -203,7 +204,8 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
 
       final updatedProfile = currentState.user.copyWith(
         name: event.name,
-        profilePicture: event.profilePicture ?? currentState.user.profilePicture,
+        profilePicture:
+            event.profilePicture ?? currentState.user.profilePicture,
         currency: event.currency ?? currentState.user.currency,
       );
 

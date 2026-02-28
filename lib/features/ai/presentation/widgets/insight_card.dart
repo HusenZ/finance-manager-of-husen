@@ -9,11 +9,8 @@ class InsightCard extends StatelessWidget {
   final FinancialInsight insight;
   final VoidCallback? onTap;
 
-  const InsightCard({
-    Key? key,
-    required this.insight,
-    this.onTap,
-  }) : super(key: key);
+  const InsightCard({Key? key, required this.insight, this.onTap})
+    : super(key: key);
 
   @override
   Widget build(BuildContext context) {

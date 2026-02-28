@@ -50,7 +50,8 @@ class IncomeBloc extends Bloc<IncomeEvent, IncomeState> {
   ) async {
     emit(const IncomeState.loading());
     AppLogger.debug(
-        'Loading incomes for month: ${event.month.year}-${event.month.month}');
+      'Loading incomes for month: ${event.month.year}-${event.month.month}',
+    );
 
     final result = await _incomeRepository.getIncomesForMonth(
       event.userId,
@@ -197,7 +198,9 @@ class IncomeBloc extends Bloc<IncomeEvent, IncomeState> {
         emit(IncomeState.error(message: error));
       },
       (incomes) {
-        AppLogger.info('Found ${incomes.length} incomes for source: ${event.source}');
+        AppLogger.info(
+          'Found ${incomes.length} incomes for source: ${event.source}',
+        );
         emit(IncomeState.loaded(incomes: incomes));
       },
     );
@@ -230,7 +233,8 @@ class IncomeBloc extends Bloc<IncomeEvent, IncomeState> {
   ) async {
     emit(const IncomeState.loading());
     AppLogger.debug(
-        'Calculating total income for month: ${event.month.year}-${event.month.month}');
+      'Calculating total income for month: ${event.month.year}-${event.month.month}',
+    );
 
     final result = await _incomeRepository.getTotalIncomeForMonth(
       event.userId,

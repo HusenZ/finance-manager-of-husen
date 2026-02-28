@@ -36,11 +36,11 @@ class _BudgetsScreenState extends State<BudgetsScreen> {
     final authState = context.read<AuthBloc>().state;
     if (authState is AuthAuthenticated) {
       context.read<BudgetBloc>().add(
-            BudgetEvent.loadBudgetsForMonth(
-              userId: authState.user.id,
-              month: _selectedMonth,
-            ),
-          );
+        BudgetEvent.loadBudgetsForMonth(
+          userId: authState.user.id,
+          month: _selectedMonth,
+        ),
+      );
     }
   }
 
@@ -49,11 +49,8 @@ class _BudgetsScreenState extends State<BudgetsScreen> {
     if (authState is! AuthAuthenticated) return;
 
     context.read<BudgetBloc>().add(
-          BudgetEvent.deleteBudget(
-            userId: authState.user.id,
-            budgetId: budget.id,
-          ),
-        );
+      BudgetEvent.deleteBudget(userId: authState.user.id, budgetId: budget.id),
+    );
 
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
@@ -109,8 +106,9 @@ class _BudgetsScreenState extends State<BudgetsScreen> {
     final currencyCode = authState.user.currency ?? 'INR';
 
     return Scaffold(
-      backgroundColor:
-          isDark ? AppColors.backgroundDark : AppColors.backgroundLight,
+      backgroundColor: isDark
+          ? AppColors.backgroundDark
+          : AppColors.backgroundLight,
       appBar: const CustomAppBar(title: 'Budgets'),
       body: Column(
         children: [
@@ -158,7 +156,11 @@ class _BudgetsScreenState extends State<BudgetsScreen> {
                       },
                       child: Column(
                         children: [
-                          _buildSummaryCard(sortedBudgets, currencyCode, isDark),
+                          _buildSummaryCard(
+                            sortedBudgets,
+                            currencyCode,
+                            isDark,
+                          ),
                           Expanded(
                             child: ListView.builder(
                               itemCount: sortedBudgets.length,
@@ -173,7 +175,8 @@ class _BudgetsScreenState extends State<BudgetsScreen> {
                                       '${AppRouter.budgets}/edit/${budget.id}',
                                     );
                                   },
-                                  onDelete: () => _showDeleteConfirmation(budget),
+                                  onDelete: () =>
+                                      _showDeleteConfirmation(budget),
                                 );
                               },
                             ),
@@ -239,8 +242,8 @@ class _BudgetsScreenState extends State<BudgetsScreen> {
                   Text(
                     DateFormat('MMMM yyyy').format(_selectedMonth),
                     style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                          fontWeight: FontWeight.bold,
-                        ),
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                   const SizedBox(width: AppConstants.spacing4),
                   const Icon(Icons.arrow_drop_down),
@@ -263,14 +266,14 @@ class _BudgetsScreenState extends State<BudgetsScreen> {
     final totalSpent = budgets.fold<double>(0, (sum, b) => sum + b.spent);
     final totalRemaining = totalLimit - totalSpent;
     final exceededCount = budgets.where((b) => b.isExceeded).length;
-    final warningCount = budgets.where((b) => b.isWarning && !b.isExceeded).length;
+    final warningCount = budgets
+        .where((b) => b.isWarning && !b.isExceeded)
+        .length;
 
     return Card(
       margin: const EdgeInsets.all(AppConstants.spacing16),
       elevation: 2,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(16),
-      ),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
       child: Container(
         decoration: BoxDecoration(
           gradient: LinearGradient(
@@ -290,9 +293,9 @@ class _BudgetsScreenState extends State<BudgetsScreen> {
             Text(
               'Budget Overview',
               style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                  ),
+                color: Colors.white,
+                fontWeight: FontWeight.bold,
+              ),
             ),
             const SizedBox(height: AppConstants.spacing16),
             Row(
@@ -369,16 +372,16 @@ class _BudgetsScreenState extends State<BudgetsScreen> {
         Text(
           label,
           style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                color: Colors.white.withValues(alpha: 0.9),
-              ),
+            color: Colors.white.withValues(alpha: 0.9),
+          ),
         ),
         const SizedBox(height: AppConstants.spacing4),
         Text(
           value,
           style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                color: Colors.white,
-                fontWeight: FontWeight.bold,
-              ),
+            color: Colors.white,
+            fontWeight: FontWeight.bold,
+          ),
         ),
       ],
     );
@@ -399,9 +402,9 @@ class _BudgetsScreenState extends State<BudgetsScreen> {
             const SizedBox(height: AppConstants.spacing24),
             Text(
               'No budgets yet',
-              style: Theme.of(context).textTheme.headlineSmall?.copyWith(
-                    fontWeight: FontWeight.bold,
-                  ),
+              style: Theme.of(
+                context,
+              ).textTheme.headlineSmall?.copyWith(fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: AppConstants.spacing8),
             Text(
@@ -445,9 +448,7 @@ class _BudgetsScreenState extends State<BudgetsScreen> {
               Navigator.of(context).pop();
               _deleteBudget(budget);
             },
-            style: TextButton.styleFrom(
-              foregroundColor: AppColors.error,
-            ),
+            style: TextButton.styleFrom(foregroundColor: AppColors.error),
             child: const Text('Delete'),
           ),
         ],

@@ -62,9 +62,7 @@ class BudgetCard extends StatelessWidget {
         vertical: AppConstants.spacing8,
       ),
       elevation: 2,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(16),
-      ),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
       child: InkWell(
         onTap: onTap,
         borderRadius: BorderRadius.circular(16),
@@ -111,10 +109,11 @@ class BudgetCard extends StatelessWidget {
                             const SizedBox(width: AppConstants.spacing4),
                             Text(
                               _getStatusText(),
-                              style: (isDark
-                                      ? AppTextStyles.bodySmallDark
-                                      : AppTextStyles.bodySmallLight)
-                                  .copyWith(color: statusColor),
+                              style:
+                                  (isDark
+                                          ? AppTextStyles.bodySmallDark
+                                          : AppTextStyles.bodySmallLight)
+                                      .copyWith(color: statusColor),
                             ),
                           ],
                         ),
@@ -123,10 +122,7 @@ class BudgetCard extends StatelessWidget {
                   ),
                   if (onDelete != null)
                     IconButton(
-                      icon: Icon(
-                        Icons.delete_outline,
-                        color: AppColors.error,
-                      ),
+                      icon: Icon(Icons.delete_outline, color: AppColors.error),
                       onPressed: onDelete,
                     ),
                 ],
@@ -148,13 +144,14 @@ class BudgetCard extends StatelessWidget {
                       ),
                       Text(
                         '${percentage.toStringAsFixed(1)}%',
-                        style: (isDark
-                                ? AppTextStyles.labelMediumDark
-                                : AppTextStyles.labelMediumLight)
-                            .copyWith(
-                          color: statusColor,
-                          fontWeight: FontWeight.bold,
-                        ),
+                        style:
+                            (isDark
+                                    ? AppTextStyles.labelMediumDark
+                                    : AppTextStyles.labelMediumLight)
+                                .copyWith(
+                                  color: statusColor,
+                                  fontWeight: FontWeight.bold,
+                                ),
                       ),
                     ],
                   ),
@@ -212,15 +209,16 @@ class BudgetCard extends StatelessWidget {
                     ),
                     Text(
                       budget.remaining.toCurrency(currency: currency),
-                      style: (isDark
-                              ? AppTextStyles.labelMediumDark
-                              : AppTextStyles.labelMediumLight)
-                          .copyWith(
-                        color: budget.remaining >= 0
-                            ? AppColors.success
-                            : AppColors.error,
-                        fontWeight: FontWeight.bold,
-                      ),
+                      style:
+                          (isDark
+                                  ? AppTextStyles.labelMediumDark
+                                  : AppTextStyles.labelMediumLight)
+                              .copyWith(
+                                color: budget.remaining >= 0
+                                    ? AppColors.success
+                                    : AppColors.error,
+                                fontWeight: FontWeight.bold,
+                              ),
                     ),
                   ],
                 ),

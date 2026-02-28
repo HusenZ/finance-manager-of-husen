@@ -12,7 +12,8 @@ part of 'ai_chat_event.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 /// @nodoc
 mixin _$AIChatEvent {
@@ -24,10 +25,9 @@ mixin _$AIChatEvent {
     required TResult Function(String description) categorizeExpense,
     required TResult Function() generateInsights,
     required TResult Function(String itemName, double itemPrice)
-        getPurchaseAdvice,
+    getPurchaseAdvice,
     required TResult Function() refreshFinancialContext,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String message)? sendMessage,
@@ -37,8 +37,7 @@ mixin _$AIChatEvent {
     TResult? Function()? generateInsights,
     TResult? Function(String itemName, double itemPrice)? getPurchaseAdvice,
     TResult? Function()? refreshFinancialContext,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String message)? sendMessage,
@@ -49,8 +48,7 @@ mixin _$AIChatEvent {
     TResult Function(String itemName, double itemPrice)? getPurchaseAdvice,
     TResult Function()? refreshFinancialContext,
     required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(SendMessageEvent value) sendMessage,
@@ -60,9 +58,8 @@ mixin _$AIChatEvent {
     required TResult Function(GenerateInsightsEvent value) generateInsights,
     required TResult Function(GetPurchaseAdviceEvent value) getPurchaseAdvice,
     required TResult Function(RefreshFinancialContextEvent value)
-        refreshFinancialContext,
-  }) =>
-      throw _privateConstructorUsedError;
+    refreshFinancialContext,
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(SendMessageEvent value)? sendMessage,
@@ -72,9 +69,8 @@ mixin _$AIChatEvent {
     TResult? Function(GenerateInsightsEvent value)? generateInsights,
     TResult? Function(GetPurchaseAdviceEvent value)? getPurchaseAdvice,
     TResult? Function(RefreshFinancialContextEvent value)?
-        refreshFinancialContext,
-  }) =>
-      throw _privateConstructorUsedError;
+    refreshFinancialContext,
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(SendMessageEvent value)? sendMessage,
@@ -84,17 +80,17 @@ mixin _$AIChatEvent {
     TResult Function(GenerateInsightsEvent value)? generateInsights,
     TResult Function(GetPurchaseAdviceEvent value)? getPurchaseAdvice,
     TResult Function(RefreshFinancialContextEvent value)?
-        refreshFinancialContext,
+    refreshFinancialContext,
     required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $AIChatEventCopyWith<$Res> {
   factory $AIChatEventCopyWith(
-          AIChatEvent value, $Res Function(AIChatEvent) then) =
-      _$AIChatEventCopyWithImpl<$Res, AIChatEvent>;
+    AIChatEvent value,
+    $Res Function(AIChatEvent) then,
+  ) = _$AIChatEventCopyWithImpl<$Res, AIChatEvent>;
 }
 
 /// @nodoc
@@ -110,9 +106,10 @@ class _$AIChatEventCopyWithImpl<$Res, $Val extends AIChatEvent>
 
 /// @nodoc
 abstract class _$$SendMessageEventImplCopyWith<$Res> {
-  factory _$$SendMessageEventImplCopyWith(_$SendMessageEventImpl value,
-          $Res Function(_$SendMessageEventImpl) then) =
-      __$$SendMessageEventImplCopyWithImpl<$Res>;
+  factory _$$SendMessageEventImplCopyWith(
+    _$SendMessageEventImpl value,
+    $Res Function(_$SendMessageEventImpl) then,
+  ) = __$$SendMessageEventImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String message});
 }
@@ -121,21 +118,22 @@ abstract class _$$SendMessageEventImplCopyWith<$Res> {
 class __$$SendMessageEventImplCopyWithImpl<$Res>
     extends _$AIChatEventCopyWithImpl<$Res, _$SendMessageEventImpl>
     implements _$$SendMessageEventImplCopyWith<$Res> {
-  __$$SendMessageEventImplCopyWithImpl(_$SendMessageEventImpl _value,
-      $Res Function(_$SendMessageEventImpl) _then)
-      : super(_value, _then);
+  __$$SendMessageEventImplCopyWithImpl(
+    _$SendMessageEventImpl _value,
+    $Res Function(_$SendMessageEventImpl) _then,
+  ) : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? message = null,
-  }) {
-    return _then(_$SendMessageEventImpl(
-      null == message
-          ? _value.message
-          : message // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
+  $Res call({Object? message = null}) {
+    return _then(
+      _$SendMessageEventImpl(
+        null == message
+            ? _value.message
+            : message // ignore: cast_nullable_to_non_nullable
+                  as String,
+      ),
+    );
   }
 }
 
@@ -168,7 +166,9 @@ class _$SendMessageEventImpl implements SendMessageEvent {
   @pragma('vm:prefer-inline')
   _$$SendMessageEventImplCopyWith<_$SendMessageEventImpl> get copyWith =>
       __$$SendMessageEventImplCopyWithImpl<_$SendMessageEventImpl>(
-          this, _$identity);
+        this,
+        _$identity,
+      );
 
   @override
   @optionalTypeArgs
@@ -179,7 +179,7 @@ class _$SendMessageEventImpl implements SendMessageEvent {
     required TResult Function(String description) categorizeExpense,
     required TResult Function() generateInsights,
     required TResult Function(String itemName, double itemPrice)
-        getPurchaseAdvice,
+    getPurchaseAdvice,
     required TResult Function() refreshFinancialContext,
   }) {
     return sendMessage(message);
@@ -227,7 +227,7 @@ class _$SendMessageEventImpl implements SendMessageEvent {
     required TResult Function(GenerateInsightsEvent value) generateInsights,
     required TResult Function(GetPurchaseAdviceEvent value) getPurchaseAdvice,
     required TResult Function(RefreshFinancialContextEvent value)
-        refreshFinancialContext,
+    refreshFinancialContext,
   }) {
     return sendMessage(this);
   }
@@ -242,7 +242,7 @@ class _$SendMessageEventImpl implements SendMessageEvent {
     TResult? Function(GenerateInsightsEvent value)? generateInsights,
     TResult? Function(GetPurchaseAdviceEvent value)? getPurchaseAdvice,
     TResult? Function(RefreshFinancialContextEvent value)?
-        refreshFinancialContext,
+    refreshFinancialContext,
   }) {
     return sendMessage?.call(this);
   }
@@ -257,7 +257,7 @@ class _$SendMessageEventImpl implements SendMessageEvent {
     TResult Function(GenerateInsightsEvent value)? generateInsights,
     TResult Function(GetPurchaseAdviceEvent value)? getPurchaseAdvice,
     TResult Function(RefreshFinancialContextEvent value)?
-        refreshFinancialContext,
+    refreshFinancialContext,
     required TResult orElse(),
   }) {
     if (sendMessage != null) {
@@ -278,18 +278,20 @@ abstract class SendMessageEvent implements AIChatEvent {
 
 /// @nodoc
 abstract class _$$LoadHistoryEventImplCopyWith<$Res> {
-  factory _$$LoadHistoryEventImplCopyWith(_$LoadHistoryEventImpl value,
-          $Res Function(_$LoadHistoryEventImpl) then) =
-      __$$LoadHistoryEventImplCopyWithImpl<$Res>;
+  factory _$$LoadHistoryEventImplCopyWith(
+    _$LoadHistoryEventImpl value,
+    $Res Function(_$LoadHistoryEventImpl) then,
+  ) = __$$LoadHistoryEventImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
 class __$$LoadHistoryEventImplCopyWithImpl<$Res>
     extends _$AIChatEventCopyWithImpl<$Res, _$LoadHistoryEventImpl>
     implements _$$LoadHistoryEventImplCopyWith<$Res> {
-  __$$LoadHistoryEventImplCopyWithImpl(_$LoadHistoryEventImpl _value,
-      $Res Function(_$LoadHistoryEventImpl) _then)
-      : super(_value, _then);
+  __$$LoadHistoryEventImplCopyWithImpl(
+    _$LoadHistoryEventImpl _value,
+    $Res Function(_$LoadHistoryEventImpl) _then,
+  ) : super(_value, _then);
 }
 
 /// @nodoc
@@ -320,7 +322,7 @@ class _$LoadHistoryEventImpl implements LoadHistoryEvent {
     required TResult Function(String description) categorizeExpense,
     required TResult Function() generateInsights,
     required TResult Function(String itemName, double itemPrice)
-        getPurchaseAdvice,
+    getPurchaseAdvice,
     required TResult Function() refreshFinancialContext,
   }) {
     return loadHistory();
@@ -368,7 +370,7 @@ class _$LoadHistoryEventImpl implements LoadHistoryEvent {
     required TResult Function(GenerateInsightsEvent value) generateInsights,
     required TResult Function(GetPurchaseAdviceEvent value) getPurchaseAdvice,
     required TResult Function(RefreshFinancialContextEvent value)
-        refreshFinancialContext,
+    refreshFinancialContext,
   }) {
     return loadHistory(this);
   }
@@ -383,7 +385,7 @@ class _$LoadHistoryEventImpl implements LoadHistoryEvent {
     TResult? Function(GenerateInsightsEvent value)? generateInsights,
     TResult? Function(GetPurchaseAdviceEvent value)? getPurchaseAdvice,
     TResult? Function(RefreshFinancialContextEvent value)?
-        refreshFinancialContext,
+    refreshFinancialContext,
   }) {
     return loadHistory?.call(this);
   }
@@ -398,7 +400,7 @@ class _$LoadHistoryEventImpl implements LoadHistoryEvent {
     TResult Function(GenerateInsightsEvent value)? generateInsights,
     TResult Function(GetPurchaseAdviceEvent value)? getPurchaseAdvice,
     TResult Function(RefreshFinancialContextEvent value)?
-        refreshFinancialContext,
+    refreshFinancialContext,
     required TResult orElse(),
   }) {
     if (loadHistory != null) {
@@ -414,18 +416,20 @@ abstract class LoadHistoryEvent implements AIChatEvent {
 
 /// @nodoc
 abstract class _$$ClearHistoryEventImplCopyWith<$Res> {
-  factory _$$ClearHistoryEventImplCopyWith(_$ClearHistoryEventImpl value,
-          $Res Function(_$ClearHistoryEventImpl) then) =
-      __$$ClearHistoryEventImplCopyWithImpl<$Res>;
+  factory _$$ClearHistoryEventImplCopyWith(
+    _$ClearHistoryEventImpl value,
+    $Res Function(_$ClearHistoryEventImpl) then,
+  ) = __$$ClearHistoryEventImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
 class __$$ClearHistoryEventImplCopyWithImpl<$Res>
     extends _$AIChatEventCopyWithImpl<$Res, _$ClearHistoryEventImpl>
     implements _$$ClearHistoryEventImplCopyWith<$Res> {
-  __$$ClearHistoryEventImplCopyWithImpl(_$ClearHistoryEventImpl _value,
-      $Res Function(_$ClearHistoryEventImpl) _then)
-      : super(_value, _then);
+  __$$ClearHistoryEventImplCopyWithImpl(
+    _$ClearHistoryEventImpl _value,
+    $Res Function(_$ClearHistoryEventImpl) _then,
+  ) : super(_value, _then);
 }
 
 /// @nodoc
@@ -456,7 +460,7 @@ class _$ClearHistoryEventImpl implements ClearHistoryEvent {
     required TResult Function(String description) categorizeExpense,
     required TResult Function() generateInsights,
     required TResult Function(String itemName, double itemPrice)
-        getPurchaseAdvice,
+    getPurchaseAdvice,
     required TResult Function() refreshFinancialContext,
   }) {
     return clearHistory();
@@ -504,7 +508,7 @@ class _$ClearHistoryEventImpl implements ClearHistoryEvent {
     required TResult Function(GenerateInsightsEvent value) generateInsights,
     required TResult Function(GetPurchaseAdviceEvent value) getPurchaseAdvice,
     required TResult Function(RefreshFinancialContextEvent value)
-        refreshFinancialContext,
+    refreshFinancialContext,
   }) {
     return clearHistory(this);
   }
@@ -519,7 +523,7 @@ class _$ClearHistoryEventImpl implements ClearHistoryEvent {
     TResult? Function(GenerateInsightsEvent value)? generateInsights,
     TResult? Function(GetPurchaseAdviceEvent value)? getPurchaseAdvice,
     TResult? Function(RefreshFinancialContextEvent value)?
-        refreshFinancialContext,
+    refreshFinancialContext,
   }) {
     return clearHistory?.call(this);
   }
@@ -534,7 +538,7 @@ class _$ClearHistoryEventImpl implements ClearHistoryEvent {
     TResult Function(GenerateInsightsEvent value)? generateInsights,
     TResult Function(GetPurchaseAdviceEvent value)? getPurchaseAdvice,
     TResult Function(RefreshFinancialContextEvent value)?
-        refreshFinancialContext,
+    refreshFinancialContext,
     required TResult orElse(),
   }) {
     if (clearHistory != null) {
@@ -551,9 +555,9 @@ abstract class ClearHistoryEvent implements AIChatEvent {
 /// @nodoc
 abstract class _$$CategorizeExpenseEventImplCopyWith<$Res> {
   factory _$$CategorizeExpenseEventImplCopyWith(
-          _$CategorizeExpenseEventImpl value,
-          $Res Function(_$CategorizeExpenseEventImpl) then) =
-      __$$CategorizeExpenseEventImplCopyWithImpl<$Res>;
+    _$CategorizeExpenseEventImpl value,
+    $Res Function(_$CategorizeExpenseEventImpl) then,
+  ) = __$$CategorizeExpenseEventImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String description});
 }
@@ -563,21 +567,21 @@ class __$$CategorizeExpenseEventImplCopyWithImpl<$Res>
     extends _$AIChatEventCopyWithImpl<$Res, _$CategorizeExpenseEventImpl>
     implements _$$CategorizeExpenseEventImplCopyWith<$Res> {
   __$$CategorizeExpenseEventImplCopyWithImpl(
-      _$CategorizeExpenseEventImpl _value,
-      $Res Function(_$CategorizeExpenseEventImpl) _then)
-      : super(_value, _then);
+    _$CategorizeExpenseEventImpl _value,
+    $Res Function(_$CategorizeExpenseEventImpl) _then,
+  ) : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? description = null,
-  }) {
-    return _then(_$CategorizeExpenseEventImpl(
-      null == description
-          ? _value.description
-          : description // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
+  $Res call({Object? description = null}) {
+    return _then(
+      _$CategorizeExpenseEventImpl(
+        null == description
+            ? _value.description
+            : description // ignore: cast_nullable_to_non_nullable
+                  as String,
+      ),
+    );
   }
 }
 
@@ -610,8 +614,11 @@ class _$CategorizeExpenseEventImpl implements CategorizeExpenseEvent {
   @override
   @pragma('vm:prefer-inline')
   _$$CategorizeExpenseEventImplCopyWith<_$CategorizeExpenseEventImpl>
-      get copyWith => __$$CategorizeExpenseEventImplCopyWithImpl<
-          _$CategorizeExpenseEventImpl>(this, _$identity);
+  get copyWith =>
+      __$$CategorizeExpenseEventImplCopyWithImpl<_$CategorizeExpenseEventImpl>(
+        this,
+        _$identity,
+      );
 
   @override
   @optionalTypeArgs
@@ -622,7 +629,7 @@ class _$CategorizeExpenseEventImpl implements CategorizeExpenseEvent {
     required TResult Function(String description) categorizeExpense,
     required TResult Function() generateInsights,
     required TResult Function(String itemName, double itemPrice)
-        getPurchaseAdvice,
+    getPurchaseAdvice,
     required TResult Function() refreshFinancialContext,
   }) {
     return categorizeExpense(description);
@@ -670,7 +677,7 @@ class _$CategorizeExpenseEventImpl implements CategorizeExpenseEvent {
     required TResult Function(GenerateInsightsEvent value) generateInsights,
     required TResult Function(GetPurchaseAdviceEvent value) getPurchaseAdvice,
     required TResult Function(RefreshFinancialContextEvent value)
-        refreshFinancialContext,
+    refreshFinancialContext,
   }) {
     return categorizeExpense(this);
   }
@@ -685,7 +692,7 @@ class _$CategorizeExpenseEventImpl implements CategorizeExpenseEvent {
     TResult? Function(GenerateInsightsEvent value)? generateInsights,
     TResult? Function(GetPurchaseAdviceEvent value)? getPurchaseAdvice,
     TResult? Function(RefreshFinancialContextEvent value)?
-        refreshFinancialContext,
+    refreshFinancialContext,
   }) {
     return categorizeExpense?.call(this);
   }
@@ -700,7 +707,7 @@ class _$CategorizeExpenseEventImpl implements CategorizeExpenseEvent {
     TResult Function(GenerateInsightsEvent value)? generateInsights,
     TResult Function(GetPurchaseAdviceEvent value)? getPurchaseAdvice,
     TResult Function(RefreshFinancialContextEvent value)?
-        refreshFinancialContext,
+    refreshFinancialContext,
     required TResult orElse(),
   }) {
     if (categorizeExpense != null) {
@@ -717,24 +724,25 @@ abstract class CategorizeExpenseEvent implements AIChatEvent {
   String get description;
   @JsonKey(ignore: true)
   _$$CategorizeExpenseEventImplCopyWith<_$CategorizeExpenseEventImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class _$$GenerateInsightsEventImplCopyWith<$Res> {
   factory _$$GenerateInsightsEventImplCopyWith(
-          _$GenerateInsightsEventImpl value,
-          $Res Function(_$GenerateInsightsEventImpl) then) =
-      __$$GenerateInsightsEventImplCopyWithImpl<$Res>;
+    _$GenerateInsightsEventImpl value,
+    $Res Function(_$GenerateInsightsEventImpl) then,
+  ) = __$$GenerateInsightsEventImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
 class __$$GenerateInsightsEventImplCopyWithImpl<$Res>
     extends _$AIChatEventCopyWithImpl<$Res, _$GenerateInsightsEventImpl>
     implements _$$GenerateInsightsEventImplCopyWith<$Res> {
-  __$$GenerateInsightsEventImplCopyWithImpl(_$GenerateInsightsEventImpl _value,
-      $Res Function(_$GenerateInsightsEventImpl) _then)
-      : super(_value, _then);
+  __$$GenerateInsightsEventImplCopyWithImpl(
+    _$GenerateInsightsEventImpl _value,
+    $Res Function(_$GenerateInsightsEventImpl) _then,
+  ) : super(_value, _then);
 }
 
 /// @nodoc
@@ -766,7 +774,7 @@ class _$GenerateInsightsEventImpl implements GenerateInsightsEvent {
     required TResult Function(String description) categorizeExpense,
     required TResult Function() generateInsights,
     required TResult Function(String itemName, double itemPrice)
-        getPurchaseAdvice,
+    getPurchaseAdvice,
     required TResult Function() refreshFinancialContext,
   }) {
     return generateInsights();
@@ -814,7 +822,7 @@ class _$GenerateInsightsEventImpl implements GenerateInsightsEvent {
     required TResult Function(GenerateInsightsEvent value) generateInsights,
     required TResult Function(GetPurchaseAdviceEvent value) getPurchaseAdvice,
     required TResult Function(RefreshFinancialContextEvent value)
-        refreshFinancialContext,
+    refreshFinancialContext,
   }) {
     return generateInsights(this);
   }
@@ -829,7 +837,7 @@ class _$GenerateInsightsEventImpl implements GenerateInsightsEvent {
     TResult? Function(GenerateInsightsEvent value)? generateInsights,
     TResult? Function(GetPurchaseAdviceEvent value)? getPurchaseAdvice,
     TResult? Function(RefreshFinancialContextEvent value)?
-        refreshFinancialContext,
+    refreshFinancialContext,
   }) {
     return generateInsights?.call(this);
   }
@@ -844,7 +852,7 @@ class _$GenerateInsightsEventImpl implements GenerateInsightsEvent {
     TResult Function(GenerateInsightsEvent value)? generateInsights,
     TResult Function(GetPurchaseAdviceEvent value)? getPurchaseAdvice,
     TResult Function(RefreshFinancialContextEvent value)?
-        refreshFinancialContext,
+    refreshFinancialContext,
     required TResult orElse(),
   }) {
     if (generateInsights != null) {
@@ -861,9 +869,9 @@ abstract class GenerateInsightsEvent implements AIChatEvent {
 /// @nodoc
 abstract class _$$GetPurchaseAdviceEventImplCopyWith<$Res> {
   factory _$$GetPurchaseAdviceEventImplCopyWith(
-          _$GetPurchaseAdviceEventImpl value,
-          $Res Function(_$GetPurchaseAdviceEventImpl) then) =
-      __$$GetPurchaseAdviceEventImplCopyWithImpl<$Res>;
+    _$GetPurchaseAdviceEventImpl value,
+    $Res Function(_$GetPurchaseAdviceEventImpl) then,
+  ) = __$$GetPurchaseAdviceEventImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String itemName, double itemPrice});
 }
@@ -873,34 +881,35 @@ class __$$GetPurchaseAdviceEventImplCopyWithImpl<$Res>
     extends _$AIChatEventCopyWithImpl<$Res, _$GetPurchaseAdviceEventImpl>
     implements _$$GetPurchaseAdviceEventImplCopyWith<$Res> {
   __$$GetPurchaseAdviceEventImplCopyWithImpl(
-      _$GetPurchaseAdviceEventImpl _value,
-      $Res Function(_$GetPurchaseAdviceEventImpl) _then)
-      : super(_value, _then);
+    _$GetPurchaseAdviceEventImpl _value,
+    $Res Function(_$GetPurchaseAdviceEventImpl) _then,
+  ) : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? itemName = null,
-    Object? itemPrice = null,
-  }) {
-    return _then(_$GetPurchaseAdviceEventImpl(
-      itemName: null == itemName
-          ? _value.itemName
-          : itemName // ignore: cast_nullable_to_non_nullable
-              as String,
-      itemPrice: null == itemPrice
-          ? _value.itemPrice
-          : itemPrice // ignore: cast_nullable_to_non_nullable
-              as double,
-    ));
+  $Res call({Object? itemName = null, Object? itemPrice = null}) {
+    return _then(
+      _$GetPurchaseAdviceEventImpl(
+        itemName: null == itemName
+            ? _value.itemName
+            : itemName // ignore: cast_nullable_to_non_nullable
+                  as String,
+        itemPrice: null == itemPrice
+            ? _value.itemPrice
+            : itemPrice // ignore: cast_nullable_to_non_nullable
+                  as double,
+      ),
+    );
   }
 }
 
 /// @nodoc
 
 class _$GetPurchaseAdviceEventImpl implements GetPurchaseAdviceEvent {
-  const _$GetPurchaseAdviceEventImpl(
-      {required this.itemName, required this.itemPrice});
+  const _$GetPurchaseAdviceEventImpl({
+    required this.itemName,
+    required this.itemPrice,
+  });
 
   @override
   final String itemName;
@@ -930,8 +939,11 @@ class _$GetPurchaseAdviceEventImpl implements GetPurchaseAdviceEvent {
   @override
   @pragma('vm:prefer-inline')
   _$$GetPurchaseAdviceEventImplCopyWith<_$GetPurchaseAdviceEventImpl>
-      get copyWith => __$$GetPurchaseAdviceEventImplCopyWithImpl<
-          _$GetPurchaseAdviceEventImpl>(this, _$identity);
+  get copyWith =>
+      __$$GetPurchaseAdviceEventImplCopyWithImpl<_$GetPurchaseAdviceEventImpl>(
+        this,
+        _$identity,
+      );
 
   @override
   @optionalTypeArgs
@@ -942,7 +954,7 @@ class _$GetPurchaseAdviceEventImpl implements GetPurchaseAdviceEvent {
     required TResult Function(String description) categorizeExpense,
     required TResult Function() generateInsights,
     required TResult Function(String itemName, double itemPrice)
-        getPurchaseAdvice,
+    getPurchaseAdvice,
     required TResult Function() refreshFinancialContext,
   }) {
     return getPurchaseAdvice(itemName, itemPrice);
@@ -990,7 +1002,7 @@ class _$GetPurchaseAdviceEventImpl implements GetPurchaseAdviceEvent {
     required TResult Function(GenerateInsightsEvent value) generateInsights,
     required TResult Function(GetPurchaseAdviceEvent value) getPurchaseAdvice,
     required TResult Function(RefreshFinancialContextEvent value)
-        refreshFinancialContext,
+    refreshFinancialContext,
   }) {
     return getPurchaseAdvice(this);
   }
@@ -1005,7 +1017,7 @@ class _$GetPurchaseAdviceEventImpl implements GetPurchaseAdviceEvent {
     TResult? Function(GenerateInsightsEvent value)? generateInsights,
     TResult? Function(GetPurchaseAdviceEvent value)? getPurchaseAdvice,
     TResult? Function(RefreshFinancialContextEvent value)?
-        refreshFinancialContext,
+    refreshFinancialContext,
   }) {
     return getPurchaseAdvice?.call(this);
   }
@@ -1020,7 +1032,7 @@ class _$GetPurchaseAdviceEventImpl implements GetPurchaseAdviceEvent {
     TResult Function(GenerateInsightsEvent value)? generateInsights,
     TResult Function(GetPurchaseAdviceEvent value)? getPurchaseAdvice,
     TResult Function(RefreshFinancialContextEvent value)?
-        refreshFinancialContext,
+    refreshFinancialContext,
     required TResult orElse(),
   }) {
     if (getPurchaseAdvice != null) {
@@ -1031,23 +1043,24 @@ class _$GetPurchaseAdviceEventImpl implements GetPurchaseAdviceEvent {
 }
 
 abstract class GetPurchaseAdviceEvent implements AIChatEvent {
-  const factory GetPurchaseAdviceEvent(
-      {required final String itemName,
-      required final double itemPrice}) = _$GetPurchaseAdviceEventImpl;
+  const factory GetPurchaseAdviceEvent({
+    required final String itemName,
+    required final double itemPrice,
+  }) = _$GetPurchaseAdviceEventImpl;
 
   String get itemName;
   double get itemPrice;
   @JsonKey(ignore: true)
   _$$GetPurchaseAdviceEventImplCopyWith<_$GetPurchaseAdviceEventImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class _$$RefreshFinancialContextEventImplCopyWith<$Res> {
   factory _$$RefreshFinancialContextEventImplCopyWith(
-          _$RefreshFinancialContextEventImpl value,
-          $Res Function(_$RefreshFinancialContextEventImpl) then) =
-      __$$RefreshFinancialContextEventImplCopyWithImpl<$Res>;
+    _$RefreshFinancialContextEventImpl value,
+    $Res Function(_$RefreshFinancialContextEventImpl) then,
+  ) = __$$RefreshFinancialContextEventImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
@@ -1055,9 +1068,9 @@ class __$$RefreshFinancialContextEventImplCopyWithImpl<$Res>
     extends _$AIChatEventCopyWithImpl<$Res, _$RefreshFinancialContextEventImpl>
     implements _$$RefreshFinancialContextEventImplCopyWith<$Res> {
   __$$RefreshFinancialContextEventImplCopyWithImpl(
-      _$RefreshFinancialContextEventImpl _value,
-      $Res Function(_$RefreshFinancialContextEventImpl) _then)
-      : super(_value, _then);
+    _$RefreshFinancialContextEventImpl _value,
+    $Res Function(_$RefreshFinancialContextEventImpl) _then,
+  ) : super(_value, _then);
 }
 
 /// @nodoc
@@ -1090,7 +1103,7 @@ class _$RefreshFinancialContextEventImpl
     required TResult Function(String description) categorizeExpense,
     required TResult Function() generateInsights,
     required TResult Function(String itemName, double itemPrice)
-        getPurchaseAdvice,
+    getPurchaseAdvice,
     required TResult Function() refreshFinancialContext,
   }) {
     return refreshFinancialContext();
@@ -1138,7 +1151,7 @@ class _$RefreshFinancialContextEventImpl
     required TResult Function(GenerateInsightsEvent value) generateInsights,
     required TResult Function(GetPurchaseAdviceEvent value) getPurchaseAdvice,
     required TResult Function(RefreshFinancialContextEvent value)
-        refreshFinancialContext,
+    refreshFinancialContext,
   }) {
     return refreshFinancialContext(this);
   }
@@ -1153,7 +1166,7 @@ class _$RefreshFinancialContextEventImpl
     TResult? Function(GenerateInsightsEvent value)? generateInsights,
     TResult? Function(GetPurchaseAdviceEvent value)? getPurchaseAdvice,
     TResult? Function(RefreshFinancialContextEvent value)?
-        refreshFinancialContext,
+    refreshFinancialContext,
   }) {
     return refreshFinancialContext?.call(this);
   }
@@ -1168,7 +1181,7 @@ class _$RefreshFinancialContextEventImpl
     TResult Function(GenerateInsightsEvent value)? generateInsights,
     TResult Function(GetPurchaseAdviceEvent value)? getPurchaseAdvice,
     TResult Function(RefreshFinancialContextEvent value)?
-        refreshFinancialContext,
+    refreshFinancialContext,
     required TResult orElse(),
   }) {
     if (refreshFinancialContext != null) {

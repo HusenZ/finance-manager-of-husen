@@ -13,11 +13,9 @@ class TransactionState with _$TransactionState {
     required List<Transaction> transactions,
   }) = TransactionLoaded;
 
-  const factory TransactionState.error({
-    required String message,
-  }) = TransactionError;
+  const factory TransactionState.error({required String message}) =
+      TransactionError;
 
-  const factory TransactionState.success({
-    required String message,
-  }) = TransactionSuccess;
+  const factory TransactionState.success({required String message}) =
+      TransactionSuccess;
 }

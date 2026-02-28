@@ -48,7 +48,9 @@ class ShimmerLoading extends StatelessWidget {
     final isDark = Theme.of(context).brightness == Brightness.dark;
 
     return Shimmer.fromColors(
-      baseColor: isDark ? AppColors.shimmerBaseDark : AppColors.shimmerBaseLight,
+      baseColor: isDark
+          ? AppColors.shimmerBaseDark
+          : AppColors.shimmerBaseLight,
       highlightColor: isDark
           ? AppColors.shimmerHighlightDark
           : AppColors.shimmerHighlightLight,
@@ -57,7 +59,8 @@ class ShimmerLoading extends StatelessWidget {
         height: height,
         decoration: BoxDecoration(
           color: Colors.white,
-          borderRadius: borderRadius ??
+          borderRadius:
+              borderRadius ??
               BorderRadius.circular(AppConstants.borderRadiusSmall),
         ),
       ),

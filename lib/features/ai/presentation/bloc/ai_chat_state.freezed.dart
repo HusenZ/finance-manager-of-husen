@@ -12,7 +12,8 @@ part of 'ai_chat_state.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 /// @nodoc
 mixin _$AIChatState {
@@ -24,12 +25,13 @@ mixin _$AIChatState {
     required TResult Function(List<AIMessage> messages) success,
     required TResult Function(String message, List<AIMessage> messages) error,
     required TResult Function(String category, List<AIMessage> messages)
-        categorySuggested,
+    categorySuggested,
     required TResult Function(
-            List<FinancialInsight> insights, List<AIMessage> messages)
-        insightsGenerated,
-  }) =>
-      throw _privateConstructorUsedError;
+      List<FinancialInsight> insights,
+      List<AIMessage> messages,
+    )
+    insightsGenerated,
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(List<AIMessage> messages)? initial,
@@ -37,12 +39,13 @@ mixin _$AIChatState {
     TResult? Function(List<AIMessage> messages)? success,
     TResult? Function(String message, List<AIMessage> messages)? error,
     TResult? Function(String category, List<AIMessage> messages)?
-        categorySuggested,
+    categorySuggested,
     TResult? Function(
-            List<FinancialInsight> insights, List<AIMessage> messages)?
-        insightsGenerated,
-  }) =>
-      throw _privateConstructorUsedError;
+      List<FinancialInsight> insights,
+      List<AIMessage> messages,
+    )?
+    insightsGenerated,
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(List<AIMessage> messages)? initial,
@@ -50,12 +53,11 @@ mixin _$AIChatState {
     TResult Function(List<AIMessage> messages)? success,
     TResult Function(String message, List<AIMessage> messages)? error,
     TResult Function(String category, List<AIMessage> messages)?
-        categorySuggested,
+    categorySuggested,
     TResult Function(List<FinancialInsight> insights, List<AIMessage> messages)?
-        insightsGenerated,
+    insightsGenerated,
     required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(InitialState value) initial,
@@ -64,8 +66,7 @@ mixin _$AIChatState {
     required TResult Function(ErrorState value) error,
     required TResult Function(CategorySuggestedState value) categorySuggested,
     required TResult Function(InsightsGeneratedState value) insightsGenerated,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(InitialState value)? initial,
@@ -74,8 +75,7 @@ mixin _$AIChatState {
     TResult? Function(ErrorState value)? error,
     TResult? Function(CategorySuggestedState value)? categorySuggested,
     TResult? Function(InsightsGeneratedState value)? insightsGenerated,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(InitialState value)? initial,
@@ -85,8 +85,7 @@ mixin _$AIChatState {
     TResult Function(CategorySuggestedState value)? categorySuggested,
     TResult Function(InsightsGeneratedState value)? insightsGenerated,
     required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $AIChatStateCopyWith<AIChatState> get copyWith =>
@@ -96,8 +95,9 @@ mixin _$AIChatState {
 /// @nodoc
 abstract class $AIChatStateCopyWith<$Res> {
   factory $AIChatStateCopyWith(
-          AIChatState value, $Res Function(AIChatState) then) =
-      _$AIChatStateCopyWithImpl<$Res, AIChatState>;
+    AIChatState value,
+    $Res Function(AIChatState) then,
+  ) = _$AIChatStateCopyWithImpl<$Res, AIChatState>;
   @useResult
   $Res call({List<AIMessage> messages});
 }
@@ -114,15 +114,16 @@ class _$AIChatStateCopyWithImpl<$Res, $Val extends AIChatState>
 
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? messages = null,
-  }) {
-    return _then(_value.copyWith(
-      messages: null == messages
-          ? _value.messages
-          : messages // ignore: cast_nullable_to_non_nullable
-              as List<AIMessage>,
-    ) as $Val);
+  $Res call({Object? messages = null}) {
+    return _then(
+      _value.copyWith(
+            messages: null == messages
+                ? _value.messages
+                : messages // ignore: cast_nullable_to_non_nullable
+                      as List<AIMessage>,
+          )
+          as $Val,
+    );
   }
 }
 
@@ -130,8 +131,9 @@ class _$AIChatStateCopyWithImpl<$Res, $Val extends AIChatState>
 abstract class _$$InitialStateImplCopyWith<$Res>
     implements $AIChatStateCopyWith<$Res> {
   factory _$$InitialStateImplCopyWith(
-          _$InitialStateImpl value, $Res Function(_$InitialStateImpl) then) =
-      __$$InitialStateImplCopyWithImpl<$Res>;
+    _$InitialStateImpl value,
+    $Res Function(_$InitialStateImpl) then,
+  ) = __$$InitialStateImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({List<AIMessage> messages});
@@ -142,20 +144,21 @@ class __$$InitialStateImplCopyWithImpl<$Res>
     extends _$AIChatStateCopyWithImpl<$Res, _$InitialStateImpl>
     implements _$$InitialStateImplCopyWith<$Res> {
   __$$InitialStateImplCopyWithImpl(
-      _$InitialStateImpl _value, $Res Function(_$InitialStateImpl) _then)
-      : super(_value, _then);
+    _$InitialStateImpl _value,
+    $Res Function(_$InitialStateImpl) _then,
+  ) : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? messages = null,
-  }) {
-    return _then(_$InitialStateImpl(
-      messages: null == messages
-          ? _value._messages
-          : messages // ignore: cast_nullable_to_non_nullable
-              as List<AIMessage>,
-    ));
+  $Res call({Object? messages = null}) {
+    return _then(
+      _$InitialStateImpl(
+        messages: null == messages
+            ? _value._messages
+            : messages // ignore: cast_nullable_to_non_nullable
+                  as List<AIMessage>,
+      ),
+    );
   }
 }
 
@@ -163,7 +166,7 @@ class __$$InitialStateImplCopyWithImpl<$Res>
 
 class _$InitialStateImpl implements InitialState {
   const _$InitialStateImpl({final List<AIMessage> messages = const []})
-      : _messages = messages;
+    : _messages = messages;
 
   final List<AIMessage> _messages;
   @override
@@ -205,10 +208,12 @@ class _$InitialStateImpl implements InitialState {
     required TResult Function(List<AIMessage> messages) success,
     required TResult Function(String message, List<AIMessage> messages) error,
     required TResult Function(String category, List<AIMessage> messages)
-        categorySuggested,
+    categorySuggested,
     required TResult Function(
-            List<FinancialInsight> insights, List<AIMessage> messages)
-        insightsGenerated,
+      List<FinancialInsight> insights,
+      List<AIMessage> messages,
+    )
+    insightsGenerated,
   }) {
     return initial(messages);
   }
@@ -221,10 +226,12 @@ class _$InitialStateImpl implements InitialState {
     TResult? Function(List<AIMessage> messages)? success,
     TResult? Function(String message, List<AIMessage> messages)? error,
     TResult? Function(String category, List<AIMessage> messages)?
-        categorySuggested,
+    categorySuggested,
     TResult? Function(
-            List<FinancialInsight> insights, List<AIMessage> messages)?
-        insightsGenerated,
+      List<FinancialInsight> insights,
+      List<AIMessage> messages,
+    )?
+    insightsGenerated,
   }) {
     return initial?.call(messages);
   }
@@ -237,9 +244,9 @@ class _$InitialStateImpl implements InitialState {
     TResult Function(List<AIMessage> messages)? success,
     TResult Function(String message, List<AIMessage> messages)? error,
     TResult Function(String category, List<AIMessage> messages)?
-        categorySuggested,
+    categorySuggested,
     TResult Function(List<FinancialInsight> insights, List<AIMessage> messages)?
-        insightsGenerated,
+    insightsGenerated,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -308,8 +315,9 @@ abstract class InitialState implements AIChatState {
 abstract class _$$LoadingStateImplCopyWith<$Res>
     implements $AIChatStateCopyWith<$Res> {
   factory _$$LoadingStateImplCopyWith(
-          _$LoadingStateImpl value, $Res Function(_$LoadingStateImpl) then) =
-      __$$LoadingStateImplCopyWithImpl<$Res>;
+    _$LoadingStateImpl value,
+    $Res Function(_$LoadingStateImpl) then,
+  ) = __$$LoadingStateImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({List<AIMessage> messages});
@@ -320,20 +328,21 @@ class __$$LoadingStateImplCopyWithImpl<$Res>
     extends _$AIChatStateCopyWithImpl<$Res, _$LoadingStateImpl>
     implements _$$LoadingStateImplCopyWith<$Res> {
   __$$LoadingStateImplCopyWithImpl(
-      _$LoadingStateImpl _value, $Res Function(_$LoadingStateImpl) _then)
-      : super(_value, _then);
+    _$LoadingStateImpl _value,
+    $Res Function(_$LoadingStateImpl) _then,
+  ) : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? messages = null,
-  }) {
-    return _then(_$LoadingStateImpl(
-      messages: null == messages
-          ? _value._messages
-          : messages // ignore: cast_nullable_to_non_nullable
-              as List<AIMessage>,
-    ));
+  $Res call({Object? messages = null}) {
+    return _then(
+      _$LoadingStateImpl(
+        messages: null == messages
+            ? _value._messages
+            : messages // ignore: cast_nullable_to_non_nullable
+                  as List<AIMessage>,
+      ),
+    );
   }
 }
 
@@ -341,7 +350,7 @@ class __$$LoadingStateImplCopyWithImpl<$Res>
 
 class _$LoadingStateImpl implements LoadingState {
   const _$LoadingStateImpl({required final List<AIMessage> messages})
-      : _messages = messages;
+    : _messages = messages;
 
   final List<AIMessage> _messages;
   @override
@@ -382,10 +391,12 @@ class _$LoadingStateImpl implements LoadingState {
     required TResult Function(List<AIMessage> messages) success,
     required TResult Function(String message, List<AIMessage> messages) error,
     required TResult Function(String category, List<AIMessage> messages)
-        categorySuggested,
+    categorySuggested,
     required TResult Function(
-            List<FinancialInsight> insights, List<AIMessage> messages)
-        insightsGenerated,
+      List<FinancialInsight> insights,
+      List<AIMessage> messages,
+    )
+    insightsGenerated,
   }) {
     return loading(messages);
   }
@@ -398,10 +409,12 @@ class _$LoadingStateImpl implements LoadingState {
     TResult? Function(List<AIMessage> messages)? success,
     TResult? Function(String message, List<AIMessage> messages)? error,
     TResult? Function(String category, List<AIMessage> messages)?
-        categorySuggested,
+    categorySuggested,
     TResult? Function(
-            List<FinancialInsight> insights, List<AIMessage> messages)?
-        insightsGenerated,
+      List<FinancialInsight> insights,
+      List<AIMessage> messages,
+    )?
+    insightsGenerated,
   }) {
     return loading?.call(messages);
   }
@@ -414,9 +427,9 @@ class _$LoadingStateImpl implements LoadingState {
     TResult Function(List<AIMessage> messages)? success,
     TResult Function(String message, List<AIMessage> messages)? error,
     TResult Function(String category, List<AIMessage> messages)?
-        categorySuggested,
+    categorySuggested,
     TResult Function(List<FinancialInsight> insights, List<AIMessage> messages)?
-        insightsGenerated,
+    insightsGenerated,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -485,8 +498,9 @@ abstract class LoadingState implements AIChatState {
 abstract class _$$SuccessStateImplCopyWith<$Res>
     implements $AIChatStateCopyWith<$Res> {
   factory _$$SuccessStateImplCopyWith(
-          _$SuccessStateImpl value, $Res Function(_$SuccessStateImpl) then) =
-      __$$SuccessStateImplCopyWithImpl<$Res>;
+    _$SuccessStateImpl value,
+    $Res Function(_$SuccessStateImpl) then,
+  ) = __$$SuccessStateImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({List<AIMessage> messages});
@@ -497,20 +511,21 @@ class __$$SuccessStateImplCopyWithImpl<$Res>
     extends _$AIChatStateCopyWithImpl<$Res, _$SuccessStateImpl>
     implements _$$SuccessStateImplCopyWith<$Res> {
   __$$SuccessStateImplCopyWithImpl(
-      _$SuccessStateImpl _value, $Res Function(_$SuccessStateImpl) _then)
-      : super(_value, _then);
+    _$SuccessStateImpl _value,
+    $Res Function(_$SuccessStateImpl) _then,
+  ) : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? messages = null,
-  }) {
-    return _then(_$SuccessStateImpl(
-      messages: null == messages
-          ? _value._messages
-          : messages // ignore: cast_nullable_to_non_nullable
-              as List<AIMessage>,
-    ));
+  $Res call({Object? messages = null}) {
+    return _then(
+      _$SuccessStateImpl(
+        messages: null == messages
+            ? _value._messages
+            : messages // ignore: cast_nullable_to_non_nullable
+                  as List<AIMessage>,
+      ),
+    );
   }
 }
 
@@ -518,7 +533,7 @@ class __$$SuccessStateImplCopyWithImpl<$Res>
 
 class _$SuccessStateImpl implements SuccessState {
   const _$SuccessStateImpl({required final List<AIMessage> messages})
-      : _messages = messages;
+    : _messages = messages;
 
   final List<AIMessage> _messages;
   @override
@@ -559,10 +574,12 @@ class _$SuccessStateImpl implements SuccessState {
     required TResult Function(List<AIMessage> messages) success,
     required TResult Function(String message, List<AIMessage> messages) error,
     required TResult Function(String category, List<AIMessage> messages)
-        categorySuggested,
+    categorySuggested,
     required TResult Function(
-            List<FinancialInsight> insights, List<AIMessage> messages)
-        insightsGenerated,
+      List<FinancialInsight> insights,
+      List<AIMessage> messages,
+    )
+    insightsGenerated,
   }) {
     return success(messages);
   }
@@ -575,10 +592,12 @@ class _$SuccessStateImpl implements SuccessState {
     TResult? Function(List<AIMessage> messages)? success,
     TResult? Function(String message, List<AIMessage> messages)? error,
     TResult? Function(String category, List<AIMessage> messages)?
-        categorySuggested,
+    categorySuggested,
     TResult? Function(
-            List<FinancialInsight> insights, List<AIMessage> messages)?
-        insightsGenerated,
+      List<FinancialInsight> insights,
+      List<AIMessage> messages,
+    )?
+    insightsGenerated,
   }) {
     return success?.call(messages);
   }
@@ -591,9 +610,9 @@ class _$SuccessStateImpl implements SuccessState {
     TResult Function(List<AIMessage> messages)? success,
     TResult Function(String message, List<AIMessage> messages)? error,
     TResult Function(String category, List<AIMessage> messages)?
-        categorySuggested,
+    categorySuggested,
     TResult Function(List<FinancialInsight> insights, List<AIMessage> messages)?
-        insightsGenerated,
+    insightsGenerated,
     required TResult orElse(),
   }) {
     if (success != null) {
@@ -662,8 +681,9 @@ abstract class SuccessState implements AIChatState {
 abstract class _$$ErrorStateImplCopyWith<$Res>
     implements $AIChatStateCopyWith<$Res> {
   factory _$$ErrorStateImplCopyWith(
-          _$ErrorStateImpl value, $Res Function(_$ErrorStateImpl) then) =
-      __$$ErrorStateImplCopyWithImpl<$Res>;
+    _$ErrorStateImpl value,
+    $Res Function(_$ErrorStateImpl) then,
+  ) = __$$ErrorStateImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String message, List<AIMessage> messages});
@@ -674,34 +694,35 @@ class __$$ErrorStateImplCopyWithImpl<$Res>
     extends _$AIChatStateCopyWithImpl<$Res, _$ErrorStateImpl>
     implements _$$ErrorStateImplCopyWith<$Res> {
   __$$ErrorStateImplCopyWithImpl(
-      _$ErrorStateImpl _value, $Res Function(_$ErrorStateImpl) _then)
-      : super(_value, _then);
+    _$ErrorStateImpl _value,
+    $Res Function(_$ErrorStateImpl) _then,
+  ) : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? message = null,
-    Object? messages = null,
-  }) {
-    return _then(_$ErrorStateImpl(
-      message: null == message
-          ? _value.message
-          : message // ignore: cast_nullable_to_non_nullable
-              as String,
-      messages: null == messages
-          ? _value._messages
-          : messages // ignore: cast_nullable_to_non_nullable
-              as List<AIMessage>,
-    ));
+  $Res call({Object? message = null, Object? messages = null}) {
+    return _then(
+      _$ErrorStateImpl(
+        message: null == message
+            ? _value.message
+            : message // ignore: cast_nullable_to_non_nullable
+                  as String,
+        messages: null == messages
+            ? _value._messages
+            : messages // ignore: cast_nullable_to_non_nullable
+                  as List<AIMessage>,
+      ),
+    );
   }
 }
 
 /// @nodoc
 
 class _$ErrorStateImpl implements ErrorState {
-  const _$ErrorStateImpl(
-      {required this.message, required final List<AIMessage> messages})
-      : _messages = messages;
+  const _$ErrorStateImpl({
+    required this.message,
+    required final List<AIMessage> messages,
+  }) : _messages = messages;
 
   @override
   final String message;
@@ -729,7 +750,10 @@ class _$ErrorStateImpl implements ErrorState {
 
   @override
   int get hashCode => Object.hash(
-      runtimeType, message, const DeepCollectionEquality().hash(_messages));
+    runtimeType,
+    message,
+    const DeepCollectionEquality().hash(_messages),
+  );
 
   @JsonKey(ignore: true)
   @override
@@ -745,10 +769,12 @@ class _$ErrorStateImpl implements ErrorState {
     required TResult Function(List<AIMessage> messages) success,
     required TResult Function(String message, List<AIMessage> messages) error,
     required TResult Function(String category, List<AIMessage> messages)
-        categorySuggested,
+    categorySuggested,
     required TResult Function(
-            List<FinancialInsight> insights, List<AIMessage> messages)
-        insightsGenerated,
+      List<FinancialInsight> insights,
+      List<AIMessage> messages,
+    )
+    insightsGenerated,
   }) {
     return error(message, messages);
   }
@@ -761,10 +787,12 @@ class _$ErrorStateImpl implements ErrorState {
     TResult? Function(List<AIMessage> messages)? success,
     TResult? Function(String message, List<AIMessage> messages)? error,
     TResult? Function(String category, List<AIMessage> messages)?
-        categorySuggested,
+    categorySuggested,
     TResult? Function(
-            List<FinancialInsight> insights, List<AIMessage> messages)?
-        insightsGenerated,
+      List<FinancialInsight> insights,
+      List<AIMessage> messages,
+    )?
+    insightsGenerated,
   }) {
     return error?.call(message, messages);
   }
@@ -777,9 +805,9 @@ class _$ErrorStateImpl implements ErrorState {
     TResult Function(List<AIMessage> messages)? success,
     TResult Function(String message, List<AIMessage> messages)? error,
     TResult Function(String category, List<AIMessage> messages)?
-        categorySuggested,
+    categorySuggested,
     TResult Function(List<FinancialInsight> insights, List<AIMessage> messages)?
-        insightsGenerated,
+    insightsGenerated,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -833,9 +861,10 @@ class _$ErrorStateImpl implements ErrorState {
 }
 
 abstract class ErrorState implements AIChatState {
-  const factory ErrorState(
-      {required final String message,
-      required final List<AIMessage> messages}) = _$ErrorStateImpl;
+  const factory ErrorState({
+    required final String message,
+    required final List<AIMessage> messages,
+  }) = _$ErrorStateImpl;
 
   String get message;
   @override
@@ -850,9 +879,9 @@ abstract class ErrorState implements AIChatState {
 abstract class _$$CategorySuggestedStateImplCopyWith<$Res>
     implements $AIChatStateCopyWith<$Res> {
   factory _$$CategorySuggestedStateImplCopyWith(
-          _$CategorySuggestedStateImpl value,
-          $Res Function(_$CategorySuggestedStateImpl) then) =
-      __$$CategorySuggestedStateImplCopyWithImpl<$Res>;
+    _$CategorySuggestedStateImpl value,
+    $Res Function(_$CategorySuggestedStateImpl) then,
+  ) = __$$CategorySuggestedStateImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String category, List<AIMessage> messages});
@@ -863,35 +892,35 @@ class __$$CategorySuggestedStateImplCopyWithImpl<$Res>
     extends _$AIChatStateCopyWithImpl<$Res, _$CategorySuggestedStateImpl>
     implements _$$CategorySuggestedStateImplCopyWith<$Res> {
   __$$CategorySuggestedStateImplCopyWithImpl(
-      _$CategorySuggestedStateImpl _value,
-      $Res Function(_$CategorySuggestedStateImpl) _then)
-      : super(_value, _then);
+    _$CategorySuggestedStateImpl _value,
+    $Res Function(_$CategorySuggestedStateImpl) _then,
+  ) : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? category = null,
-    Object? messages = null,
-  }) {
-    return _then(_$CategorySuggestedStateImpl(
-      category: null == category
-          ? _value.category
-          : category // ignore: cast_nullable_to_non_nullable
-              as String,
-      messages: null == messages
-          ? _value._messages
-          : messages // ignore: cast_nullable_to_non_nullable
-              as List<AIMessage>,
-    ));
+  $Res call({Object? category = null, Object? messages = null}) {
+    return _then(
+      _$CategorySuggestedStateImpl(
+        category: null == category
+            ? _value.category
+            : category // ignore: cast_nullable_to_non_nullable
+                  as String,
+        messages: null == messages
+            ? _value._messages
+            : messages // ignore: cast_nullable_to_non_nullable
+                  as List<AIMessage>,
+      ),
+    );
   }
 }
 
 /// @nodoc
 
 class _$CategorySuggestedStateImpl implements CategorySuggestedState {
-  const _$CategorySuggestedStateImpl(
-      {required this.category, required final List<AIMessage> messages})
-      : _messages = messages;
+  const _$CategorySuggestedStateImpl({
+    required this.category,
+    required final List<AIMessage> messages,
+  }) : _messages = messages;
 
   @override
   final String category;
@@ -920,14 +949,20 @@ class _$CategorySuggestedStateImpl implements CategorySuggestedState {
 
   @override
   int get hashCode => Object.hash(
-      runtimeType, category, const DeepCollectionEquality().hash(_messages));
+    runtimeType,
+    category,
+    const DeepCollectionEquality().hash(_messages),
+  );
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$CategorySuggestedStateImplCopyWith<_$CategorySuggestedStateImpl>
-      get copyWith => __$$CategorySuggestedStateImplCopyWithImpl<
-          _$CategorySuggestedStateImpl>(this, _$identity);
+  get copyWith =>
+      __$$CategorySuggestedStateImplCopyWithImpl<_$CategorySuggestedStateImpl>(
+        this,
+        _$identity,
+      );
 
   @override
   @optionalTypeArgs
@@ -937,10 +972,12 @@ class _$CategorySuggestedStateImpl implements CategorySuggestedState {
     required TResult Function(List<AIMessage> messages) success,
     required TResult Function(String message, List<AIMessage> messages) error,
     required TResult Function(String category, List<AIMessage> messages)
-        categorySuggested,
+    categorySuggested,
     required TResult Function(
-            List<FinancialInsight> insights, List<AIMessage> messages)
-        insightsGenerated,
+      List<FinancialInsight> insights,
+      List<AIMessage> messages,
+    )
+    insightsGenerated,
   }) {
     return categorySuggested(category, messages);
   }
@@ -953,10 +990,12 @@ class _$CategorySuggestedStateImpl implements CategorySuggestedState {
     TResult? Function(List<AIMessage> messages)? success,
     TResult? Function(String message, List<AIMessage> messages)? error,
     TResult? Function(String category, List<AIMessage> messages)?
-        categorySuggested,
+    categorySuggested,
     TResult? Function(
-            List<FinancialInsight> insights, List<AIMessage> messages)?
-        insightsGenerated,
+      List<FinancialInsight> insights,
+      List<AIMessage> messages,
+    )?
+    insightsGenerated,
   }) {
     return categorySuggested?.call(category, messages);
   }
@@ -969,9 +1008,9 @@ class _$CategorySuggestedStateImpl implements CategorySuggestedState {
     TResult Function(List<AIMessage> messages)? success,
     TResult Function(String message, List<AIMessage> messages)? error,
     TResult Function(String category, List<AIMessage> messages)?
-        categorySuggested,
+    categorySuggested,
     TResult Function(List<FinancialInsight> insights, List<AIMessage> messages)?
-        insightsGenerated,
+    insightsGenerated,
     required TResult orElse(),
   }) {
     if (categorySuggested != null) {
@@ -1025,9 +1064,10 @@ class _$CategorySuggestedStateImpl implements CategorySuggestedState {
 }
 
 abstract class CategorySuggestedState implements AIChatState {
-  const factory CategorySuggestedState(
-      {required final String category,
-      required final List<AIMessage> messages}) = _$CategorySuggestedStateImpl;
+  const factory CategorySuggestedState({
+    required final String category,
+    required final List<AIMessage> messages,
+  }) = _$CategorySuggestedStateImpl;
 
   String get category;
   @override
@@ -1035,16 +1075,16 @@ abstract class CategorySuggestedState implements AIChatState {
   @override
   @JsonKey(ignore: true)
   _$$CategorySuggestedStateImplCopyWith<_$CategorySuggestedStateImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class _$$InsightsGeneratedStateImplCopyWith<$Res>
     implements $AIChatStateCopyWith<$Res> {
   factory _$$InsightsGeneratedStateImplCopyWith(
-          _$InsightsGeneratedStateImpl value,
-          $Res Function(_$InsightsGeneratedStateImpl) then) =
-      __$$InsightsGeneratedStateImplCopyWithImpl<$Res>;
+    _$InsightsGeneratedStateImpl value,
+    $Res Function(_$InsightsGeneratedStateImpl) then,
+  ) = __$$InsightsGeneratedStateImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({List<FinancialInsight> insights, List<AIMessage> messages});
@@ -1055,37 +1095,36 @@ class __$$InsightsGeneratedStateImplCopyWithImpl<$Res>
     extends _$AIChatStateCopyWithImpl<$Res, _$InsightsGeneratedStateImpl>
     implements _$$InsightsGeneratedStateImplCopyWith<$Res> {
   __$$InsightsGeneratedStateImplCopyWithImpl(
-      _$InsightsGeneratedStateImpl _value,
-      $Res Function(_$InsightsGeneratedStateImpl) _then)
-      : super(_value, _then);
+    _$InsightsGeneratedStateImpl _value,
+    $Res Function(_$InsightsGeneratedStateImpl) _then,
+  ) : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? insights = null,
-    Object? messages = null,
-  }) {
-    return _then(_$InsightsGeneratedStateImpl(
-      insights: null == insights
-          ? _value._insights
-          : insights // ignore: cast_nullable_to_non_nullable
-              as List<FinancialInsight>,
-      messages: null == messages
-          ? _value._messages
-          : messages // ignore: cast_nullable_to_non_nullable
-              as List<AIMessage>,
-    ));
+  $Res call({Object? insights = null, Object? messages = null}) {
+    return _then(
+      _$InsightsGeneratedStateImpl(
+        insights: null == insights
+            ? _value._insights
+            : insights // ignore: cast_nullable_to_non_nullable
+                  as List<FinancialInsight>,
+        messages: null == messages
+            ? _value._messages
+            : messages // ignore: cast_nullable_to_non_nullable
+                  as List<AIMessage>,
+      ),
+    );
   }
 }
 
 /// @nodoc
 
 class _$InsightsGeneratedStateImpl implements InsightsGeneratedState {
-  const _$InsightsGeneratedStateImpl(
-      {required final List<FinancialInsight> insights,
-      required final List<AIMessage> messages})
-      : _insights = insights,
-        _messages = messages;
+  const _$InsightsGeneratedStateImpl({
+    required final List<FinancialInsight> insights,
+    required final List<AIMessage> messages,
+  }) : _insights = insights,
+       _messages = messages;
 
   final List<FinancialInsight> _insights;
   @override
@@ -1119,16 +1158,20 @@ class _$InsightsGeneratedStateImpl implements InsightsGeneratedState {
 
   @override
   int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(_insights),
-      const DeepCollectionEquality().hash(_messages));
+    runtimeType,
+    const DeepCollectionEquality().hash(_insights),
+    const DeepCollectionEquality().hash(_messages),
+  );
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$InsightsGeneratedStateImplCopyWith<_$InsightsGeneratedStateImpl>
-      get copyWith => __$$InsightsGeneratedStateImplCopyWithImpl<
-          _$InsightsGeneratedStateImpl>(this, _$identity);
+  get copyWith =>
+      __$$InsightsGeneratedStateImplCopyWithImpl<_$InsightsGeneratedStateImpl>(
+        this,
+        _$identity,
+      );
 
   @override
   @optionalTypeArgs
@@ -1138,10 +1181,12 @@ class _$InsightsGeneratedStateImpl implements InsightsGeneratedState {
     required TResult Function(List<AIMessage> messages) success,
     required TResult Function(String message, List<AIMessage> messages) error,
     required TResult Function(String category, List<AIMessage> messages)
-        categorySuggested,
+    categorySuggested,
     required TResult Function(
-            List<FinancialInsight> insights, List<AIMessage> messages)
-        insightsGenerated,
+      List<FinancialInsight> insights,
+      List<AIMessage> messages,
+    )
+    insightsGenerated,
   }) {
     return insightsGenerated(insights, messages);
   }
@@ -1154,10 +1199,12 @@ class _$InsightsGeneratedStateImpl implements InsightsGeneratedState {
     TResult? Function(List<AIMessage> messages)? success,
     TResult? Function(String message, List<AIMessage> messages)? error,
     TResult? Function(String category, List<AIMessage> messages)?
-        categorySuggested,
+    categorySuggested,
     TResult? Function(
-            List<FinancialInsight> insights, List<AIMessage> messages)?
-        insightsGenerated,
+      List<FinancialInsight> insights,
+      List<AIMessage> messages,
+    )?
+    insightsGenerated,
   }) {
     return insightsGenerated?.call(insights, messages);
   }
@@ -1170,9 +1217,9 @@ class _$InsightsGeneratedStateImpl implements InsightsGeneratedState {
     TResult Function(List<AIMessage> messages)? success,
     TResult Function(String message, List<AIMessage> messages)? error,
     TResult Function(String category, List<AIMessage> messages)?
-        categorySuggested,
+    categorySuggested,
     TResult Function(List<FinancialInsight> insights, List<AIMessage> messages)?
-        insightsGenerated,
+    insightsGenerated,
     required TResult orElse(),
   }) {
     if (insightsGenerated != null) {
@@ -1226,9 +1273,10 @@ class _$InsightsGeneratedStateImpl implements InsightsGeneratedState {
 }
 
 abstract class InsightsGeneratedState implements AIChatState {
-  const factory InsightsGeneratedState(
-      {required final List<FinancialInsight> insights,
-      required final List<AIMessage> messages}) = _$InsightsGeneratedStateImpl;
+  const factory InsightsGeneratedState({
+    required final List<FinancialInsight> insights,
+    required final List<AIMessage> messages,
+  }) = _$InsightsGeneratedStateImpl;
 
   List<FinancialInsight> get insights;
   @override
@@ -1236,5 +1284,5 @@ abstract class InsightsGeneratedState implements AIChatState {
   @override
   @JsonKey(ignore: true)
   _$$InsightsGeneratedStateImplCopyWith<_$InsightsGeneratedStateImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  get copyWith => throw _privateConstructorUsedError;
 }

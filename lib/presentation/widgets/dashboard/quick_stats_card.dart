@@ -20,7 +20,8 @@ class QuickStatsCard extends StatelessWidget {
 
   double get percentageChange {
     if (lastMonthSpending == 0) return 0;
-    return ((currentMonthSpending - lastMonthSpending) / lastMonthSpending) * 100;
+    return ((currentMonthSpending - lastMonthSpending) / lastMonthSpending) *
+        100;
   }
 
   bool get isIncrease => percentageChange > 0;
@@ -31,9 +32,7 @@ class QuickStatsCard extends StatelessWidget {
 
     return Card(
       elevation: 2,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(16),
-      ),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
       child: Padding(
         padding: const EdgeInsets.all(AppConstants.spacing16),
         child: Column(
@@ -69,13 +68,16 @@ class QuickStatsCard extends StatelessWidget {
                       const SizedBox(width: AppConstants.spacing4),
                       Text(
                         '${percentageChange.abs().toStringAsFixed(1)}%',
-                        style: (isDark
-                                ? AppTextStyles.labelSmallDark
-                                : AppTextStyles.labelSmallLight)
-                            .copyWith(
-                          color: isIncrease ? AppColors.error : AppColors.success,
-                          fontWeight: FontWeight.w600,
-                        ),
+                        style:
+                            (isDark
+                                    ? AppTextStyles.labelSmallDark
+                                    : AppTextStyles.labelSmallLight)
+                                .copyWith(
+                                  color: isIncrease
+                                      ? AppColors.error
+                                      : AppColors.success,
+                                  fontWeight: FontWeight.w600,
+                                ),
                       ),
                     ],
                   ),
@@ -107,11 +109,7 @@ class QuickStatsCard extends StatelessWidget {
             const SizedBox(height: AppConstants.spacing12),
             Row(
               children: [
-                Icon(
-                  Icons.receipt_long,
-                  size: 20,
-                  color: AppColors.primary,
-                ),
+                Icon(Icons.receipt_long, size: 20, color: AppColors.primary),
                 const SizedBox(width: AppConstants.spacing8),
                 Text(
                   '$transactionCount transactions',

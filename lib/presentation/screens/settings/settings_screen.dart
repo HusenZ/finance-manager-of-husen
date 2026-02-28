@@ -36,8 +36,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
     final authState = context.watch<AuthBloc>().state;
 
     return Scaffold(
-      backgroundColor:
-          isDark ? AppColors.backgroundDark : AppColors.backgroundLight,
+      backgroundColor: isDark
+          ? AppColors.backgroundDark
+          : AppColors.backgroundLight,
       appBar: const CustomAppBar(title: 'Settings'),
       body: authState is AuthAuthenticated
           ? SingleChildScrollView(
@@ -67,8 +68,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   Text(
                     'Not signed in',
                     style: Theme.of(context).textTheme.headlineSmall?.copyWith(
-                          fontWeight: FontWeight.bold,
-                        ),
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                   const SizedBox(height: AppConstants.spacing8),
                   Text(
@@ -114,27 +115,23 @@ class _SettingsScreenState extends State<SettingsScreen> {
                         },
                       ),
                     )
-                  : Icon(
-                      Icons.person,
-                      size: 40,
-                      color: AppColors.primary,
-                    ),
+                  : Icon(Icons.person, size: 40, color: AppColors.primary),
             ),
             const SizedBox(height: AppConstants.spacing16),
             Text(
               user.name ?? 'User',
-              style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                    fontWeight: FontWeight.bold,
-                  ),
+              style: Theme.of(
+                context,
+              ).textTheme.titleLarge?.copyWith(fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: AppConstants.spacing4),
             Text(
               user.email ?? '',
               style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                    color: isDark
-                        ? AppColors.textSecondaryDark
-                        : AppColors.textSecondaryLight,
-                  ),
+                color: isDark
+                    ? AppColors.textSecondaryDark
+                    : AppColors.textSecondaryLight,
+              ),
             ),
             const SizedBox(height: AppConstants.spacing16),
             OutlinedButton.icon(
@@ -167,9 +164,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
             padding: const EdgeInsets.all(AppConstants.spacing16),
             child: Text(
               'Preferences',
-              style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                    fontWeight: FontWeight.bold,
-                  ),
+              style: Theme.of(
+                context,
+              ).textTheme.titleMedium?.copyWith(fontWeight: FontWeight.bold),
             ),
           ),
           _buildSettingsTile(
@@ -247,9 +244,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
             padding: const EdgeInsets.all(AppConstants.spacing16),
             child: Text(
               'Account',
-              style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                    fontWeight: FontWeight.bold,
-                  ),
+              style: Theme.of(
+                context,
+              ).textTheme.titleMedium?.copyWith(fontWeight: FontWeight.bold),
             ),
           ),
           _buildSettingsTile(
@@ -274,9 +271,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
             trailing: const Icon(Icons.chevron_right),
             onTap: () {
               ScaffoldMessenger.of(context).showSnackBar(
-                const SnackBar(
-                  content: Text('Data export coming soon!'),
-                ),
+                const SnackBar(content: Text('Data export coming soon!')),
               );
             },
             isDark: isDark,
@@ -289,11 +284,18 @@ class _SettingsScreenState extends State<SettingsScreen> {
             trailing: const Icon(Icons.chevron_right),
             onTap: () {
               ScaffoldMessenger.of(context).showSnackBar(
-                const SnackBar(
-                  content: Text('Backup settings coming soon!'),
-                ),
+                const SnackBar(content: Text('Backup settings coming soon!')),
               );
             },
+            isDark: isDark,
+          ),
+          const Divider(height: 1),
+          _buildSettingsTile(
+            icon: Icons.workspace_premium_outlined,
+            title: 'Subscription',
+            subtitle: 'View plan, usage, and billing',
+            trailing: const Icon(Icons.chevron_right),
+            onTap: () => context.push(AppRouter.subscription),
             isDark: isDark,
           ),
           const Divider(height: 1),
@@ -304,9 +306,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
             trailing: const Icon(Icons.chevron_right),
             onTap: () {
               ScaffoldMessenger.of(context).showSnackBar(
-                const SnackBar(
-                  content: Text('Password change coming soon!'),
-                ),
+                const SnackBar(content: Text('Password change coming soon!')),
               );
             },
             isDark: isDark,
@@ -338,9 +338,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
             padding: const EdgeInsets.all(AppConstants.spacing16),
             child: Text(
               'About',
-              style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                    fontWeight: FontWeight.bold,
-                  ),
+              style: Theme.of(
+                context,
+              ).textTheme.titleMedium?.copyWith(fontWeight: FontWeight.bold),
             ),
           ),
           _buildSettingsTile(
@@ -356,9 +356,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
             trailing: const Icon(Icons.chevron_right),
             onTap: () {
               ScaffoldMessenger.of(context).showSnackBar(
-                const SnackBar(
-                  content: Text('Terms of Service coming soon!'),
-                ),
+                const SnackBar(content: Text('Terms of Service coming soon!')),
               );
             },
             isDark: isDark,
@@ -370,9 +368,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
             trailing: const Icon(Icons.chevron_right),
             onTap: () {
               ScaffoldMessenger.of(context).showSnackBar(
-                const SnackBar(
-                  content: Text('Privacy Policy coming soon!'),
-                ),
+                const SnackBar(content: Text('Privacy Policy coming soon!')),
               );
             },
             isDark: isDark,
@@ -384,9 +380,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
             trailing: const Icon(Icons.chevron_right),
             onTap: () {
               ScaffoldMessenger.of(context).showSnackBar(
-                const SnackBar(
-                  content: Text('Help & Support coming soon!'),
-                ),
+                const SnackBar(content: Text('Help & Support coming soon!')),
               );
             },
             isDark: isDark,
@@ -448,9 +442,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
             padding: const EdgeInsets.all(AppConstants.spacing16),
             child: Text(
               'Select Currency',
-              style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                    fontWeight: FontWeight.bold,
-                  ),
+              style: Theme.of(
+                context,
+              ).textTheme.titleLarge?.copyWith(fontWeight: FontWeight.bold),
             ),
           ),
           const Divider(),
@@ -501,9 +495,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
               context.read<AuthBloc>().add(const AuthEvent.signOutRequested());
               context.go(AppRouter.login);
             },
-            style: TextButton.styleFrom(
-              foregroundColor: AppColors.error,
-            ),
+            style: TextButton.styleFrom(foregroundColor: AppColors.error),
             child: const Text('Sign Out'),
           ),
         ],

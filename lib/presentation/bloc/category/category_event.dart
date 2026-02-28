@@ -4,9 +4,8 @@ part 'category_event.freezed.dart';
 
 @freezed
 class CategoryEvent with _$CategoryEvent {
-  const factory CategoryEvent.loadCategories({
-    required String userId,
-  }) = LoadCategories;
+  const factory CategoryEvent.loadCategories({required String userId}) =
+      LoadCategories;
 
   const factory CategoryEvent.createCategory({
     required String userId,

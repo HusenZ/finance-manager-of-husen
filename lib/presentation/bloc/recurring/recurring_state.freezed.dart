@@ -12,7 +12,8 @@ part of 'recurring_state.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 /// @nodoc
 mixin _$RecurringState {
@@ -24,9 +25,8 @@ mixin _$RecurringState {
     required TResult Function(String message) error,
     required TResult Function(String message) success,
     required TResult Function(List<RecurringTransaction> detectedTransactions)
-        detected,
-  }) =>
-      throw _privateConstructorUsedError;
+    detected,
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
@@ -35,9 +35,8 @@ mixin _$RecurringState {
     TResult? Function(String message)? error,
     TResult? Function(String message)? success,
     TResult? Function(List<RecurringTransaction> detectedTransactions)?
-        detected,
-  }) =>
-      throw _privateConstructorUsedError;
+    detected,
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
@@ -47,8 +46,7 @@ mixin _$RecurringState {
     TResult Function(String message)? success,
     TResult Function(List<RecurringTransaction> detectedTransactions)? detected,
     required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(RecurringInitial value) initial,
@@ -57,8 +55,7 @@ mixin _$RecurringState {
     required TResult Function(RecurringError value) error,
     required TResult Function(RecurringSuccess value) success,
     required TResult Function(RecurringDetected value) detected,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(RecurringInitial value)? initial,
@@ -67,8 +64,7 @@ mixin _$RecurringState {
     TResult? Function(RecurringError value)? error,
     TResult? Function(RecurringSuccess value)? success,
     TResult? Function(RecurringDetected value)? detected,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(RecurringInitial value)? initial,
@@ -78,15 +74,15 @@ mixin _$RecurringState {
     TResult Function(RecurringSuccess value)? success,
     TResult Function(RecurringDetected value)? detected,
     required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $RecurringStateCopyWith<$Res> {
   factory $RecurringStateCopyWith(
-          RecurringState value, $Res Function(RecurringState) then) =
-      _$RecurringStateCopyWithImpl<$Res, RecurringState>;
+    RecurringState value,
+    $Res Function(RecurringState) then,
+  ) = _$RecurringStateCopyWithImpl<$Res, RecurringState>;
 }
 
 /// @nodoc
@@ -102,18 +98,20 @@ class _$RecurringStateCopyWithImpl<$Res, $Val extends RecurringState>
 
 /// @nodoc
 abstract class _$$RecurringInitialImplCopyWith<$Res> {
-  factory _$$RecurringInitialImplCopyWith(_$RecurringInitialImpl value,
-          $Res Function(_$RecurringInitialImpl) then) =
-      __$$RecurringInitialImplCopyWithImpl<$Res>;
+  factory _$$RecurringInitialImplCopyWith(
+    _$RecurringInitialImpl value,
+    $Res Function(_$RecurringInitialImpl) then,
+  ) = __$$RecurringInitialImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
 class __$$RecurringInitialImplCopyWithImpl<$Res>
     extends _$RecurringStateCopyWithImpl<$Res, _$RecurringInitialImpl>
     implements _$$RecurringInitialImplCopyWith<$Res> {
-  __$$RecurringInitialImplCopyWithImpl(_$RecurringInitialImpl _value,
-      $Res Function(_$RecurringInitialImpl) _then)
-      : super(_value, _then);
+  __$$RecurringInitialImplCopyWithImpl(
+    _$RecurringInitialImpl _value,
+    $Res Function(_$RecurringInitialImpl) _then,
+  ) : super(_value, _then);
 }
 
 /// @nodoc
@@ -144,7 +142,7 @@ class _$RecurringInitialImpl implements RecurringInitial {
     required TResult Function(String message) error,
     required TResult Function(String message) success,
     required TResult Function(List<RecurringTransaction> detectedTransactions)
-        detected,
+    detected,
   }) {
     return initial();
   }
@@ -158,7 +156,7 @@ class _$RecurringInitialImpl implements RecurringInitial {
     TResult? Function(String message)? error,
     TResult? Function(String message)? success,
     TResult? Function(List<RecurringTransaction> detectedTransactions)?
-        detected,
+    detected,
   }) {
     return initial?.call();
   }
@@ -230,18 +228,20 @@ abstract class RecurringInitial implements RecurringState {
 
 /// @nodoc
 abstract class _$$RecurringLoadingImplCopyWith<$Res> {
-  factory _$$RecurringLoadingImplCopyWith(_$RecurringLoadingImpl value,
-          $Res Function(_$RecurringLoadingImpl) then) =
-      __$$RecurringLoadingImplCopyWithImpl<$Res>;
+  factory _$$RecurringLoadingImplCopyWith(
+    _$RecurringLoadingImpl value,
+    $Res Function(_$RecurringLoadingImpl) then,
+  ) = __$$RecurringLoadingImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
 class __$$RecurringLoadingImplCopyWithImpl<$Res>
     extends _$RecurringStateCopyWithImpl<$Res, _$RecurringLoadingImpl>
     implements _$$RecurringLoadingImplCopyWith<$Res> {
-  __$$RecurringLoadingImplCopyWithImpl(_$RecurringLoadingImpl _value,
-      $Res Function(_$RecurringLoadingImpl) _then)
-      : super(_value, _then);
+  __$$RecurringLoadingImplCopyWithImpl(
+    _$RecurringLoadingImpl _value,
+    $Res Function(_$RecurringLoadingImpl) _then,
+  ) : super(_value, _then);
 }
 
 /// @nodoc
@@ -272,7 +272,7 @@ class _$RecurringLoadingImpl implements RecurringLoading {
     required TResult Function(String message) error,
     required TResult Function(String message) success,
     required TResult Function(List<RecurringTransaction> detectedTransactions)
-        detected,
+    detected,
   }) {
     return loading();
   }
@@ -286,7 +286,7 @@ class _$RecurringLoadingImpl implements RecurringLoading {
     TResult? Function(String message)? error,
     TResult? Function(String message)? success,
     TResult? Function(List<RecurringTransaction> detectedTransactions)?
-        detected,
+    detected,
   }) {
     return loading?.call();
   }
@@ -358,9 +358,10 @@ abstract class RecurringLoading implements RecurringState {
 
 /// @nodoc
 abstract class _$$RecurringLoadedImplCopyWith<$Res> {
-  factory _$$RecurringLoadedImplCopyWith(_$RecurringLoadedImpl value,
-          $Res Function(_$RecurringLoadedImpl) then) =
-      __$$RecurringLoadedImplCopyWithImpl<$Res>;
+  factory _$$RecurringLoadedImplCopyWith(
+    _$RecurringLoadedImpl value,
+    $Res Function(_$RecurringLoadedImpl) then,
+  ) = __$$RecurringLoadedImplCopyWithImpl<$Res>;
   @useResult
   $Res call({List<RecurringTransaction> transactions});
 }
@@ -370,29 +371,30 @@ class __$$RecurringLoadedImplCopyWithImpl<$Res>
     extends _$RecurringStateCopyWithImpl<$Res, _$RecurringLoadedImpl>
     implements _$$RecurringLoadedImplCopyWith<$Res> {
   __$$RecurringLoadedImplCopyWithImpl(
-      _$RecurringLoadedImpl _value, $Res Function(_$RecurringLoadedImpl) _then)
-      : super(_value, _then);
+    _$RecurringLoadedImpl _value,
+    $Res Function(_$RecurringLoadedImpl) _then,
+  ) : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? transactions = null,
-  }) {
-    return _then(_$RecurringLoadedImpl(
-      transactions: null == transactions
-          ? _value._transactions
-          : transactions // ignore: cast_nullable_to_non_nullable
-              as List<RecurringTransaction>,
-    ));
+  $Res call({Object? transactions = null}) {
+    return _then(
+      _$RecurringLoadedImpl(
+        transactions: null == transactions
+            ? _value._transactions
+            : transactions // ignore: cast_nullable_to_non_nullable
+                  as List<RecurringTransaction>,
+      ),
+    );
   }
 }
 
 /// @nodoc
 
 class _$RecurringLoadedImpl implements RecurringLoaded {
-  const _$RecurringLoadedImpl(
-      {required final List<RecurringTransaction> transactions})
-      : _transactions = transactions;
+  const _$RecurringLoadedImpl({
+    required final List<RecurringTransaction> transactions,
+  }) : _transactions = transactions;
 
   final List<RecurringTransaction> _transactions;
   @override
@@ -412,20 +414,26 @@ class _$RecurringLoadedImpl implements RecurringLoaded {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$RecurringLoadedImpl &&
-            const DeepCollectionEquality()
-                .equals(other._transactions, _transactions));
+            const DeepCollectionEquality().equals(
+              other._transactions,
+              _transactions,
+            ));
   }
 
   @override
   int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(_transactions));
+    runtimeType,
+    const DeepCollectionEquality().hash(_transactions),
+  );
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$RecurringLoadedImplCopyWith<_$RecurringLoadedImpl> get copyWith =>
       __$$RecurringLoadedImplCopyWithImpl<_$RecurringLoadedImpl>(
-          this, _$identity);
+        this,
+        _$identity,
+      );
 
   @override
   @optionalTypeArgs
@@ -436,7 +444,7 @@ class _$RecurringLoadedImpl implements RecurringLoaded {
     required TResult Function(String message) error,
     required TResult Function(String message) success,
     required TResult Function(List<RecurringTransaction> detectedTransactions)
-        detected,
+    detected,
   }) {
     return loaded(transactions);
   }
@@ -450,7 +458,7 @@ class _$RecurringLoadedImpl implements RecurringLoaded {
     TResult? Function(String message)? error,
     TResult? Function(String message)? success,
     TResult? Function(List<RecurringTransaction> detectedTransactions)?
-        detected,
+    detected,
   }) {
     return loaded?.call(transactions);
   }
@@ -517,9 +525,9 @@ class _$RecurringLoadedImpl implements RecurringLoaded {
 }
 
 abstract class RecurringLoaded implements RecurringState {
-  const factory RecurringLoaded(
-          {required final List<RecurringTransaction> transactions}) =
-      _$RecurringLoadedImpl;
+  const factory RecurringLoaded({
+    required final List<RecurringTransaction> transactions,
+  }) = _$RecurringLoadedImpl;
 
   List<RecurringTransaction> get transactions;
   @JsonKey(ignore: true)
@@ -529,9 +537,10 @@ abstract class RecurringLoaded implements RecurringState {
 
 /// @nodoc
 abstract class _$$RecurringErrorImplCopyWith<$Res> {
-  factory _$$RecurringErrorImplCopyWith(_$RecurringErrorImpl value,
-          $Res Function(_$RecurringErrorImpl) then) =
-      __$$RecurringErrorImplCopyWithImpl<$Res>;
+  factory _$$RecurringErrorImplCopyWith(
+    _$RecurringErrorImpl value,
+    $Res Function(_$RecurringErrorImpl) then,
+  ) = __$$RecurringErrorImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String message});
 }
@@ -541,20 +550,21 @@ class __$$RecurringErrorImplCopyWithImpl<$Res>
     extends _$RecurringStateCopyWithImpl<$Res, _$RecurringErrorImpl>
     implements _$$RecurringErrorImplCopyWith<$Res> {
   __$$RecurringErrorImplCopyWithImpl(
-      _$RecurringErrorImpl _value, $Res Function(_$RecurringErrorImpl) _then)
-      : super(_value, _then);
+    _$RecurringErrorImpl _value,
+    $Res Function(_$RecurringErrorImpl) _then,
+  ) : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? message = null,
-  }) {
-    return _then(_$RecurringErrorImpl(
-      message: null == message
-          ? _value.message
-          : message // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
+  $Res call({Object? message = null}) {
+    return _then(
+      _$RecurringErrorImpl(
+        message: null == message
+            ? _value.message
+            : message // ignore: cast_nullable_to_non_nullable
+                  as String,
+      ),
+    );
   }
 }
 
@@ -587,7 +597,9 @@ class _$RecurringErrorImpl implements RecurringError {
   @pragma('vm:prefer-inline')
   _$$RecurringErrorImplCopyWith<_$RecurringErrorImpl> get copyWith =>
       __$$RecurringErrorImplCopyWithImpl<_$RecurringErrorImpl>(
-          this, _$identity);
+        this,
+        _$identity,
+      );
 
   @override
   @optionalTypeArgs
@@ -598,7 +610,7 @@ class _$RecurringErrorImpl implements RecurringError {
     required TResult Function(String message) error,
     required TResult Function(String message) success,
     required TResult Function(List<RecurringTransaction> detectedTransactions)
-        detected,
+    detected,
   }) {
     return error(message);
   }
@@ -612,7 +624,7 @@ class _$RecurringErrorImpl implements RecurringError {
     TResult? Function(String message)? error,
     TResult? Function(String message)? success,
     TResult? Function(List<RecurringTransaction> detectedTransactions)?
-        detected,
+    detected,
   }) {
     return error?.call(message);
   }
@@ -690,9 +702,10 @@ abstract class RecurringError implements RecurringState {
 
 /// @nodoc
 abstract class _$$RecurringSuccessImplCopyWith<$Res> {
-  factory _$$RecurringSuccessImplCopyWith(_$RecurringSuccessImpl value,
-          $Res Function(_$RecurringSuccessImpl) then) =
-      __$$RecurringSuccessImplCopyWithImpl<$Res>;
+  factory _$$RecurringSuccessImplCopyWith(
+    _$RecurringSuccessImpl value,
+    $Res Function(_$RecurringSuccessImpl) then,
+  ) = __$$RecurringSuccessImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String message});
 }
@@ -701,21 +714,22 @@ abstract class _$$RecurringSuccessImplCopyWith<$Res> {
 class __$$RecurringSuccessImplCopyWithImpl<$Res>
     extends _$RecurringStateCopyWithImpl<$Res, _$RecurringSuccessImpl>
     implements _$$RecurringSuccessImplCopyWith<$Res> {
-  __$$RecurringSuccessImplCopyWithImpl(_$RecurringSuccessImpl _value,
-      $Res Function(_$RecurringSuccessImpl) _then)
-      : super(_value, _then);
+  __$$RecurringSuccessImplCopyWithImpl(
+    _$RecurringSuccessImpl _value,
+    $Res Function(_$RecurringSuccessImpl) _then,
+  ) : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? message = null,
-  }) {
-    return _then(_$RecurringSuccessImpl(
-      message: null == message
-          ? _value.message
-          : message // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
+  $Res call({Object? message = null}) {
+    return _then(
+      _$RecurringSuccessImpl(
+        message: null == message
+            ? _value.message
+            : message // ignore: cast_nullable_to_non_nullable
+                  as String,
+      ),
+    );
   }
 }
 
@@ -748,7 +762,9 @@ class _$RecurringSuccessImpl implements RecurringSuccess {
   @pragma('vm:prefer-inline')
   _$$RecurringSuccessImplCopyWith<_$RecurringSuccessImpl> get copyWith =>
       __$$RecurringSuccessImplCopyWithImpl<_$RecurringSuccessImpl>(
-          this, _$identity);
+        this,
+        _$identity,
+      );
 
   @override
   @optionalTypeArgs
@@ -759,7 +775,7 @@ class _$RecurringSuccessImpl implements RecurringSuccess {
     required TResult Function(String message) error,
     required TResult Function(String message) success,
     required TResult Function(List<RecurringTransaction> detectedTransactions)
-        detected,
+    detected,
   }) {
     return success(message);
   }
@@ -773,7 +789,7 @@ class _$RecurringSuccessImpl implements RecurringSuccess {
     TResult? Function(String message)? error,
     TResult? Function(String message)? success,
     TResult? Function(List<RecurringTransaction> detectedTransactions)?
-        detected,
+    detected,
   }) {
     return success?.call(message);
   }
@@ -851,9 +867,10 @@ abstract class RecurringSuccess implements RecurringState {
 
 /// @nodoc
 abstract class _$$RecurringDetectedImplCopyWith<$Res> {
-  factory _$$RecurringDetectedImplCopyWith(_$RecurringDetectedImpl value,
-          $Res Function(_$RecurringDetectedImpl) then) =
-      __$$RecurringDetectedImplCopyWithImpl<$Res>;
+  factory _$$RecurringDetectedImplCopyWith(
+    _$RecurringDetectedImpl value,
+    $Res Function(_$RecurringDetectedImpl) then,
+  ) = __$$RecurringDetectedImplCopyWithImpl<$Res>;
   @useResult
   $Res call({List<RecurringTransaction> detectedTransactions});
 }
@@ -862,30 +879,31 @@ abstract class _$$RecurringDetectedImplCopyWith<$Res> {
 class __$$RecurringDetectedImplCopyWithImpl<$Res>
     extends _$RecurringStateCopyWithImpl<$Res, _$RecurringDetectedImpl>
     implements _$$RecurringDetectedImplCopyWith<$Res> {
-  __$$RecurringDetectedImplCopyWithImpl(_$RecurringDetectedImpl _value,
-      $Res Function(_$RecurringDetectedImpl) _then)
-      : super(_value, _then);
+  __$$RecurringDetectedImplCopyWithImpl(
+    _$RecurringDetectedImpl _value,
+    $Res Function(_$RecurringDetectedImpl) _then,
+  ) : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? detectedTransactions = null,
-  }) {
-    return _then(_$RecurringDetectedImpl(
-      detectedTransactions: null == detectedTransactions
-          ? _value._detectedTransactions
-          : detectedTransactions // ignore: cast_nullable_to_non_nullable
-              as List<RecurringTransaction>,
-    ));
+  $Res call({Object? detectedTransactions = null}) {
+    return _then(
+      _$RecurringDetectedImpl(
+        detectedTransactions: null == detectedTransactions
+            ? _value._detectedTransactions
+            : detectedTransactions // ignore: cast_nullable_to_non_nullable
+                  as List<RecurringTransaction>,
+      ),
+    );
   }
 }
 
 /// @nodoc
 
 class _$RecurringDetectedImpl implements RecurringDetected {
-  const _$RecurringDetectedImpl(
-      {required final List<RecurringTransaction> detectedTransactions})
-      : _detectedTransactions = detectedTransactions;
+  const _$RecurringDetectedImpl({
+    required final List<RecurringTransaction> detectedTransactions,
+  }) : _detectedTransactions = detectedTransactions;
 
   final List<RecurringTransaction> _detectedTransactions;
   @override
@@ -906,20 +924,26 @@ class _$RecurringDetectedImpl implements RecurringDetected {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$RecurringDetectedImpl &&
-            const DeepCollectionEquality()
-                .equals(other._detectedTransactions, _detectedTransactions));
+            const DeepCollectionEquality().equals(
+              other._detectedTransactions,
+              _detectedTransactions,
+            ));
   }
 
   @override
   int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(_detectedTransactions));
+    runtimeType,
+    const DeepCollectionEquality().hash(_detectedTransactions),
+  );
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$RecurringDetectedImplCopyWith<_$RecurringDetectedImpl> get copyWith =>
       __$$RecurringDetectedImplCopyWithImpl<_$RecurringDetectedImpl>(
-          this, _$identity);
+        this,
+        _$identity,
+      );
 
   @override
   @optionalTypeArgs
@@ -930,7 +954,7 @@ class _$RecurringDetectedImpl implements RecurringDetected {
     required TResult Function(String message) error,
     required TResult Function(String message) success,
     required TResult Function(List<RecurringTransaction> detectedTransactions)
-        detected,
+    detected,
   }) {
     return detected(detectedTransactions);
   }
@@ -944,7 +968,7 @@ class _$RecurringDetectedImpl implements RecurringDetected {
     TResult? Function(String message)? error,
     TResult? Function(String message)? success,
     TResult? Function(List<RecurringTransaction> detectedTransactions)?
-        detected,
+    detected,
   }) {
     return detected?.call(detectedTransactions);
   }
@@ -1011,9 +1035,9 @@ class _$RecurringDetectedImpl implements RecurringDetected {
 }
 
 abstract class RecurringDetected implements RecurringState {
-  const factory RecurringDetected(
-          {required final List<RecurringTransaction> detectedTransactions}) =
-      _$RecurringDetectedImpl;
+  const factory RecurringDetected({
+    required final List<RecurringTransaction> detectedTransactions,
+  }) = _$RecurringDetectedImpl;
 
   List<RecurringTransaction> get detectedTransactions;
   @JsonKey(ignore: true)

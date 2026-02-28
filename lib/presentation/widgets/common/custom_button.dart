@@ -55,7 +55,9 @@ class CustomButton extends StatelessWidget {
           backgroundColor: AppColors.primary,
           foregroundColor: Colors.white,
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(AppConstants.borderRadiusMedium),
+            borderRadius: BorderRadius.circular(
+              AppConstants.borderRadiusMedium,
+            ),
           ),
           elevation: AppConstants.elevationLow,
         ),
@@ -71,10 +73,16 @@ class CustomButton extends StatelessWidget {
       child: ElevatedButton(
         onPressed: onPressed,
         style: ElevatedButton.styleFrom(
-          backgroundColor: isDark ? AppColors.surfaceDark : AppColors.surfaceLight,
-          foregroundColor: isDark ? AppColors.textPrimaryDark : AppColors.textPrimaryLight,
+          backgroundColor: isDark
+              ? AppColors.surfaceDark
+              : AppColors.surfaceLight,
+          foregroundColor: isDark
+              ? AppColors.textPrimaryDark
+              : AppColors.textPrimaryLight,
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(AppConstants.borderRadiusMedium),
+            borderRadius: BorderRadius.circular(
+              AppConstants.borderRadiusMedium,
+            ),
           ),
           elevation: AppConstants.elevationLow,
         ),
@@ -96,7 +104,9 @@ class CustomButton extends StatelessWidget {
           foregroundColor: AppColors.primary,
           side: const BorderSide(color: AppColors.primary, width: 1.5),
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(AppConstants.borderRadiusMedium),
+            borderRadius: BorderRadius.circular(
+              AppConstants.borderRadiusMedium,
+            ),
           ),
         ),
         child: _buildButtonContent(isDark, AppColors.primary),
@@ -113,7 +123,9 @@ class CustomButton extends StatelessWidget {
         style: TextButton.styleFrom(
           foregroundColor: AppColors.primary,
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(AppConstants.borderRadiusMedium),
+            borderRadius: BorderRadius.circular(
+              AppConstants.borderRadiusMedium,
+            ),
           ),
         ),
         child: _buildButtonContent(isDark, AppColors.primary),
@@ -130,7 +142,9 @@ class CustomButton extends StatelessWidget {
         style: ElevatedButton.styleFrom(
           backgroundColor: AppColors.primary.withOpacity(0.6),
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(AppConstants.borderRadiusMedium),
+            borderRadius: BorderRadius.circular(
+              AppConstants.borderRadiusMedium,
+            ),
           ),
         ),
         child: const SizedBox(
@@ -155,8 +169,11 @@ class CustomButton extends StatelessWidget {
           const SizedBox(width: AppConstants.spacing8),
           Text(
             text,
-            style: (isDark ? AppTextStyles.buttonMediumDark : AppTextStyles.buttonMediumLight)
-                .copyWith(color: color),
+            style:
+                (isDark
+                        ? AppTextStyles.buttonMediumDark
+                        : AppTextStyles.buttonMediumLight)
+                    .copyWith(color: color),
           ),
         ],
       );
@@ -164,8 +181,11 @@ class CustomButton extends StatelessWidget {
 
     return Text(
       text,
-      style: (isDark ? AppTextStyles.buttonMediumDark : AppTextStyles.buttonMediumLight)
-          .copyWith(color: color),
+      style:
+          (isDark
+                  ? AppTextStyles.buttonMediumDark
+                  : AppTextStyles.buttonMediumLight)
+              .copyWith(color: color),
     );
   }
 }

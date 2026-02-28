@@ -5,26 +5,17 @@ import '../../widgets/common/custom_app_bar.dart';
 class TransactionDetailScreen extends StatelessWidget {
   final String transactionId;
 
-  const TransactionDetailScreen({
-    super.key,
-    required this.transactionId,
-  });
+  const TransactionDetailScreen({super.key, required this.transactionId});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const CustomAppBar(
-        title: 'Transaction Details',
-      ),
+      appBar: const CustomAppBar(title: 'Transaction Details'),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Icon(
-              Icons.info_outline,
-              size: 64,
-              color: AppColors.primary,
-            ),
+            Icon(Icons.info_outline, size: 64, color: AppColors.primary),
             const SizedBox(height: 16),
             Text(
               'Transaction Detail Screen',

@@ -25,9 +25,7 @@ class RecentTransactionsList extends StatelessWidget {
     if (transactions.isEmpty) {
       return Card(
         elevation: 2,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(16),
-        ),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
         child: Padding(
           padding: const EdgeInsets.all(AppConstants.spacing24),
           child: Column(
@@ -62,9 +60,7 @@ class RecentTransactionsList extends StatelessWidget {
 
     return Card(
       elevation: 2,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(16),
-      ),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
       child: Column(
         children: [
           Padding(
@@ -185,13 +181,14 @@ class RecentTransactionsList extends StatelessWidget {
             const SizedBox(width: AppConstants.spacing12),
             Text(
               transaction.amount.toCurrency(currency: currency),
-              style: (isDark
-                      ? AppTextStyles.labelMediumDark
-                      : AppTextStyles.labelMediumLight)
-                  .copyWith(
-                color: AppColors.error,
-                fontWeight: FontWeight.w600,
-              ),
+              style:
+                  (isDark
+                          ? AppTextStyles.labelMediumDark
+                          : AppTextStyles.labelMediumLight)
+                      .copyWith(
+                        color: AppColors.error,
+                        fontWeight: FontWeight.w600,
+                      ),
             ),
           ],
         ),

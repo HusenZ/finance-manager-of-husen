@@ -12,7 +12,8 @@ part of 'transaction_state.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 /// @nodoc
 mixin _$TransactionState {
@@ -23,8 +24,7 @@ mixin _$TransactionState {
     required TResult Function(List<Transaction> transactions) loaded,
     required TResult Function(String message) error,
     required TResult Function(String message) success,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
@@ -32,8 +32,7 @@ mixin _$TransactionState {
     TResult? Function(List<Transaction> transactions)? loaded,
     TResult? Function(String message)? error,
     TResult? Function(String message)? success,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
@@ -42,8 +41,7 @@ mixin _$TransactionState {
     TResult Function(String message)? error,
     TResult Function(String message)? success,
     required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(TransactionInitial value) initial,
@@ -51,8 +49,7 @@ mixin _$TransactionState {
     required TResult Function(TransactionLoaded value) loaded,
     required TResult Function(TransactionError value) error,
     required TResult Function(TransactionSuccess value) success,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(TransactionInitial value)? initial,
@@ -60,8 +57,7 @@ mixin _$TransactionState {
     TResult? Function(TransactionLoaded value)? loaded,
     TResult? Function(TransactionError value)? error,
     TResult? Function(TransactionSuccess value)? success,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(TransactionInitial value)? initial,
@@ -70,15 +66,15 @@ mixin _$TransactionState {
     TResult Function(TransactionError value)? error,
     TResult Function(TransactionSuccess value)? success,
     required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $TransactionStateCopyWith<$Res> {
   factory $TransactionStateCopyWith(
-          TransactionState value, $Res Function(TransactionState) then) =
-      _$TransactionStateCopyWithImpl<$Res, TransactionState>;
+    TransactionState value,
+    $Res Function(TransactionState) then,
+  ) = _$TransactionStateCopyWithImpl<$Res, TransactionState>;
 }
 
 /// @nodoc
@@ -94,18 +90,20 @@ class _$TransactionStateCopyWithImpl<$Res, $Val extends TransactionState>
 
 /// @nodoc
 abstract class _$$TransactionInitialImplCopyWith<$Res> {
-  factory _$$TransactionInitialImplCopyWith(_$TransactionInitialImpl value,
-          $Res Function(_$TransactionInitialImpl) then) =
-      __$$TransactionInitialImplCopyWithImpl<$Res>;
+  factory _$$TransactionInitialImplCopyWith(
+    _$TransactionInitialImpl value,
+    $Res Function(_$TransactionInitialImpl) then,
+  ) = __$$TransactionInitialImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
 class __$$TransactionInitialImplCopyWithImpl<$Res>
     extends _$TransactionStateCopyWithImpl<$Res, _$TransactionInitialImpl>
     implements _$$TransactionInitialImplCopyWith<$Res> {
-  __$$TransactionInitialImplCopyWithImpl(_$TransactionInitialImpl _value,
-      $Res Function(_$TransactionInitialImpl) _then)
-      : super(_value, _then);
+  __$$TransactionInitialImplCopyWithImpl(
+    _$TransactionInitialImpl _value,
+    $Res Function(_$TransactionInitialImpl) _then,
+  ) : super(_value, _then);
 }
 
 /// @nodoc
@@ -214,18 +212,20 @@ abstract class TransactionInitial implements TransactionState {
 
 /// @nodoc
 abstract class _$$TransactionLoadingImplCopyWith<$Res> {
-  factory _$$TransactionLoadingImplCopyWith(_$TransactionLoadingImpl value,
-          $Res Function(_$TransactionLoadingImpl) then) =
-      __$$TransactionLoadingImplCopyWithImpl<$Res>;
+  factory _$$TransactionLoadingImplCopyWith(
+    _$TransactionLoadingImpl value,
+    $Res Function(_$TransactionLoadingImpl) then,
+  ) = __$$TransactionLoadingImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
 class __$$TransactionLoadingImplCopyWithImpl<$Res>
     extends _$TransactionStateCopyWithImpl<$Res, _$TransactionLoadingImpl>
     implements _$$TransactionLoadingImplCopyWith<$Res> {
-  __$$TransactionLoadingImplCopyWithImpl(_$TransactionLoadingImpl _value,
-      $Res Function(_$TransactionLoadingImpl) _then)
-      : super(_value, _then);
+  __$$TransactionLoadingImplCopyWithImpl(
+    _$TransactionLoadingImpl _value,
+    $Res Function(_$TransactionLoadingImpl) _then,
+  ) : super(_value, _then);
 }
 
 /// @nodoc
@@ -334,9 +334,10 @@ abstract class TransactionLoading implements TransactionState {
 
 /// @nodoc
 abstract class _$$TransactionLoadedImplCopyWith<$Res> {
-  factory _$$TransactionLoadedImplCopyWith(_$TransactionLoadedImpl value,
-          $Res Function(_$TransactionLoadedImpl) then) =
-      __$$TransactionLoadedImplCopyWithImpl<$Res>;
+  factory _$$TransactionLoadedImplCopyWith(
+    _$TransactionLoadedImpl value,
+    $Res Function(_$TransactionLoadedImpl) then,
+  ) = __$$TransactionLoadedImplCopyWithImpl<$Res>;
   @useResult
   $Res call({List<Transaction> transactions});
 }
@@ -345,21 +346,22 @@ abstract class _$$TransactionLoadedImplCopyWith<$Res> {
 class __$$TransactionLoadedImplCopyWithImpl<$Res>
     extends _$TransactionStateCopyWithImpl<$Res, _$TransactionLoadedImpl>
     implements _$$TransactionLoadedImplCopyWith<$Res> {
-  __$$TransactionLoadedImplCopyWithImpl(_$TransactionLoadedImpl _value,
-      $Res Function(_$TransactionLoadedImpl) _then)
-      : super(_value, _then);
+  __$$TransactionLoadedImplCopyWithImpl(
+    _$TransactionLoadedImpl _value,
+    $Res Function(_$TransactionLoadedImpl) _then,
+  ) : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? transactions = null,
-  }) {
-    return _then(_$TransactionLoadedImpl(
-      transactions: null == transactions
-          ? _value._transactions
-          : transactions // ignore: cast_nullable_to_non_nullable
-              as List<Transaction>,
-    ));
+  $Res call({Object? transactions = null}) {
+    return _then(
+      _$TransactionLoadedImpl(
+        transactions: null == transactions
+            ? _value._transactions
+            : transactions // ignore: cast_nullable_to_non_nullable
+                  as List<Transaction>,
+      ),
+    );
   }
 }
 
@@ -367,7 +369,7 @@ class __$$TransactionLoadedImplCopyWithImpl<$Res>
 
 class _$TransactionLoadedImpl implements TransactionLoaded {
   const _$TransactionLoadedImpl({required final List<Transaction> transactions})
-      : _transactions = transactions;
+    : _transactions = transactions;
 
   final List<Transaction> _transactions;
   @override
@@ -387,20 +389,26 @@ class _$TransactionLoadedImpl implements TransactionLoaded {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$TransactionLoadedImpl &&
-            const DeepCollectionEquality()
-                .equals(other._transactions, _transactions));
+            const DeepCollectionEquality().equals(
+              other._transactions,
+              _transactions,
+            ));
   }
 
   @override
   int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(_transactions));
+    runtimeType,
+    const DeepCollectionEquality().hash(_transactions),
+  );
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$TransactionLoadedImplCopyWith<_$TransactionLoadedImpl> get copyWith =>
       __$$TransactionLoadedImplCopyWithImpl<_$TransactionLoadedImpl>(
-          this, _$identity);
+        this,
+        _$identity,
+      );
 
   @override
   @optionalTypeArgs
@@ -484,9 +492,9 @@ class _$TransactionLoadedImpl implements TransactionLoaded {
 }
 
 abstract class TransactionLoaded implements TransactionState {
-  const factory TransactionLoaded(
-          {required final List<Transaction> transactions}) =
-      _$TransactionLoadedImpl;
+  const factory TransactionLoaded({
+    required final List<Transaction> transactions,
+  }) = _$TransactionLoadedImpl;
 
   List<Transaction> get transactions;
   @JsonKey(ignore: true)
@@ -496,9 +504,10 @@ abstract class TransactionLoaded implements TransactionState {
 
 /// @nodoc
 abstract class _$$TransactionErrorImplCopyWith<$Res> {
-  factory _$$TransactionErrorImplCopyWith(_$TransactionErrorImpl value,
-          $Res Function(_$TransactionErrorImpl) then) =
-      __$$TransactionErrorImplCopyWithImpl<$Res>;
+  factory _$$TransactionErrorImplCopyWith(
+    _$TransactionErrorImpl value,
+    $Res Function(_$TransactionErrorImpl) then,
+  ) = __$$TransactionErrorImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String message});
 }
@@ -507,21 +516,22 @@ abstract class _$$TransactionErrorImplCopyWith<$Res> {
 class __$$TransactionErrorImplCopyWithImpl<$Res>
     extends _$TransactionStateCopyWithImpl<$Res, _$TransactionErrorImpl>
     implements _$$TransactionErrorImplCopyWith<$Res> {
-  __$$TransactionErrorImplCopyWithImpl(_$TransactionErrorImpl _value,
-      $Res Function(_$TransactionErrorImpl) _then)
-      : super(_value, _then);
+  __$$TransactionErrorImplCopyWithImpl(
+    _$TransactionErrorImpl _value,
+    $Res Function(_$TransactionErrorImpl) _then,
+  ) : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? message = null,
-  }) {
-    return _then(_$TransactionErrorImpl(
-      message: null == message
-          ? _value.message
-          : message // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
+  $Res call({Object? message = null}) {
+    return _then(
+      _$TransactionErrorImpl(
+        message: null == message
+            ? _value.message
+            : message // ignore: cast_nullable_to_non_nullable
+                  as String,
+      ),
+    );
   }
 }
 
@@ -554,7 +564,9 @@ class _$TransactionErrorImpl implements TransactionError {
   @pragma('vm:prefer-inline')
   _$$TransactionErrorImplCopyWith<_$TransactionErrorImpl> get copyWith =>
       __$$TransactionErrorImplCopyWithImpl<_$TransactionErrorImpl>(
-          this, _$identity);
+        this,
+        _$identity,
+      );
 
   @override
   @optionalTypeArgs
@@ -649,9 +661,10 @@ abstract class TransactionError implements TransactionState {
 
 /// @nodoc
 abstract class _$$TransactionSuccessImplCopyWith<$Res> {
-  factory _$$TransactionSuccessImplCopyWith(_$TransactionSuccessImpl value,
-          $Res Function(_$TransactionSuccessImpl) then) =
-      __$$TransactionSuccessImplCopyWithImpl<$Res>;
+  factory _$$TransactionSuccessImplCopyWith(
+    _$TransactionSuccessImpl value,
+    $Res Function(_$TransactionSuccessImpl) then,
+  ) = __$$TransactionSuccessImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String message});
 }
@@ -660,21 +673,22 @@ abstract class _$$TransactionSuccessImplCopyWith<$Res> {
 class __$$TransactionSuccessImplCopyWithImpl<$Res>
     extends _$TransactionStateCopyWithImpl<$Res, _$TransactionSuccessImpl>
     implements _$$TransactionSuccessImplCopyWith<$Res> {
-  __$$TransactionSuccessImplCopyWithImpl(_$TransactionSuccessImpl _value,
-      $Res Function(_$TransactionSuccessImpl) _then)
-      : super(_value, _then);
+  __$$TransactionSuccessImplCopyWithImpl(
+    _$TransactionSuccessImpl _value,
+    $Res Function(_$TransactionSuccessImpl) _then,
+  ) : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? message = null,
-  }) {
-    return _then(_$TransactionSuccessImpl(
-      message: null == message
-          ? _value.message
-          : message // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
+  $Res call({Object? message = null}) {
+    return _then(
+      _$TransactionSuccessImpl(
+        message: null == message
+            ? _value.message
+            : message // ignore: cast_nullable_to_non_nullable
+                  as String,
+      ),
+    );
   }
 }
 
@@ -707,7 +721,9 @@ class _$TransactionSuccessImpl implements TransactionSuccess {
   @pragma('vm:prefer-inline')
   _$$TransactionSuccessImplCopyWith<_$TransactionSuccessImpl> get copyWith =>
       __$$TransactionSuccessImplCopyWithImpl<_$TransactionSuccessImpl>(
-          this, _$identity);
+        this,
+        _$identity,
+      );
 
   @override
   @optionalTypeArgs

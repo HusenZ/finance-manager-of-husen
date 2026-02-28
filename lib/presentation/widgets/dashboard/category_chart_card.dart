@@ -22,9 +22,7 @@ class CategoryChartCard extends StatelessWidget {
     if (categorySpending.isEmpty) {
       return Card(
         elevation: 2,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(16),
-        ),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
         child: Padding(
           padding: const EdgeInsets.all(AppConstants.spacing24),
           child: Column(
@@ -52,14 +50,14 @@ class CategoryChartCard extends StatelessWidget {
     final sortedEntries = categorySpending.entries.toList()
       ..sort((a, b) => b.value.compareTo(a.value));
 
-    final totalSpending =
-        categorySpending.values.fold(0.0, (sum, value) => sum + value);
+    final totalSpending = categorySpending.values.fold(
+      0.0,
+      (sum, value) => sum + value,
+    );
 
     return Card(
       elevation: 2,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(16),
-      ),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
       child: Padding(
         padding: const EdgeInsets.all(AppConstants.spacing16),
         child: Column(
@@ -82,7 +80,10 @@ class CategoryChartCard extends StatelessWidget {
                       PieChartData(
                         sectionsSpace: 2,
                         centerSpaceRadius: 40,
-                        sections: _buildPieChartSections(sortedEntries, totalSpending),
+                        sections: _buildPieChartSections(
+                          sortedEntries,
+                          totalSpending,
+                        ),
                       ),
                     ),
                   ),
@@ -105,23 +106,20 @@ class CategoryChartCard extends StatelessWidget {
     double total,
   ) {
     final colors = AppColors.chartColors;
-    return List.generate(
-      entries.length > 5 ? 5 : entries.length,
-      (index) {
-        final entry = entries[index];
-        final percentage = (entry.value / total) * 100;
-        return PieChartSectionData(
-          value: entry.value,
-          title: '${percentage.toStringAsFixed(0)}%',
-          color: colors[index % colors.length],
-          radius: 50,
-          titleStyle: AppTextStyles.labelSmallLight.copyWith(
-            color: Colors.white,
-            fontWeight: FontWeight.bold,
-          ),
-        );
-      },
-    );
+    return List.generate(entries.length > 5 ? 5 : entries.length, (index) {
+      final entry = entries[index];
+      final percentage = (entry.value / total) * 100;
+      return PieChartSectionData(
+        value: entry.value,
+        title: '${percentage.toStringAsFixed(0)}%',
+        color: colors[index % colors.length],
+        radius: 50,
+        titleStyle: AppTextStyles.labelSmallLight.copyWith(
+          color: Colors.white,
+          fontWeight: FontWeight.bold,
+        ),
+      );
+    });
   }
 
   Widget _buildLegend(
@@ -135,50 +133,47 @@ class CategoryChartCard extends StatelessWidget {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.start,
-      children: List.generate(
-        topEntries.length,
-        (index) {
-          final entry = topEntries[index];
-          final percentage = (entry.value / total) * 100;
-          return Padding(
-            padding: const EdgeInsets.only(bottom: AppConstants.spacing8),
-            child: Row(
-              children: [
-                Container(
-                  width: 12,
-                  height: 12,
-                  decoration: BoxDecoration(
-                    color: colors[index % colors.length],
-                    shape: BoxShape.circle,
-                  ),
+      children: List.generate(topEntries.length, (index) {
+        final entry = topEntries[index];
+        final percentage = (entry.value / total) * 100;
+        return Padding(
+          padding: const EdgeInsets.only(bottom: AppConstants.spacing8),
+          child: Row(
+            children: [
+              Container(
+                width: 12,
+                height: 12,
+                decoration: BoxDecoration(
+                  color: colors[index % colors.length],
+                  shape: BoxShape.circle,
                 ),
-                const SizedBox(width: AppConstants.spacing8),
-                Expanded(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        entry.key,
-                        style: isDark
-                            ? AppTextStyles.labelSmallDark
-                            : AppTextStyles.labelSmallLight,
-                        overflow: TextOverflow.ellipsis,
-                      ),
-                      Text(
-                        '${entry.value.toCurrency(currency: currency)} (${percentage.toStringAsFixed(1)}%)',
-                        style: isDark
-                            ? AppTextStyles.bodySmallDark
-                            : AppTextStyles.bodySmallLight,
-                        overflow: TextOverflow.ellipsis,
-                      ),
-                    ],
-                  ),
+              ),
+              const SizedBox(width: AppConstants.spacing8),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      entry.key,
+                      style: isDark
+                          ? AppTextStyles.labelSmallDark
+                          : AppTextStyles.labelSmallLight,
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                    Text(
+                      '${entry.value.toCurrency(currency: currency)} (${percentage.toStringAsFixed(1)}%)',
+                      style: isDark
+                          ? AppTextStyles.bodySmallDark
+                          : AppTextStyles.bodySmallLight,
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                  ],
                 ),
-              ],
-            ),
-          );
-        },
-      ),
+              ),
+            ],
+          ),
+        );
+      }),
     );
   }
 }

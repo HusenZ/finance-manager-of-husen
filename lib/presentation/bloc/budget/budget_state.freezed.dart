@@ -12,7 +12,8 @@ part of 'budget_state.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 /// @nodoc
 mixin _$BudgetState {
@@ -23,8 +24,7 @@ mixin _$BudgetState {
     required TResult Function(List<Budget> budgets) loaded,
     required TResult Function(String message) error,
     required TResult Function(String message) success,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
@@ -32,8 +32,7 @@ mixin _$BudgetState {
     TResult? Function(List<Budget> budgets)? loaded,
     TResult? Function(String message)? error,
     TResult? Function(String message)? success,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
@@ -42,8 +41,7 @@ mixin _$BudgetState {
     TResult Function(String message)? error,
     TResult Function(String message)? success,
     required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(BudgetInitial value) initial,
@@ -51,8 +49,7 @@ mixin _$BudgetState {
     required TResult Function(BudgetLoaded value) loaded,
     required TResult Function(BudgetError value) error,
     required TResult Function(BudgetSuccess value) success,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(BudgetInitial value)? initial,
@@ -60,8 +57,7 @@ mixin _$BudgetState {
     TResult? Function(BudgetLoaded value)? loaded,
     TResult? Function(BudgetError value)? error,
     TResult? Function(BudgetSuccess value)? success,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(BudgetInitial value)? initial,
@@ -70,15 +66,15 @@ mixin _$BudgetState {
     TResult Function(BudgetError value)? error,
     TResult Function(BudgetSuccess value)? success,
     required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $BudgetStateCopyWith<$Res> {
   factory $BudgetStateCopyWith(
-          BudgetState value, $Res Function(BudgetState) then) =
-      _$BudgetStateCopyWithImpl<$Res, BudgetState>;
+    BudgetState value,
+    $Res Function(BudgetState) then,
+  ) = _$BudgetStateCopyWithImpl<$Res, BudgetState>;
 }
 
 /// @nodoc
@@ -95,8 +91,9 @@ class _$BudgetStateCopyWithImpl<$Res, $Val extends BudgetState>
 /// @nodoc
 abstract class _$$BudgetInitialImplCopyWith<$Res> {
   factory _$$BudgetInitialImplCopyWith(
-          _$BudgetInitialImpl value, $Res Function(_$BudgetInitialImpl) then) =
-      __$$BudgetInitialImplCopyWithImpl<$Res>;
+    _$BudgetInitialImpl value,
+    $Res Function(_$BudgetInitialImpl) then,
+  ) = __$$BudgetInitialImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
@@ -104,8 +101,9 @@ class __$$BudgetInitialImplCopyWithImpl<$Res>
     extends _$BudgetStateCopyWithImpl<$Res, _$BudgetInitialImpl>
     implements _$$BudgetInitialImplCopyWith<$Res> {
   __$$BudgetInitialImplCopyWithImpl(
-      _$BudgetInitialImpl _value, $Res Function(_$BudgetInitialImpl) _then)
-      : super(_value, _then);
+    _$BudgetInitialImpl _value,
+    $Res Function(_$BudgetInitialImpl) _then,
+  ) : super(_value, _then);
 }
 
 /// @nodoc
@@ -215,8 +213,9 @@ abstract class BudgetInitial implements BudgetState {
 /// @nodoc
 abstract class _$$BudgetLoadingImplCopyWith<$Res> {
   factory _$$BudgetLoadingImplCopyWith(
-          _$BudgetLoadingImpl value, $Res Function(_$BudgetLoadingImpl) then) =
-      __$$BudgetLoadingImplCopyWithImpl<$Res>;
+    _$BudgetLoadingImpl value,
+    $Res Function(_$BudgetLoadingImpl) then,
+  ) = __$$BudgetLoadingImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
@@ -224,8 +223,9 @@ class __$$BudgetLoadingImplCopyWithImpl<$Res>
     extends _$BudgetStateCopyWithImpl<$Res, _$BudgetLoadingImpl>
     implements _$$BudgetLoadingImplCopyWith<$Res> {
   __$$BudgetLoadingImplCopyWithImpl(
-      _$BudgetLoadingImpl _value, $Res Function(_$BudgetLoadingImpl) _then)
-      : super(_value, _then);
+    _$BudgetLoadingImpl _value,
+    $Res Function(_$BudgetLoadingImpl) _then,
+  ) : super(_value, _then);
 }
 
 /// @nodoc
@@ -335,8 +335,9 @@ abstract class BudgetLoading implements BudgetState {
 /// @nodoc
 abstract class _$$BudgetLoadedImplCopyWith<$Res> {
   factory _$$BudgetLoadedImplCopyWith(
-          _$BudgetLoadedImpl value, $Res Function(_$BudgetLoadedImpl) then) =
-      __$$BudgetLoadedImplCopyWithImpl<$Res>;
+    _$BudgetLoadedImpl value,
+    $Res Function(_$BudgetLoadedImpl) then,
+  ) = __$$BudgetLoadedImplCopyWithImpl<$Res>;
   @useResult
   $Res call({List<Budget> budgets});
 }
@@ -346,20 +347,21 @@ class __$$BudgetLoadedImplCopyWithImpl<$Res>
     extends _$BudgetStateCopyWithImpl<$Res, _$BudgetLoadedImpl>
     implements _$$BudgetLoadedImplCopyWith<$Res> {
   __$$BudgetLoadedImplCopyWithImpl(
-      _$BudgetLoadedImpl _value, $Res Function(_$BudgetLoadedImpl) _then)
-      : super(_value, _then);
+    _$BudgetLoadedImpl _value,
+    $Res Function(_$BudgetLoadedImpl) _then,
+  ) : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? budgets = null,
-  }) {
-    return _then(_$BudgetLoadedImpl(
-      budgets: null == budgets
-          ? _value._budgets
-          : budgets // ignore: cast_nullable_to_non_nullable
-              as List<Budget>,
-    ));
+  $Res call({Object? budgets = null}) {
+    return _then(
+      _$BudgetLoadedImpl(
+        budgets: null == budgets
+            ? _value._budgets
+            : budgets // ignore: cast_nullable_to_non_nullable
+                  as List<Budget>,
+      ),
+    );
   }
 }
 
@@ -367,7 +369,7 @@ class __$$BudgetLoadedImplCopyWithImpl<$Res>
 
 class _$BudgetLoadedImpl implements BudgetLoaded {
   const _$BudgetLoadedImpl({required final List<Budget> budgets})
-      : _budgets = budgets;
+    : _budgets = budgets;
 
   final List<Budget> _budgets;
   @override
@@ -494,8 +496,9 @@ abstract class BudgetLoaded implements BudgetState {
 /// @nodoc
 abstract class _$$BudgetErrorImplCopyWith<$Res> {
   factory _$$BudgetErrorImplCopyWith(
-          _$BudgetErrorImpl value, $Res Function(_$BudgetErrorImpl) then) =
-      __$$BudgetErrorImplCopyWithImpl<$Res>;
+    _$BudgetErrorImpl value,
+    $Res Function(_$BudgetErrorImpl) then,
+  ) = __$$BudgetErrorImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String message});
 }
@@ -505,20 +508,21 @@ class __$$BudgetErrorImplCopyWithImpl<$Res>
     extends _$BudgetStateCopyWithImpl<$Res, _$BudgetErrorImpl>
     implements _$$BudgetErrorImplCopyWith<$Res> {
   __$$BudgetErrorImplCopyWithImpl(
-      _$BudgetErrorImpl _value, $Res Function(_$BudgetErrorImpl) _then)
-      : super(_value, _then);
+    _$BudgetErrorImpl _value,
+    $Res Function(_$BudgetErrorImpl) _then,
+  ) : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? message = null,
-  }) {
-    return _then(_$BudgetErrorImpl(
-      message: null == message
-          ? _value.message
-          : message // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
+  $Res call({Object? message = null}) {
+    return _then(
+      _$BudgetErrorImpl(
+        message: null == message
+            ? _value.message
+            : message // ignore: cast_nullable_to_non_nullable
+                  as String,
+      ),
+    );
   }
 }
 
@@ -646,8 +650,9 @@ abstract class BudgetError implements BudgetState {
 /// @nodoc
 abstract class _$$BudgetSuccessImplCopyWith<$Res> {
   factory _$$BudgetSuccessImplCopyWith(
-          _$BudgetSuccessImpl value, $Res Function(_$BudgetSuccessImpl) then) =
-      __$$BudgetSuccessImplCopyWithImpl<$Res>;
+    _$BudgetSuccessImpl value,
+    $Res Function(_$BudgetSuccessImpl) then,
+  ) = __$$BudgetSuccessImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String message});
 }
@@ -657,20 +662,21 @@ class __$$BudgetSuccessImplCopyWithImpl<$Res>
     extends _$BudgetStateCopyWithImpl<$Res, _$BudgetSuccessImpl>
     implements _$$BudgetSuccessImplCopyWith<$Res> {
   __$$BudgetSuccessImplCopyWithImpl(
-      _$BudgetSuccessImpl _value, $Res Function(_$BudgetSuccessImpl) _then)
-      : super(_value, _then);
+    _$BudgetSuccessImpl _value,
+    $Res Function(_$BudgetSuccessImpl) _then,
+  ) : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? message = null,
-  }) {
-    return _then(_$BudgetSuccessImpl(
-      message: null == message
-          ? _value.message
-          : message // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
+  $Res call({Object? message = null}) {
+    return _then(
+      _$BudgetSuccessImpl(
+        message: null == message
+            ? _value.message
+            : message // ignore: cast_nullable_to_non_nullable
+                  as String,
+      ),
+    );
   }
 }
 
