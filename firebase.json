@@ -1,1 +1,45 @@
-{"hosting":{"public":"build/web","ignore":["firebase.json","**/.*","**/node_modules/**"],"rewrites":[{"source":"**","destination":"/index.html"}],"headers":[{"source":"**/*.@(js|css)","headers":[{"key":"Cache-Control","value":"max-age=31536000"}]}]},"flutter":{"platforms":{"android":{"default":{"projectId":"finance-manager-ef55d","appId":"1:696790419250:android:ee16197fe352f18753b92b","fileOutput":"android/app/google-services.json"}},"ios":{"default":{"projectId":"finance-manager-ef55d","appId":"1:696790419250:ios:270ac77c5a4b78f453b92b","uploadDebugSymbols":false,"fileOutput":"ios/Runner/GoogleService-Info.plist"}},"dart":{"lib/firebase_options.dart":{"projectId":"finance-manager-ef55d","configurations":{"android":"1:696790419250:android:ee16197fe352f18753b92b","ios":"1:696790419250:ios:270ac77c5a4b78f453b92b","web":"1:696790419250:web:45b1cd36958652d953b92b"}}}}}}
+{
+  "hosting": {
+    "public": "public",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  },
+  "flutter": {
+    "platforms": {
+      "android": {
+        "default": {
+          "projectId": "finance-manager-ef55d",
+          "appId": "1:696790419250:android:ee16197fe352f18753b92b",
+          "fileOutput": "android/app/google-services.json"
+        }
+      },
+      "ios": {
+        "default": {
+          "projectId": "finance-manager-ef55d",
+          "appId": "1:696790419250:ios:270ac77c5a4b78f453b92b",
+          "uploadDebugSymbols": false,
+          "fileOutput": "ios/Runner/GoogleService-Info.plist"
+        }
+      },
+      "dart": {
+        "lib/firebase_options.dart": {
+          "projectId": "finance-manager-ef55d",
+          "configurations": {
+            "android": "1:696790419250:android:ee16197fe352f18753b92b",
+            "ios": "1:696790419250:ios:270ac77c5a4b78f453b92b",
+            "web": "1:696790419250:web:45b1cd36958652d953b92b"
+          }
+        }
+      }
+    }
+  }
+}
